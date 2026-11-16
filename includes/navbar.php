@@ -1,11 +1,28 @@
 <?php
 // includes/navbar.php
+$is_home = (($current_page ?? '') === 'home');
+
 $nav_items = [
-    'home' => ['label' => 'Beranda', 'url' => BASE_URL . 'index.php'],
-    'produk' => ['label' => 'Produk', 'url' => BASE_URL . 'produk.php'],
-    'artikel' => ['label' => 'Artikel Parenting', 'url' => BASE_URL . 'artikel.php'],
-    'tentang' => ['label' => 'Tentang Kami', 'url' => BASE_URL . 'tentang-kami.php'],
-    'reseller' => ['label' => 'Kemitraan & Reseller', 'url' => BASE_URL . 'reseller.php'],
+    'home' => [
+        'label' => 'Beranda', 
+        'url' => $is_home ? '#beranda' : BASE_URL . 'index.php#beranda'
+    ],
+    'produk' => [
+        'label' => 'Produk', 
+        'url' => $is_home ? '#produk' : BASE_URL . 'index.php#produk'
+    ],
+    'artikel' => [
+        'label' => 'Artikel Parenting', 
+        'url' => $is_home ? '#artikel' : BASE_URL . 'index.php#artikel'
+    ],
+    'tentang' => [
+        'label' => 'Tentang Kami', 
+        'url' => $is_home ? '#tentang' : BASE_URL . 'index.php#tentang'
+    ],
+    'reseller' => [
+        'label' => 'Kemitraan & Reseller', 
+        'url' => $is_home ? '#reseller' : BASE_URL . 'index.php#reseller'
+    ],
 ];
 ?>
 
@@ -29,12 +46,31 @@ $nav_items = [
                 </div>
             </a>
 
-            <!-- Desktop Navigation Links -->
-            <nav class="hidden lg:flex items-center gap-8">
+            <!-- Desktop Navigation Links dengan Garis Indikator Aktif (ScrollSpy) -->
+            <nav class="hidden lg:flex items-center gap-7 h-16 sm:h-20">
                 <?php foreach ($nav_items as $key => $item): ?>
                     <a href="<?= $item['url'] ?>" 
-                       class="text-sm font-semibold transition-colors duration-200 py-1 <?= ($current_page === $key) ? 'text-ftl-forest font-bold' : 'text-gray-700 hover:text-ftl-forest' ?>">
-                        <?= $item['label'] ?>
+                       @click="activeSection = '<?= $key ?>'"
+                       class="relative h-full flex items-center px-1 text-sm font-semibold transition-all duration-200 group"
+                       :class="activeSection === '<?= $key ?>' ? 'text-ftl-forest font-bold' : 'text-gray-600 hover:text-ftl-forest'">
+                        
+                        <span><?= $item['label'] ?></span>
+
+                        <!-- Garis Indikator Bawah saat Menu Aktif -->
+                        <span class="absolute bottom-0 left-0 w-full h-[3.5px] bg-ftl-forest rounded-t-full transition-all duration-300"
+                              x-show="activeSection === '<?= $key ?>'"
+                              x-transition:enter="transition ease-out duration-200"
+                              x-transition:enter-start="opacity-0 scale-x-0"
+                              x-transition:enter-end="opacity-100 scale-x-100"
+                              x-transition:leave="transition ease-in duration-150"
+                              x-transition:leave-start="opacity-100 scale-x-100"
+                              x-transition:leave-end="opacity-0 scale-x-0">
+                        </span>
+
+                        <!-- Garis Halus Hover saat tidak aktif -->
+                        <span class="absolute bottom-0 left-0 w-full h-[2px] bg-ftl-sage/30 rounded-t-full opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+                              x-show="activeSection !== '<?= $key ?>'">
+                        </span>
                     </a>
                 <?php endforeach; ?>
             </nav>
@@ -74,8 +110,11 @@ $nav_items = [
         <nav class="flex flex-col space-y-1.5">
             <?php foreach ($nav_items as $key => $item): ?>
                 <a href="<?= $item['url'] ?>" 
-                   class="px-4 py-3 rounded-xl text-sm font-semibold transition-colors <?= ($current_page === $key) ? 'bg-ftl-light text-ftl-forest font-bold' : 'text-gray-700 hover:bg-gray-50' ?>">
-                    <?= $item['label'] ?>
+                   @click="mobileMenuOpen = false; activeSection = '<?= $key ?>'"
+                   class="px-4 py-3 rounded-xl text-sm font-semibold transition-all flex items-center justify-between"
+                   :class="activeSection === '<?= $key ?>' ? 'bg-emerald-50 text-ftl-forest font-bold border-l-4 border-ftl-forest' : 'text-gray-700 hover:bg-gray-50'">
+                    <span><?= $item['label'] ?></span>
+                    <span x-show="activeSection === '<?= $key ?>'" class="w-2 h-2 rounded-full bg-ftl-forest"></span>
                 </a>
             <?php endforeach; ?>
             <div class="pt-3 border-t border-gray-100 flex flex-col gap-2">

@@ -67,6 +67,10 @@ $current_page = isset($current_page) ? $current_page : 'home';
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
     <style>
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
             background-color: #FAF7F2;
@@ -91,4 +95,28 @@ $current_page = isset($current_page) ? $current_page : 'home';
         }
     </style>
 </head>
-<body class="bg-ftl-cream text-ftl-dark antialiased min-h-screen flex flex-col" x-data="{ mobileMenuOpen: false, orderModalOpen: false, selectedProduct: 'calming-rub-50g' }">
+<body class="bg-ftl-cream text-ftl-dark antialiased min-h-screen flex flex-col" 
+      x-data="{ 
+          mobileMenuOpen: false, 
+          orderModalOpen: false, 
+          selectedProduct: 'calming-rub-50g',
+          activeSection: '<?= $current_page ?? 'home' ?>'
+      }"
+      @scroll.window.passive="
+          <?php if (($current_page ?? '') === 'home'): ?>
+          if ((window.innerHeight + window.scrollY) >= (document.documentElement.scrollHeight - 60)) {
+              activeSection = 'reseller';
+          } else if (window.scrollY < 120) {
+              activeSection = 'home';
+          } else {
+              const sections = ['beranda', 'produk', 'artikel', 'tentang', 'reseller'];
+              for (let i = sections.length - 1; i >= 0; i--) {
+                  const el = document.getElementById(sections[i]);
+                  if (el && el.getBoundingClientRect().top <= 140) {
+                      activeSection = (sections[i] === 'beranda') ? 'home' : sections[i];
+                      break;
+                  }
+              }
+          }
+          <?php endif; ?>
+      ">

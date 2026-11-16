@@ -11,7 +11,7 @@ require_once __DIR__ . '/includes/navbar.php';
 <!-- ======================================================= -->
 <!-- 1. FULL-WIDTH HERO SLIDER (LEBAR FULL LAYAR EDGE-TO-EDGE)-->
 <!-- ======================================================= -->
-<section class="relative w-full overflow-hidden bg-ftl-cream select-none" 
+<section id="beranda" class="relative w-full overflow-hidden bg-ftl-cream select-none" 
          x-data="{ 
              activeSlide: 0,
              totalSlides: 3,
@@ -333,9 +333,9 @@ require_once __DIR__ . '/includes/navbar.php';
 </section>
 
 <!-- ======================================================= -->
-<!-- 4. HERO INGREDIENTS (Pala, Calendula, Chamomile)        -->
+<!-- 3. HERO INGREDIENTS (Pala, Calendula, Chamomile)        -->
 <!-- ======================================================= -->
-<section class="py-20 bg-ftl-cream relative">
+<section id="produk" class="py-20 bg-ftl-cream relative">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div class="text-center max-w-3xl mx-auto space-y-3 mb-16">
@@ -475,207 +475,9 @@ require_once __DIR__ . '/includes/navbar.php';
 </section>
 
 <!-- ======================================================= -->
-<!-- 6. PANDUAN PIJAT ILU BAYI DENGAN FTL                    -->
+<!-- 5. ARTIKEL EDUKASI PARENTING (MIRIP TENTANG ANAK)       -->
 <!-- ======================================================= -->
-<section class="py-20 bg-ftl-cream">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            
-            <div class="lg:col-span-5 space-y-5">
-                <span class="text-xs font-bold text-ftl-accent uppercase tracking-widest">
-                    Sentuhan Penuh Kasih
-                </span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold font-display text-ftl-forest">
-                    Ritual Pijat Nyaman untuk Meredakan Kolik & Rewel
-                </h2>
-                <p class="text-sm sm:text-base text-gray-600 leading-relaxed">
-                    Kombinasi kehangatan pala nusantara dan teknik pijat perut lembut membantu melancarkan gas di dalam saluran cerna bayi yang belum matang sempurna.
-                </p>
-
-                <div class="space-y-4 pt-2">
-                    <div class="flex gap-4">
-                        <div class="w-8 h-8 rounded-full bg-emerald-100 text-emerald-800 font-bold flex items-center justify-center flex-shrink-0 text-sm">1</div>
-                        <div>
-                            <h4 class="font-bold text-sm text-gray-800">Hangatkan di Telapak Tangan</h4>
-                            <p class="text-xs text-gray-500">Ambil secukupnya cream FTL, gosok perlahan di kedua telapak tangan Bunda.</p>
-                        </div>
-                    </div>
-                    <div class="flex gap-4">
-                        <div class="w-8 h-8 rounded-full bg-emerald-100 text-emerald-800 font-bold flex items-center justify-center flex-shrink-0 text-sm">2</div>
-                        <div>
-                            <h4 class="font-bold text-sm text-gray-800">Gerakan Pijat 'ILU' (I Love You)</h4>
-                            <p class="text-xs text-gray-500">Pijat perut si kecil membentuk huruf I, L terbalik, dan U terbalik searah jarum jam.</p>
-                        </div>
-                    </div>
-                    <div class="flex gap-4">
-                        <div class="w-8 h-8 rounded-full bg-emerald-100 text-emerald-800 font-bold flex items-center justify-center flex-shrink-0 text-sm">3</div>
-                        <div>
-                            <h4 class="font-bold text-sm text-gray-800">Usap Dada & Telapak Kaki</h4>
-                            <p class="text-xs text-gray-500">Aroma lembut chamomile melegakan pernapasan dan membuat si kecil rileks tertidur.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="pt-4">
-                    <button type="button" 
-                            @click="orderModalOpen = true"
-                            class="inline-flex items-center gap-2 bg-ftl-forest hover:bg-emerald-800 text-white font-bold px-6 py-3 rounded-full text-sm shadow-md transition">
-                        <span>Coba FTL Calming Rub Hari Ini</span>
-                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                    </button>
-                </div>
-            </div>
-
-            <!-- Visual Demonstration Box -->
-            <div class="lg:col-span-7">
-                <div class="bg-gradient-to-br from-ftl-light to-amber-50/50 rounded-3xl p-8 sm:p-10 border border-emerald-100 shadow-sm relative">
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="bg-white p-5 rounded-2xl border border-gray-100 shadow-2xs">
-                            <i data-lucide="sun" class="w-8 h-8 text-amber-500 mb-2"></i>
-                            <h5 class="font-bold text-sm text-gray-800">Setelah Mandi Pagi</h5>
-                            <p class="text-xs text-gray-500 mt-1">Melindungi bayi dari masuk angin dan kembung saat beraktivitas ceria.</p>
-                        </div>
-                        <div class="bg-white p-5 rounded-2xl border border-gray-100 shadow-2xs">
-                            <i data-lucide="moon" class="w-8 h-8 text-indigo-500 mb-2"></i>
-                            <h5 class="font-bold text-sm text-gray-800">Sebelum Tidur Malam</h5>
-                            <p class="text-xs text-gray-500 mt-1">Mencegah terbangun tengah malam karena perut begah atau kolik.</p>
-                        </div>
-                        <div class="bg-white p-5 rounded-2xl border border-gray-100 shadow-2xs">
-                            <i data-lucide="wind" class="w-8 h-8 text-teal-500 mb-2"></i>
-                            <h5 class="font-bold text-sm text-gray-800">Saat Cuaca Dingin/Hujan</h5>
-                            <p class="text-xs text-gray-500 mt-1">Menjaga kehangatan tubuh bayi agar tetap stabil dan nyaman.</p>
-                        </div>
-                        <div class="bg-white p-5 rounded-2xl border border-gray-100 shadow-2xs">
-                            <i data-lucide="map-pin" class="w-8 h-8 text-emerald-500 mb-2"></i>
-                            <h5 class="font-bold text-sm text-gray-800">Saat Travelling</h5>
-                            <p class="text-xs text-gray-500 mt-1">Tube praktis anti bocor selalu siap sedia di diaper bag Bunda.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-    </div>
-</section>
-
-<!-- ======================================================= -->
-<!-- 7. TESTIMONI PARA IBU (SLIDER MIRIP "KATA PARA AYBUN")  -->
-<!-- ======================================================= -->
-<section class="py-20 bg-white" 
-         x-data="{ 
-             testiIndex: 0,
-             totalTesti: 3,
-             nextTesti() { this.testiIndex = (this.testiIndex + 1) % this.totalTesti; },
-             prevTesti() { this.testiIndex = (this.testiIndex - 1 + this.totalTesti) % this.totalTesti; }
-         }">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
-            <div>
-                <span class="text-xs font-bold text-ftl-accent uppercase tracking-widest">
-                    #frommothertoanother
-                </span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold font-display text-ftl-forest mt-1">
-                    Kata Para Moms
-                </h2>
-                <p class="text-sm sm:text-base text-gray-600 mt-1">
-                    Cerita nyata pengalaman orang tua setelah menggunakan For The Little Calming Rub.
-                </p>
-            </div>
-
-            <!-- Prev/Next Controls -->
-            <div class="flex items-center gap-2">
-                <button type="button" @click="prevTesti()" class="w-10 h-10 rounded-full border border-gray-200 hover:bg-ftl-light text-gray-700 flex items-center justify-center transition">
-                    <i data-lucide="chevron-left" class="w-5 h-5"></i>
-                </button>
-                <button type="button" @click="nextTesti()" class="w-10 h-10 rounded-full border border-gray-200 hover:bg-ftl-light text-gray-700 flex items-center justify-center transition">
-                    <i data-lucide="chevron-right" class="w-5 h-5"></i>
-                </button>
-            </div>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            
-            <!-- Review 1 -->
-            <div :class="testiIndex === 0 ? 'ring-2 ring-emerald-500 scale-[1.02]' : 'opacity-85'" 
-                 class="bg-ftl-cream p-7 rounded-3xl border border-ftl-sand shadow-sm flex flex-col justify-between transition-all duration-300">
-                <div class="space-y-3">
-                    <div class="flex items-center justify-between">
-                        <div class="flex text-amber-400 gap-1 text-sm">★★★★★</div>
-                        <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800">Verified Order</span>
-                    </div>
-                    <p class="text-sm text-gray-700 italic leading-relaxed">
-                        "Anakku umur 2 bulan sering rewel jam 7-9 malam karena kolik. Setelah rutin dioles FTL Calming Rub sehabis mandi sore dan pijat ILU, perutnya ga bunyi kembung lagi dan tidurnya anteng pol sampai pagi!"
-                    </p>
-                </div>
-                <div class="pt-6 border-t border-ftl-sand flex items-center gap-3 mt-4">
-                    <div class="w-10 h-10 rounded-full bg-emerald-200 text-emerald-800 font-bold flex items-center justify-center text-xs">
-                        MR
-                    </div>
-                    <div>
-                        <h5 class="font-bold text-xs text-gray-900">Bunda Maya Rahayu</h5>
-                        <span class="text-[11px] text-gray-500">Jakarta Selatan • Bayi 2 Bulan</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Review 2 -->
-            <div :class="testiIndex === 1 ? 'ring-2 ring-emerald-500 scale-[1.02]' : 'opacity-85'"
-                 class="bg-ftl-cream p-7 rounded-3xl border border-ftl-sand shadow-sm flex flex-col justify-between transition-all duration-300">
-                <div class="space-y-3">
-                    <div class="flex items-center justify-between">
-                        <div class="flex text-amber-400 gap-1 text-sm">★★★★★</div>
-                        <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-orange-100 text-orange-800">Instagram Review</span>
-                    </div>
-                    <p class="text-sm text-gray-700 italic leading-relaxed">
-                        "Paling suka karena teksturnya CREAM bukan minyak! Jadi ga licin di tangan dan ga ninggalin noda kuning di baju bayi. Aromanya juga enak banget, wangi pala dan chamomile bikin relaks."
-                    </p>
-                </div>
-                <div class="pt-6 border-t border-ftl-sand flex items-center gap-3 mt-4">
-                    <div class="w-10 h-10 rounded-full bg-amber-200 text-amber-800 font-bold flex items-center justify-center text-xs">
-                        DN
-                    </div>
-                    <div>
-                        <h5 class="font-bold text-xs text-gray-900">Bunda Dinda Nirmala</h5>
-                        <span class="text-[11px] text-gray-500">Surabaya • Bayi 5 Bulan</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Review 3 -->
-            <div :class="testiIndex === 2 ? 'ring-2 ring-emerald-500 scale-[1.02]' : 'opacity-85'"
-                 class="bg-ftl-cream p-7 rounded-3xl border border-ftl-sand shadow-sm flex flex-col justify-between transition-all duration-300">
-                <div class="space-y-3">
-                    <div class="flex items-center justify-between">
-                        <div class="flex text-amber-400 gap-1 text-sm">★★★★★</div>
-                        <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-rose-100 text-rose-800">WhatsApp Order</span>
-                    </div>
-                    <p class="text-sm text-gray-700 italic leading-relaxed">
-                        "Kulit anakku super sensitif, gampang merah kalau kena telon biasa. Tapi pakai For The Little ini beneran aman banget, hypoallergenic dan malah bikin kulitnya halus karena ada Calendula-nya."
-                    </p>
-                </div>
-                <div class="pt-6 border-t border-ftl-sand flex items-center gap-3 mt-4">
-                    <div class="w-10 h-10 rounded-full bg-rose-200 text-rose-800 font-bold flex items-center justify-center text-xs">
-                        CA
-                    </div>
-                    <div>
-                        <h5 class="font-bold text-xs text-gray-900">Bunda Citra Anggraini</h5>
-                        <span class="text-[11px] text-gray-500">Bandung • Bayi 1 Bulan</span>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-    </div>
-</section>
-
-<!-- ======================================================= -->
-<!-- 8. ARTIKEL EDUKASI PARENTING (MIRIP TENTANG ANAK)       -->
-<!-- ======================================================= -->
-<section class="py-20 bg-ftl-cream">
+<section id="artikel" class="py-20 bg-ftl-cream">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
@@ -786,19 +588,221 @@ require_once __DIR__ . '/includes/navbar.php';
 </section>
 
 <!-- ======================================================= -->
-<!-- 9. FINAL CALL TO ACTION                                 -->
+<!-- 6. TENTANG KAMI: PANDUAN PIJAT ILU & TESTIMONI MOMS     -->
 <!-- ======================================================= -->
-<section class="py-16 bg-gradient-to-tr from-ftl-forest via-ftl-sage to-emerald-900 text-white relative overflow-hidden">
+<section id="tentang" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <div class="lg:col-span-5 space-y-5">
+                <span class="text-xs font-bold text-ftl-accent uppercase tracking-widest">
+                    #frommothertoanother • Sentuhan Penuh Kasih
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold font-display text-ftl-forest">
+                    Ritual Pijat Nyaman untuk Meredakan Kolik & Rewel
+                </h2>
+                <p class="text-sm sm:text-base text-gray-600 leading-relaxed">
+                    Kombinasi kehangatan pala nusantara dan teknik pijat perut lembut membantu melancarkan gas di dalam saluran cerna bayi yang belum matang sempurna.
+                </p>
+
+                <div class="space-y-4 pt-2">
+                    <div class="flex gap-4">
+                        <div class="w-8 h-8 rounded-full bg-emerald-100 text-emerald-800 font-bold flex items-center justify-center flex-shrink-0 text-sm">1</div>
+                        <div>
+                            <h4 class="font-bold text-sm text-gray-800">Hangatkan di Telapak Tangan</h4>
+                            <p class="text-xs text-gray-500">Ambil secukupnya cream FTL, gosok perlahan di kedua telapak tangan Bunda.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4">
+                        <div class="w-8 h-8 rounded-full bg-emerald-100 text-emerald-800 font-bold flex items-center justify-center flex-shrink-0 text-sm">2</div>
+                        <div>
+                            <h4 class="font-bold text-sm text-gray-800">Gerakan Pijat 'ILU' (I Love You)</h4>
+                            <p class="text-xs text-gray-500">Pijat perut si kecil membentuk huruf I, L terbalik, dan U terbalik searah jarum jam.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4">
+                        <div class="w-8 h-8 rounded-full bg-emerald-100 text-emerald-800 font-bold flex items-center justify-center flex-shrink-0 text-sm">3</div>
+                        <div>
+                            <h4 class="font-bold text-sm text-gray-800">Usap Dada & Telapak Kaki</h4>
+                            <p class="text-xs text-gray-500">Aroma lembut chamomile melegakan pernapasan dan membuat si kecil rileks tertidur.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pt-4 flex flex-wrap items-center gap-3">
+                    <button type="button" 
+                            @click="orderModalOpen = true"
+                            class="inline-flex items-center gap-2 bg-ftl-forest hover:bg-emerald-800 text-white font-bold px-6 py-3 rounded-full text-sm shadow-md transition">
+                        <span>Coba FTL Calming Rub Hari Ini</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </button>
+                    <a href="<?= BASE_URL ?>tentang-kami.php" 
+                       class="inline-flex items-center gap-1.5 text-sm font-semibold text-ftl-forest hover:underline px-4 py-3">
+                        <span>Cerita Lengkap FTL →</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Visual Demonstration Box -->
+            <div class="lg:col-span-7">
+                <div class="bg-gradient-to-br from-ftl-light to-amber-50/50 rounded-3xl p-8 sm:p-10 border border-emerald-100 shadow-sm relative">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-white p-5 rounded-2xl border border-gray-100 shadow-2xs">
+                            <i data-lucide="sun" class="w-8 h-8 text-amber-500 mb-2"></i>
+                            <h5 class="font-bold text-sm text-gray-800">Setelah Mandi Pagi</h5>
+                            <p class="text-xs text-gray-500 mt-1">Melindungi bayi dari masuk angin dan kembung saat beraktivitas ceria.</p>
+                        </div>
+                        <div class="bg-white p-5 rounded-2xl border border-gray-100 shadow-2xs">
+                            <i data-lucide="moon" class="w-8 h-8 text-indigo-500 mb-2"></i>
+                            <h5 class="font-bold text-sm text-gray-800">Sebelum Tidur Malam</h5>
+                            <p class="text-xs text-gray-500 mt-1">Mencegah terbangun tengah malam karena perut begah atau kolik.</p>
+                        </div>
+                        <div class="bg-white p-5 rounded-2xl border border-gray-100 shadow-2xs">
+                            <i data-lucide="wind" class="w-8 h-8 text-teal-500 mb-2"></i>
+                            <h5 class="font-bold text-sm text-gray-800">Saat Cuaca Dingin/Hujan</h5>
+                            <p class="text-xs text-gray-500 mt-1">Menjaga kehangatan tubuh bayi agar tetap stabil dan nyaman.</p>
+                        </div>
+                        <div class="bg-white p-5 rounded-2xl border border-gray-100 shadow-2xs">
+                            <i data-lucide="map-pin" class="w-8 h-8 text-emerald-500 mb-2"></i>
+                            <h5 class="font-bold text-sm text-gray-800">Saat Travelling</h5>
+                            <p class="text-xs text-gray-500 mt-1">Tube praktis anti bocor selalu siap sedia di diaper bag Bunda.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- ======================================================= -->
+<!-- TESTIMONI PARA IBU (SLIDER MIRIP "KATA PARA AYBUN")     -->
+<!-- ======================================================= -->
+<section class="py-20 bg-ftl-cream border-t border-ftl-sand" 
+         x-data="{ 
+             testiIndex: 0,
+             totalTesti: 3,
+             nextTesti() { this.testiIndex = (this.testiIndex + 1) % this.totalTesti; },
+             prevTesti() { this.testiIndex = (this.testiIndex - 1 + this.totalTesti) % this.totalTesti; }
+         }">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
+            <div>
+                <span class="text-xs font-bold text-ftl-accent uppercase tracking-widest">
+                    #frommothertoanother
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold font-display text-ftl-forest mt-1">
+                    Kata Para Moms
+                </h2>
+                <p class="text-sm sm:text-base text-gray-600 mt-1">
+                    Cerita nyata pengalaman orang tua setelah menggunakan For The Little Calming Rub.
+                </p>
+            </div>
+
+            <!-- Prev/Next Controls -->
+            <div class="flex items-center gap-2">
+                <button type="button" @click="prevTesti()" class="w-10 h-10 rounded-full border border-gray-200 hover:bg-white text-gray-700 flex items-center justify-center transition">
+                    <i data-lucide="chevron-left" class="w-5 h-5"></i>
+                </button>
+                <button type="button" @click="nextTesti()" class="w-10 h-10 rounded-full border border-gray-200 hover:bg-white text-gray-700 flex items-center justify-center transition">
+                    <i data-lucide="chevron-right" class="w-5 h-5"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            
+            <!-- Review 1 -->
+            <div :class="testiIndex === 0 ? 'ring-2 ring-emerald-500 scale-[1.02]' : 'opacity-85'" 
+                 class="bg-white p-7 rounded-3xl border border-ftl-sand shadow-sm flex flex-col justify-between transition-all duration-300">
+                <div class="space-y-3">
+                    <div class="flex items-center justify-between">
+                        <div class="flex text-amber-400 gap-1 text-sm">★★★★★</div>
+                        <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800">Verified Order</span>
+                    </div>
+                    <p class="text-sm text-gray-700 italic leading-relaxed">
+                        "Anakku umur 2 bulan sering rewel jam 7-9 malam karena kolik. Setelah rutin dioles FTL Calming Rub sehabis mandi sore dan pijat ILU, perutnya ga bunyi kembung lagi dan tidurnya anteng pol sampai pagi!"
+                    </p>
+                </div>
+                <div class="pt-6 border-t border-gray-100 flex items-center gap-3 mt-4">
+                    <div class="w-10 h-10 rounded-full bg-emerald-200 text-emerald-800 font-bold flex items-center justify-center text-xs">
+                        MR
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-xs text-gray-900">Bunda Maya Rahayu</h5>
+                        <span class="text-[11px] text-gray-500">Jakarta Selatan • Bayi 2 Bulan</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Review 2 -->
+            <div :class="testiIndex === 1 ? 'ring-2 ring-emerald-500 scale-[1.02]' : 'opacity-85'"
+                 class="bg-white p-7 rounded-3xl border border-ftl-sand shadow-sm flex flex-col justify-between transition-all duration-300">
+                <div class="space-y-3">
+                    <div class="flex items-center justify-between">
+                        <div class="flex text-amber-400 gap-1 text-sm">★★★★★</div>
+                        <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-orange-100 text-orange-800">Instagram Review</span>
+                    </div>
+                    <p class="text-sm text-gray-700 italic leading-relaxed">
+                        "Paling suka karena teksturnya CREAM bukan minyak! Jadi ga licin di tangan dan ga ninggalin noda kuning di baju bayi. Aromanya juga enak banget, wangi pala dan chamomile bikin relaks."
+                    </p>
+                </div>
+                <div class="pt-6 border-t border-gray-100 flex items-center gap-3 mt-4">
+                    <div class="w-10 h-10 rounded-full bg-amber-200 text-amber-800 font-bold flex items-center justify-center text-xs">
+                        DN
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-xs text-gray-900">Bunda Dinda Nirmala</h5>
+                        <span class="text-[11px] text-gray-500">Surabaya • Bayi 5 Bulan</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Review 3 -->
+            <div :class="testiIndex === 2 ? 'ring-2 ring-emerald-500 scale-[1.02]' : 'opacity-85'"
+                 class="bg-white p-7 rounded-3xl border border-ftl-sand shadow-sm flex flex-col justify-between transition-all duration-300">
+                <div class="space-y-3">
+                    <div class="flex items-center justify-between">
+                        <div class="flex text-amber-400 gap-1 text-sm">★★★★★</div>
+                        <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-rose-100 text-rose-800">WhatsApp Order</span>
+                    </div>
+                    <p class="text-sm text-gray-700 italic leading-relaxed">
+                        "Kulit anakku super sensitif, gampang merah kalau kena telon biasa. Tapi pakai For The Little ini beneran aman banget, hypoallergenic dan malah bikin kulitnya halus karena ada Calendula-nya."
+                    </p>
+                </div>
+                <div class="pt-6 border-t border-gray-100 flex items-center gap-3 mt-4">
+                    <div class="w-10 h-10 rounded-full bg-rose-200 text-rose-800 font-bold flex items-center justify-center text-xs">
+                        CA
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-xs text-gray-900">Bunda Citra Anggraini</h5>
+                        <span class="text-[11px] text-gray-500">Bandung • Bayi 1 Bulan</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- ======================================================= -->
+<!-- 7. KEMITRAAN RESELLER & PEMESANAN WHATSAPP              -->
+<!-- ======================================================= -->
+<section id="reseller" class="py-16 bg-gradient-to-tr from-ftl-forest via-ftl-sage to-emerald-900 text-white relative overflow-hidden">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 space-y-6">
         <span class="inline-block px-4 py-1 rounded-full bg-white/10 text-emerald-200 text-xs font-bold tracking-wider uppercase border border-emerald-400/20">
-            For The Little Indonesia
+            For The Little Indonesia • Peluang Kemitraan
         </span>
         <h2 class="text-3xl sm:text-5xl font-extrabold font-display leading-tight">
-            Berikan Kehangatan Penuh Kasih <br class="hidden sm:inline">
-            Untuk Si Kecil Hari Ini
+            Berikan Kehangatan Penuh Kasih & <br class="hidden sm:inline">
+            Tumbuh Bersama Komunitas FTL
         </h2>
         <p class="text-sm sm:text-base text-emerald-100 max-w-xl mx-auto">
-            Konsultasikan keluhan si kecil atau pesan langsung produk Baby Calming Rub Cream 50g bersama admin kami di WhatsApp.
+            Konsultasikan keluhan si kecil, pesan produk Baby Calming Rub Cream 50g via WhatsApp, atau bergabung menjadi Mitra & Reseller resmi kami dari rumah.
         </p>
         <div class="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">
             <button type="button" 
@@ -807,10 +811,10 @@ require_once __DIR__ . '/includes/navbar.php';
                 <i data-lucide="message-circle" class="w-5 h-5 text-emerald-600"></i>
                 <span>Pesan Cepat via WhatsApp</span>
             </button>
-            <a href="<?= BASE_URL ?>produk.php"
+            <a href="<?= BASE_URL ?>reseller.php"
                class="w-full sm:w-auto inline-flex items-center justify-center gap-2 border border-emerald-300/40 hover:bg-white/10 text-white font-semibold px-6 py-4 rounded-full transition-colors text-base">
-                <span>Eksplor Katalog Produk</span>
-                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                <i data-lucide="users" class="w-5 h-5 text-emerald-300"></i>
+                <span>Gabung Mitra & Reseller</span>
             </a>
         </div>
     </div>
