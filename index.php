@@ -11,15 +11,18 @@ require_once __DIR__ . '/includes/navbar.php';
 <!-- ======================================================= -->
 <!-- 1. FULL-WIDTH HERO SLIDER (LEBAR FULL LAYAR EDGE-TO-EDGE)-->
 <!-- ======================================================= -->
-<section class="relative w-full overflow-hidden bg-ftl-cream" 
+<section class="relative w-full overflow-hidden bg-ftl-cream select-none" 
          x-data="{ 
              activeSlide: 0,
              totalSlides: 3,
              autoplayInterval: null,
+             touchStartX: 0,
+             touchEndX: 0,
              startAutoplay() {
+                 this.stopAutoplay();
                  this.autoplayInterval = setInterval(() => {
                      this.nextSlide();
-                 }, 5000);
+                 }, 3000); // Geser cepat 3 detik persis Tentang Anak
              },
              stopAutoplay() {
                  if (this.autoplayInterval) {
@@ -32,21 +35,41 @@ require_once __DIR__ . '/includes/navbar.php';
              },
              prevSlide() {
                  this.activeSlide = (this.activeSlide - 1 + this.totalSlides) % this.totalSlides;
+             },
+             handleTouchStart(e) {
+                 this.touchStartX = e.changedTouches[0].clientX;
+             },
+             handleTouchEnd(e) {
+                 this.touchEndX = e.changedTouches[0].clientX;
+                 this.handleSwipe();
+             },
+             handleSwipe() {
+                 const diff = this.touchStartX - this.touchEndX;
+                 if (Math.abs(diff) > 35) { // ambang batas geser tangan di HP
+                     if (diff > 0) {
+                         this.nextSlide(); // Geser ke kiri -> slide berikutnya
+                     } else {
+                         this.prevSlide(); // Geser ke kanan -> slide sebelumnya
+                     }
+                     this.startAutoplay(); // Reset timer setelah digeser manual
+                 }
              }
          }" 
          x-init="startAutoplay()"
          @mouseenter="stopAutoplay()"
-         @mouseleave="startAutoplay()">
+         @mouseleave="startAutoplay()"
+         @touchstart.passive="handleTouchStart($event)"
+         @touchend.passive="handleTouchEnd($event)">
 
     <!-- Full Bleed Container: 100% Lebar Layar -->
-    <div class="relative w-full h-[480px] sm:h-[500px] lg:h-[540px] overflow-hidden bg-ftl-forest">
+    <div class="relative w-full h-[460px] sm:h-[500px] lg:h-[520px] overflow-hidden bg-ftl-forest cursor-grab active:cursor-grabbing">
         
         <!-- ================= SLIDE 1: Flagship FTL (Gaya Visual Tentang Anak) ================= -->
         <div x-show="activeSlide === 0"
-             x-transition:enter="transition transform ease-out duration-700"
+             x-transition:enter="transition transform ease-out duration-500"
              x-transition:enter-start="opacity-0 translate-x-full"
              x-transition:enter-end="opacity-100 translate-x-0"
-             x-transition:leave="transition transform ease-in duration-500 absolute inset-0"
+             x-transition:leave="transition transform ease-in duration-400 absolute inset-0"
              x-transition:leave-start="opacity-100 translate-x-0"
              x-transition:leave-end="opacity-0 -translate-x-full"
              class="w-full h-full bg-gradient-to-r from-ftl-forest via-[#2A5942] to-[#1E3E2F] relative flex items-center overflow-hidden">
@@ -127,10 +150,10 @@ require_once __DIR__ . '/includes/navbar.php';
 
         <!-- ================= SLIDE 2: Rempah Nusantara (Kaya Visual) ================= -->
         <div x-show="activeSlide === 1"
-             x-transition:enter="transition transform ease-out duration-700"
+             x-transition:enter="transition transform ease-out duration-500"
              x-transition:enter-start="opacity-0 translate-x-full"
              x-transition:enter-end="opacity-100 translate-x-0"
-             x-transition:leave="transition transform ease-in duration-500 absolute inset-0"
+             x-transition:leave="transition transform ease-in duration-400 absolute inset-0"
              x-transition:leave-start="opacity-100 translate-x-0"
              x-transition:leave-end="opacity-0 -translate-x-full"
              style="display: none;"
@@ -196,10 +219,10 @@ require_once __DIR__ . '/includes/navbar.php';
 
         <!-- ================= SLIDE 3: #frommothertoanother ================= -->
         <div x-show="activeSlide === 2"
-             x-transition:enter="transition transform ease-out duration-700"
+             x-transition:enter="transition transform ease-out duration-500"
              x-transition:enter-start="opacity-0 translate-x-full"
              x-transition:enter-end="opacity-100 translate-x-0"
-             x-transition:leave="transition transform ease-in duration-500 absolute inset-0"
+             x-transition:leave="transition transform ease-in duration-400 absolute inset-0"
              x-transition:leave-start="opacity-100 translate-x-0"
              x-transition:leave-end="opacity-0 -translate-x-full"
              style="display: none;"
@@ -261,18 +284,6 @@ require_once __DIR__ . '/includes/navbar.php';
                 </div>
             </div>
 
-        </div>
-
-        <!-- Indikator Titik Slider Lebar Penuh (Ramping & Elegan di Bagian Bawah) -->
-        <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-2 z-20 bg-black/20 backdrop-blur-md px-3 py-1.5 rounded-full">
-            <template x-for="i in totalSlides" :key="i">
-                <button type="button" 
-                        @click="activeSlide = i - 1"
-                        :class="activeSlide === (i - 1) ? 'w-8 bg-emerald-400' : 'w-2.5 bg-white/50 hover:bg-white'"
-                        class="h-2 rounded-full transition-all duration-300 focus:outline-none"
-                        :aria-label="'Slide ' + i">
-                </button>
-            </template>
         </div>
 
     </div>
