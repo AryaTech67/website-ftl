@@ -333,9 +333,189 @@ require_once __DIR__ . '/includes/navbar.php';
 </section>
 
 <!-- ======================================================= -->
-<!-- 3. HERO INGREDIENTS (Pala, Calendula, Chamomile)        -->
+<!-- 3. KATALOG PRODUK PILIHAN (GAYA TENTANG ANAK)           -->
 <!-- ======================================================= -->
-<section id="produk" class="py-20 bg-ftl-cream relative">
+<section id="produk" class="py-16 sm:py-20 bg-ftl-cream border-b border-ftl-sand">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Header Section Gaya Tentang Anak -->
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-10 sm:mb-12 gap-4">
+            <div>
+                <span class="inline-block px-3 py-1 rounded-full bg-emerald-100 text-ftl-forest text-[11px] font-bold uppercase tracking-wider mb-2">
+                    PRODUK RESMI FOR THE LITTLE
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold font-display text-ftl-forest tracking-tight">
+                    Koleksi Baby Calming Rub Alami
+                </h2>
+                <p class="text-sm sm:text-base text-gray-600 mt-1 max-w-xl">
+                    Krim telon alami dengan minyak pala nusantara & calendula. Meredakan kolik, kembung, dan menghangatkan lembut tanpa rasa lengket.
+                </p>
+            </div>
+            
+            <a href="<?= BASE_URL ?>produk.php" class="inline-flex items-center gap-1.5 text-sm font-bold text-ftl-forest hover:text-emerald-700 transition">
+                <span>Lihat Detail Produk Lengkap</span>
+                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
+        </div>
+
+        <!-- 3 Kartu Produk Utama -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+            
+            <!-- Produk 1: Single Tube 50g -->
+            <div class="bg-white rounded-3xl p-6 sm:p-7 border border-ftl-sand shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group">
+                <div>
+                    <!-- Badge & Image -->
+                    <div class="relative w-full h-56 rounded-2xl bg-emerald-50/50 flex items-center justify-center p-4 mb-5 overflow-hidden group-hover:bg-emerald-50 transition-colors">
+                        <span class="absolute top-3 left-3 text-[11px] font-bold text-emerald-800 bg-white/90 backdrop-blur-xs px-3 py-1 rounded-full shadow-2xs">
+                            ⭐ Best Seller
+                        </span>
+                        <img src="<?= BASE_URL ?>assets/images/product-calming-rub.svg" alt="For The Little Baby Calming Rub Cream 50g" class="h-44 w-auto object-contain drop-shadow-md group-hover:scale-105 transition-transform duration-300">
+                    </div>
+
+                    <!-- Meta & Title -->
+                    <div class="space-y-2">
+                        <div class="flex items-center gap-2">
+                            <div class="flex text-amber-400 text-xs">★★★★★</div>
+                            <span class="text-xs text-gray-400 font-medium">4.9 • Teruji Dermatologis</span>
+                        </div>
+                        <h3 class="font-display font-bold text-xl text-gray-900 group-hover:text-ftl-forest transition-colors">
+                            Baby Calming Rub Cream 50g
+                        </h3>
+                        <p class="text-xs sm:text-sm text-gray-500 leading-relaxed">
+                            Krim telon alami pereda kolik, perut kembung, dan masuk angin. Cepat meresap, tidak lengket, hangat tahan lama.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Price & CTA -->
+                <div class="pt-6 border-t border-gray-100 mt-6">
+                    <div class="flex items-baseline justify-between mb-4">
+                        <div>
+                            <span class="text-xs text-gray-400 block">Harga Satuan</span>
+                            <span class="text-2xl font-extrabold text-ftl-forest">Rp 79.000</span>
+                        </div>
+                        <span class="text-xs font-semibold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full">
+                            Netto 50g
+                        </span>
+                    </div>
+
+                    <button type="button" 
+                            @click="orderModalOpen = true; selectedProduct = 'calming-rub-50g'"
+                            class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-4 rounded-full text-sm shadow-sm hover:shadow transition flex items-center justify-center gap-2 active:scale-95">
+                        <i data-lucide="message-circle" class="w-4 h-4"></i>
+                        <span>Pesan via WhatsApp</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Produk 2: Bundle Double Care -->
+            <div class="bg-white rounded-3xl p-6 sm:p-7 border-2 border-emerald-500/30 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group relative">
+                <!-- Highlight Pill -->
+                <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-amber-500 text-white text-[11px] font-extrabold px-3 py-1 rounded-full shadow-xs uppercase tracking-wide">
+                    🔥 Paling Banyak Dipilih
+                </div>
+
+                <div>
+                    <!-- Badge & Image -->
+                    <div class="relative w-full h-56 rounded-2xl bg-amber-50/50 flex items-center justify-center p-4 mb-5 overflow-hidden group-hover:bg-amber-50 transition-colors">
+                        <span class="absolute top-3 left-3 text-[11px] font-bold text-amber-800 bg-white/90 backdrop-blur-xs px-3 py-1 rounded-full shadow-2xs">
+                            Hemat 24%
+                        </span>
+                        <img src="<?= BASE_URL ?>assets/images/product-bundle-2.svg" alt="Bundle Double Care 2 pcs 50g" class="h-44 w-auto object-contain drop-shadow-md group-hover:scale-105 transition-transform duration-300">
+                    </div>
+
+                    <!-- Meta & Title -->
+                    <div class="space-y-2">
+                        <div class="flex items-center gap-2">
+                            <div class="flex text-amber-400 text-xs">★★★★★</div>
+                            <span class="text-xs text-gray-400 font-medium">5.0 • Paket Favorit</span>
+                        </div>
+                        <h3 class="font-display font-bold text-xl text-gray-900 group-hover:text-ftl-forest transition-colors">
+                            Bundle Double Care (2 pcs)
+                        </h3>
+                        <p class="text-xs sm:text-sm text-gray-500 leading-relaxed">
+                            Paket hemat 2 tube 50g. 1 untuk persediaan di kamar bayi, 1 selalu siap di diaper bag saat bepergian.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Price & CTA -->
+                <div class="pt-6 border-t border-gray-100 mt-6">
+                    <div class="flex items-baseline justify-between mb-4">
+                        <div>
+                            <span class="text-xs text-gray-400 block line-through">Rp 190.000</span>
+                            <span class="text-2xl font-extrabold text-ftl-forest">Rp 145.000</span>
+                        </div>
+                        <span class="text-xs font-semibold text-amber-800 bg-amber-100 px-2.5 py-1 rounded-full">
+                            Isi 2 Tube (100g)
+                        </span>
+                    </div>
+
+                    <button type="button" 
+                            @click="orderModalOpen = true; selectedProduct = 'bundling-double-care'"
+                            class="w-full bg-ftl-forest hover:bg-emerald-800 text-white font-bold py-3 px-4 rounded-full text-sm shadow-sm hover:shadow transition flex items-center justify-center gap-2 active:scale-95">
+                        <i data-lucide="message-circle" class="w-4 h-4"></i>
+                        <span>Pilih Paket Hemat</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Produk 3: Newborn Gift Box -->
+            <div class="bg-white rounded-3xl p-6 sm:p-7 border border-ftl-sand shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group">
+                <div>
+                    <!-- Badge & Image -->
+                    <div class="relative w-full h-56 rounded-2xl bg-teal-50/50 flex items-center justify-center p-4 mb-5 overflow-hidden group-hover:bg-teal-50 transition-colors">
+                        <span class="absolute top-3 left-3 text-[11px] font-bold text-teal-800 bg-white/90 backdrop-blur-xs px-3 py-1 rounded-full shadow-2xs">
+                            🎁 Special Gift
+                        </span>
+                        <img src="<?= BASE_URL ?>assets/images/product-gift-box.svg" alt="Newborn Gift Box Special" class="h-44 w-auto object-contain drop-shadow-md group-hover:scale-105 transition-transform duration-300">
+                    </div>
+
+                    <!-- Meta & Title -->
+                    <div class="space-y-2">
+                        <div class="flex items-center gap-2">
+                            <div class="flex text-amber-400 text-xs">★★★★★</div>
+                            <span class="text-xs text-gray-400 font-medium">4.9 • Kado Istimewa</span>
+                        </div>
+                        <h3 class="font-display font-bold text-xl text-gray-900 group-hover:text-ftl-forest transition-colors">
+                            Newborn Gift Box Set
+                        </h3>
+                        <p class="text-xs sm:text-sm text-gray-500 leading-relaxed">
+                            Kado spesial menyambut kelahiran si kecil. Sudah termasuk hardbox premium, pita eksklusif, & kartu ucapan.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Price & CTA -->
+                <div class="pt-6 border-t border-gray-100 mt-6">
+                    <div class="flex items-baseline justify-between mb-4">
+                        <div>
+                            <span class="text-xs text-gray-400 block">Paket Kado Lengkap</span>
+                            <span class="text-2xl font-extrabold text-ftl-forest">Rp 189.000</span>
+                        </div>
+                        <span class="text-xs font-semibold text-teal-700 bg-teal-50 px-2.5 py-1 rounded-full">
+                            Free Gift Card
+                        </span>
+                    </div>
+
+                    <button type="button" 
+                            @click="orderModalOpen = true; selectedProduct = 'bundling-newborn-gift'"
+                            class="w-full bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 px-4 rounded-full text-sm shadow-sm hover:shadow transition flex items-center justify-center gap-2 active:scale-95">
+                        <i data-lucide="gift" class="w-4 h-4"></i>
+                        <span>Kirim Sebagai Kado</span>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- ======================================================= -->
+<!-- 4. HERO INGREDIENTS (Pala, Calendula, Chamomile)        -->
+<!-- ======================================================= -->
+<section class="py-20 bg-white relative">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div class="text-center max-w-3xl mx-auto space-y-3 mb-16">
@@ -408,7 +588,7 @@ require_once __DIR__ . '/includes/navbar.php';
 <!-- ======================================================= -->
 <!-- 5. PERBANDINGAN: FTL VS TELON BIASA                     -->
 <!-- ======================================================= -->
-<section class="py-20 bg-white">
+<section class="py-20 bg-ftl-cream border-t border-ftl-sand">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div class="text-center max-w-2xl mx-auto mb-14">
@@ -475,9 +655,9 @@ require_once __DIR__ . '/includes/navbar.php';
 </section>
 
 <!-- ======================================================= -->
-<!-- 5. ARTIKEL EDUKASI PARENTING (MIRIP TENTANG ANAK)       -->
+<!-- 6. ARTIKEL EDUKASI PARENTING (MIRIP TENTANG ANAK)       -->
 <!-- ======================================================= -->
-<section id="artikel" class="py-20 bg-ftl-cream">
+<section id="artikel" class="py-20 bg-white border-t border-ftl-sand">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
@@ -588,9 +768,9 @@ require_once __DIR__ . '/includes/navbar.php';
 </section>
 
 <!-- ======================================================= -->
-<!-- 6. TENTANG KAMI: PANDUAN PIJAT ILU & TESTIMONI MOMS     -->
+<!-- 7. TENTANG KAMI: PANDUAN PIJAT ILU & TESTIMONI MOMS     -->
 <!-- ======================================================= -->
-<section id="tentang" class="py-20 bg-white">
+<section id="tentang" class="py-20 bg-ftl-cream border-t border-ftl-sand">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -680,7 +860,7 @@ require_once __DIR__ . '/includes/navbar.php';
 <!-- ======================================================= -->
 <!-- TESTIMONI PARA IBU (SLIDER MIRIP "KATA PARA AYBUN")     -->
 <!-- ======================================================= -->
-<section class="py-20 bg-ftl-cream border-t border-ftl-sand" 
+<section class="py-20 bg-white border-t border-ftl-sand" 
          x-data="{ 
              testiIndex: 0,
              totalTesti: 3,
