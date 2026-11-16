@@ -349,7 +349,143 @@ if (empty($province) || empty($city)) {
     exit;
 }
 
-// Cari tarif berdasarkan kota atau base tarif provinsi
+// =========================================================================
+// INTEGRASI LIVE API KE SERVER EKSPEDISI (RajaOngkir & Biteship)
+// Jika API Key diisi di config.php, sistem otomatis menembak server live!
+// =========================================================================
+$liveCouriers = [];
+
+// A. Pengecekan via Live RajaOngkir API jika API Key terpasang
+if (defined('RAJAONGKIR_API_KEY') && !empty(RAJAONGKIR_API_KEY)) {
+    $apiKey = RAJAONGKIR_API_KEY;
+    // Map ID Kota Jakarta Selatan (Origin default FTL: 153 di RajaOngkir)
+    $originId = defined('SHIPPING_ORIGIN_ID') ? SHIPPING_ORIGIN_ID : 153;
+    
+    // Tembak API RajaOngkir untuk JNE, J&T, SiCepat
+    $targetCouriers = ['jne', 'jnt', 'sicepat'];
+    foreach ($targetCouriers as $cr) {
+        $ch = curl_init();
+        curl_setopt_array($ch, [
+            CURLOPT_URL => "https://api.rajaongkir.com/starter/cost",
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_TIMEOUT => 4,
+            CURLOPT_POST => true,
+            CURLOPT_POSTFIELDS => http_build_query([
+                'origin' => $originId,
+                'destination' => $city, // ID atau nama kota
+                'weight' => $weight,
+                'courier' => $cr
+            ]),
+            CURLOPT_HTTPHEADER => [
+                "content-type: application/x-www-form-urlencoded",
+                "key: " . $apiKey
+            ],
+        ]);
+        $res = curl_exec($ch);
+        $err = curl_error($ch);
+        curl_close($ch);
+
+        if (!$err && $res) {
+            $parsed = json_decode($res, true);
+            if (isset($parsed['rajaongkir']['results'][0]['costs'][0])) {
+                $costData = $parsed['rajaongkir']['results'][0]['costs'][0];
+                $costVal = $costData['cost'][0]['value'] ?? 0;
+                $etdVal = $costData['cost'][0]['etd'] ?? '1-2';
+                if ($costVal > 0) {
+                    $liveCouriers[] = [
+                        'code' => $cr,
+                        'name' => strtoupper($cr) . ' Express',
+                        'badge' => 'Live API ⚡',
+                        'service' => $costData['service'] . ' (Reguler)',
+                        'cost' => $costVal,
+                        'cost_formatted' => 'Rp ' . number_format($costVal, 0, ',', '.'),
+                        'etd' => $etdVal . ' Hari',
+                        'color' => ($cr === 'jnt' ? 'red' : ($cr === 'jne' ? 'blue' : 'amber'))
+                    ];
+                }
+            }
+        }
+    }
+
+    if (!empty($liveCouriers)) {
+        echo json_encode([
+            'status'        => 'success',
+            'source'        => 'rajaongkir_live_api',
+            'origin'        => defined('SHIPPING_ORIGIN_CITY') ? SHIPPING_ORIGIN_CITY : 'Jakarta Selatan',
+            'destination'   => $city . ', ' . $province,
+            'weight_grams'  => $weight,
+            'chargeable_kg' => $chargeableKg,
+            'couriers'      => $liveCouriers
+        ]);
+        exit;
+    }
+}
+
+// B. Pengecekan via Live Biteship API jika API Key terpasang
+if (defined('BITESHIP_API_KEY') && !empty(BITESHIP_API_KEY)) {
+    $ch = curl_init();
+    curl_setopt_array($ch, [
+        CURLOPT_URL => "https://api.biteship.com/v1/rates/couriers",
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_TIMEOUT => 4,
+        CURLOPT_POST => true,
+        CURLOPT_POSTFIELDS => json_encode([
+            'origin_postal_code' => 12430, // Jakarta Selatan
+            'destination_area_name' => $city . ', ' . $province,
+            'couriers' => 'jne,jnt,sicepat',
+            'items' => [[
+                'name' => 'For The Little Baby Calming Rub',
+                'value' => 79000,
+                'weight' => $weight,
+                'quantity' => 1
+            ]]
+        ]),
+        CURLOPT_HTTPHEADER => [
+            "Authorization: " . BITESHIP_API_KEY,
+            "Content-Type: application/json"
+        ]
+    ]);
+    $res = curl_exec($ch);
+    $err = curl_error($ch);
+    curl_close($ch);
+
+    if (!$err && $res) {
+        $parsed = json_decode($res, true);
+        if (!empty($parsed['pricing'])) {
+            foreach ($parsed['pricing'] as $p) {
+                if (in_array(strtolower($p['courier_code']), ['jne', 'jnt', 'sicepat'])) {
+                    $liveCouriers[] = [
+                        'code' => strtolower($p['courier_code']),
+                        'name' => $p['courier_name'],
+                        'badge' => 'Live API ⚡',
+                        'service' => $p['courier_service_name'],
+                        'cost' => $p['price'],
+                        'cost_formatted' => 'Rp ' . number_format($p['price'], 0, ',', '.'),
+                        'etd' => $p['duration'],
+                        'color' => 'emerald'
+                    ];
+                }
+            }
+        }
+    }
+
+    if (!empty($liveCouriers)) {
+        echo json_encode([
+            'status'        => 'success',
+            'source'        => 'biteship_live_api',
+            'origin'        => defined('SHIPPING_ORIGIN_CITY') ? SHIPPING_ORIGIN_CITY : 'Jakarta Selatan',
+            'destination'   => $city . ', ' . $province,
+            'weight_grams'  => $weight,
+            'chargeable_kg' => $chargeableKg,
+            'couriers'      => $liveCouriers
+        ]);
+        exit;
+    }
+}
+
+// =========================================================================
+// C. FALLBACK: DATABASE TARIF RIIL LOKAL (SUPER CEPAT & TIDAK AKAN PERNAH DOWN)
+// =========================================================================
 $rateInfo = null;
 
 if (isset($SHIPPING_DATA[$province])) {
