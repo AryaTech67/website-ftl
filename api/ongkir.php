@@ -210,7 +210,101 @@ $SHIPPING_DATA = [
     'Nusa Tenggara Barat' => [
         'base' => ['jnt' => 26000, 'jne' => 28000, 'sicepat' => 26000, 'etd' => '2-4 Hari'],
         'cities' => [
-            'Kota Mataram' => ['jnt' => 24000, 'jne' => 26000, 'sicepat' => 25000, 'etd' => '2-4 Hari'],
+            'Kota Mataram'  => ['jnt' => 24000, 'jne' => 26000, 'sicepat' => 25000, 'etd' => '2-4 Hari'],
+            'Kota Bima'     => ['jnt' => 28000, 'jne' => 30000, 'sicepat' => 29000, 'etd' => '3-5 Hari'],
+            'Kab. Lombok Barat' => ['jnt' => 26000, 'jne' => 28000, 'sicepat' => 26000, 'etd' => '2-4 Hari'],
+            'Kab. Lombok Tengah'=> ['jnt' => 26000, 'jne' => 28000, 'sicepat' => 26000, 'etd' => '2-4 Hari'],
+            'Kab. Lombok Timur' => ['jnt' => 26000, 'jne' => 28000, 'sicepat' => 26000, 'etd' => '2-4 Hari'],
+        ]
+    ],
+    'Nusa Tenggara Timur' => [
+        'base' => ['jnt' => 45000, 'jne' => 48000, 'sicepat' => 46000, 'etd' => '3-5 Hari'],
+        'cities' => [
+            'Kota Kupang'      => ['jnt' => 42000, 'jne' => 45000, 'sicepat' => 43000, 'etd' => '3-5 Hari'],
+            'Kab. Manggarai Barat (Labuan Bajo)' => ['jnt' => 46000, 'jne' => 50000, 'sicepat' => 48000, 'etd' => '3-5 Hari'],
+            'Kab. Sumba Timur' => ['jnt' => 48000, 'jne' => 52000, 'sicepat' => 50000, 'etd' => '4-6 Hari'],
+        ]
+    ],
+    'Aceh' => [
+        'base' => ['jnt' => 36000, 'jne' => 38000, 'sicepat' => 37000, 'etd' => '3-4 Hari'],
+        'cities' => [
+            'Kota Banda Aceh'   => ['jnt' => 34000, 'jne' => 36000, 'sicepat' => 35000, 'etd' => '2-3 Hari'],
+            'Kota Lhokseumawe'  => ['jnt' => 38000, 'jne' => 40000, 'sicepat' => 39000, 'etd' => '3-4 Hari'],
+        ]
+    ],
+    'Jambi' => [
+        'base' => ['jnt' => 23000, 'jne' => 25000, 'sicepat' => 24000, 'etd' => '2-3 Hari'],
+        'cities' => [
+            'Kota Jambi'        => ['jnt' => 22000, 'jne' => 24000, 'sicepat' => 23000, 'etd' => '2-3 Hari'],
+        ]
+    ],
+    'Bengkulu' => [
+        'base' => ['jnt' => 25000, 'jne' => 27000, 'sicepat' => 26000, 'etd' => '2-3 Hari'],
+        'cities' => [
+            'Kota Bengkulu'     => ['jnt' => 24000, 'jne' => 26000, 'sicepat' => 25000, 'etd' => '2-3 Hari'],
+        ]
+    ],
+    'Kepulauan Bangka Belitung' => [
+        'base' => ['jnt' => 24000, 'jne' => 26000, 'sicepat' => 25000, 'etd' => '2-3 Hari'],
+        'cities' => [
+            'Kota Pangkal Pinang' => ['jnt' => 22000, 'jne' => 24000, 'sicepat' => 23000, 'etd' => '2-3 Hari'],
+            'Kab. Belitung (Tanjung Pandan)' => ['jnt' => 25000, 'jne' => 27000, 'sicepat' => 26000, 'etd' => '2-3 Hari'],
+        ]
+    ],
+    'Kalimantan Tengah' => [
+        'base' => ['jnt' => 33000, 'jne' => 35000, 'sicepat' => 34000, 'etd' => '2-4 Hari'],
+        'cities' => [
+            'Kota Palangka Raya' => ['jnt' => 32000, 'jne' => 34000, 'sicepat' => 33000, 'etd' => '2-4 Hari'],
+            'Kab. Kotawaringin Barat' => ['jnt' => 34000, 'jne' => 36000, 'sicepat' => 35000, 'etd' => '3-5 Hari'],
+        ]
+    ],
+    'Kalimantan Utara' => [
+        'base' => ['jnt' => 44000, 'jne' => 47000, 'sicepat' => 45000, 'etd' => '3-5 Hari'],
+        'cities' => [
+            'Kota Tarakan'      => ['jnt' => 42000, 'jne' => 45000, 'sicepat' => 43000, 'etd' => '3-5 Hari'],
+        ]
+    ],
+    'Sulawesi Utara' => [
+        'base' => ['jnt' => 42000, 'jne' => 45000, 'sicepat' => 43000, 'etd' => '3-5 Hari'],
+        'cities' => [
+            'Kota Manado'       => ['jnt' => 40000, 'jne' => 43000, 'sicepat' => 41000, 'etd' => '2-4 Hari'],
+            'Kota Bitung'       => ['jnt' => 42000, 'jne' => 45000, 'sicepat' => 43000, 'etd' => '3-5 Hari'],
+        ]
+    ],
+    'Sulawesi Tengah' => [
+        'base' => ['jnt' => 38000, 'jne' => 41000, 'sicepat' => 39000, 'etd' => '3-5 Hari'],
+        'cities' => [
+            'Kota Palu'         => ['jnt' => 37000, 'jne' => 40000, 'sicepat' => 38000, 'etd' => '2-4 Hari'],
+        ]
+    ],
+    'Sulawesi Tenggara' => [
+        'base' => ['jnt' => 38000, 'jne' => 41000, 'sicepat' => 39000, 'etd' => '3-5 Hari'],
+        'cities' => [
+            'Kota Kendari'      => ['jnt' => 37000, 'jne' => 40000, 'sicepat' => 38000, 'etd' => '2-4 Hari'],
+        ]
+    ],
+    'Gorontalo' => [
+        'base' => ['jnt' => 42000, 'jne' => 45000, 'sicepat' => 43000, 'etd' => '3-5 Hari'],
+        'cities' => [
+            'Kota Gorontalo'    => ['jnt' => 41000, 'jne' => 44000, 'sicepat' => 42000, 'etd' => '3-5 Hari'],
+        ]
+    ],
+    'Sulawesi Barat' => [
+        'base' => ['jnt' => 38000, 'jne' => 41000, 'sicepat' => 39000, 'etd' => '3-5 Hari'],
+        'cities' => [
+            'Kab. Mamuju'       => ['jnt' => 38000, 'jne' => 41000, 'sicepat' => 39000, 'etd' => '3-5 Hari'],
+        ]
+    ],
+    'Maluku' => [
+        'base' => ['jnt' => 55000, 'jne' => 60000, 'sicepat' => 57000, 'etd' => '3-6 Hari'],
+        'cities' => [
+            'Kota Ambon'        => ['jnt' => 52000, 'jne' => 58000, 'sicepat' => 55000, 'etd' => '3-5 Hari'],
+        ]
+    ],
+    'Maluku Utara' => [
+        'base' => ['jnt' => 58000, 'jne' => 63000, 'sicepat' => 60000, 'etd' => '3-6 Hari'],
+        'cities' => [
+            'Kota Ternate'      => ['jnt' => 56000, 'jne' => 61000, 'sicepat' => 58000, 'etd' => '3-5 Hari'],
         ]
     ],
     'Papua' => [
