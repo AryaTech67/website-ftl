@@ -93,10 +93,10 @@ $main_product = $PRODUCTS['calming-rub-50g'];
                                 Rp 79.000
                             </span>
                             <span class="text-sm text-gray-400 line-through">
-                                Rp 95.000
+                                Rp 99.000
                             </span>
                             <span class="text-xs font-bold bg-amber-100 text-amber-800 px-2 py-0.5 rounded-full">
-                                Hemat 17%
+                                Hemat 20%
                             </span>
                         </div>
                         <span class="text-xs text-gray-500 mt-1 block">Kemasan Tube 50 gram (Penggunaan 1 - 2 bulan)</span>
@@ -130,13 +130,18 @@ $main_product = $PRODUCTS['calming-rub-50g'];
                         </div>
                     </div>
 
-                    <div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                         <button type="button" 
                                 @click="orderDirectWA()"
-                                class="w-full flex items-center justify-center gap-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-4 px-6 rounded-2xl shadow-lg hover:shadow-emerald-600/30 active:scale-95 transition-all text-sm sm:text-base">
-                            <i data-lucide="message-circle" class="w-5 h-5"></i>
-                            <span>Pesan via WhatsApp Sekarang</span>
+                                class="w-full flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3.5 px-5 rounded-2xl shadow-lg hover:shadow-emerald-600/30 active:scale-95 transition-all text-sm">
+                            <i data-lucide="message-circle" class="w-4 h-4"></i>
+                            <span>Pesan via WhatsApp</span>
                         </button>
+                        <a href="<?= SHOPEE_URL ?>" target="_blank" rel="noopener"
+                           class="w-full flex items-center justify-center gap-2 bg-[#EE4D2D] hover:bg-[#d73f21] text-white font-bold py-3.5 px-5 rounded-2xl shadow-lg active:scale-95 transition-all text-sm text-center">
+                            <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+                            <span>Beli di Shopee Resmi</span>
+                        </a>
                     </div>
                 </div>
 

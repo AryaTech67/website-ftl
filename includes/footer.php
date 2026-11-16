@@ -36,8 +36,13 @@ require_once __DIR__ . '/../config.php';
                     </span>
                 </div>
 
-                <!-- Social Media -->
+                <!-- Social Media & Official Store -->
                 <div class="flex items-center gap-3 pt-3">
+                    <a href="<?= SHOPEE_URL ?>" target="_blank" rel="noopener" 
+                       class="w-10 h-10 rounded-xl bg-[#EE4D2D] flex items-center justify-center hover:bg-[#d73f21] hover:scale-105 transition-all text-white shadow-sm" 
+                       title="Shopee Official Store @forthelittle.id">
+                        <i data-lucide="shopping-bag" class="w-5 h-5"></i>
+                    </a>
                     <a href="<?= INSTAGRAM_URL ?>" target="_blank" rel="noopener" 
                        class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center hover:bg-white/20 hover:scale-105 transition-all text-white" 
                        title="Instagram @forthelittle.id">

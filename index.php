@@ -118,7 +118,7 @@ require_once __DIR__ . '/includes/navbar.php';
                             Krim telon alami berbahan <strong>Minyak Pala Nusantara & Calendula</strong>. Hangat pas meredakan perut kembung tanpa rasa lengket di kulit. Teruji Hypoallergenic & aman untuk newborn (0+ bulan).
                         </p>
 
-                        <!-- CTA Buttons (100% Fokus WhatsApp) -->
+                        <!-- CTA Buttons (WhatsApp + Shopee) -->
                         <div class="pt-2 flex flex-wrap items-center gap-3">
                             <button type="button" 
                                     @click="orderModalOpen = true; selectedProduct = 'calming-rub-50g'"
@@ -126,9 +126,14 @@ require_once __DIR__ . '/includes/navbar.php';
                                 <i data-lucide="message-circle" class="w-4 h-4"></i>
                                 <span>Pesan via WhatsApp</span>
                             </button>
+                            <a href="<?= SHOPEE_URL ?>" target="_blank" rel="noopener"
+                               class="inline-flex items-center gap-2 bg-[#EE4D2D] hover:bg-[#d73f21] text-white font-bold px-5 sm:px-6 py-3 sm:py-3.5 rounded-full shadow-lg hover:scale-105 active:scale-95 transition text-xs sm:text-sm">
+                                <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+                                <span>Beli di Shopee</span>
+                            </a>
                             <a href="<?= BASE_URL ?>produk.php"
                                class="inline-flex items-center gap-2 bg-white/10 hover:bg-white text-white hover:text-ftl-forest border border-white/40 font-bold px-5 sm:px-7 py-3 sm:py-3.5 rounded-full transition text-xs sm:text-sm">
-                                <span>Lihat Detail Produk</span>
+                                <span>Detail Produk</span>
                                 <i data-lucide="arrow-right" class="w-4 h-4"></i>
                             </a>
                         </div>
@@ -391,7 +396,7 @@ require_once __DIR__ . '/includes/navbar.php';
                 <div class="pt-6 border-t border-gray-100 mt-6">
                     <div class="flex items-baseline justify-between mb-4">
                         <div>
-                            <span class="text-xs text-gray-400 block">Harga Satuan</span>
+                            <span class="text-xs text-gray-400 block line-through">Rp 99.000</span>
                             <span class="text-2xl font-extrabold text-ftl-forest">Rp 79.000</span>
                         </div>
                         <span class="text-xs font-semibold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full">
@@ -399,12 +404,19 @@ require_once __DIR__ . '/includes/navbar.php';
                         </span>
                     </div>
 
-                    <button type="button" 
-                            @click="orderModalOpen = true; selectedProduct = 'calming-rub-50g'"
-                            class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-4 rounded-full text-sm shadow-sm hover:shadow transition flex items-center justify-center gap-2 active:scale-95">
-                        <i data-lucide="message-circle" class="w-4 h-4"></i>
-                        <span>Pesan via WhatsApp</span>
-                    </button>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                        <button type="button" 
+                                @click="orderModalOpen = true; selectedProduct = 'calming-rub-50g'"
+                                class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-2.5 px-3 rounded-full text-xs shadow-xs transition flex items-center justify-center gap-1.5 active:scale-95">
+                            <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
+                            <span>Pesan WA</span>
+                        </button>
+                        <a href="<?= SHOPEE_URL ?>" target="_blank" rel="noopener"
+                           class="w-full bg-[#EE4D2D] hover:bg-[#d73f21] text-white font-bold py-2.5 px-3 rounded-full text-xs shadow-xs transition flex items-center justify-center gap-1.5 active:scale-95 text-center">
+                            <i data-lucide="shopping-bag" class="w-3.5 h-3.5"></i>
+                            <span>Beli Shopee</span>
+                        </a>
+                    </div>
                 </div>
             </div>
 
@@ -419,7 +431,7 @@ require_once __DIR__ . '/includes/navbar.php';
                     <!-- Badge & Image -->
                     <div class="relative w-full h-56 rounded-2xl bg-amber-50/50 flex items-center justify-center p-4 mb-5 overflow-hidden group-hover:bg-amber-50 transition-colors">
                         <span class="absolute top-3 left-3 text-[11px] font-bold text-amber-800 bg-white/90 backdrop-blur-xs px-3 py-1 rounded-full shadow-2xs">
-                            Hemat 24%
+                            Hemat 25%
                         </span>
                         <img src="<?= BASE_URL ?>assets/images/product-bundle-2.svg" alt="Bundle Double Care 2 pcs 50g" class="h-44 w-auto object-contain drop-shadow-md group-hover:scale-105 transition-transform duration-300">
                     </div>
@@ -443,7 +455,7 @@ require_once __DIR__ . '/includes/navbar.php';
                 <div class="pt-6 border-t border-gray-100 mt-6">
                     <div class="flex items-baseline justify-between mb-4">
                         <div>
-                            <span class="text-xs text-gray-400 block line-through">Rp 190.000</span>
+                            <span class="text-xs text-gray-400 block line-through">Rp 193.000</span>
                             <span class="text-2xl font-extrabold text-ftl-forest">Rp 145.000</span>
                         </div>
                         <span class="text-xs font-semibold text-amber-800 bg-amber-100 px-2.5 py-1 rounded-full">
@@ -451,12 +463,19 @@ require_once __DIR__ . '/includes/navbar.php';
                         </span>
                     </div>
 
-                    <button type="button" 
-                            @click="orderModalOpen = true; selectedProduct = 'bundling-double-care'"
-                            class="w-full bg-ftl-forest hover:bg-emerald-800 text-white font-bold py-3 px-4 rounded-full text-sm shadow-sm hover:shadow transition flex items-center justify-center gap-2 active:scale-95">
-                        <i data-lucide="message-circle" class="w-4 h-4"></i>
-                        <span>Pilih Paket Hemat</span>
-                    </button>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                        <button type="button" 
+                                @click="orderModalOpen = true; selectedProduct = 'bundling-double-care'"
+                                class="w-full bg-ftl-forest hover:bg-emerald-800 text-white font-bold py-2.5 px-3 rounded-full text-xs shadow-xs transition flex items-center justify-center gap-1.5 active:scale-95">
+                            <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
+                            <span>Pesan WA</span>
+                        </button>
+                        <a href="<?= SHOPEE_URL ?>" target="_blank" rel="noopener"
+                           class="w-full bg-[#EE4D2D] hover:bg-[#d73f21] text-white font-bold py-2.5 px-3 rounded-full text-xs shadow-xs transition flex items-center justify-center gap-1.5 active:scale-95 text-center">
+                            <i data-lucide="shopping-bag" class="w-3.5 h-3.5"></i>
+                            <span>Beli Shopee</span>
+                        </a>
+                    </div>
                 </div>
             </div>
 
@@ -490,7 +509,7 @@ require_once __DIR__ . '/includes/navbar.php';
                 <div class="pt-6 border-t border-gray-100 mt-6">
                     <div class="flex items-baseline justify-between mb-4">
                         <div>
-                            <span class="text-xs text-gray-400 block">Paket Kado Lengkap</span>
+                            <span class="text-xs text-gray-400 block line-through">Rp 225.000</span>
                             <span class="text-2xl font-extrabold text-ftl-forest">Rp 189.000</span>
                         </div>
                         <span class="text-xs font-semibold text-teal-700 bg-teal-50 px-2.5 py-1 rounded-full">
@@ -498,12 +517,19 @@ require_once __DIR__ . '/includes/navbar.php';
                         </span>
                     </div>
 
-                    <button type="button" 
-                            @click="orderModalOpen = true; selectedProduct = 'bundling-newborn-gift'"
-                            class="w-full bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 px-4 rounded-full text-sm shadow-sm hover:shadow transition flex items-center justify-center gap-2 active:scale-95">
-                        <i data-lucide="gift" class="w-4 h-4"></i>
-                        <span>Kirim Sebagai Kado</span>
-                    </button>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                        <button type="button" 
+                                @click="orderModalOpen = true; selectedProduct = 'bundling-newborn-gift'"
+                                class="w-full bg-teal-600 hover:bg-teal-700 text-white font-bold py-2.5 px-3 rounded-full text-xs shadow-xs transition flex items-center justify-center gap-1.5 active:scale-95">
+                            <i data-lucide="gift" class="w-3.5 h-3.5"></i>
+                            <span>Pesan WA</span>
+                        </button>
+                        <a href="<?= SHOPEE_URL ?>" target="_blank" rel="noopener"
+                           class="w-full bg-[#EE4D2D] hover:bg-[#d73f21] text-white font-bold py-2.5 px-3 rounded-full text-xs shadow-xs transition flex items-center justify-center gap-1.5 active:scale-95 text-center">
+                            <i data-lucide="shopping-bag" class="w-3.5 h-3.5"></i>
+                            <span>Beli Shopee</span>
+                        </a>
+                    </div>
                 </div>
             </div>
 

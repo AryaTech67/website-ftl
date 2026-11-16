@@ -16,7 +16,7 @@ define('WHATSAPP_NUMBER', '6281234567890'); // Ganti dengan nomor WhatsApp admin
 define('WHATSAPP_DISPLAY', '+62 812-3456-7890');
 define('INSTAGRAM_URL', 'https://www.instagram.com/forthelittle.id/');
 define('TIKTOK_URL', 'https://www.tiktok.com/@forthelittle.id');
-define('SHOPEE_URL', 'https://s.shopee.co.id/qjlgbBESI'); // Link Shopee resmi dari Linktree FTL
+define('SHOPEE_URL', 'https://shopee.co.id/forthelittle.id?mmp_pid=an_11373750717&uls_trackid=574vdd0604jd&utm_campaign=-&utm_content=-&utm_medium=affiliates&utm_source=an_11373750717&utm_term=fuxnj44gbnej');
 define('TOKOPEDIA_URL', 'https://www.tokopedia.com/');
 define('EMAIL_CONTACT', 'hello@forthelittle.id');
 
@@ -46,7 +46,7 @@ $PRODUCTS = [
         'name' => 'Baby Calming Rub Cream 50g',
         'subtitle' => 'Krim Telon & Calming Alami dengan Minyak Pala Nusantara',
         'price' => 79000,
-        'original_price' => 95000,
+        'original_price' => 99000,
         'badge' => 'Best Seller ⭐',
         'rating' => 4.9,
         'reviews_count' => 340,
@@ -67,8 +67,8 @@ $PRODUCTS = [
         'name' => 'Bundle Double Care (2x 50g)',
         'subtitle' => 'Paket Hemat Perawatan Harian & Cadangan Bepergian',
         'price' => 145000,
-        'original_price' => 190000,
-        'badge' => 'Hemat 24% 🔥',
+        'original_price' => 193000,
+        'badge' => 'Hemat 25% 🔥',
         'rating' => 5.0,
         'reviews_count' => 128,
         'image' => 'assets/images/product-bundle-2.svg',

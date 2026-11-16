@@ -11,6 +11,11 @@ $nav_items = [
         'label' => 'Produk', 
         'url' => $is_home ? '#produk' : BASE_URL . 'index.php#produk'
     ],
+    'shopee' => [
+        'label' => 'Shopee Resmi', 
+        'url' => SHOPEE_URL,
+        'target' => '_blank'
+    ],
     'artikel' => [
         'label' => 'Artikel Parenting', 
         'url' => $is_home ? '#artikel' : BASE_URL . 'index.php#artikel'
@@ -50,7 +55,8 @@ $nav_items = [
             <nav class="hidden lg:flex items-center gap-7 h-16 sm:h-20">
                 <?php foreach ($nav_items as $key => $item): ?>
                     <a href="<?= $item['url'] ?>" 
-                       @click="activeSection = '<?= $key ?>'"
+                       <?= !empty($item['target']) ? 'target="' . $item['target'] . '" rel="noopener"' : '' ?>
+                       @click="<?= empty($item['target']) ? "activeSection = '{$key}'" : '' ?>"
                        class="relative h-full flex items-center px-1 text-sm font-semibold transition-all duration-200 group"
                        :class="activeSection === '<?= $key ?>' ? 'text-ftl-forest font-bold' : 'text-gray-600 hover:text-ftl-forest'">
                         
@@ -75,11 +81,17 @@ $nav_items = [
                 <?php endforeach; ?>
             </nav>
 
-            <!-- Action CTAs (100% WhatsApp CS) -->
-            <div class="flex items-center gap-3">
+            <!-- Action CTAs (Shopee Resmi + WhatsApp CS) -->
+            <div class="flex items-center gap-2.5">
+                <a href="<?= SHOPEE_URL ?>" target="_blank" rel="noopener"
+                   class="hidden sm:inline-flex items-center gap-1.5 bg-[#EE4D2D] hover:bg-[#d73f21] text-white text-xs sm:text-sm font-bold px-4 py-2.5 rounded-full shadow-xs hover:scale-105 active:scale-95 transition-all">
+                    <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+                    <span>Shopee Resmi</span>
+                </a>
+
                 <button type="button" 
                         @click="orderModalOpen = true; selectedProduct = 'calming-rub-50g'" 
-                        class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs sm:text-sm font-bold px-5 py-2.5 rounded-full shadow-xs hover:scale-105 active:scale-95 transition-all">
+                        class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs sm:text-sm font-bold px-4 sm:px-5 py-2.5 rounded-full shadow-xs hover:scale-105 active:scale-95 transition-all">
                     <i data-lucide="message-circle" class="w-4 h-4"></i>
                     <span>Pesan via WA</span>
                 </button>
@@ -110,7 +122,8 @@ $nav_items = [
         <nav class="flex flex-col space-y-1.5">
             <?php foreach ($nav_items as $key => $item): ?>
                 <a href="<?= $item['url'] ?>" 
-                   @click="mobileMenuOpen = false; activeSection = '<?= $key ?>'"
+                   <?= !empty($item['target']) ? 'target="' . $item['target'] . '" rel="noopener"' : '' ?>
+                   @click="mobileMenuOpen = false; <?= empty($item['target']) ? "activeSection = '{$key}'" : '' ?>"
                    class="px-4 py-3 rounded-xl text-sm font-semibold transition-all flex items-center justify-between"
                    :class="activeSection === '<?= $key ?>' ? 'bg-emerald-50 text-ftl-forest font-bold border-l-4 border-ftl-forest' : 'text-gray-700 hover:bg-gray-50'">
                     <span><?= $item['label'] ?></span>
@@ -118,6 +131,11 @@ $nav_items = [
                 </a>
             <?php endforeach; ?>
             <div class="pt-3 border-t border-gray-100 flex flex-col gap-2">
+                <a href="<?= SHOPEE_URL ?>" target="_blank" rel="noopener"
+                   class="w-full flex items-center justify-center gap-2 bg-[#EE4D2D] text-white font-bold py-3 px-4 rounded-xl text-sm shadow">
+                    <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+                    <span>Beli di Shopee Resmi</span>
+                </a>
                 <button type="button" 
                         @click="mobileMenuOpen = false; orderModalOpen = true"
                         class="w-full flex items-center justify-center gap-2 bg-emerald-600 text-white font-bold py-3 px-4 rounded-xl text-sm shadow">
