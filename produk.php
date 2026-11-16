@@ -247,49 +247,41 @@ $main_product = $PRODUCTS['calming-rub-50g'];
     </div>
 </section>
 
-<!-- Bundling Packages Section -->
+<!-- Official Shopee & Order Banner Section -->
 <section class="py-16 bg-ftl-cream border-t border-ftl-sand">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center max-w-2xl mx-auto mb-10">
-            <h2 class="text-2xl sm:text-3xl font-extrabold font-display text-ftl-forest">
-                Paket Bundling & Hadiah Spesial
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-white rounded-3xl p-8 sm:p-10 border border-ftl-sand shadow-sm text-center relative overflow-hidden">
+            <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-100 text-[#EE4D2D] text-xs font-bold uppercase tracking-wider mb-3">
+                <i data-lucide="store" class="w-3.5 h-3.5"></i>
+                Official Store Shopee & WhatsApp
+            </div>
+            <h2 class="text-2xl sm:text-3xl font-extrabold font-display text-gray-900">
+                Beli For The Little di Toko Resmi
             </h2>
-            <p class="text-xs sm:text-sm text-gray-600 mt-1">
-                Pilihan hemat untuk stok jangka panjang dan kado menyambut kelahiran si kecil.
+            <p class="text-xs sm:text-sm text-gray-600 mt-2 max-w-xl mx-auto">
+                Dapatkan jaminan produk 100% asli, harga promo spesial Rp 79.000 (hemat 20%), dan pengiriman cepat ke seluruh Indonesia langsung ke alamat Bunda.
             </p>
-        </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <!-- Bundle Double -->
-            <div class="bg-white rounded-3xl p-6 border border-ftl-sand shadow-sm flex flex-col justify-between">
-                <div class="flex gap-4 items-center">
-                    <img src="<?= BASE_URL ?>assets/images/product-bundle-2.svg" class="w-24 h-24 object-contain">
-                    <div>
-                        <span class="bg-amber-100 text-amber-800 text-[10px] font-bold px-2 py-0.5 rounded-full">Hemat 24%</span>
-                        <h3 class="font-display font-bold text-lg text-gray-900 mt-1">Bundle Double Care (2x 50g)</h3>
-                        <p class="text-xs text-gray-500">Stok untuk rumah dan bepergian</p>
-                        <div class="mt-2 text-xl font-extrabold text-ftl-forest">Rp 145.000 <span class="text-xs text-gray-400 line-through">Rp 190.000</span></div>
-                    </div>
-                </div>
-                <button type="button" @click="orderModalOpen = true; selectedProduct = 'bundling-double-care'" class="mt-4 w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-2.5 rounded-xl text-xs flex items-center justify-center gap-2">
-                    <i data-lucide="message-circle" class="w-4 h-4"></i> Pesan Bundle Double Care via WA
+            <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 max-w-md mx-auto">
+                <button type="button" 
+                        @click="orderDirectWA()"
+                        class="w-full sm:w-auto flex-1 flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3.5 px-6 rounded-2xl shadow-md transition active:scale-95 text-xs sm:text-sm">
+                    <i data-lucide="message-circle" class="w-4 h-4"></i>
+                    <span>Pesan via WhatsApp</span>
                 </button>
+                <a href="<?= SHOPEE_URL ?>" target="_blank" rel="noopener"
+                   class="w-full sm:w-auto flex-1 flex items-center justify-center gap-2 bg-[#EE4D2D] hover:bg-[#d73f21] text-white font-bold py-3.5 px-6 rounded-2xl shadow-md transition active:scale-95 text-xs sm:text-sm text-center">
+                    <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+                    <span>Kunjungi Toko Shopee</span>
+                </a>
             </div>
 
-            <!-- Gift Box -->
-            <div class="bg-white rounded-3xl p-6 border border-ftl-sand shadow-sm flex flex-col justify-between">
-                <div class="flex gap-4 items-center">
-                    <img src="<?= BASE_URL ?>assets/images/product-gift-box.svg" class="w-24 h-24 object-contain">
-                    <div>
-                        <span class="bg-emerald-100 text-emerald-800 text-[10px] font-bold px-2 py-0.5 rounded-full">Gift Box Exclusive</span>
-                        <h3 class="font-display font-bold text-lg text-gray-900 mt-1">Newborn Comfort Gift Box</h3>
-                        <p class="text-xs text-gray-500">Kado istimewa dengan greeting card</p>
-                        <div class="mt-2 text-xl font-extrabold text-ftl-forest">Rp 189.000 <span class="text-xs text-gray-400 line-through">Rp 225.000</span></div>
-                    </div>
-                </div>
-                <button type="button" @click="orderModalOpen = true; selectedProduct = 'bundling-newborn-gift'" class="mt-4 w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-2.5 rounded-xl text-xs flex items-center justify-center gap-2">
-                    <i data-lucide="message-circle" class="w-4 h-4"></i> Pesan Newborn Gift Set via WA
-                </button>
+            <div class="mt-6 flex flex-wrap items-center justify-center gap-4 text-xs text-gray-500">
+                <span class="flex items-center gap-1"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600"></i> BPOM & Halal Resmi</span>
+                <span>•</span>
+                <span class="flex items-center gap-1"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600"></i> Kurir J&T, JNE, SiCepat</span>
+                <span>•</span>
+                <span class="flex items-center gap-1"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600"></i> Packaging Bubble Wrap Tebal</span>
             </div>
         </div>
     </div>

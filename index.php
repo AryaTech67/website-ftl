@@ -338,201 +338,164 @@ require_once __DIR__ . '/includes/navbar.php';
 </section>
 
 <!-- ======================================================= -->
-<!-- 3. KATALOG PRODUK PILIHAN (GAYA TENTANG ANAK)           -->
+<!-- 3. PRODUK UNGGULAN RESMI (FLAGSHIP SHOWCASE)             -->
 <!-- ======================================================= -->
-<section id="produk" class="py-16 sm:py-20 bg-ftl-cream border-b border-ftl-sand">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<section id="produk" class="py-16 sm:py-24 bg-gradient-to-b from-ftl-cream to-white border-b border-ftl-sand">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <!-- Header Section Gaya Tentang Anak -->
-        <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-10 sm:mb-12 gap-4">
-            <div>
-                <span class="inline-block px-3 py-1 rounded-full bg-emerald-100 text-ftl-forest text-[11px] font-bold uppercase tracking-wider mb-2">
-                    PRODUK RESMI FOR THE LITTLE
-                </span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold font-display text-ftl-forest tracking-tight">
-                    Koleksi Baby Calming Rub Alami
-                </h2>
-                <p class="text-sm sm:text-base text-gray-600 mt-1 max-w-xl">
-                    Krim telon alami dengan minyak pala nusantara & calendula. Meredakan kolik, kembung, dan menghangatkan lembut tanpa rasa lengket.
-                </p>
-            </div>
-            
-            <a href="<?= BASE_URL ?>produk.php" class="inline-flex items-center gap-1.5 text-sm font-bold text-ftl-forest hover:text-emerald-700 transition">
-                <span>Lihat Detail Produk Lengkap</span>
-                <i data-lucide="arrow-right" class="w-4 h-4"></i>
-            </a>
+        <!-- Header Section -->
+        <div class="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
+            <span class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-emerald-100 text-ftl-forest text-xs font-bold uppercase tracking-wider mb-3">
+                <i data-lucide="sparkles" class="w-3.5 h-3.5 text-emerald-600"></i>
+                PRODUK RESMI FOR THE LITTLE
+            </span>
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold font-display text-ftl-forest tracking-tight">
+                Baby Calming Rub Cream
+            </h2>
+            <p class="text-sm sm:text-base text-gray-600 mt-2">
+                Satu sentuhan hangat alami dengan khasiat Minyak Pala Nusantara & Calendula untuk redakan kembung dan buat tidur si kecil pulas.
+            </p>
         </div>
 
-        <!-- 3 Kartu Produk Utama -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
-            
-            <!-- Produk 1: Single Tube 50g -->
-            <div class="bg-white rounded-3xl p-6 sm:p-7 border border-ftl-sand shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group">
-                <div>
-                    <!-- Badge & Image -->
-                    <div class="relative w-full h-56 rounded-2xl bg-emerald-50/50 flex items-center justify-center p-4 mb-5 overflow-hidden group-hover:bg-emerald-50 transition-colors">
-                        <span class="absolute top-3 left-3 text-[11px] font-bold text-emerald-800 bg-white/90 backdrop-blur-xs px-3 py-1 rounded-full shadow-2xs">
-                            ⭐ Best Seller
+        <!-- Single Flagship Showcase Card -->
+        <div class="bg-white rounded-3xl sm:rounded-[36px] border border-ftl-sand shadow-xl shadow-emerald-950/5 overflow-hidden">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-0">
+                
+                <!-- Left: Product Visual Presentation (5 cols) -->
+                <div class="lg:col-span-5 bg-gradient-to-br from-emerald-50/70 via-ftl-light/50 to-teal-50/40 p-8 sm:p-12 flex flex-col justify-between items-center relative border-b lg:border-b-0 lg:border-r border-ftl-sand/60">
+                    <!-- Top Badges -->
+                    <div class="w-full flex items-center justify-between z-10">
+                        <span class="inline-flex items-center gap-1 bg-white/95 backdrop-blur-xs text-ftl-forest font-bold text-xs px-3 py-1.5 rounded-full shadow-xs border border-emerald-100">
+                            ⭐ Official Flagship
                         </span>
-                        <img src="<?= BASE_URL ?>assets/images/product-calming-rub.svg" alt="For The Little Baby Calming Rub Cream 50g" class="h-44 w-auto object-contain drop-shadow-md group-hover:scale-105 transition-transform duration-300">
-                    </div>
-
-                    <!-- Meta & Title -->
-                    <div class="space-y-2">
-                        <div class="flex items-center gap-2">
-                            <div class="flex text-amber-400 text-xs">★★★★★</div>
-                            <span class="text-xs text-gray-400 font-medium">4.9 • Teruji Dermatologis</span>
-                        </div>
-                        <h3 class="font-display font-bold text-xl text-gray-900 group-hover:text-ftl-forest transition-colors">
-                            Baby Calming Rub Cream 50g
-                        </h3>
-                        <p class="text-xs sm:text-sm text-gray-500 leading-relaxed">
-                            Krim telon alami pereda kolik, perut kembung, dan masuk angin. Cepat meresap, tidak lengket, hangat tahan lama.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Price & CTA -->
-                <div class="pt-6 border-t border-gray-100 mt-6">
-                    <div class="flex items-baseline justify-between mb-4">
-                        <div>
-                            <span class="text-xs text-gray-400 block line-through">Rp 99.000</span>
-                            <span class="text-2xl font-extrabold text-ftl-forest">Rp 79.000</span>
-                        </div>
-                        <span class="text-xs font-semibold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full">
+                        <span class="inline-flex items-center gap-1 bg-emerald-600 text-white font-extrabold text-xs px-3 py-1.5 rounded-full shadow-xs">
                             Netto 50g
                         </span>
                     </div>
 
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                        <button type="button" 
-                                @click="orderModalOpen = true; selectedProduct = 'calming-rub-50g'"
-                                class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-2.5 px-3 rounded-full text-xs shadow-xs transition flex items-center justify-center gap-1.5 active:scale-95">
-                            <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
-                            <span>Pesan WA</span>
-                        </button>
-                        <a href="<?= SHOPEE_URL ?>" target="_blank" rel="noopener"
-                           class="w-full bg-[#EE4D2D] hover:bg-[#d73f21] text-white font-bold py-2.5 px-3 rounded-full text-xs shadow-xs transition flex items-center justify-center gap-1.5 active:scale-95 text-center">
-                            <i data-lucide="shopping-bag" class="w-3.5 h-3.5"></i>
-                            <span>Beli Shopee</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Produk 2: Bundle Double Care -->
-            <div class="bg-white rounded-3xl p-6 sm:p-7 border-2 border-emerald-500/30 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group relative">
-                <!-- Highlight Pill -->
-                <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-amber-500 text-white text-[11px] font-extrabold px-3 py-1 rounded-full shadow-xs uppercase tracking-wide">
-                    🔥 Paling Banyak Dipilih
-                </div>
-
-                <div>
-                    <!-- Badge & Image -->
-                    <div class="relative w-full h-56 rounded-2xl bg-amber-50/50 flex items-center justify-center p-4 mb-5 overflow-hidden group-hover:bg-amber-50 transition-colors">
-                        <span class="absolute top-3 left-3 text-[11px] font-bold text-amber-800 bg-white/90 backdrop-blur-xs px-3 py-1 rounded-full shadow-2xs">
-                            Hemat 25%
-                        </span>
-                        <img src="<?= BASE_URL ?>assets/images/product-bundle-2.svg" alt="Bundle Double Care 2 pcs 50g" class="h-44 w-auto object-contain drop-shadow-md group-hover:scale-105 transition-transform duration-300">
+                    <!-- Main Product Image -->
+                    <div class="my-8 sm:my-10 relative group">
+                        <div class="absolute -inset-4 bg-emerald-200/30 rounded-full blur-2xl group-hover:bg-emerald-300/40 transition duration-500"></div>
+                        <img src="<?= BASE_URL ?>assets/images/product-calming-rub.svg" 
+                             alt="Baby Calming Rub Cream 50g - For The Little" 
+                             class="relative w-52 sm:w-64 h-auto object-contain drop-shadow-2xl hover:scale-105 transition-transform duration-300">
                     </div>
 
-                    <!-- Meta & Title -->
-                    <div class="space-y-2">
-                        <div class="flex items-center gap-2">
-                            <div class="flex text-amber-400 text-xs">★★★★★</div>
-                            <span class="text-xs text-gray-400 font-medium">5.0 • Paket Favorit</span>
+                    <!-- Bottom Certifications Pill -->
+                    <div class="w-full grid grid-cols-3 gap-2 pt-4 border-t border-emerald-200/50 text-center">
+                        <div class="bg-white/80 backdrop-blur-xs py-2 px-2 rounded-xl border border-emerald-100/60 shadow-2xs">
+                            <span class="block text-[11px] font-bold text-gray-800">BPOM RI</span>
+                            <span class="text-[10px] text-gray-500">Terdaftar Resmi</span>
                         </div>
-                        <h3 class="font-display font-bold text-xl text-gray-900 group-hover:text-ftl-forest transition-colors">
-                            Bundle Double Care (2 pcs)
+                        <div class="bg-white/80 backdrop-blur-xs py-2 px-2 rounded-xl border border-emerald-100/60 shadow-2xs">
+                            <span class="block text-[11px] font-bold text-emerald-800">Halal</span>
+                            <span class="text-[10px] text-gray-500">Indonesia</span>
+                        </div>
+                        <div class="bg-white/80 backdrop-blur-xs py-2 px-2 rounded-xl border border-emerald-100/60 shadow-2xs">
+                            <span class="block text-[11px] font-bold text-gray-800">0+ Bulan</span>
+                            <span class="text-[10px] text-gray-500">Aman Newborn</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Product Information & Purchase CTAs (7 cols) -->
+                <div class="lg:col-span-7 p-6 sm:p-10 lg:p-12 flex flex-col justify-between">
+                    <div>
+                        <!-- Rating & Category -->
+                        <div class="flex items-center gap-2 mb-2">
+                            <div class="flex text-amber-400 text-sm">★★★★★</div>
+                            <span class="text-xs font-bold text-gray-800">4.9 / 5.0</span>
+                            <span class="text-xs text-gray-400">• 500+ Bunda Puas di Shopee & WA</span>
+                        </div>
+
+                        <!-- Product Title -->
+                        <h3 class="text-2xl sm:text-3xl font-extrabold font-display text-gray-900 tracking-tight">
+                            Baby Calming Rub Cream 50g
                         </h3>
-                        <p class="text-xs sm:text-sm text-gray-500 leading-relaxed">
-                            Paket hemat 2 tube 50g. 1 untuk persediaan di kamar bayi, 1 selalu siap di diaper bag saat bepergian.
+                        <p class="text-xs sm:text-sm text-gray-500 mt-1">
+                            Krim telon alami dengan minyak pala nusantara & ekstrak calendula organik.
                         </p>
-                    </div>
-                </div>
 
-                <!-- Price & CTA -->
-                <div class="pt-6 border-t border-gray-100 mt-6">
-                    <div class="flex items-baseline justify-between mb-4">
-                        <div>
-                            <span class="text-xs text-gray-400 block line-through">Rp 193.000</span>
-                            <span class="text-2xl font-extrabold text-ftl-forest">Rp 145.000</span>
+                        <!-- Price Banner -->
+                        <div class="mt-5 p-4 rounded-2xl bg-ftl-light/80 border border-emerald-100 flex flex-wrap items-baseline justify-between gap-3">
+                            <div class="flex items-baseline gap-2.5">
+                                <span class="text-xs sm:text-sm text-gray-400 line-through">Rp 99.000</span>
+                                <span class="text-2xl sm:text-3xl font-extrabold text-ftl-forest">Rp 79.000</span>
+                                <span class="text-xs font-bold text-amber-800 bg-amber-100 px-2.5 py-0.5 rounded-full">
+                                    Hemat 20%
+                                </span>
+                            </div>
+                            <span class="text-xs font-semibold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full flex items-center gap-1">
+                                <i data-lucide="check" class="w-3 h-3"></i> Ready Stock
+                            </span>
                         </div>
-                        <span class="text-xs font-semibold text-amber-800 bg-amber-100 px-2.5 py-1 rounded-full">
-                            Isi 2 Tube (100g)
-                        </span>
+
+                        <!-- Keunggulan Produk Checklists -->
+                        <div class="mt-6 space-y-3">
+                            <h4 class="text-xs font-bold text-gray-700 uppercase tracking-wider">
+                                Manfaat Utama untuk Si Kecil:
+                            </h4>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs sm:text-sm text-gray-700">
+                                <div class="flex items-start gap-2">
+                                    <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                                    <span>Meredakan perut kembung, begah & kolik seketika</span>
+                                </div>
+                                <div class="flex items-start gap-2">
+                                    <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                                    <span>Tekstur cream cepat meresap, <strong>0% rasa lengket</strong></span>
+                                </div>
+                                <div class="flex items-start gap-2">
+                                    <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                                    <span>Aroma pala alami menenangkan, tidur lebih nyenyak</span>
+                                </div>
+                                <div class="flex items-start gap-2">
+                                    <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                                    <span>Hypoallergenic, ramah kulit sensitif & newborn</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Info Auto Ongkir Box -->
+                        <div class="mt-6 p-3.5 rounded-2xl bg-emerald-50/60 border border-emerald-100 flex items-center gap-3 text-xs text-emerald-900">
+                            <div class="w-8 h-8 rounded-xl bg-emerald-600 text-white flex items-center justify-center shrink-0">
+                                <i data-lucide="map-pin" class="w-4 h-4"></i>
+                            </div>
+                            <div>
+                                <span class="font-bold block">Pesan Mudah dengan Hitung Ongkir Otomatis</span>
+                                <span class="text-emerald-700 text-[11px]">Cukup klik pesan via WA, GPS/kota Anda akan otomatis mendeteksi tarif J&T, JNE, dan SiCepat.</span>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                        <button type="button" 
-                                @click="orderModalOpen = true; selectedProduct = 'bundling-double-care'"
-                                class="w-full bg-ftl-forest hover:bg-emerald-800 text-white font-bold py-2.5 px-3 rounded-full text-xs shadow-xs transition flex items-center justify-center gap-1.5 active:scale-95">
-                            <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
-                            <span>Pesan WA</span>
-                        </button>
-                        <a href="<?= SHOPEE_URL ?>" target="_blank" rel="noopener"
-                           class="w-full bg-[#EE4D2D] hover:bg-[#d73f21] text-white font-bold py-2.5 px-3 rounded-full text-xs shadow-xs transition flex items-center justify-center gap-1.5 active:scale-95 text-center">
-                            <i data-lucide="shopping-bag" class="w-3.5 h-3.5"></i>
-                            <span>Beli Shopee</span>
-                        </a>
+                    <!-- Dual CTAs: WhatsApp + Shopee -->
+                    <div class="mt-8 pt-6 border-t border-gray-100">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <button type="button" 
+                                    @click="orderModalOpen = true; selectedProduct = 'calming-rub-50g'"
+                                    class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3.5 px-4 rounded-2xl text-xs sm:text-sm shadow-md hover:shadow-emerald-600/30 transition flex items-center justify-center gap-2 active:scale-95 group cursor-pointer">
+                                <i data-lucide="message-circle" class="w-4 h-4 group-hover:scale-110 transition-transform"></i>
+                                <span>Pesan via WhatsApp (Hitung Ongkir)</span>
+                            </button>
+                            <a href="<?= SHOPEE_URL ?>" target="_blank" rel="noopener"
+                               class="w-full bg-[#EE4D2D] hover:bg-[#d73f21] text-white font-bold py-3.5 px-4 rounded-2xl text-xs sm:text-sm shadow-md hover:shadow-orange-600/30 transition flex items-center justify-center gap-2 active:scale-95 text-center group">
+                                <i data-lucide="shopping-bag" class="w-4 h-4 group-hover:scale-110 transition-transform"></i>
+                                <span>Beli di Shopee Resmi</span>
+                            </a>
+                        </div>
+                        <div class="mt-3 flex items-center justify-center sm:justify-start gap-4 text-[11px] text-gray-500">
+                            <span class="flex items-center gap-1"><i data-lucide="truck" class="w-3.5 h-3.5 text-emerald-600"></i> J&T • JNE • SiCepat</span>
+                            <span>•</span>
+                            <span class="flex items-center gap-1"><i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-600"></i> Garansi 100% Asli</span>
+                            <span>•</span>
+                            <a href="<?= BASE_URL ?>produk.php" class="text-ftl-forest font-semibold hover:underline flex items-center gap-0.5">
+                                Detail Lengkap <i data-lucide="chevron-right" class="w-3 h-3"></i>
+                            </a>
+                        </div>
                     </div>
+
                 </div>
+
             </div>
-
-            <!-- Produk 3: Newborn Gift Box -->
-            <div class="bg-white rounded-3xl p-6 sm:p-7 border border-ftl-sand shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group">
-                <div>
-                    <!-- Badge & Image -->
-                    <div class="relative w-full h-56 rounded-2xl bg-teal-50/50 flex items-center justify-center p-4 mb-5 overflow-hidden group-hover:bg-teal-50 transition-colors">
-                        <span class="absolute top-3 left-3 text-[11px] font-bold text-teal-800 bg-white/90 backdrop-blur-xs px-3 py-1 rounded-full shadow-2xs">
-                            🎁 Special Gift
-                        </span>
-                        <img src="<?= BASE_URL ?>assets/images/product-gift-box.svg" alt="Newborn Gift Box Special" class="h-44 w-auto object-contain drop-shadow-md group-hover:scale-105 transition-transform duration-300">
-                    </div>
-
-                    <!-- Meta & Title -->
-                    <div class="space-y-2">
-                        <div class="flex items-center gap-2">
-                            <div class="flex text-amber-400 text-xs">★★★★★</div>
-                            <span class="text-xs text-gray-400 font-medium">4.9 • Kado Istimewa</span>
-                        </div>
-                        <h3 class="font-display font-bold text-xl text-gray-900 group-hover:text-ftl-forest transition-colors">
-                            Newborn Gift Box Set
-                        </h3>
-                        <p class="text-xs sm:text-sm text-gray-500 leading-relaxed">
-                            Kado spesial menyambut kelahiran si kecil. Sudah termasuk hardbox premium, pita eksklusif, & kartu ucapan.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Price & CTA -->
-                <div class="pt-6 border-t border-gray-100 mt-6">
-                    <div class="flex items-baseline justify-between mb-4">
-                        <div>
-                            <span class="text-xs text-gray-400 block line-through">Rp 225.000</span>
-                            <span class="text-2xl font-extrabold text-ftl-forest">Rp 189.000</span>
-                        </div>
-                        <span class="text-xs font-semibold text-teal-700 bg-teal-50 px-2.5 py-1 rounded-full">
-                            Free Gift Card
-                        </span>
-                    </div>
-
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                        <button type="button" 
-                                @click="orderModalOpen = true; selectedProduct = 'bundling-newborn-gift'"
-                                class="w-full bg-teal-600 hover:bg-teal-700 text-white font-bold py-2.5 px-3 rounded-full text-xs shadow-xs transition flex items-center justify-center gap-1.5 active:scale-95">
-                            <i data-lucide="gift" class="w-3.5 h-3.5"></i>
-                            <span>Pesan WA</span>
-                        </button>
-                        <a href="<?= SHOPEE_URL ?>" target="_blank" rel="noopener"
-                           class="w-full bg-[#EE4D2D] hover:bg-[#d73f21] text-white font-bold py-2.5 px-3 rounded-full text-xs shadow-xs transition flex items-center justify-center gap-1.5 active:scale-95 text-center">
-                            <i data-lucide="shopping-bag" class="w-3.5 h-3.5"></i>
-                            <span>Beli Shopee</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
         </div>
 
     </div>

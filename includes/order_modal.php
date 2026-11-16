@@ -286,18 +286,28 @@ require_once __DIR__ . '/../config.php';
                 
                 <!-- 1. PILIH PRODUK & JUMLAH -->
                 <div class="space-y-3">
-                    <div>
-                        <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5 flex items-center justify-between">
-                            <span>1. Pilih Produk</span>
-                            <span class="text-[10px] text-emerald-700 font-semibold lowercase">100% original fTL</span>
-                        </label>
-                        <select x-model="product" 
-                                @change="if(city) calculateOngkir()"
-                                class="w-full rounded-xl border border-gray-300 bg-white px-3.5 py-2.5 text-xs sm:text-sm font-semibold text-gray-800 focus:border-ftl-forest focus:outline-none focus:ring-2 focus:ring-emerald-200">
-                            <option value="calming-rub-50g">Baby Calming Rub Cream 50g - Rp 79.000</option>
-                            <option value="bundling-double-care">Bundle Double Care (2x 50g) - Rp 145.000 (Hemat 24%)</option>
-                            <option value="bundling-newborn-gift">Newborn Comfort Gift Box - Rp 189.000</option>
-                        </select>
+                    <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider flex items-center justify-between">
+                        <span>1. Produk yang Dipesan</span>
+                        <span class="text-[10px] text-emerald-700 font-semibold uppercase tracking-wider">100% Original FTL</span>
+                    </label>
+
+                    <!-- Product Card Banner -->
+                    <div class="p-3 sm:p-3.5 rounded-2xl bg-gradient-to-r from-emerald-50/70 to-ftl-light/60 border border-emerald-100 flex items-center gap-3">
+                        <div class="w-14 h-14 rounded-xl bg-white p-1.5 flex items-center justify-center shrink-0 border border-emerald-100/80 shadow-2xs">
+                            <img src="<?= BASE_URL ?>assets/images/product-calming-rub.svg" alt="Baby Calming Rub Cream 50g" class="h-full w-auto object-contain">
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <div class="flex items-center gap-1.5">
+                                <span class="bg-emerald-600 text-white text-[9px] font-extrabold px-1.5 py-0.5 rounded">OFFICIAL</span>
+                                <span class="text-[10px] text-gray-500">Netto 50g • BPOM Resmi</span>
+                            </div>
+                            <h4 class="font-bold text-xs sm:text-sm text-gray-900 truncate">Baby Calming Rub Cream (50g)</h4>
+                            <div class="flex items-baseline gap-1.5 mt-0.5">
+                                <span class="text-xs sm:text-sm font-extrabold text-ftl-forest">Rp 79.000</span>
+                                <span class="text-[11px] text-gray-400 line-through">Rp 99.000</span>
+                                <span class="text-[10px] font-bold text-amber-800 bg-amber-100 px-1.5 py-0.2 rounded">Hemat 20%</span>
+                            </div>
+                        </div>
                     </div>
 
                     <!-- Quantity Stepper & Price -->
