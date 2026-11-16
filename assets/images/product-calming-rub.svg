@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E8F4EC"/>
+      <stop offset="100%" stop-color="#FAF7F2"/>
+    </linearGradient>
+    <linearGradient id="tubeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="50%" stop-color="#F9F9F8"/>
+      <stop offset="100%" stop-color="#EDEDE8"/>
+    </linearGradient>
+    <linearGradient id="capGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#2D5A43"/>
+      <stop offset="50%" stop-color="#3B7056"/>
+      <stop offset="100%" stop-color="#204030"/>
+    </linearGradient>
+    <filter id="softShadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="15" stdDeviation="15" flood-color="#1C2822" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+
+  <!-- Background Circle / Glow -->
+  <circle cx="300" cy="300" r="240" fill="url(#bgGrad)"/>
+  
+  <!-- Decorative Leaves -->
+  <path d="M120 180 C100 130 140 100 190 120 C180 160 150 190 120 180 Z" fill="#A8D5BA" opacity="0.6"/>
+  <path d="M480 380 C520 350 510 300 460 320 C460 360 480 390 480 380 Z" fill="#D2E8D8" opacity="0.7"/>
+  <circle cx="450" cy="180" r="16" fill="#F4DEB8" opacity="0.8"/>
+  <circle cx="150" cy="420" r="22" fill="#E8B87A" opacity="0.5"/>
+
+  <!-- Tube Shadow -->
+  <ellipse cx="300" cy="490" rx="90" ry="18" fill="#D3C9BD" opacity="0.6"/>
+
+  <!-- The Cream Tube Body -->
+  <g filter="url(#softShadow)">
+    <!-- Main Tube Shape (wider top, tapering down to cap) -->
+    <path d="M220 150 L380 150 L350 420 L250 420 Z" fill="url(#tubeGrad)" rx="20"/>
+    
+    <!-- Top Crimped Seal -->
+    <path d="M210 135 L390 135 L380 155 L220 155 Z" fill="#D1CEC7"/>
+    <line x1="230" y1="135" x2="230" y2="155" stroke="#B8B4AC" stroke-width="2"/>
+    <line x1="250" y1="135" x2="250" y2="155" stroke="#B8B4AC" stroke-width="2"/>
+    <line x1="270" y1="135" x2="270" y2="155" stroke="#B8B4AC" stroke-width="2"/>
+    <line x1="290" y1="135" x2="290" y2="155" stroke="#B8B4AC" stroke-width="2"/>
+    <line x1="310" y1="135" x2="310" y2="155" stroke="#B8B4AC" stroke-width="2"/>
+    <line x1="330" y1="135" x2="330" y2="155" stroke="#B8B4AC" stroke-width="2"/>
+    <line x1="350" y1="135" x2="350" y2="155" stroke="#B8B4AC" stroke-width="2"/>
+    <line x1="370" y1="135" x2="370" y2="155" stroke="#B8B4AC" stroke-width="2"/>
+
+    <!-- Green Cap (Base) -->
+    <rect x="245" y="420" width="110" height="45" rx="8" fill="url(#capGrad)"/>
+    <rect x="255" y="465" width="90" height="12" rx="4" fill="#1C3829"/>
+
+    <!-- Tube Label Artwork -->
+    <!-- Brand Name -->
+    <text x="300" y="215" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-size="19" font-weight="bold" fill="#264D3B" text-anchor="middle" letter-spacing="1">FOR THE LITTLE</text>
+    <text x="300" y="235" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-size="9" font-weight="600" fill="#8D6E54" text-anchor="middle" letter-spacing="2">INDONESIA</text>
+
+    <!-- Product Title -->
+    <rect x="235" y="255" width="130" height="2" fill="#E2DACF"/>
+    <text x="300" y="285" font-family="'Quicksand', Arial, sans-serif" font-size="16" font-weight="bold" fill="#1C2822" text-anchor="middle">BABY CALMING</text>
+    <text x="300" y="305" font-family="'Quicksand', Arial, sans-serif" font-size="15" font-weight="bold" fill="#3B7056" text-anchor="middle">RUB CREAM</text>
+    
+    <!-- Botanical Motif -->
+    <circle cx="300" cy="340" r="18" fill="#EEF6F0"/>
+    <path d="M300 328 C294 336 295 348 300 352 C305 348 306 336 300 328 Z" fill="#3B7056"/>
+    <path d="M292 342 C298 340 306 345 308 348" stroke="#8D6E54" stroke-width="1.5" fill="none"/>
+
+    <!-- Claim Badge -->
+    <text x="300" y="375" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-size="9" font-weight="600" fill="#6B7280" text-anchor="middle">With Nutmeg &amp; Calendula</text>
+    <text x="300" y="392" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-size="8.5" font-weight="bold" fill="#D97A29" text-anchor="middle">SAFE FOR NEWBORN • 50g</text>
+  </g>
+</svg>

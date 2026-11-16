@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F2F8F4"/>
+      <stop offset="100%" stop-color="#FAF5EE"/>
+    </linearGradient>
+    <filter id="softShadow2" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="15" stdDeviation="12" flood-color="#1C2822" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+  <circle cx="300" cy="300" r="240" fill="url(#bgGrad2)"/>
+  
+  <!-- Ribbon Badge -->
+  <rect x="220" y="80" width="160" height="34" rx="17" fill="#D97A29"/>
+  <text x="300" y="102" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-size="12" font-weight="bold" fill="#FFFFFF" text-anchor="middle">BUNDLE 2x 50G (HEMAT)</text>
+
+  <!-- Tube 1 (Left tilted) -->
+  <g transform="translate(190, 270) rotate(-12) translate(-190, -270)" filter="url(#softShadow2)">
+    <path d="M150 170 L250 170 L230 380 L170 380 Z" fill="#FFFFFF"/>
+    <rect x="145" y="160" width="110" height="14" fill="#D1CEC7"/>
+    <rect x="165" y="380" width="70" height="35" rx="6" fill="#3B7056"/>
+    <text x="200" y="220" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="bold" fill="#264D3B" text-anchor="middle">FOR THE LITTLE</text>
+    <text x="200" y="270" font-family="'Quicksand', sans-serif" font-size="12" font-weight="bold" fill="#1C2822" text-anchor="middle">CALMING RUB</text>
+    <circle cx="200" cy="310" r="12" fill="#EEF6F0"/>
+    <text x="200" y="345" font-family="'Plus Jakarta Sans', sans-serif" font-size="8" font-weight="bold" fill="#D97A29" text-anchor="middle">50g • Newborn</text>
+  </g>
+
+  <!-- Tube 2 (Right tilted) -->
+  <g transform="translate(390, 270) rotate(10) translate(-390, -270)" filter="url(#softShadow2)">
+    <path d="M350 170 L450 170 L430 380 L370 380 Z" fill="#FFFFFF"/>
+    <rect x="345" y="160" width="110" height="14" fill="#D1CEC7"/>
+    <rect x="365" y="380" width="70" height="35" rx="6" fill="#3B7056"/>
+    <text x="400" y="220" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="bold" fill="#264D3B" text-anchor="middle">FOR THE LITTLE</text>
+    <text x="400" y="270" font-family="'Quicksand', sans-serif" font-size="12" font-weight="bold" fill="#1C2822" text-anchor="middle">CALMING RUB</text>
+    <circle cx="400" cy="310" r="12" fill="#EEF6F0"/>
+    <text x="400" y="345" font-family="'Plus Jakarta Sans', sans-serif" font-size="8" font-weight="bold" fill="#D97A29" text-anchor="middle">50g • Newborn</text>
+  </g>
+
+  <ellipse cx="300" cy="480" rx="140" ry="18" fill="#D8D0C4" opacity="0.6"/>
+</svg>
