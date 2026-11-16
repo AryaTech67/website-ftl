@@ -281,43 +281,43 @@ require_once __DIR__ . '/includes/navbar.php';
 <!-- ======================================================= -->
 <!-- 2. EMPAT PILAR KATEGORI PRODUK (MIRIP TENTANG ANAK)     -->
 <!-- ======================================================= -->
-<section class="py-12 bg-ftl-cream">
+<section class="py-10 sm:py-14 bg-ftl-cream border-b border-ftl-sand/60">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div class="text-center max-w-2xl mx-auto mb-8 space-y-1">
-            <span class="text-xs font-bold text-ftl-accent uppercase tracking-widest">
-                PILIHAN PRODUK
+        <div class="text-center max-w-2xl mx-auto mb-8 sm:mb-10 space-y-1.5">
+            <span class="inline-block px-3 py-1 rounded-full bg-emerald-100 text-ftl-forest text-[11px] font-bold uppercase tracking-wider">
+                PRODUK PILIHAN TERBAIK
             </span>
             <h2 class="text-2xl sm:text-3xl font-extrabold font-display text-ftl-forest">
                 Kategori Produk Persembahan Ahlinya
             </h2>
-            <p class="text-xs sm:text-sm text-gray-500">
-                Formula lembut teruji klinis untuk setiap momen tumbuh kembang si kecil.
+            <p class="text-xs sm:text-sm text-gray-500 max-w-lg mx-auto">
+                Formula lembut berbahan alami Nusantara yang teruji klinis untuk kenyamanan dan kehangatan si kecil setiap hari.
             </p>
         </div>
 
-        <!-- 4 Kolom Pilar Kartu -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Di Mobile: Scroll ke samping (Swipeable horizontal), Di Desktop: Grid 4 Kolom Rapi -->
+        <div class="flex overflow-x-auto no-scrollbar snap-mandatory gap-4 pb-2 sm:grid sm:grid-cols-4 sm:gap-6">
             
             <!-- Pilar 1: Calming Rub Cream 50g -->
-            <div class="bg-white rounded-3xl p-6 border border-ftl-sand shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+            <div class="w-[200px] sm:w-auto flex-shrink-0 snap-start bg-white rounded-3xl p-5 border border-ftl-sand shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
                 <div class="text-center space-y-3">
                     <div class="w-24 h-24 mx-auto rounded-2xl bg-emerald-50 flex items-center justify-center p-2 group-hover:scale-105 transition">
-                        <img src="<?= BASE_URL ?>assets/images/product-calming-rub.svg" class="h-20 w-auto object-contain">
+                        <img src="<?= BASE_URL ?>assets/images/product-calming-rub.svg" class="h-20 w-auto object-contain drop-shadow-sm">
                     </div>
                     <div>
-                        <span class="text-[11px] font-bold text-emerald-600 uppercase tracking-wider block">Best Seller ⭐</span>
-                        <h3 class="font-display font-bold text-lg text-gray-900 mt-1">Calming Rub (50g)</h3>
-                        <p class="text-xs text-gray-500 mt-1 line-clamp-2">Krim telon alami dengan minyak pala nusantara untuk meredakan kolik.</p>
+                        <span class="text-[10px] font-bold text-emerald-700 bg-emerald-100/80 px-2.5 py-0.5 rounded-full inline-block">Best Seller ⭐</span>
+                        <h3 class="font-display font-bold text-base text-gray-900 mt-1.5">Calming Rub 50g</h3>
+                        <p class="text-xs text-gray-500 mt-1 line-clamp-2">Krim telon alami dengan minyak pala nusantara untuk redakan kolik.</p>
                     </div>
-                    <div class="text-lg font-extrabold text-ftl-forest">
+                    <div class="text-lg font-extrabold text-ftl-forest pt-1">
                         Rp 79.000
                     </div>
                 </div>
-                <div class="pt-4 border-t border-gray-100 mt-4">
+                <div class="pt-4 border-t border-gray-100 mt-3">
                     <button type="button" 
                             @click="orderModalOpen = true; selectedProduct = 'calming-rub-50g'"
-                            class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-2.5 px-4 rounded-full text-xs shadow-xs transition flex items-center justify-center gap-1.5">
+                            class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-2.5 px-4 rounded-full text-xs shadow-xs transition flex items-center justify-center gap-1.5 active:scale-95">
                         <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
                         <span>Beli Sekarang</span>
                     </button>
@@ -325,24 +325,24 @@ require_once __DIR__ . '/includes/navbar.php';
             </div>
 
             <!-- Pilar 2: Bundle Double Care (Hemat 24%) -->
-            <div class="bg-white rounded-3xl p-6 border border-ftl-sand shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+            <div class="w-[200px] sm:w-auto flex-shrink-0 snap-start bg-white rounded-3xl p-5 border border-ftl-sand shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
                 <div class="text-center space-y-3">
                     <div class="w-24 h-24 mx-auto rounded-2xl bg-amber-50 flex items-center justify-center p-2 group-hover:scale-105 transition">
-                        <img src="<?= BASE_URL ?>assets/images/product-bundle-2.svg" class="h-20 w-auto object-contain">
+                        <img src="<?= BASE_URL ?>assets/images/product-bundle-2.svg" class="h-20 w-auto object-contain drop-shadow-sm">
                     </div>
                     <div>
-                        <span class="text-[11px] font-bold text-amber-600 uppercase tracking-wider block">Hemat 24% 🔥</span>
-                        <h3 class="font-display font-bold text-lg text-gray-900 mt-1">Bundle Double Care</h3>
+                        <span class="text-[10px] font-bold text-amber-800 bg-amber-100/80 px-2.5 py-0.5 rounded-full inline-block">Hemat 24% 🔥</span>
+                        <h3 class="font-display font-bold text-base text-gray-900 mt-1.5">Bundle Double Care</h3>
                         <p class="text-xs text-gray-500 mt-1 line-clamp-2">Paket 2 pcs 50g untuk persediaan di rumah dan di tas bepergian.</p>
                     </div>
-                    <div class="text-lg font-extrabold text-ftl-forest">
+                    <div class="text-lg font-extrabold text-ftl-forest pt-1">
                         Rp 145.000 <span class="text-xs text-gray-400 font-normal line-through">Rp 190.000</span>
                     </div>
                 </div>
-                <div class="pt-4 border-t border-gray-100 mt-4">
+                <div class="pt-4 border-t border-gray-100 mt-3">
                     <button type="button" 
                             @click="orderModalOpen = true; selectedProduct = 'bundling-double-care'"
-                            class="w-full bg-amber-500 hover:bg-amber-600 text-white font-bold py-2.5 px-4 rounded-full text-xs shadow-xs transition flex items-center justify-center gap-1.5">
+                            class="w-full bg-amber-500 hover:bg-amber-600 text-white font-bold py-2.5 px-4 rounded-full text-xs shadow-xs transition flex items-center justify-center gap-1.5 active:scale-95">
                         <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
                         <span>Pilih Paket</span>
                     </button>
@@ -350,24 +350,24 @@ require_once __DIR__ . '/includes/navbar.php';
             </div>
 
             <!-- Pilar 3: Newborn Gift Box -->
-            <div class="bg-white rounded-3xl p-6 border border-ftl-sand shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+            <div class="w-[200px] sm:w-auto flex-shrink-0 snap-start bg-white rounded-3xl p-5 border border-ftl-sand shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
                 <div class="text-center space-y-3">
                     <div class="w-24 h-24 mx-auto rounded-2xl bg-teal-50 flex items-center justify-center p-2 group-hover:scale-105 transition">
-                        <img src="<?= BASE_URL ?>assets/images/product-gift-box.svg" class="h-20 w-auto object-contain">
+                        <img src="<?= BASE_URL ?>assets/images/product-gift-box.svg" class="h-20 w-auto object-contain drop-shadow-sm">
                     </div>
                     <div>
-                        <span class="text-[11px] font-bold text-teal-600 uppercase tracking-wider block">Special Gift 🎁</span>
-                        <h3 class="font-display font-bold text-lg text-gray-900 mt-1">Newborn Gift Box</h3>
+                        <span class="text-[10px] font-bold text-teal-800 bg-teal-100/80 px-2.5 py-0.5 rounded-full inline-block">Special Gift 🎁</span>
+                        <h3 class="font-display font-bold text-base text-gray-900 mt-1.5">Newborn Gift Box</h3>
                         <p class="text-xs text-gray-500 mt-1 line-clamp-2">Kado istimewa kelahiran dengan box elegan & kartu ucapan selamat.</p>
                     </div>
-                    <div class="text-lg font-extrabold text-ftl-forest">
+                    <div class="text-lg font-extrabold text-ftl-forest pt-1">
                         Rp 189.000
                     </div>
                 </div>
-                <div class="pt-4 border-t border-gray-100 mt-4">
+                <div class="pt-4 border-t border-gray-100 mt-3">
                     <button type="button" 
                             @click="orderModalOpen = true; selectedProduct = 'bundling-newborn-gift'"
-                            class="w-full bg-teal-600 hover:bg-teal-700 text-white font-bold py-2.5 px-4 rounded-full text-xs shadow-xs transition flex items-center justify-center gap-1.5">
+                            class="w-full bg-teal-600 hover:bg-teal-700 text-white font-bold py-2.5 px-4 rounded-full text-xs shadow-xs transition flex items-center justify-center gap-1.5 active:scale-95">
                         <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
                         <span>Kirim Hadiah</span>
                     </button>
@@ -375,23 +375,23 @@ require_once __DIR__ . '/includes/navbar.php';
             </div>
 
             <!-- Pilar 4: Kemitraan & Reseller -->
-            <div class="bg-white rounded-3xl p-6 border border-ftl-sand shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+            <div class="w-[200px] sm:w-auto flex-shrink-0 snap-start bg-white rounded-3xl p-5 border border-ftl-sand shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
                 <div class="text-center space-y-3">
                     <div class="w-24 h-24 mx-auto rounded-2xl bg-rose-50 flex items-center justify-center p-2 group-hover:scale-105 transition">
                         <i data-lucide="users" class="w-12 h-12 text-rose-600"></i>
                     </div>
                     <div>
-                        <span class="text-[11px] font-bold text-rose-600 uppercase tracking-wider block">Komunitas 💼</span>
-                        <h3 class="font-display font-bold text-lg text-gray-900 mt-1">Mitra & Reseller</h3>
+                        <span class="text-[10px] font-bold text-rose-800 bg-rose-100/80 px-2.5 py-0.5 rounded-full inline-block">Komunitas 💼</span>
+                        <h3 class="font-display font-bold text-base text-gray-900 mt-1.5">Mitra & Reseller</h3>
                         <p class="text-xs text-gray-500 mt-1 line-clamp-2">Mulai usaha dari rumah dengan produk repeat order harian tinggi.</p>
                     </div>
-                    <div class="text-sm font-bold text-rose-600">
+                    <div class="text-sm font-bold text-rose-600 pt-1">
                         Mulai 12 pcs
                     </div>
                 </div>
-                <div class="pt-4 border-t border-gray-100 mt-4">
+                <div class="pt-4 border-t border-gray-100 mt-3">
                     <a href="<?= BASE_URL ?>reseller.php"
-                       class="w-full bg-rose-600 hover:bg-rose-700 text-white font-bold py-2.5 px-4 rounded-full text-xs shadow-xs transition flex items-center justify-center gap-1.5">
+                       class="w-full bg-rose-600 hover:bg-rose-700 text-white font-bold py-2.5 px-4 rounded-full text-xs shadow-xs transition flex items-center justify-center gap-1.5 text-center">
                         <i data-lucide="briefcase" class="w-3.5 h-3.5"></i>
                         <span>Gabung Mitra</span>
                     </a>
