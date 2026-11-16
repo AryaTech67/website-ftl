@@ -3,19 +3,18 @@
 $nav_items = [
     'home' => ['label' => 'Beranda', 'url' => BASE_URL . 'index.php'],
     'produk' => ['label' => 'Produk', 'url' => BASE_URL . 'produk.php'],
-    'belanja' => ['label' => 'Belanja', 'url' => SHOPEE_URL, 'target' => '_blank'],
-    'artikel' => ['label' => 'Artikel', 'url' => BASE_URL . 'artikel.php'],
+    'artikel' => ['label' => 'Artikel Parenting', 'url' => BASE_URL . 'artikel.php'],
     'tentang' => ['label' => 'Tentang Kami', 'url' => BASE_URL . 'tentang-kami.php'],
-    'reseller' => ['label' => 'Reseller', 'url' => BASE_URL . 'reseller.php'],
+    'reseller' => ['label' => 'Kemitraan & Reseller', 'url' => BASE_URL . 'reseller.php'],
 ];
 ?>
 
-<!-- Main Header (Persis Bersih Seperti Tentang Anak, Tanpa Bar Atas) -->
+<!-- Main Header (Bersih Seperti Tentang Anak, 100% Fokus WhatsApp) -->
 <header class="sticky top-0 z-40 bg-white border-b border-gray-100 shadow-xs">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-16 sm:h-20">
             
-            <!-- Brand Logo (Gaya Tentang Anak: Bersih & Menarik) -->
+            <!-- Brand Logo -->
             <a href="<?= BASE_URL ?>index.php" class="flex items-center gap-2.5 group">
                 <div class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-ftl-forest to-ftl-sage flex items-center justify-center text-white shadow-xs group-hover:scale-105 transition-transform duration-300">
                     <i data-lucide="sprout" class="w-5 h-5"></i>
@@ -25,51 +24,34 @@ $nav_items = [
                         For The Little
                     </span>
                     <span class="text-[9px] tracking-wider uppercase text-ftl-earth font-semibold mt-1">
-                        Indonesia • BabyCare
+                        Indonesia • Natural BabyCare
                     </span>
                 </div>
             </a>
 
-            <!-- Desktop Navigation Links (Persis Style Menu Tentang Anak) -->
+            <!-- Desktop Navigation Links -->
             <nav class="hidden lg:flex items-center gap-8">
                 <?php foreach ($nav_items as $key => $item): ?>
                     <a href="<?= $item['url'] ?>" 
-                       <?= isset($item['target']) ? 'target="' . $item['target'] . '" rel="noopener"' : '' ?>
                        class="text-sm font-semibold transition-colors duration-200 py-1 <?= ($current_page === $key) ? 'text-ftl-forest font-bold' : 'text-gray-700 hover:text-ftl-forest' ?>">
                         <?= $item['label'] ?>
                     </a>
                 <?php endforeach; ?>
             </nav>
 
-            <!-- Action CTAs -->
-            <div class="hidden sm:flex items-center gap-3">
-                <!-- Shopee link icon -->
-                <a href="<?= SHOPEE_URL ?>" target="_blank" rel="noopener" 
-                   class="p-2.5 rounded-full text-orange-600 hover:bg-orange-50 border border-orange-200 transition-colors"
-                   title="Beli di Official Shopee">
-                    <i data-lucide="shopping-bag" class="w-5 h-5"></i>
-                </a>
-
-                <!-- Order via WA Button -->
+            <!-- Action CTAs (100% WhatsApp CS) -->
+            <div class="flex items-center gap-3">
                 <button type="button" 
                         @click="orderModalOpen = true; selectedProduct = 'calming-rub-50g'" 
                         class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs sm:text-sm font-bold px-5 py-2.5 rounded-full shadow-xs hover:scale-105 active:scale-95 transition-all">
                     <i data-lucide="message-circle" class="w-4 h-4"></i>
                     <span>Pesan via WA</span>
                 </button>
-            </div>
 
-            <!-- Mobile Hamburger Button -->
-            <div class="flex items-center gap-2 lg:hidden">
-                <button type="button" 
-                        @click="orderModalOpen = true; selectedProduct = 'calming-rub-50g'"
-                        class="sm:hidden p-2 rounded-lg bg-emerald-50 text-emerald-700 hover:bg-emerald-100"
-                        title="Pesan via WA">
-                    <i data-lucide="message-circle" class="w-5 h-5"></i>
-                </button>
+                <!-- Mobile Hamburger Button -->
                 <button type="button" 
                         @click="mobileMenuOpen = !mobileMenuOpen" 
-                        class="p-2 rounded-xl text-gray-700 hover:text-ftl-forest hover:bg-gray-100 transition-colors focus:outline-none"
+                        class="p-2 rounded-xl text-gray-700 hover:text-ftl-forest hover:bg-gray-100 transition-colors focus:outline-none lg:hidden"
                         aria-label="Toggle menu">
                     <i x-show="!mobileMenuOpen" data-lucide="menu" class="w-6 h-6"></i>
                     <i x-show="mobileMenuOpen" data-lucide="x" class="w-6 h-6" style="display: none;"></i>
@@ -92,7 +74,6 @@ $nav_items = [
         <nav class="flex flex-col space-y-1.5">
             <?php foreach ($nav_items as $key => $item): ?>
                 <a href="<?= $item['url'] ?>" 
-                   <?= isset($item['target']) ? 'target="' . $item['target'] . '" rel="noopener"' : '' ?>
                    class="px-4 py-3 rounded-xl text-sm font-semibold transition-colors <?= ($current_page === $key) ? 'bg-ftl-light text-ftl-forest font-bold' : 'text-gray-700 hover:bg-gray-50' ?>">
                     <?= $item['label'] ?>
                 </a>
@@ -100,7 +81,7 @@ $nav_items = [
             <div class="pt-3 border-t border-gray-100 flex flex-col gap-2">
                 <button type="button" 
                         @click="mobileMenuOpen = false; orderModalOpen = true"
-                        class="w-full flex items-center justify-center gap-2 bg-emerald-600 text-white font-bold py-2.5 px-4 rounded-xl text-xs shadow">
+                        class="w-full flex items-center justify-center gap-2 bg-emerald-600 text-white font-bold py-3 px-4 rounded-xl text-sm shadow">
                     <i data-lucide="message-circle" class="w-4 h-4"></i>
                     <span>Pesan via WhatsApp</span>
                 </button>

@@ -130,18 +130,13 @@ $main_product = $PRODUCTS['calming-rub-50g'];
                         </div>
                     </div>
 
-                    <div class="flex flex-col sm:flex-row gap-3">
+                    <div>
                         <button type="button" 
                                 @click="orderDirectWA()"
-                                class="flex-1 flex items-center justify-center gap-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-4 px-6 rounded-2xl shadow-lg hover:shadow-emerald-600/30 active:scale-95 transition-all text-sm">
+                                class="w-full flex items-center justify-center gap-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-4 px-6 rounded-2xl shadow-lg hover:shadow-emerald-600/30 active:scale-95 transition-all text-sm sm:text-base">
                             <i data-lucide="message-circle" class="w-5 h-5"></i>
                             <span>Pesan via WhatsApp Sekarang</span>
                         </button>
-                        <a href="<?= SHOPEE_URL ?>" target="_blank" rel="noopener"
-                           class="flex items-center justify-center gap-2 border-2 border-orange-500 text-orange-600 hover:bg-orange-50 font-bold py-3.5 px-6 rounded-2xl transition-colors text-sm">
-                            <i data-lucide="shopping-bag" class="w-4 h-4"></i>
-                            <span>Beli di Shopee</span>
-                        </a>
                     </div>
                 </div>
 

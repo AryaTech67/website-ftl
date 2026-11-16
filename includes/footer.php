@@ -45,13 +45,8 @@ require_once __DIR__ . '/../config.php';
                     </a>
                     <a href="<?= TIKTOK_URL ?>" target="_blank" rel="noopener" 
                        class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center hover:bg-white/20 hover:scale-105 transition-all text-white" 
-                       title="TikTok @forthelittle">
+                       title="TikTok @forthelittle.id">
                         <i data-lucide="video" class="w-5 h-5"></i>
-                    </a>
-                    <a href="<?= SHOPEE_URL ?>" target="_blank" rel="noopener" 
-                       class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center hover:bg-white/20 hover:scale-105 transition-all text-white" 
-                       title="Shopee Official Store">
-                        <i data-lucide="shopping-bag" class="w-5 h-5"></i>
                     </a>
                     <a href="https://wa.me/<?= WHATSAPP_NUMBER ?>" target="_blank" rel="noopener" 
                        class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center hover:bg-white/20 hover:scale-105 transition-all text-white" 

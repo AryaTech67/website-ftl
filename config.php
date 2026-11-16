@@ -15,8 +15,8 @@ define('SITE_KEYWORDS', 'baby calming rub cream, minyak telon bayi, krim kolik b
 define('WHATSAPP_NUMBER', '6281234567890'); // Ganti dengan nomor WhatsApp admin resmi FTL (format 628xxx tanpa simbol)
 define('WHATSAPP_DISPLAY', '+62 812-3456-7890');
 define('INSTAGRAM_URL', 'https://www.instagram.com/forthelittle.id/');
-define('TIKTOK_URL', 'https://www.tiktok.com/@forthelittle');
-define('SHOPEE_URL', 'https://shopee.co.id/'); // Link toko resmi Shopee
+define('TIKTOK_URL', 'https://www.tiktok.com/@forthelittle.id');
+define('SHOPEE_URL', 'https://s.shopee.co.id/qjlgbBESI'); // Link Shopee resmi dari Linktree FTL
 define('TOKOPEDIA_URL', 'https://www.tokopedia.com/');
 define('EMAIL_CONTACT', 'hello@forthelittle.id');
 

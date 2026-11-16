@@ -118,7 +118,7 @@ require_once __DIR__ . '/includes/navbar.php';
                             Krim telon alami berbahan <strong>Minyak Pala Nusantara & Calendula</strong>. Hangat pas meredakan perut kembung tanpa rasa lengket di kulit. Teruji Hypoallergenic & aman untuk newborn (0+ bulan).
                         </p>
 
-                        <!-- CTA Buttons -->
+                        <!-- CTA Buttons (100% Fokus WhatsApp) -->
                         <div class="pt-2 flex flex-wrap items-center gap-3">
                             <button type="button" 
                                     @click="orderModalOpen = true; selectedProduct = 'calming-rub-50g'"
@@ -126,10 +126,10 @@ require_once __DIR__ . '/includes/navbar.php';
                                 <i data-lucide="message-circle" class="w-4 h-4"></i>
                                 <span>Pesan via WhatsApp</span>
                             </button>
-                            <a href="<?= SHOPEE_URL ?>" target="_blank" rel="noopener"
+                            <a href="<?= BASE_URL ?>produk.php"
                                class="inline-flex items-center gap-2 bg-white/10 hover:bg-white text-white hover:text-ftl-forest border border-white/40 font-bold px-5 sm:px-7 py-3 sm:py-3.5 rounded-full transition text-xs sm:text-sm">
-                                <i data-lucide="shopping-bag" class="w-4 h-4"></i>
-                                <span>Toko Resmi Shopee</span>
+                                <span>Lihat Detail Produk</span>
+                                <i data-lucide="arrow-right" class="w-4 h-4"></i>
                             </a>
                         </div>
 
@@ -729,7 +729,7 @@ require_once __DIR__ . '/includes/navbar.php';
                 <div class="space-y-3">
                     <div class="flex items-center justify-between">
                         <div class="flex text-amber-400 gap-1 text-sm">★★★★★</div>
-                        <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800">Verified Shopee</span>
+                        <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800">Verified Order</span>
                     </div>
                     <p class="text-sm text-gray-700 italic leading-relaxed">
                         "Anakku umur 2 bulan sering rewel jam 7-9 malam karena kolik. Setelah rutin dioles FTL Calming Rub sehabis mandi sore dan pijat ILU, perutnya ga bunyi kembung lagi dan tidurnya anteng pol sampai pagi!"
@@ -932,10 +932,10 @@ require_once __DIR__ . '/includes/navbar.php';
                 <i data-lucide="message-circle" class="w-5 h-5 text-emerald-600"></i>
                 <span>Pesan Cepat via WhatsApp</span>
             </button>
-            <a href="<?= SHOPEE_URL ?>" target="_blank" rel="noopener"
+            <a href="<?= BASE_URL ?>produk.php"
                class="w-full sm:w-auto inline-flex items-center justify-center gap-2 border border-emerald-300/40 hover:bg-white/10 text-white font-semibold px-6 py-4 rounded-full transition-colors text-base">
-                <i data-lucide="shopping-bag" class="w-5 h-5"></i>
-                <span>Beli di Shopee</span>
+                <span>Eksplor Katalog Produk</span>
+                <i data-lucide="arrow-right" class="w-4 h-4"></i>
             </a>
         </div>
     </div>
