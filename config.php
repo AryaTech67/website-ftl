@@ -20,6 +20,11 @@ define('SHOPEE_URL', 'https://s.shopee.co.id/qjlgbBESI'); // Link Shopee resmi d
 define('TOKOPEDIA_URL', 'https://www.tokopedia.com/');
 define('EMAIL_CONTACT', 'hello@forthelittle.id');
 
+// Pengaturan Ekspedisi & Ongkir
+define('SHIPPING_ORIGIN_CITY', 'Jakarta Selatan');
+define('SHIPPING_ORIGIN_PROVINCE', 'DKI Jakarta');
+define('RAJAONGKIR_API_KEY', ''); // Opsional: Isi jika memiliki akun/API key resmi RajaOngkir
+
 // Penentuan Base URL Otomatis (Bekerja di localhost XAMPP maupun cPanel / Domain .com)
 $is_https = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') || (isset($_SERVER['SERVER_PORT']) && $_SERVER['SERVER_PORT'] == 443);
 $protocol = $is_https ? "https://" : "http://";
