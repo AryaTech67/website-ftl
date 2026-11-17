@@ -34,18 +34,18 @@ $nav_items = [
 <!-- Main Header (Bersih Seperti Tentang Anak, 100% Fokus WhatsApp) -->
 <header class="sticky top-0 z-40 bg-white border-b border-gray-100 shadow-xs">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex items-center justify-between h-16 sm:h-20">
+        <div class="flex items-center justify-between h-14 sm:h-20 gap-3 sm:gap-6">
             
             <!-- Brand Logo (Official Logo For The Little) -->
-            <a href="<?= BASE_URL ?>index.php" class="flex items-center gap-2.5 group">
+            <a href="<?= BASE_URL ?>index.php" class="flex items-center gap-2 sm:gap-2.5 group shrink-0">
                 <img src="<?= BASE_URL ?>assets/images/logo-ftl.png?v=<?= filemtime(__DIR__ . '/../assets/images/logo-ftl.png') ?>" 
                      alt="For The Little" 
-                     class="w-10 h-10 sm:w-11 sm:h-11 rounded-full object-cover shadow-xs border border-gray-100 group-hover:scale-105 transition-transform duration-300">
-                <div class="flex flex-col">
-                    <span class="font-display font-extrabold text-xl sm:text-2xl text-ftl-forest tracking-tight leading-none">
+                     class="w-8 h-8 sm:w-11 sm:h-11 rounded-full object-cover shadow-xs border border-gray-100 group-hover:scale-105 transition-transform duration-300 shrink-0">
+                <div class="flex flex-col justify-center">
+                    <span class="font-display font-extrabold text-[17px] sm:text-xl lg:text-2xl text-ftl-forest tracking-tight leading-none whitespace-nowrap">
                         For The Little
                     </span>
-                    <span class="text-[9px] tracking-wider uppercase text-ftl-earth font-semibold mt-1">
+                    <span class="hidden md:block text-[9px] tracking-wider uppercase text-ftl-earth font-semibold mt-1 whitespace-nowrap">
                         Indonesia • Natural BabyCare
                     </span>
                 </div>
@@ -82,27 +82,28 @@ $nav_items = [
             </nav>
 
             <!-- Action CTAs (Shopee Resmi + WhatsApp CS) -->
-            <div class="flex items-center gap-2.5">
+            <div class="flex items-center gap-2 sm:gap-2.5 shrink-0">
                 <a href="<?= SHOPEE_URL ?>" target="_blank" rel="noopener"
-                   class="hidden sm:inline-flex items-center gap-1.5 bg-[#EE4D2D] hover:bg-[#d73f21] text-white text-xs sm:text-sm font-bold px-4 py-2.5 rounded-full shadow-xs hover:scale-105 active:scale-95 transition-all">
+                   class="hidden sm:inline-flex items-center gap-1.5 bg-[#EE4D2D] hover:bg-[#d73f21] text-white text-xs sm:text-sm font-bold px-4 py-2.5 rounded-full shadow-xs hover:scale-105 active:scale-95 transition-all whitespace-nowrap">
                     <i data-lucide="shopping-bag" class="w-4 h-4"></i>
                     <span>Shopee Resmi</span>
                 </a>
 
                 <button type="button" 
                         @click="orderModalOpen = true; selectedProduct = 'calming-rub-50g'" 
-                        class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs sm:text-sm font-bold px-4 sm:px-5 py-2.5 rounded-full shadow-xs hover:scale-105 active:scale-95 transition-all">
-                    <i data-lucide="message-circle" class="w-4 h-4"></i>
-                    <span>Pesan via WA</span>
+                        class="inline-flex items-center gap-1.5 bg-emerald-600 hover:bg-emerald-700 text-white text-xs sm:text-sm font-bold py-1.5 px-3 sm:py-2.5 sm:px-5 rounded-full shadow-xs hover:scale-105 active:scale-95 transition-all whitespace-nowrap shrink-0">
+                    <i data-lucide="message-circle" class="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0"></i>
+                    <span class="sm:hidden">Chat WA</span>
+                    <span class="hidden sm:inline">Pesan via WA</span>
                 </button>
 
                 <!-- Mobile Hamburger Button -->
                 <button type="button" 
                         @click="mobileMenuOpen = !mobileMenuOpen" 
-                        class="p-2 rounded-xl text-gray-700 hover:text-ftl-forest hover:bg-gray-100 transition-colors focus:outline-none lg:hidden"
+                        class="p-1.5 sm:p-2 rounded-xl text-gray-700 hover:text-ftl-forest hover:bg-gray-100 transition-colors focus:outline-none lg:hidden shrink-0"
                         aria-label="Toggle menu">
-                    <i x-show="!mobileMenuOpen" data-lucide="menu" class="w-6 h-6"></i>
-                    <i x-show="mobileMenuOpen" data-lucide="x" class="w-6 h-6" style="display: none;"></i>
+                    <i x-show="!mobileMenuOpen" data-lucide="menu" class="w-5 h-5 sm:w-6 sm:h-6"></i>
+                    <i x-show="mobileMenuOpen" data-lucide="x" class="w-5 h-5 sm:w-6 sm:h-6" style="display: none;"></i>
                 </button>
             </div>
 
