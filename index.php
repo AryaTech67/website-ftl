@@ -131,9 +131,9 @@ require_once __DIR__ . '/includes/navbar.php';
                         <!-- Right Product Mockup Visual (4 cols) -->
                         <div class="lg:col-span-4 hidden lg:flex flex-col justify-center items-center relative">
                             <div class="w-64 h-64 rounded-full bg-emerald-400/20 absolute -z-10 blur-2xl"></div>
-                            <img src="<?= BASE_URL ?>assets/images/product-tube.png" 
+                            <img src="<?= BASE_URL ?>assets/images/product-calming-rub.svg" 
                                  alt="FTL Calming Rub Tube" 
-                                 class="h-72 lg:h-84 w-auto object-contain hover:scale-105 transition-transform duration-500">
+                                 class="h-72 lg:h-84 w-auto object-contain hover:scale-105 transition-transform duration-500 drop-shadow-2xl">
                             <div class="mt-2 inline-flex items-center gap-1 text-[11px] font-bold text-white bg-[#163325]/80 backdrop-blur-xs px-3 py-1 rounded-full border border-white/20">
                                 <span>Isi Bersih 50g</span> • <span>Travel Friendly</span>
                             </div>
