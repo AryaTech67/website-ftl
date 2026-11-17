@@ -30,6 +30,7 @@ require_once __DIR__ . '/../config.php';
              x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
              class="relative transform overflow-hidden rounded-3xl bg-white text-left shadow-2xl transition-all my-6 sm:my-8 w-full max-w-lg border border-ftl-sand"
              x-data="{
+                modalTab: 'konsultasi',
                 consultName: '',
                 consultBabyAge: '',
                 consultTopic: 'Aman untuk newborn (0+) & kulit sensitif?',
@@ -224,7 +225,18 @@ require_once __DIR__ . '/../config.php';
 
                     const url = 'https://wa.me/<?= WHATSAPP_NUMBER ?>?text=' + encodeURIComponent(msg);
                     window.open(url, '_blank');
-                    this.$root.closest('[x-data]').orderModalOpen = false;
+                    this.closeModal();
+                },
+                closeModal() {
+                    try {
+                        if (window.Alpine && document.body) {
+                            const b = Alpine.$data(document.body);
+                            if (b) b.orderModalOpen = false;
+                        }
+                    } catch(e) {}
+                    try {
+                        this.$root.closest('[x-data]').orderModalOpen = false;
+                    } catch(e) {}
                 },
                 submitToWhatsApp() {
                     if (!this.name.trim()) {
@@ -272,23 +284,43 @@ require_once __DIR__ . '/../config.php';
 
                     const url = 'https://wa.me/<?= WHATSAPP_NUMBER ?>?text=' + encodeURIComponent(msg);
                     window.open(url, '_blank');
-                    this.$root.closest('[x-data]').orderModalOpen = false;
+                    this.closeModal();
                 }
              }"
              x-init="
                 initDestinations();
-                $watch('modalTab', val => {
-                    setTimeout(() => { if(window.lucide) lucide.createIcons(); }, 60);
-                });
                 $watch('orderModalOpen', val => { 
-                    if(val) setTimeout(() => { if(window.lucide) lucide.createIcons(); }, 60); 
+                    if(val) {
+                        try {
+                            if (window.Alpine && document.body) {
+                                const b = Alpine.$data(document.body);
+                                if (b) {
+                                    if (b.modalTab) modalTab = b.modalTab;
+                                    if (b.selectedProduct) {
+                                        product = b.selectedProduct;
+                                        if (city) calculateOngkir();
+                                    }
+                                }
+                            }
+                        } catch(e) {}
+                        setTimeout(() => { if(window.lucide) lucide.createIcons(); }, 60); 
+                    }
+                });
+                $watch('modalTab', val => {
+                    try {
+                        if (window.Alpine && document.body) {
+                            const b = Alpine.$data(document.body);
+                            if (b) b.modalTab = val;
+                        }
+                    } catch(e) {}
+                    setTimeout(() => { if(window.lucide) lucide.createIcons(); }, 60);
                 });
              ">
             
             <!-- Modal Header dengan Tab Navigasi -->
             <div class="bg-gradient-to-r from-ftl-forest to-ftl-sage p-5 sm:p-6 text-white relative">
-                <button @click="orderModalOpen = false" 
-                        class="absolute top-4 right-4 text-white/80 hover:text-white p-1.5 rounded-full hover:bg-white/10 transition-colors"
+                <button type="button" @click="closeModal()" 
+                        class="absolute top-4 right-4 text-white/80 hover:text-white p-1.5 rounded-full hover:bg-white/10 transition-colors cursor-pointer"
                         aria-label="Tutup modal">
                     <i data-lucide="x" class="w-5 h-5 sm:w-6 sm:h-6"></i>
                 </button>
@@ -297,11 +329,11 @@ require_once __DIR__ . '/../config.php';
                 </div>
                 <h3 class="text-xl sm:text-2xl font-bold font-display leading-tight" id="modal-title">
                     <span x-show="modalTab === 'konsultasi'">Konsultasi Bunda & Si Kecil 👶🍃</span>
-                    <span x-show="modalTab === 'pesan'" style="display: none;">Form Pemesanan & Ongkir 🛍️</span>
+                    <span x-show="modalTab === 'pesan'">Form Pemesanan & Ongkir 🛍️</span>
                 </h3>
                 <p class="text-xs text-emerald-100 mt-1">
                     <span x-show="modalTab === 'konsultasi'">Bebas tanya seputar kolik, newborn, atau cara pakai tanpa harus beli.</span>
-                    <span x-show="modalTab === 'pesan'" style="display: none;">Hitung ongkir otomatis lalu kirim rincian order ke WhatsApp CS.</span>
+                    <span x-show="modalTab === 'pesan'">Hitung ongkir otomatis lalu kirim rincian order ke WhatsApp CS.</span>
                 </p>
 
                 <!-- 2-Tab Switcher -->
@@ -309,14 +341,14 @@ require_once __DIR__ . '/../config.php';
                     <button type="button" 
                             @click="modalTab = 'konsultasi'" 
                             :class="modalTab === 'konsultasi' ? 'bg-white text-ftl-forest font-bold shadow-sm' : 'text-white/80 hover:text-white font-medium'"
-                            class="flex-1 py-2 text-xs sm:text-sm rounded-xl transition flex items-center justify-center gap-1.5">
+                            class="flex-1 py-2 text-xs sm:text-sm rounded-xl transition flex items-center justify-center gap-1.5 cursor-pointer">
                         <i data-lucide="message-circle" class="w-4 h-4"></i>
                         <span>💬 Tanya-Tanya Dulu</span>
                     </button>
                     <button type="button" 
                             @click="modalTab = 'pesan'" 
                             :class="modalTab === 'pesan' ? 'bg-white text-ftl-forest font-bold shadow-sm' : 'text-white/80 hover:text-white font-medium'"
-                            class="flex-1 py-2 text-xs sm:text-sm rounded-xl transition flex items-center justify-center gap-1.5">
+                            class="flex-1 py-2 text-xs sm:text-sm rounded-xl transition flex items-center justify-center gap-1.5 cursor-pointer">
                         <i data-lucide="shopping-bag" class="w-4 h-4"></i>
                         <span>🛍️ Mau Pesan Produk</span>
                     </button>
@@ -417,7 +449,7 @@ require_once __DIR__ . '/../config.php';
             </div>
 
             <!-- ================= TAB 2: FORM PEMESANAN & CEK ONGKIR ================= -->
-            <div x-show="modalTab === 'pesan'" style="display: none;" class="p-5 sm:p-6 space-y-4 max-h-[72vh] overflow-y-auto">
+            <div x-show="modalTab === 'pesan'" class="p-5 sm:p-6 space-y-4 max-h-[72vh] overflow-y-auto">
                 
                 <!-- 1. PILIH PRODUK & JUMLAH -->
                 <div class="space-y-3">
@@ -671,8 +703,8 @@ require_once __DIR__ . '/../config.php';
                     <span>Kirim Pesanan ke WhatsApp</span>
                 </button>
                 <button type="button" 
-                        @click="orderModalOpen = false"
-                        class="w-full sm:w-auto inline-flex justify-center items-center rounded-xl border border-gray-300 bg-white px-4 py-2.5 text-xs font-semibold text-gray-700 hover:bg-gray-100 transition-colors">
+                        @click="closeModal()"
+                        class="w-full sm:w-auto inline-flex justify-center items-center rounded-xl border border-gray-300 bg-white px-4 py-2.5 text-xs font-semibold text-gray-700 hover:bg-gray-100 transition-colors cursor-pointer">
                     Batal
                 </button>
             </div>
