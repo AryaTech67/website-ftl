@@ -84,13 +84,13 @@ require_once __DIR__ . '/includes/navbar.php';
                     <!-- Left/Center Content (8 cols) -->
                     <div class="lg:col-span-8 space-y-4 sm:space-y-5 text-left max-w-2xl">
                         
-                        <!-- Top Brand Tag -->
-                        <div class="flex items-center gap-2">
-                            <span class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-white/20 backdrop-blur-md text-white text-xs font-black border border-white/30 shadow-xs tracking-wider">
-                                <i data-lucide="sprout" class="w-3.5 h-3.5 text-emerald-300"></i>
+                        <!-- Top Brand Tag with Official Logo -->
+                        <div class="flex items-center gap-2 sm:gap-2.5">
+                            <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/20 backdrop-blur-md text-white text-xs font-black border border-white/30 shadow-xs tracking-wider">
+                                <img src="<?= BASE_URL ?>assets/images/logo-ftl.png?v=<?= filemtime(__DIR__ . '/assets/images/logo-ftl.png') ?>" alt="For The Little" class="w-5 h-5 rounded-full object-cover shadow-xs">
                                 FOR THE LITTLE
                             </span>
-                            <span class="inline-flex items-center px-3 py-1 rounded-full bg-white/10 text-emerald-100 text-xs font-semibold">
+                            <span class="inline-flex items-center px-3 py-1.5 rounded-full bg-white/10 text-emerald-100 text-xs font-semibold backdrop-blur-xs">
                                 #frommothertoanother 🤱🏻
                             </span>
                         </div>
@@ -167,11 +167,13 @@ require_once __DIR__ . '/includes/navbar.php';
                     <!-- Left/Center Content (8 cols) -->
                     <div class="lg:col-span-8 space-y-4 sm:space-y-5 text-left max-w-2xl">
                         
-                        <div class="flex items-center gap-2">
-                            <span class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-amber-400 text-amber-950 text-xs font-black shadow-xs tracking-wider">
+                        <!-- Top Brand Tag with Official Logo -->
+                        <div class="flex items-center gap-2 sm:gap-2.5">
+                            <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-400 text-amber-950 text-xs font-black shadow-xs tracking-wider">
+                                <img src="<?= BASE_URL ?>assets/images/logo-ftl.png?v=<?= filemtime(__DIR__ . '/assets/images/logo-ftl.png') ?>" alt="For The Little" class="w-5 h-5 rounded-full object-cover">
                                 🍃 KEKAYAAN PALA NUSANTARA
                             </span>
-                            <span class="inline-flex items-center px-3 py-1 rounded-full bg-white/10 text-amber-100 text-xs font-semibold">
+                            <span class="inline-flex items-center px-3 py-1.5 rounded-full bg-white/10 text-amber-100 text-xs font-semibold backdrop-blur-xs">
                                 Formulasi Tradisi & Sains Modern
                             </span>
                         </div>
@@ -246,11 +248,13 @@ require_once __DIR__ . '/includes/navbar.php';
                     <!-- Left/Center Content (8 cols) -->
                     <div class="lg:col-span-8 space-y-4 sm:space-y-5 text-left max-w-2xl">
                         
-                        <div class="flex items-center gap-2">
-                            <span class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-rose-400 text-rose-950 text-xs font-black shadow-xs tracking-wider">
+                        <!-- Top Brand Tag with Official Logo -->
+                        <div class="flex items-center gap-2 sm:gap-2.5">
+                            <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-rose-400 text-rose-950 text-xs font-black shadow-xs tracking-wider">
+                                <img src="<?= BASE_URL ?>assets/images/logo-ftl.png?v=<?= filemtime(__DIR__ . '/assets/images/logo-ftl.png') ?>" alt="For The Little" class="w-5 h-5 rounded-full object-cover">
                                 #frommothertoanother 🤱🏻
                             </span>
-                            <span class="inline-flex items-center px-3 py-1 rounded-full bg-white/10 text-rose-100 text-xs font-semibold">
+                            <span class="inline-flex items-center px-3 py-1.5 rounded-full bg-white/10 text-rose-100 text-xs font-semibold backdrop-blur-xs">
                                 Dibuat Penuh Cinta Kasih
                             </span>
                         </div>

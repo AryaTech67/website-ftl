@@ -13,9 +13,9 @@ require_once __DIR__ . '/../config.php';
             <!-- Col 1: Brand & Bio (Span 2) -->
             <div class="lg:col-span-2 space-y-4">
                 <div class="flex items-center gap-3">
-                    <div class="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center text-emerald-300">
-                        <i data-lucide="sprout" class="w-7 h-7"></i>
-                    </div>
+                    <img src="<?= BASE_URL ?>assets/images/logo-ftl.png?v=<?= filemtime(__DIR__ . '/../assets/images/logo-ftl.png') ?>" 
+                         alt="For The Little" 
+                         class="w-12 h-12 rounded-full object-cover shadow-md border border-white/20">
                     <div>
                         <span class="font-display font-bold text-2xl tracking-tight text-white block">
                             For The Little

@@ -36,11 +36,11 @@ $nav_items = [
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-16 sm:h-20">
             
-            <!-- Brand Logo -->
+            <!-- Brand Logo (Official Logo For The Little) -->
             <a href="<?= BASE_URL ?>index.php" class="flex items-center gap-2.5 group">
-                <div class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-ftl-forest to-ftl-sage flex items-center justify-center text-white shadow-xs group-hover:scale-105 transition-transform duration-300">
-                    <i data-lucide="sprout" class="w-5 h-5"></i>
-                </div>
+                <img src="<?= BASE_URL ?>assets/images/logo-ftl.png?v=<?= filemtime(__DIR__ . '/../assets/images/logo-ftl.png') ?>" 
+                     alt="For The Little" 
+                     class="w-10 h-10 sm:w-11 sm:h-11 rounded-full object-cover shadow-xs border border-gray-100 group-hover:scale-105 transition-transform duration-300">
                 <div class="flex flex-col">
                     <span class="font-display font-extrabold text-xl sm:text-2xl text-ftl-forest tracking-tight leading-none">
                         For The Little
