@@ -567,160 +567,176 @@ require_once __DIR__ . '/includes/navbar.php';
 </section>
 
 <!-- ======================================================= -->
-<!-- 5. PERBANDINGAN: FTL VS TELON BIASA                     -->
+<!-- 5. PERBANDINGAN: KENAPA BUNDA BERALIH KE CALMING RUB     -->
 <!-- ======================================================= -->
-<section class="py-20 bg-ftl-cream border-t border-ftl-sand">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+<section class="py-16 sm:py-24 bg-[#F7F4EE] border-t border-ftl-sand/80 relative overflow-hidden">
+    
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        <div class="text-center max-w-2xl mx-auto mb-14">
-            <span class="text-xs font-bold text-emerald-700 uppercase tracking-widest">
-                Mengapa Harus Beralih?
+        <!-- Section Header Editorial -->
+        <div class="text-center max-w-2xl mx-auto mb-12 sm:mb-16 space-y-3">
+            <span class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-emerald-100/80 text-ftl-forest text-xs font-bold tracking-wider uppercase">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+                Inovasi Formula Perawatan Bayi
             </span>
-            <h2 class="text-3xl sm:text-4xl font-extrabold font-display text-gray-900 mt-2">
-                For The Little vs Minyak Telon Konvensional
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold font-display text-gray-900 tracking-tight leading-tight">
+                Mengapa Bunda Beralih ke <br class="hidden sm:inline">
+                <span class="text-ftl-forest">Baby Calming Rub Cream?</span>
             </h2>
-            <p class="text-sm sm:text-base text-gray-500 mt-2">
-                Inovasi tekstur krim yang dirancang khusus untuk kenyamanan maksimal Bunda dan si kecil.
+            <p class="text-sm sm:text-base text-gray-600 leading-relaxed max-w-xl mx-auto">
+                Sentuhan baru yang menggabungkan khasiat rempah alami nusantara dengan kelembutan krim modern, menjawab kekurangan minyak telon konvensional.
             </p>
         </div>
 
-        <!-- Comparison Table Container -->
-        <div class="overflow-hidden rounded-3xl border border-ftl-sand shadow-lg bg-white">
+        <!-- Dual Column Editorial Comparison Cards (Bukan Tabel AI Kaku) -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
             
-            <!-- Desktop Table View (Layar Tablet & Desktop) -->
-            <div class="hidden sm:block">
-                <div class="grid grid-cols-12 bg-ftl-forest text-white py-4 px-6 text-sm font-bold items-center">
-                    <div class="col-span-4">Fitur / Karakteristik</div>
-                    <div class="col-span-4 text-emerald-300 flex items-center gap-1.5">
-                        <span>🍃 For The Little (Calming Rub)</span>
-                    </div>
-                    <div class="col-span-4 text-gray-300">Minyak Telon Biasa</div>
-                </div>
-
-                <div class="divide-y divide-gray-100 text-sm">
-                    <!-- Row 1 -->
-                    <div class="grid grid-cols-12 py-4 px-6 items-center hover:bg-ftl-light/40 transition-colors">
-                        <div class="col-span-4 font-semibold text-gray-800">Tekstur & Daya Serap</div>
-                        <div class="col-span-4 text-emerald-800 font-bold flex items-start gap-2">
-                            <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
-                            <span>Cream lembut, cepat meresap & TIDAK LENGKET</span>
+            <!-- CARD 1: FOR THE LITTLE (Hero Card: Elegan, Teruji & Menutrisi) -->
+            <div class="lg:col-span-7 bg-white rounded-[32px] p-6 sm:p-9 border-2 border-ftl-forest/30 shadow-xl shadow-emerald-950/5 relative flex flex-col justify-between">
+                
+                <!-- Corner Header -->
+                <div class="flex items-center justify-between gap-3 pb-6 border-b border-emerald-100">
+                    <div class="flex items-center gap-3.5">
+                        <div class="w-12 h-12 rounded-2xl bg-emerald-50 border border-emerald-200/80 flex items-center justify-center shrink-0 shadow-2xs">
+                            <svg class="w-6 h-6 text-ftl-forest" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 2a9 9 0 0 1 9 9v1a9 9 0 0 1-9 9 9 9 0 0 1-9-9v-1a9 9 0 0 1 9-9z"/>
+                                <path d="M12 7c-2 2-3 4.5-3 6.5a3 3 0 0 0 6 0c0-2-1-4.5-3-6.5z"/>
+                            </svg>
                         </div>
-                        <div class="col-span-4 text-gray-500">Minyak cair, licin & menodai pakaian</div>
-                    </div>
-                    <!-- Row 2 -->
-                    <div class="grid grid-cols-12 py-4 px-6 items-center hover:bg-ftl-light/40 transition-colors bg-gray-50/50">
-                        <div class="col-span-4 font-semibold text-gray-800">Sensasi Hangat</div>
-                        <div class="col-span-4 text-emerald-800 font-bold flex items-start gap-2">
-                            <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
-                            <span>Hangat pas dari pala, tidak bikin perih</span>
+                        <div>
+                            <span class="text-[10px] font-extrabold uppercase tracking-widest text-emerald-700 block">
+                                Pilihan Utama Bunda Cerdas
+                            </span>
+                            <h3 class="font-display font-extrabold text-xl sm:text-2xl text-ftl-forest">
+                                For The Little Baby Calming Rub
+                            </h3>
                         </div>
-                        <div class="col-span-4 text-gray-500">Kadang terlalu panas bagi newborn</div>
                     </div>
-                    <!-- Row 3 -->
-                    <div class="grid grid-cols-12 py-4 px-6 items-center hover:bg-ftl-light/40 transition-colors">
-                        <div class="col-span-4 font-semibold text-gray-800">Kelembapan Kulit</div>
-                        <div class="col-span-4 text-emerald-800 font-bold flex items-start gap-2">
-                            <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
-                            <span>Melembapkan kulit dengan Calendula</span>
-                        </div>
-                        <div class="col-span-4 text-gray-500">Bisa membuat kulit bayi kering/mengelupas</div>
-                    </div>
-                    <!-- Row 4 -->
-                    <div class="grid grid-cols-12 py-4 px-6 items-center hover:bg-ftl-light/40 transition-colors bg-gray-50/50">
-                        <div class="col-span-4 font-semibold text-gray-800">Kepraktisan Kemasan</div>
-                        <div class="col-span-4 text-emerald-800 font-bold flex items-start gap-2">
-                            <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
-                            <span>Tube anti bocor, praktis di diaper bag</span>
-                        </div>
-                        <div class="col-span-4 text-gray-500">Botol rawan tumpah dan belepotan</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Mobile Card Comparison View (Khusus Layar HP / Mobile Agar Lapang & Rapi) -->
-            <div class="sm:hidden">
-                <!-- Mobile Header -->
-                <div class="bg-ftl-forest text-white py-3.5 px-4 text-center">
-                    <span class="text-xs uppercase font-extrabold tracking-wider text-emerald-300">
-                        Perbandingan Kualitas & Kenyamanan
+                    <span class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 text-xs font-bold border border-emerald-200/60 shrink-0">
+                        Formula Modern
                     </span>
                 </div>
 
-                <div class="p-3.5 space-y-3.5 divide-y divide-gray-100">
+                <!-- Editorial Feature Narrative List -->
+                <div class="divide-y divide-gray-100 py-4 space-y-4">
                     
-                    <!-- Item 1 -->
-                    <div class="pt-3.5 first:pt-0 space-y-2">
-                        <div class="flex items-center gap-1.5 text-xs font-bold text-gray-800">
-                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
-                            <span>Tekstur & Daya Serap</span>
-                        </div>
-                        <div class="grid grid-cols-2 gap-2">
-                            <div class="bg-emerald-50/80 border border-emerald-200/80 p-3 rounded-2xl">
-                                <span class="text-[10px] font-bold text-emerald-800 uppercase tracking-wider block mb-1">🍃 For The Little</span>
-                                <p class="text-xs text-emerald-950 font-bold leading-snug">Cream lembut, cepat meresap & TIDAK LENGKET</p>
-                            </div>
-                            <div class="bg-gray-50 border border-gray-200/60 p-3 rounded-2xl">
-                                <span class="text-[10px] font-medium text-gray-400 uppercase tracking-wider block mb-1">Minyak Telon</span>
-                                <p class="text-xs text-gray-600 leading-snug">Minyak cair, licin & menodai pakaian</p>
-                            </div>
+                    <!-- Feature 1 -->
+                    <div class="pt-4 first:pt-0 flex items-start gap-4">
+                        <span class="font-display font-bold text-sm text-emerald-700 w-6 shrink-0 pt-0.5">01</span>
+                        <div class="space-y-1">
+                            <h4 class="font-bold text-sm sm:text-base text-gray-900">Tekstur Krim Lembut & Cepat Meresap</h4>
+                            <p class="text-xs sm:text-sm text-gray-600 leading-relaxed">
+                                Krim berbahan dasar air yang langsung meresap sempurna ke kulit bayi. 100% bebas rasa lengket di tangan dan tidak meninggalkan noda minyak pada pakaian si kecil.
+                            </p>
                         </div>
                     </div>
 
-                    <!-- Item 2 -->
-                    <div class="pt-3.5 space-y-2">
-                        <div class="flex items-center gap-1.5 text-xs font-bold text-gray-800">
-                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
-                            <span>Sensasi Hangat</span>
-                        </div>
-                        <div class="grid grid-cols-2 gap-2">
-                            <div class="bg-emerald-50/80 border border-emerald-200/80 p-3 rounded-2xl">
-                                <span class="text-[10px] font-bold text-emerald-800 uppercase tracking-wider block mb-1">🍃 For The Little</span>
-                                <p class="text-xs text-emerald-950 font-bold leading-snug">Hangat pas dari pala, tidak bikin perih</p>
-                            </div>
-                            <div class="bg-gray-50 border border-gray-200/60 p-3 rounded-2xl">
-                                <span class="text-[10px] font-medium text-gray-400 uppercase tracking-wider block mb-1">Minyak Telon</span>
-                                <p class="text-xs text-gray-600 leading-snug">Kadang terlalu panas bagi newborn</p>
-                            </div>
+                    <!-- Feature 2 -->
+                    <div class="pt-4 flex items-start gap-4">
+                        <span class="font-display font-bold text-sm text-emerald-700 w-6 shrink-0 pt-0.5">02</span>
+                        <div class="space-y-1">
+                            <h4 class="font-bold text-sm sm:text-base text-gray-900">Kehangatan Pas dari Minyak Pala Nusantara</h4>
+                            <p class="text-xs sm:text-sm text-gray-600 leading-relaxed">
+                                Kehangatan alami rempah pala yang menenangkan dan meredakan kolik/kembung seketika, tanpa sensasi panas berlebih yang berisiko membuat kulit bayi perih.
+                            </p>
                         </div>
                     </div>
 
-                    <!-- Item 3 -->
-                    <div class="pt-3.5 space-y-2">
-                        <div class="flex items-center gap-1.5 text-xs font-bold text-gray-800">
-                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
-                            <span>Kelembapan Kulit</span>
-                        </div>
-                        <div class="grid grid-cols-2 gap-2">
-                            <div class="bg-emerald-50/80 border border-emerald-200/80 p-3 rounded-2xl">
-                                <span class="text-[10px] font-bold text-emerald-800 uppercase tracking-wider block mb-1">🍃 For The Little</span>
-                                <p class="text-xs text-emerald-950 font-bold leading-snug">Melembapkan kulit dengan Calendula</p>
-                            </div>
-                            <div class="bg-gray-50 border border-gray-200/60 p-3 rounded-2xl">
-                                <span class="text-[10px] font-medium text-gray-400 uppercase tracking-wider block mb-1">Minyak Telon</span>
-                                <p class="text-xs text-gray-600 leading-snug">Bisa membuat kulit bayi kering/mengelupas</p>
-                            </div>
+                    <!-- Feature 3 -->
+                    <div class="pt-4 flex items-start gap-4">
+                        <span class="font-display font-bold text-sm text-emerald-700 w-6 shrink-0 pt-0.5">03</span>
+                        <div class="space-y-1">
+                            <h4 class="font-bold text-sm sm:text-base text-gray-900">Menutrisi Skin Barrier dengan Calendula</h4>
+                            <p class="text-xs sm:text-sm text-gray-600 leading-relaxed">
+                                Diperkaya ekstrak Calendula organik yang melembapkan kulit sensitif si kecil, melindungi dari ruam dan kekeringan saat sering digunakan.
+                            </p>
                         </div>
                     </div>
 
-                    <!-- Item 4 -->
-                    <div class="pt-3.5 space-y-2">
-                        <div class="flex items-center gap-1.5 text-xs font-bold text-gray-800">
-                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
-                            <span>Kepraktisan Kemasan</span>
-                        </div>
-                        <div class="grid grid-cols-2 gap-2">
-                            <div class="bg-emerald-50/80 border border-emerald-200/80 p-3 rounded-2xl">
-                                <span class="text-[10px] font-bold text-emerald-800 uppercase tracking-wider block mb-1">🍃 For The Little</span>
-                                <p class="text-xs text-emerald-950 font-bold leading-snug">Tube anti bocor, praktis di diaper bag</p>
-                            </div>
-                            <div class="bg-gray-50 border border-gray-200/60 p-3 rounded-2xl">
-                                <span class="text-[10px] font-medium text-gray-400 uppercase tracking-wider block mb-1">Minyak Telon</span>
-                                <p class="text-xs text-gray-600 leading-snug">Botol rawan tumpah dan belepotan</p>
-                            </div>
+                    <!-- Feature 4 -->
+                    <div class="pt-4 flex items-start gap-4">
+                        <span class="font-display font-bold text-sm text-emerald-700 w-6 shrink-0 pt-0.5">04</span>
+                        <div class="space-y-1">
+                            <h4 class="font-bold text-sm sm:text-base text-gray-900">Kemasan Tube Higienis & Praktis</h4>
+                            <p class="text-xs sm:text-sm text-gray-600 leading-relaxed">
+                                Tutup flip-top kedap udara yang mudah dibuka dengan satu tangan. Aman di dalam diaper bag tanpa khawatir tumpah atau belepotan saat bepergian.
+                            </p>
                         </div>
                     </div>
 
                 </div>
+
+                <!-- Bottom Trust Note -->
+                <div class="pt-4 border-t border-emerald-100 flex items-center justify-between text-xs text-emerald-800 font-semibold">
+                    <span class="flex items-center gap-1.5">
+                        <i data-lucide="check-circle" class="w-4 h-4 text-emerald-600"></i> Teruji Dermatologis & Halal Resmi
+                    </span>
+                    <span class="text-[11px] text-gray-400">Aman untuk Newborn 0+</span>
+                </div>
+
+            </div>
+
+            <!-- CARD 2: MINYAK TELON TRADISIONAL (Muted Comparison Card: Santun & Objektif) -->
+            <div class="lg:col-span-5 bg-white/60 rounded-[32px] p-6 sm:p-8 border border-gray-200/80 shadow-xs flex flex-col justify-between opacity-85">
+                
+                <div>
+                    <!-- Header Kartu Tradisional -->
+                    <div class="pb-6 border-b border-gray-200/60 flex items-center justify-between gap-3">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-2xl bg-gray-100 flex items-center justify-center shrink-0 text-gray-400">
+                                <svg class="w-5 h-5 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M10 2h4M10 5h4M6 9h12l-2 11H8L6 9z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <span class="text-[10px] font-bold uppercase tracking-wider text-gray-400 block">
+                                    Format Tradisional
+                                </span>
+                                <h3 class="font-display font-bold text-lg sm:text-xl text-gray-700">
+                                    Minyak Telon Konvensional
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Comparison Points -->
+                    <div class="divide-y divide-gray-100 py-3 space-y-3.5 text-xs sm:text-sm">
+                        
+                        <div class="pt-3.5 first:pt-0 space-y-1">
+                            <h4 class="font-semibold text-gray-700">Tekstur Minyak Cair & Licin</h4>
+                            <p class="text-gray-500 leading-relaxed text-xs">
+                                Lambat meresap ke kulit, licin di telapak tangan, dan berpotensi meninggalkan noda kekuningan yang sulit hilang di baju bayi.
+                            </p>
+                        </div>
+
+                        <div class="pt-3.5 space-y-1">
+                            <h4 class="font-semibold text-gray-700">Aroma Menyengat & Kadang Terlalu Panas</h4>
+                            <p class="text-gray-500 leading-relaxed text-xs">
+                                Konsentrasi minyak kayu putih yang tajam sering kali terlalu menyengat bagi pernapasan bayi dan rentan memicu ruam panas pada newborn.
+                            </p>
+                        </div>
+
+                        <div class="pt-3.5 space-y-1">
+                            <h4 class="font-semibold text-gray-700">Tidak Mengandung Pelembap Kulit</h4>
+                            <p class="text-gray-500 leading-relaxed text-xs">
+                                Tanpa nutrisi pelembap aktif. Pemakaian rutin pada kulit bayi yang baru lahir berisiko menyebabkan kulit menjadi kering dan mengelupas.
+                            </p>
+                        </div>
+
+                        <div class="pt-3.5 space-y-1">
+                            <h4 class="font-semibold text-gray-700">Botol Rawan Tumpah</h4>
+                            <p class="text-gray-500 leading-relaxed text-xs">
+                                Tutup ulir botol rawan kendur atau bocor saat ditaruh di dalam tas perlengkapan bayi, membuat isi tas berbau menyengat dan kotor.
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="pt-4 border-t border-gray-100 text-[11px] text-gray-400 italic">
+                    Format lama yang membutuhkan kehati-hatian ekstra saat diaplikasikan ke kulit bayi.
+                </div>
+
             </div>
 
         </div>
