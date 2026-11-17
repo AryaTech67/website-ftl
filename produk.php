@@ -75,10 +75,10 @@ $main_product = $PRODUCTS['calming-rub-50g'];
                     </div>
 
                     <!-- Main Dynamic Image Preview -->
-                    <div class="my-auto py-4 flex items-center justify-center">
+                    <div class="my-auto py-4 flex items-center justify-center min-h-[220px] sm:min-h-[280px]">
                         <img :src="thumbnails[activeThumb].img" 
                              :alt="thumbnails[activeThumb].title" 
-                             class="max-h-64 sm:max-h-84 w-auto object-contain drop-shadow-xl hover:scale-105 transition-all duration-300">
+                             class="w-52 h-52 sm:w-72 sm:h-72 object-contain drop-shadow-xl hover:scale-105 transition-all duration-300">
                     </div>
 
                     <!-- Active Image Label & Explanation -->
@@ -122,7 +122,7 @@ $main_product = $PRODUCTS['calming-rub-50g'];
                        class="inline-flex items-center gap-2 mt-3 group" title="Lihat rating toko di Shopee Resmi">
                         <div class="flex text-amber-400 text-sm">★★★★★</div>
                         <span class="text-xs font-bold text-gray-800">4.9 / 5.0</span>
-                        <span class="text-xs text-gray-400">• 500+ Ulasan Shopee</span>
+                        <span class="text-xs text-gray-400">• Ulasan Terverifikasi Shopee</span>
                         <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#FFF0ED] text-[#EE4D2D] border border-[#EE4D2D]/20 group-hover:bg-[#EE4D2D] group-hover:text-white transition">
                             Shopee Resmi &rarr;
                         </span>

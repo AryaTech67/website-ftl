@@ -231,7 +231,7 @@ require_once __DIR__ . '/includes/navbar.php';
 
                             <div class="hidden sm:flex flex-wrap items-center gap-x-4 gap-y-2 text-xs sm:text-sm text-emerald-200 font-bold pt-1">
                                 <span class="inline-flex items-center gap-1.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-[#FCD34D]"></i> Diciptakan Ibu untuk Para Ibu</span>
-                                <span class="inline-flex items-center gap-1.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-[#FCD34D]"></i> Rating 4.9/5 dari 500+ Bunda</span>
+                                <span class="inline-flex items-center gap-1.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-[#FCD34D]"></i> Ulasan Positif di Shopee</span>
                                 <span class="inline-flex items-center gap-1.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-[#FCD34D]"></i> Pengiriman Seluruh RI</span>
                             </div>
 
@@ -589,7 +589,7 @@ require_once __DIR__ . '/includes/navbar.php';
                         <div class="flex items-center gap-2 mb-2">
                             <div class="flex text-amber-400 text-sm">★★★★★</div>
                             <span class="text-xs font-bold text-gray-800">4.9 / 5.0</span>
-                            <span class="text-xs text-gray-400">• 500+ Bunda Puas di Shopee & WA</span>
+                            <span class="text-xs text-gray-400">• Pembeli Terverifikasi di Shopee & WA</span>
                         </div>
 
                         <!-- Product Title -->
@@ -1294,7 +1294,7 @@ require_once __DIR__ . '/includes/navbar.php';
                     Kata Para Moms di Shopee
                 </h2>
                 <p class="text-sm sm:text-base text-gray-600 mt-1 flex items-center gap-2 flex-wrap">
-                    <span>Rating <strong class="text-gray-900 font-bold">4.9 / 5.0</strong> dari <strong class="text-gray-900 font-bold">500+ ulasan terverifikasi</strong> pembeli resmi For The Little.</span>
+                    <span>Rating <strong class="text-gray-900 font-bold">4.9 / 5.0</strong> dari <strong class="text-gray-900 font-bold">ulasan terverifikasi</strong> pembeli resmi di Shopee.</span>
                 </p>
             </div>
 
@@ -1487,7 +1487,7 @@ require_once __DIR__ . '/includes/navbar.php';
                     <p class="text-xs sm:text-sm text-gray-600 mt-1 flex items-center gap-2 flex-wrap">
                         <span class="text-amber-500 font-bold flex items-center gap-1">★ 4.9 / 5.0</span>
                         <span class="text-gray-300">•</span>
-                        <span class="text-gray-700 font-semibold">500+ Ulasan Bintang 5</span>
+                        <span class="text-gray-700 font-semibold">Ulasan Bintang 5 di Shopee</span>
                         <span class="text-gray-300">•</span>
                         <span class="text-emerald-700 font-semibold">100% Produk Original BPOM</span>
                     </p>
