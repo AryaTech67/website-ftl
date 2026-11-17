@@ -71,7 +71,7 @@ require_once __DIR__ . '/includes/navbar.php';
              style="background-image: url('<?= BASE_URL ?>assets/images/banner-ftl-hero.jpg?v=<?= filemtime(__DIR__ . '/assets/images/banner-ftl-hero.jpg') ?>');">
             
             <!-- Dark Gradient Overlay for Maximum Text Contrast & Readability -->
-            <div class="absolute inset-0 bg-gradient-to-r from-[#163325]/92 via-[#264D3B]/75 to-[#264D3B]/35 pointer-events-none"></div>
+            <div class="absolute inset-0 pointer-events-none" style="background: linear-gradient(to right, rgba(18, 44, 32, 0.96) 0%, rgba(38, 77, 59, 0.90) 50%, rgba(38, 77, 59, 0.65) 100%);"></div>
             
             <div class="w-full max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 relative z-10">
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
@@ -86,7 +86,7 @@ require_once __DIR__ . '/includes/navbar.php';
                         </h1>
 
                         <!-- Subtitle Singkat, Lega & Enak Dibaca -->
-                        <p class="text-sm sm:text-base text-emerald-100/90 leading-relaxed font-normal max-w-xl">
+                        <p class="text-sm sm:text-base text-white/95 leading-relaxed font-normal max-w-xl">
                             Krim telon alami dengan kehangatan <strong>Minyak Pala Nusantara & Calendula</strong>. Cepat meresap, 0% rasa lengket, dan lembut untuk newborn 0+ bulan.
                         </p>
 
@@ -136,7 +136,7 @@ require_once __DIR__ . '/includes/navbar.php';
              style="background-image: url('<?= BASE_URL ?>assets/images/banner-ftl-slide2.jpg?v=<?= filemtime(__DIR__ . '/assets/images/banner-ftl-slide2.jpg') ?>');">
             
             <!-- Dark Gradient Overlay for Maximum Text Contrast & Readability -->
-            <div class="absolute inset-0 bg-gradient-to-r from-[#163325]/92 via-[#264D3B]/75 to-[#264D3B]/35 pointer-events-none"></div>
+            <div class="absolute inset-0 pointer-events-none" style="background: linear-gradient(to right, rgba(18, 44, 32, 0.96) 0%, rgba(38, 77, 59, 0.90) 50%, rgba(38, 77, 59, 0.65) 100%);"></div>
 
             <div class="w-full max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 relative z-10">
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
@@ -150,7 +150,7 @@ require_once __DIR__ . '/includes/navbar.php';
                             <span class="text-[#FCD34D]">Hangat Lembut, Tidak Panas di Kulit!</span>
                         </h2>
 
-                        <p class="text-sm sm:text-base text-amber-100/90 leading-relaxed font-normal max-w-xl">
+                        <p class="text-sm sm:text-base text-white/95 leading-relaxed font-normal max-w-xl">
                             Perpaduan minyak atsiri buah pala nusantara dan ekstrak calendula organik yang melembapkan <em>skin barrier</em> serta menenangkan si kecil saat rewel.
                         </p>
 
@@ -199,7 +199,7 @@ require_once __DIR__ . '/includes/navbar.php';
              style="background-image: url('<?= BASE_URL ?>assets/images/banner-ftl-slide3.jpg?v=<?= filemtime(__DIR__ . '/assets/images/banner-ftl-slide3.jpg') ?>');">
             
             <!-- Dark Gradient Overlay for Maximum Text Contrast & Readability -->
-            <div class="absolute inset-0 bg-gradient-to-r from-[#163325]/92 via-[#264D3B]/75 to-[#264D3B]/35 pointer-events-none"></div>
+            <div class="absolute inset-0 pointer-events-none" style="background: linear-gradient(to right, rgba(18, 44, 32, 0.96) 0%, rgba(38, 77, 59, 0.90) 50%, rgba(38, 77, 59, 0.65) 100%);"></div>
             
             <div class="w-full max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 relative z-10">
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
@@ -213,11 +213,11 @@ require_once __DIR__ . '/includes/navbar.php';
                             <span class="text-[#FCD34D]">Untuk Seluruh Bunda di Nusantara</span>
                         </h2>
 
-                        <p class="text-sm sm:text-base text-rose-100/90 leading-relaxed font-normal max-w-xl">
+                        <p class="text-sm sm:text-base text-white/95 leading-relaxed font-normal max-w-xl">
                             Diformulasikan khusus tanpa kompromi demi kenyamanan buah hati dan ketenangan hati Bunda. Teruji klinis, halal, dan aman digunakan sejak hari pertama lahir.
                         </p>
 
-                        <div class="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs sm:text-sm text-rose-200 font-semibold pt-1">
+                        <div class="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs sm:text-sm text-emerald-200 font-bold pt-1">
                             <span class="inline-flex items-center gap-1.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-[#FCD34D]"></i> Diciptakan Ibu untuk Para Ibu</span>
                             <span class="inline-flex items-center gap-1.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-[#FCD34D]"></i> Rating 4.9/5 dari 500+ Bunda</span>
                             <span class="inline-flex items-center gap-1.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-[#FCD34D]"></i> Pengiriman Seluruh RI</span>
