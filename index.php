@@ -98,20 +98,11 @@ require_once __DIR__ . '/includes/navbar.php';
                             </span>
                         </div>
 
-                        <!-- Pill Headline Boxes (Gaya Khas Banner Tentang Anak) -->
-                        <div class="space-y-2 pt-1">
-                            <div class="inline-block bg-[#163828]/90 border border-emerald-400/30 px-4 sm:px-6 py-2 sm:py-3 rounded-2xl shadow-lg">
-                                <span class="text-xl sm:text-3xl lg:text-4xl font-extrabold text-white font-display tracking-tight leading-none">
-                                    Membantu Ribuan Bayi Indonesia
-                                </span>
-                            </div>
-                            <br class="hidden sm:inline">
-                            <div class="inline-block bg-white px-4 sm:px-6 py-2 sm:py-3 rounded-2xl shadow-xl">
-                                <span class="text-xl sm:text-3xl lg:text-4xl font-extrabold text-ftl-forest font-display tracking-tight leading-none">
-                                    Tidur Nyenyak & Bebas Kolik
-                                </span>
-                            </div>
-                        </div>
+                        <!-- Clean Typography Headline (Elegan, Menyatu dengan Banner) -->
+                        <h1 class="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-white font-display tracking-tight leading-tight drop-shadow-sm pt-1">
+                            Membantu Ribuan Bayi Indonesia<br class="hidden sm:inline">
+                            <span class="text-amber-300">Tidur Nyenyak & Bebas Kolik</span>
+                        </h1>
 
                         <!-- Subtitle -->
                         <p class="text-xs sm:text-base text-emerald-100/90 max-w-2xl leading-relaxed pt-1">
@@ -179,19 +170,11 @@ require_once __DIR__ . '/includes/navbar.php';
                             </span>
                         </div>
 
-                        <div class="space-y-2 pt-1">
-                            <div class="inline-block bg-[#4A2B16]/90 border border-amber-300/30 px-4 sm:px-6 py-2 sm:py-3 rounded-2xl shadow-lg">
-                                <span class="text-xl sm:text-3xl lg:text-4xl font-extrabold text-amber-200 font-display tracking-tight leading-none">
-                                    Khasiat Alami Minyak Pala Nusantara
-                                </span>
-                            </div>
-                            <br class="hidden sm:inline">
-                            <div class="inline-block bg-white px-4 sm:px-6 py-2 sm:py-3 rounded-2xl shadow-xl">
-                                <span class="text-xl sm:text-3xl lg:text-4xl font-extrabold text-[#6E4226] font-display tracking-tight leading-none">
-                                    Hangat Lembut, Tidak Panas di Kulit
-                                </span>
-                            </div>
-                        </div>
+                        <!-- Clean Typography Headline -->
+                        <h2 class="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-white font-display tracking-tight leading-tight drop-shadow-sm pt-1">
+                            Khasiat Alami Minyak Pala Nusantara<br class="hidden sm:inline">
+                            <span class="text-amber-300">Hangat Lembut, Tidak Panas di Kulit</span>
+                        </h2>
 
                         <p class="text-xs sm:text-base text-amber-100 max-w-2xl leading-relaxed pt-1">
                             Perpaduan minyak atsiri pala nusantara, ekstrak bunga calendula, dan chamomile yang melembapkan *skin barrier* dan menenangkan si kecil saat rewel di malam hari.
@@ -246,19 +229,11 @@ require_once __DIR__ . '/includes/navbar.php';
                             </span>
                         </div>
 
-                        <div class="space-y-2 pt-1">
-                            <div class="inline-block bg-[#1B3428]/90 border border-emerald-300/30 px-4 sm:px-6 py-2 sm:py-3 rounded-2xl shadow-lg">
-                                <span class="text-xl sm:text-3xl lg:text-4xl font-extrabold text-white font-display tracking-tight leading-none">
-                                    Dari Hati Seorang Ibu,
-                                </span>
-                            </div>
-                            <br class="hidden sm:inline">
-                            <div class="inline-block bg-white px-4 sm:px-6 py-2 sm:py-3 rounded-2xl shadow-xl">
-                                <span class="text-xl sm:text-3xl lg:text-4xl font-extrabold text-ftl-forest font-display tracking-tight leading-none">
-                                    Untuk Seluruh Bunda di Nusantara
-                                </span>
-                            </div>
-                        </div>
+                        <!-- Clean Typography Headline -->
+                        <h2 class="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-white font-display tracking-tight leading-tight drop-shadow-sm pt-1">
+                            Dari Hati Seorang Ibu,<br class="hidden sm:inline">
+                            <span class="text-amber-300">Untuk Seluruh Bunda di Nusantara</span>
+                        </h2>
 
                         <p class="text-xs sm:text-base text-emerald-100 max-w-2xl leading-relaxed pt-1">
                             Diformulasikan khusus tanpa kompromi demi keamanan kulit buah hati Anda. Bebas paraben, bebas alkohol, teruji klinis dan memiliki izin resmi BPOM & Halal.
