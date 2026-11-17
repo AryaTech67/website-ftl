@@ -677,7 +677,10 @@ require_once __DIR__ . '/includes/navbar.php';
                         </p>
                     </div>
                     <div class="mt-4 pt-4 border-t border-gray-100 flex items-center justify-between text-xs text-gray-400">
-                        <span>5 Menit Baca</span>
+                        <span class="flex items-center gap-1.5 text-gray-500 font-medium">
+                            <i data-lucide="calendar" class="w-3.5 h-3.5 text-emerald-600"></i>
+                            14 Nov 2026
+                        </span>
                         <a href="<?= BASE_URL ?>artikel-detail.php?id=cara-atasi-kolik" class="font-bold text-ftl-forest hover:underline">
                             Baca Selengkapnya →
                         </a>
@@ -708,7 +711,10 @@ require_once __DIR__ . '/includes/navbar.php';
                         </p>
                     </div>
                     <div class="mt-4 pt-4 border-t border-gray-100 flex items-center justify-between text-xs text-gray-400">
-                        <span>4 Menit Baca</span>
+                        <span class="flex items-center gap-1.5 text-gray-500 font-medium">
+                            <i data-lucide="calendar" class="w-3.5 h-3.5 text-amber-600"></i>
+                            10 Nov 2026
+                        </span>
                         <a href="<?= BASE_URL ?>artikel-detail.php?id=panduan-pijat-ilu" class="font-bold text-ftl-forest hover:underline">
                             Baca Selengkapnya →
                         </a>
@@ -739,7 +745,10 @@ require_once __DIR__ . '/includes/navbar.php';
                         </p>
                     </div>
                     <div class="mt-4 pt-4 border-t border-gray-100 flex items-center justify-between text-xs text-gray-400">
-                        <span>6 Menit Baca</span>
+                        <span class="flex items-center gap-1.5 text-gray-500 font-medium">
+                            <i data-lucide="calendar" class="w-3.5 h-3.5 text-teal-600"></i>
+                            05 Nov 2026
+                        </span>
                         <a href="<?= BASE_URL ?>artikel-detail.php?id=manfaat-minyak-pala" class="font-bold text-ftl-forest hover:underline">
                             Baca Selengkapnya →
                         </a>
