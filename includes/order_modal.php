@@ -7,6 +7,7 @@ require_once __DIR__ . '/../config.php';
 <div x-show="orderModalOpen" 
      class="fixed inset-0 z-[60] overflow-y-auto" 
      style="display: none;"
+     @keydown.escape.window="closeModal()"
      aria-labelledby="modal-title" role="dialog" aria-modal="true">
     
     <!-- Backdrop -->
@@ -17,8 +18,8 @@ require_once __DIR__ . '/../config.php';
          x-transition:leave="ease-in duration-200"
          x-transition:leave-start="opacity-100"
          x-transition:leave-end="opacity-0"
-         @click="orderModalOpen = false"
-         class="fixed inset-0 bg-black/60 backdrop-blur-sm transition-opacity"></div>
+         @click="closeModal()"
+         class="fixed inset-0 bg-black/60 backdrop-blur-sm transition-opacity cursor-pointer"></div>
 
     <div class="flex min-h-full items-center justify-center p-3 sm:p-4 text-center">
         <div x-show="orderModalOpen"
@@ -207,35 +208,46 @@ require_once __DIR__ . '/../config.php';
                         this.loadingOngkir = false;
                     }
                 },
+                selectTopic(topic, defaultText = '') {
+                    this.consultTopic = topic;
+                    if (defaultText && !this.consultCustomQuestion.trim()) {
+                        this.consultCustomQuestion = defaultText;
+                    }
+                },
                 sendConsultationWA() {
                     let msg = 'Halo Tim For The Little Indonesia 🍃\n\n';
-                    if (this.consultName.trim()) {
+                    if (this.consultName && this.consultName.trim()) {
                         msg += 'Perkenalkan, saya *' + this.consultName.trim() + '* ingin konsultasi seputar perawatan si kecil:\n\n';
                     } else {
                         msg += 'Saya ingin konsultasi seputar si kecil & produk FTL:\n\n';
                     }
-                    if (this.consultBabyAge.trim()) {
+                    if (this.consultBabyAge && this.consultBabyAge.trim()) {
                         msg += '• *Usia/Kondisi Si Kecil:* ' + this.consultBabyAge.trim() + '\n';
                     }
                     msg += '• *Topik Pertanyaan:* ' + this.consultTopic + '\n';
-                    if (this.consultCustomQuestion.trim()) {
+                    if (this.consultCustomQuestion && this.consultCustomQuestion.trim()) {
                         msg += '\n*Detail Pertanyaan / Keluhan:*\n"' + this.consultCustomQuestion.trim() + '"\n';
                     }
                     msg += '\nMohon saran dan penjelasannya ya min. Terima kasih banyak! 🙏';
 
                     const url = 'https://wa.me/<?= WHATSAPP_NUMBER ?>?text=' + encodeURIComponent(msg);
-                    window.open(url, '_blank');
+                    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+                    if (isMobile) {
+                        window.location.href = url;
+                    } else {
+                        window.open(url, '_blank');
+                    }
                     this.closeModal();
                 },
                 closeModal() {
                     try {
-                        if (window.Alpine && document.body) {
-                            const b = Alpine.$data(document.body);
-                            if (b) b.orderModalOpen = false;
-                        }
+                        this.$dispatch('close-order-modal');
                     } catch(e) {}
+                    window.dispatchEvent(new CustomEvent('close-order-modal'));
                     try {
-                        this.$root.closest('[x-data]').orderModalOpen = false;
+                        if (document.body._x_dataStack && document.body._x_dataStack[0]) {
+                            document.body._x_dataStack[0].orderModalOpen = false;
+                        }
                     } catch(e) {}
                 },
                 submitToWhatsApp() {
@@ -283,46 +295,36 @@ require_once __DIR__ . '/../config.php';
                     msg += 'Halo Admin FTL, saya sudah mengisi form pesanan dan ongkir sudah otomatis terdeteksi via website. Mohon info nomor rekening BCA/Mandiri untuk transfer ya. Terima kasih! 🙏';
 
                     const url = 'https://wa.me/<?= WHATSAPP_NUMBER ?>?text=' + encodeURIComponent(msg);
-                    window.open(url, '_blank');
+                    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+                    if (isMobile) {
+                        window.location.href = url;
+                    } else {
+                        window.open(url, '_blank');
+                    }
                     this.closeModal();
                 }
              }"
+             @open-order-modal.window="
+                if ($event.detail && $event.detail.tab) modalTab = $event.detail.tab;
+                if ($event.detail && $event.detail.product) {
+                    product = $event.detail.product;
+                    if (city) calculateOngkir();
+                }
+                setTimeout(() => { if (window.lucide) lucide.createIcons(); }, 50);
+             "
              x-init="
                 initDestinations();
-                $watch('orderModalOpen', val => { 
-                    if(val) {
-                        try {
-                            if (window.Alpine && document.body) {
-                                const b = Alpine.$data(document.body);
-                                if (b) {
-                                    if (b.modalTab) modalTab = b.modalTab;
-                                    if (b.selectedProduct) {
-                                        product = b.selectedProduct;
-                                        if (city) calculateOngkir();
-                                    }
-                                }
-                            }
-                        } catch(e) {}
-                        setTimeout(() => { if(window.lucide) lucide.createIcons(); }, 60); 
-                    }
-                });
                 $watch('modalTab', val => {
-                    try {
-                        if (window.Alpine && document.body) {
-                            const b = Alpine.$data(document.body);
-                            if (b) b.modalTab = val;
-                        }
-                    } catch(e) {}
-                    setTimeout(() => { if(window.lucide) lucide.createIcons(); }, 60);
+                    setTimeout(() => { if (window.lucide) lucide.createIcons(); }, 50);
                 });
              ">
             
             <!-- Modal Header dengan Tab Navigasi -->
             <div class="bg-gradient-to-r from-ftl-forest to-ftl-sage p-5 sm:p-6 text-white relative">
                 <button type="button" @click="closeModal()" 
-                        class="absolute top-4 right-4 text-white/80 hover:text-white p-1.5 rounded-full hover:bg-white/10 transition-colors cursor-pointer"
+                        class="absolute top-3 right-3 sm:top-4 sm:right-4 z-30 w-11 h-11 flex items-center justify-center text-white/90 hover:text-white bg-black/25 hover:bg-black/40 rounded-full transition-all cursor-pointer active:scale-90"
                         aria-label="Tutup modal">
-                    <i data-lucide="x" class="w-5 h-5 sm:w-6 sm:h-6"></i>
+                    <i data-lucide="x" class="w-6 h-6"></i>
                 </button>
                 <div class="flex items-center gap-2 text-[11px] font-semibold text-emerald-200 uppercase tracking-wider mb-1">
                     <span class="w-2 h-2 rounded-full bg-emerald-400"></span> Layanan WhatsApp Resmi FTL
@@ -372,74 +374,99 @@ require_once __DIR__ . '/../config.php';
 
                 <!-- Pilihan Topik Cepat -->
                 <div class="space-y-2">
-                    <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider">
-                        Pilih Topik Pertanyaan:
+                    <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider flex items-center justify-between">
+                        <span>Pilih Topik Pertanyaan:</span>
+                        <span class="text-[10px] text-emerald-700 font-semibold lowercase">ketuk untuk memilih</span>
                     </label>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                         <button type="button" 
-                                @click="consultTopic = 'Aman untuk newborn (0+) & kulit sensitif?'"
-                                :class="consultTopic === 'Aman untuk newborn (0+) & kulit sensitif?' ? 'bg-emerald-100 border-emerald-600 text-emerald-900 font-bold ring-2 ring-emerald-500/20' : 'bg-gray-50 border-gray-200 text-gray-700 hover:bg-gray-100'"
-                                class="p-2.5 rounded-xl border text-left transition flex items-center gap-2">
-                            <span class="text-base">🍃</span>
-                            <span>Aman untuk newborn / eksim?</span>
+                                @click="selectTopic('Aman untuk newborn (0+) & kulit sensitif?', 'Halo min, mau tanya apakah aman digunakan untuk newborn dan kulit yang sensitif/ada riwayat eksim?')"
+                                :class="consultTopic === 'Aman untuk newborn (0+) & kulit sensitif?' ? 'bg-emerald-50 border-emerald-600 text-emerald-950 font-bold ring-2 ring-emerald-500/25 shadow-xs' : 'bg-gray-50/80 border-gray-200 text-gray-700 hover:bg-gray-100'"
+                                class="min-h-[50px] p-3 rounded-2xl border text-left transition-all flex items-center justify-between gap-2.5 cursor-pointer active:scale-[0.98]">
+                            <div class="flex items-center gap-2.5 min-w-0">
+                                <span class="text-lg shrink-0">🍃</span>
+                                <span class="text-xs sm:text-sm leading-tight">Aman newborn / eksim?</span>
+                            </div>
+                            <div class="w-5 h-5 rounded-full border-2 flex items-center justify-center shrink-0 transition-colors"
+                                 :class="consultTopic === 'Aman untuk newborn (0+) & kulit sensitif?' ? 'border-emerald-600 bg-emerald-600 text-white' : 'border-gray-300 bg-white'">
+                                <span class="w-2 h-2 rounded-full bg-white" x-show="consultTopic === 'Aman untuk newborn (0+) & kulit sensitif?'"></span>
+                            </div>
                         </button>
                         <button type="button" 
-                                @click="consultTopic = 'Cara pijat ILU & aturan pakai kembung/kolik'"
-                                :class="consultTopic === 'Cara pijat ILU & aturan pakai kembung/kolik' ? 'bg-emerald-100 border-emerald-600 text-emerald-900 font-bold ring-2 ring-emerald-500/20' : 'bg-gray-50 border-gray-200 text-gray-700 hover:bg-gray-100'"
-                                class="p-2.5 rounded-xl border text-left transition flex items-center gap-2">
-                            <span class="text-base">👶</span>
-                            <span>Cara pakai untuk kembung & kolik</span>
+                                @click="selectTopic('Cara pijat ILU & aturan pakai kembung/kolik', 'Halo min, mohon panduan cara pijat ILU dan dosis pemakaian Calming Rub saat si kecil kembung/kolik ya.')"
+                                :class="consultTopic === 'Cara pijat ILU & aturan pakai kembung/kolik' ? 'bg-emerald-50 border-emerald-600 text-emerald-950 font-bold ring-2 ring-emerald-500/25 shadow-xs' : 'bg-gray-50/80 border-gray-200 text-gray-700 hover:bg-gray-100'"
+                                class="min-h-[50px] p-3 rounded-2xl border text-left transition-all flex items-center justify-between gap-2.5 cursor-pointer active:scale-[0.98]">
+                            <div class="flex items-center gap-2.5 min-w-0">
+                                <span class="text-lg shrink-0">👶</span>
+                                <span class="text-xs sm:text-sm leading-tight">Cara pakai kembung & kolik</span>
+                            </div>
+                            <div class="w-5 h-5 rounded-full border-2 flex items-center justify-center shrink-0 transition-colors"
+                                 :class="consultTopic === 'Cara pijat ILU & aturan pakai kembung/kolik' ? 'border-emerald-600 bg-emerald-600 text-white' : 'border-gray-300 bg-white'">
+                                <span class="w-2 h-2 rounded-full bg-white" x-show="consultTopic === 'Cara pijat ILU & aturan pakai kembung/kolik'"></span>
+                            </div>
                         </button>
                         <button type="button" 
-                                @click="consultTopic = 'Komposisi Minyak Pala Nusantara & Calendula'"
-                                :class="consultTopic === 'Komposisi Minyak Pala Nusantara & Calendula' ? 'bg-emerald-100 border-emerald-600 text-emerald-900 font-bold ring-2 ring-emerald-500/20' : 'bg-gray-50 border-gray-200 text-gray-700 hover:bg-gray-100'"
-                                class="p-2.5 rounded-xl border text-left transition flex items-center gap-2">
-                            <span class="text-base">🌿</span>
-                            <span>Komposisi & keaslian produk</span>
+                                @click="selectTopic('Komposisi Minyak Pala Nusantara & Calendula', 'Halo min, mau tanya detail kandungan minyak pala dan ekstrak calendula di dalamnya, apakah halal dan ber-BPOM?')"
+                                :class="consultTopic === 'Komposisi Minyak Pala Nusantara & Calendula' ? 'bg-emerald-50 border-emerald-600 text-emerald-950 font-bold ring-2 ring-emerald-500/25 shadow-xs' : 'bg-gray-50/80 border-gray-200 text-gray-700 hover:bg-gray-100'"
+                                class="min-h-[50px] p-3 rounded-2xl border text-left transition-all flex items-center justify-between gap-2.5 cursor-pointer active:scale-[0.98]">
+                            <div class="flex items-center gap-2.5 min-w-0">
+                                <span class="text-lg shrink-0">🌿</span>
+                                <span class="text-xs sm:text-sm leading-tight">Komposisi & keaslian produk</span>
+                            </div>
+                            <div class="w-5 h-5 rounded-full border-2 flex items-center justify-center shrink-0 transition-colors"
+                                 :class="consultTopic === 'Komposisi Minyak Pala Nusantara & Calendula' ? 'border-emerald-600 bg-emerald-600 text-white' : 'border-gray-300 bg-white'">
+                                <span class="w-2 h-2 rounded-full bg-white" x-show="consultTopic === 'Komposisi Minyak Pala Nusantara & Calendula'"></span>
+                            </div>
                         </button>
                         <button type="button" 
-                                @click="consultTopic = 'Pertanyaan lainnya'"
-                                :class="consultTopic === 'Pertanyaan lainnya' ? 'bg-emerald-100 border-emerald-600 text-emerald-900 font-bold ring-2 ring-emerald-500/20' : 'bg-gray-50 border-gray-200 text-gray-700 hover:bg-gray-100'"
-                                class="p-2.5 rounded-xl border text-left transition flex items-center gap-2">
-                            <span class="text-base">💬</span>
-                            <span>Pertanyaan lainnya seputar si kecil</span>
+                                @click="selectTopic('Pertanyaan lainnya seputar si kecil', '')"
+                                :class="consultTopic === 'Pertanyaan lainnya seputar si kecil' ? 'bg-emerald-50 border-emerald-600 text-emerald-950 font-bold ring-2 ring-emerald-500/25 shadow-xs' : 'bg-gray-50/80 border-gray-200 text-gray-700 hover:bg-gray-100'"
+                                class="min-h-[50px] p-3 rounded-2xl border text-left transition-all flex items-center justify-between gap-2.5 cursor-pointer active:scale-[0.98]">
+                            <div class="flex items-center gap-2.5 min-w-0">
+                                <span class="text-lg shrink-0">💬</span>
+                                <span class="text-xs sm:text-sm leading-tight">Pertanyaan lainnya</span>
+                            </div>
+                            <div class="w-5 h-5 rounded-full border-2 flex items-center justify-center shrink-0 transition-colors"
+                                 :class="consultTopic === 'Pertanyaan lainnya seputar si kecil' ? 'border-emerald-600 bg-emerald-600 text-white' : 'border-gray-300 bg-white'">
+                                <span class="w-2 h-2 rounded-full bg-white" x-show="consultTopic === 'Pertanyaan lainnya seputar si kecil'"></span>
+                            </div>
                         </button>
                     </div>
                 </div>
 
-                <!-- Input Nama & Usia Bayi -->
+                <!-- Input Nama & Usia Bayi (Text-base on mobile to prevent iOS zoom) -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <div>
                         <label class="block text-xs font-bold text-gray-700 mb-1">Nama Bunda (Opsional)</label>
                         <input type="text" 
                                x-model="consultName"
                                placeholder="Contoh: Bunda Sarah" 
-                               class="w-full text-xs sm:text-sm p-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 bg-gray-50/50">
+                               class="w-full text-base sm:text-sm p-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-emerald-500 bg-white">
                     </div>
                     <div>
                         <label class="block text-xs font-bold text-gray-700 mb-1">Usia / Kondisi Si Kecil</label>
                         <input type="text" 
                                x-model="consultBabyAge"
                                placeholder="Contoh: Newborn 2 minggu / 8 bulan" 
-                               class="w-full text-xs sm:text-sm p-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 bg-gray-50/50">
+                               class="w-full text-base sm:text-sm p-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-emerald-500 bg-white">
                     </div>
                 </div>
 
-                <!-- Detail Pertanyaan -->
+                <!-- Detail Pertanyaan (Text-base on mobile to prevent iOS zoom) -->
                 <div>
                     <label class="block text-xs font-bold text-gray-700 mb-1">Pertanyaan atau Keluhan Bunda:</label>
                     <textarea x-model="consultCustomQuestion"
                               rows="3"
                               placeholder="Tuliskan pertanyaan Bunda di sini... (Contoh: Apakah krim ini boleh dioleskan ke dada saat si kecil pilek/batuk?)"
-                              class="w-full text-xs sm:text-sm p-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 bg-gray-50/50"></textarea>
+                              class="w-full text-base sm:text-sm p-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-emerald-500 bg-white"></textarea>
                 </div>
 
                 <!-- Tombol Submit Konsultasi WA -->
                 <div class="pt-2">
                     <button type="button" 
                             @click="sendConsultationWA()"
-                            class="w-full py-3.5 px-4 rounded-2xl bg-emerald-600 hover:bg-emerald-700 active:scale-[0.99] text-white font-bold text-sm shadow-lg shadow-emerald-950/20 flex items-center justify-center gap-2 transition-all">
-                        <img src="<?= BASE_URL ?>assets/images/whatsapp-icon-white.svg" class="w-5 h-5" alt="WhatsApp">
+                            class="w-full py-4 px-5 rounded-2xl bg-emerald-600 hover:bg-emerald-700 active:scale-[0.98] text-white font-bold text-sm sm:text-base shadow-lg shadow-emerald-950/20 flex items-center justify-center gap-2.5 transition-all cursor-pointer">
+                        <img src="<?= BASE_URL ?>assets/images/whatsapp-icon-white.svg" class="w-5 h-5 shrink-0" alt="WhatsApp">
                         <span>Mulai Chat Konsultasi via WhatsApp</span>
                     </button>
                     <p class="text-[11px] text-gray-400 text-center mt-2">
@@ -515,14 +542,14 @@ require_once __DIR__ . '/../config.php';
                                 Nama Bunda / Ayah *
                             </label>
                             <input type="text" x-model="name" placeholder="Misal: Bunda Rina" 
-                                   class="w-full rounded-xl border border-gray-300 px-3 py-2 text-xs sm:text-sm focus:border-ftl-forest focus:outline-none focus:ring-2 focus:ring-emerald-200">
+                                   class="w-full rounded-xl border border-gray-300 px-3.5 py-3 text-base sm:text-sm focus:border-ftl-forest focus:outline-none focus:ring-2 focus:ring-emerald-200 bg-white">
                         </div>
                         <div>
                             <label class="block text-[11px] font-semibold text-gray-600 mb-1">
                                 No. WhatsApp Aktif *
                             </label>
                             <input type="tel" x-model="phone" placeholder="Misal: 081234567890" 
-                                   class="w-full rounded-xl border border-gray-300 px-3 py-2 text-xs sm:text-sm focus:border-ftl-forest focus:outline-none focus:ring-2 focus:ring-emerald-200">
+                                   class="w-full rounded-xl border border-gray-300 px-3.5 py-3 text-base sm:text-sm focus:border-ftl-forest focus:outline-none focus:ring-2 focus:ring-emerald-200 bg-white">
                         </div>
                     </div>
                 </div>
@@ -542,8 +569,8 @@ require_once __DIR__ . '/../config.php';
                     <button type="button" 
                             @click="detectLocationGPS()" 
                             :disabled="detectingGPS"
-                            class="w-full inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-gradient-to-r from-emerald-50 to-teal-50 border border-emerald-300 text-ftl-forest hover:bg-emerald-100 font-bold text-xs transition active:scale-95 shadow-2xs">
-                        <span x-show="detectingGPS" class="w-3.5 h-3.5 border-2 border-emerald-700 border-t-transparent rounded-full animate-spin"></span>
+                            class="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-gradient-to-r from-emerald-50 to-teal-50 border border-emerald-300 text-ftl-forest hover:bg-emerald-100 font-bold text-xs sm:text-sm transition active:scale-95 shadow-2xs cursor-pointer">
+                        <span x-show="detectingGPS" class="w-4 h-4 border-2 border-emerald-700 border-t-transparent rounded-full animate-spin"></span>
                         <i x-show="!detectingGPS" data-lucide="crosshair" class="w-4 h-4 text-emerald-600"></i>
                         <span x-text="detectingGPS ? 'Mendeteksi Koordinat GPS Lokasi Anda...' : '📍 Auto-Deteksi Lokasi Saya (GPS Otomatis)'"></span>
                     </button>
@@ -551,7 +578,7 @@ require_once __DIR__ . '/../config.php';
                     <!-- Alert Banner Hasil Auto-Deteksi -->
                     <div x-show="detectedAlert" 
                          x-transition 
-                         class="bg-emerald-50 border border-emerald-300 text-emerald-900 px-3 py-2 rounded-xl text-xs flex items-center justify-between">
+                         class="bg-emerald-50 border border-emerald-300 text-emerald-900 px-3.5 py-2.5 rounded-xl text-xs sm:text-sm flex items-center justify-between">
                         <span class="font-bold flex items-center gap-1.5" x-text="detectedAlert"></span>
                         <span class="text-[10px] bg-emerald-200/80 text-emerald-800 px-2 py-0.5 rounded-full font-bold">Auto</span>
                     </div>
@@ -567,17 +594,17 @@ require_once __DIR__ . '/../config.php';
                                    @input="showSuggestions = true"
                                    @focus="showSuggestions = true"
                                    placeholder="Ketik kota tujuan (misal: Bandung, Tangerang, Surabaya...)" 
-                                   class="w-full rounded-xl border border-gray-300 pl-8 pr-3 py-2 text-xs sm:text-sm focus:border-ftl-forest focus:outline-none focus:ring-2 focus:ring-emerald-200">
-                            <i data-lucide="search" class="w-3.5 h-3.5 text-gray-400 absolute left-3 top-3"></i>
+                                   class="w-full rounded-xl border border-gray-300 pl-9 pr-3.5 py-3 text-base sm:text-sm focus:border-ftl-forest focus:outline-none focus:ring-2 focus:ring-emerald-200 bg-white">
+                            <i data-lucide="search" class="w-4 h-4 text-gray-400 absolute left-3 top-3.5"></i>
                         </div>
 
                         <!-- Live Suggestion Dropdown -->
                         <div x-show="showSuggestions && filteredCities.length > 0" 
                              @click.away="showSuggestions = false"
-                             class="absolute z-30 left-0 right-0 mt-1 max-h-48 overflow-y-auto bg-white rounded-xl shadow-xl border border-gray-200 divide-y divide-gray-100 text-xs">
+                             class="absolute z-30 left-0 right-0 mt-1 max-h-48 overflow-y-auto bg-white rounded-xl shadow-xl border border-gray-200 divide-y divide-gray-100 text-xs sm:text-sm">
                             <template x-for="item in filteredCities" :key="item.full">
                                 <div @click="selectCityFromSearch(item)" 
-                                     class="px-3.5 py-2 hover:bg-emerald-50 cursor-pointer flex items-center justify-between transition-colors">
+                                     class="px-3.5 py-2.5 hover:bg-emerald-50 cursor-pointer flex items-center justify-between transition-colors">
                                     <span class="font-bold text-gray-800" x-text="item.city"></span>
                                     <span class="text-gray-400 text-[10px]" x-text="item.province"></span>
                                 </div>
@@ -591,7 +618,7 @@ require_once __DIR__ . '/../config.php';
                             <label class="block text-[10px] text-gray-500 mb-0.5">Provinsi:</label>
                             <select x-model="province" 
                                     @change="onProvinceChange()" 
-                                    class="w-full rounded-xl border border-gray-300 bg-white px-3 py-1.5 text-xs font-medium text-gray-800 focus:border-ftl-forest focus:outline-none focus:ring-2 focus:ring-emerald-200">
+                                    class="w-full rounded-xl border border-gray-300 bg-white px-3 py-2.5 text-base sm:text-sm font-medium text-gray-800 focus:border-ftl-forest focus:outline-none focus:ring-2 focus:ring-emerald-200">
                                 <option value="">-- Pilih Provinsi --</option>
                                 <template x-for="item in destinations" :key="item.province">
                                     <option :value="item.province" x-text="item.province"></option>
@@ -604,7 +631,7 @@ require_once __DIR__ . '/../config.php';
                             <select x-model="city" 
                                     @change="calculateOngkir()" 
                                     :disabled="!province"
-                                    class="w-full rounded-xl border border-gray-300 bg-white px-3 py-1.5 text-xs font-medium text-gray-800 focus:border-ftl-forest focus:outline-none focus:ring-2 focus:ring-emerald-200 disabled:bg-gray-100 disabled:text-gray-400">
+                                    class="w-full rounded-xl border border-gray-300 bg-white px-3 py-2.5 text-base sm:text-sm font-medium text-gray-800 focus:border-ftl-forest focus:outline-none focus:ring-2 focus:ring-emerald-200 disabled:bg-gray-100 disabled:text-gray-400">
                                 <option value="">-- Pilih Kota / Kab --</option>
                                 <template x-for="c in cityList" :key="c">
                                     <option :value="c" x-text="c"></option>
@@ -619,7 +646,7 @@ require_once __DIR__ . '/../config.php';
                             Alamat Jalan & Patokan Rumah (Opsional):
                         </label>
                         <input type="text" x-model="address" placeholder="Jl. Mawar No. 8, RT 02/RW 04, Kec. Sukajadi (Depan Klinik)" 
-                               class="w-full rounded-xl border border-gray-300 px-3 py-2 text-xs sm:text-sm focus:border-ftl-forest focus:outline-none focus:ring-2 focus:ring-emerald-200">
+                               class="w-full rounded-xl border border-gray-300 px-3.5 py-3 text-base sm:text-sm focus:border-ftl-forest focus:outline-none focus:ring-2 focus:ring-emerald-200 bg-white">
                     </div>
 
                     <!-- PILIHAN EKSPEDISI (TERDETEKSI OTOMATIS) -->
@@ -689,7 +716,7 @@ require_once __DIR__ . '/../config.php';
                         Catatan Khusus (Opsional):
                     </label>
                     <input type="text" x-model="note" placeholder="Misal: Titip kartu ucapan kado kelahiran" 
-                           class="w-full rounded-xl border border-gray-300 px-3 py-2 text-xs focus:border-ftl-forest focus:outline-none focus:ring-2 focus:ring-emerald-200">
+                           class="w-full rounded-xl border border-gray-300 px-3.5 py-3 text-base sm:text-sm focus:border-ftl-forest focus:outline-none focus:ring-2 focus:ring-emerald-200 bg-white">
                 </div>
 
             </div>
@@ -699,13 +726,13 @@ require_once __DIR__ . '/../config.php';
                 <button type="button" 
                         x-show="modalTab === 'pesan'"
                         @click="submitToWhatsApp()" 
-                        class="w-full sm:w-auto inline-flex justify-center items-center gap-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 px-6 py-3 text-sm font-bold text-white shadow-md active:scale-95 transition-all">
+                        class="w-full sm:w-auto inline-flex justify-center items-center gap-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 px-6 py-3.5 text-sm font-bold text-white shadow-md active:scale-95 transition-all cursor-pointer">
                     <i data-lucide="send" class="w-4 h-4"></i>
                     <span>Kirim Pesanan ke WhatsApp</span>
                 </button>
                 <button type="button" 
                         @click="closeModal()"
-                        class="w-full sm:w-auto inline-flex justify-center items-center rounded-xl border border-gray-300 bg-white px-4 py-2.5 text-xs font-semibold text-gray-700 hover:bg-gray-100 transition-colors cursor-pointer">
+                        class="w-full sm:w-auto inline-flex justify-center items-center rounded-xl border border-gray-300 bg-white px-5 py-3 text-xs sm:text-sm font-semibold text-gray-700 hover:bg-gray-100 transition-colors cursor-pointer active:scale-95">
                     Batal
                 </button>
             </div>

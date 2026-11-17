@@ -1362,7 +1362,7 @@ require_once __DIR__ . '/includes/navbar.php';
                             <span class="text-[11px] text-gray-500">Jakarta Selatan • Pembeli Terverifikasi</span>
                         </div>
                     </div>
-                    <a href="<?= SHOPEE_URL ?>" target="_blank" rel="noopener" @click.stop
+                    <a href="<?= SHOPEE_REVIEWS_URL ?>" target="_blank" rel="noopener" @click.stop
                        class="inline-flex items-center justify-between w-full text-xs font-semibold text-gray-600 hover:text-[#EE4D2D] transition pt-1">
                         <span class="flex items-center gap-1.5">
                             <img src="<?= BASE_URL ?>assets/images/shopee-icon-orange.svg" class="w-3.5 h-3.5 shrink-0" alt="Shopee">
@@ -1407,7 +1407,7 @@ require_once __DIR__ . '/includes/navbar.php';
                             <span class="text-[11px] text-gray-500">Surabaya • Pembeli Terverifikasi</span>
                         </div>
                     </div>
-                    <a href="<?= SHOPEE_URL ?>" target="_blank" rel="noopener" @click.stop
+                    <a href="<?= SHOPEE_REVIEWS_URL ?>" target="_blank" rel="noopener" @click.stop
                        class="inline-flex items-center justify-between w-full text-xs font-semibold text-gray-600 hover:text-[#EE4D2D] transition pt-1">
                         <span class="flex items-center gap-1.5">
                             <img src="<?= BASE_URL ?>assets/images/shopee-icon-orange.svg" class="w-3.5 h-3.5 shrink-0" alt="Shopee">
@@ -1452,7 +1452,7 @@ require_once __DIR__ . '/includes/navbar.php';
                             <span class="text-[11px] text-gray-500">Bandung • Pembeli Terverifikasi</span>
                         </div>
                     </div>
-                    <a href="<?= SHOPEE_URL ?>" target="_blank" rel="noopener" @click.stop
+                    <a href="<?= SHOPEE_REVIEWS_URL ?>" target="_blank" rel="noopener" @click.stop
                        class="inline-flex items-center justify-between w-full text-xs font-semibold text-gray-600 hover:text-[#EE4D2D] transition pt-1">
                         <span class="flex items-center gap-1.5">
                             <img src="<?= BASE_URL ?>assets/images/shopee-icon-orange.svg" class="w-3.5 h-3.5 shrink-0" alt="Shopee">

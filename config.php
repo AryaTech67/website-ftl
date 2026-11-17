@@ -16,7 +16,8 @@ define('WHATSAPP_NUMBER', '6282118017248'); // Nomor WhatsApp admin resmi FTL (f
 define('WHATSAPP_DISPLAY', '+62 821-1801-7248');
 define('INSTAGRAM_URL', 'https://www.instagram.com/forthelittle.id/');
 define('TIKTOK_URL', 'https://www.tiktok.com/@forthelittle.id');
-define('SHOPEE_URL', 'https://shopee.co.id/forthelittle.id?mmp_pid=an_11373750717&uls_trackid=574vdd0604jd&utm_campaign=-&utm_content=-&utm_medium=affiliates&utm_source=an_11373750717&utm_term=fuxnj44gbnej');
+define('SHOPEE_URL', 'https://shopee.co.id/forthelittle.id');
+define('SHOPEE_REVIEWS_URL', 'https://shopee.co.id/forthelittle.id#shop-rating');
 define('TOKOPEDIA_URL', 'https://www.tokopedia.com/');
 define('EMAIL_CONTACT', 'hello@forthelittle.id');
 define('OPERATIONAL_HOURS_WEEKDAY', 'Senin - Jumat: 09.00 - 17.00 WIB');

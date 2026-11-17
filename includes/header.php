@@ -10,7 +10,7 @@ $current_page = isset($current_page) ? $current_page : 'home';
 <html lang="id" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title><?= htmlspecialchars($page_title) ?></title>
     <meta name="description" content="<?= htmlspecialchars($page_desc) ?>">
     <meta name="keywords" content="<?= SITE_KEYWORDS ?>">
@@ -104,6 +104,12 @@ $current_page = isset($current_page) ? $current_page : 'home';
             -ms-overflow-style: none;
             scrollbar-width: none;
         }
+        /* Anti-Zoom on Mobile Inputs (iOS Safari auto-zooms if font-size < 16px) */
+        @media screen and (max-width: 768px) {
+            input, select, textarea {
+                font-size: 16px !important;
+            }
+        }
     </style>
 </head>
 <body class="bg-ftl-cream text-ftl-dark antialiased min-h-screen flex flex-col" 
@@ -114,6 +120,8 @@ $current_page = isset($current_page) ? $current_page : 'home';
           selectedProduct: 'calming-rub-50g',
           activeSection: '<?= $current_page ?? 'home' ?>'
       }"
+      @close-order-modal.window="orderModalOpen = false"
+      @open-order-modal.window="orderModalOpen = true; if ($event.detail && $event.detail.tab) modalTab = $event.detail.tab; if ($event.detail && $event.detail.product) selectedProduct = $event.detail.product;"
       @scroll.window.passive="
           <?php if (($current_page ?? '') === 'home'): ?>
           if ((window.innerHeight + window.scrollY) >= (document.documentElement.scrollHeight - 60)) {
