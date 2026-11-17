@@ -65,214 +65,238 @@ require_once __DIR__ . '/includes/navbar.php';
     <!-- Full Bleed Container: 100% Lebar Layar -->
     <div class="relative w-full h-[480px] sm:h-[520px] lg:h-[540px] overflow-hidden bg-ftl-forest select-none">
         
-        <!-- ================= SLIDE 1: Flagship FTL (Clean Typography, Lega & Elegan) ================= -->
-        <div class="absolute inset-0 w-full h-full flex items-center overflow-hidden bg-cover bg-left sm:bg-center transition-opacity duration-700 ease-in-out"
-             :class="activeSlide === 0 ? 'opacity-100 z-10' : 'opacity-0 z-0 pointer-events-none'"
-             style="background-image: url('<?= BASE_URL ?>assets/images/banner-ftl-hero.jpg?v=<?= filemtime(__DIR__ . '/assets/images/banner-ftl-hero.jpg') ?>');">
-            
-            <!-- Dark Gradient Overlay for Maximum Text Contrast & Readability -->
-            <div class="absolute inset-0 pointer-events-none" style="background: linear-gradient(to right, rgba(18, 44, 32, 0.96) 0%, rgba(38, 77, 59, 0.90) 50%, rgba(38, 77, 59, 0.65) 100%);"></div>
-            
-            <div class="w-full max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 relative z-10">
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-                    
-                    <!-- Left/Center Content (8 cols) -->
-                    <div class="lg:col-span-8 space-y-4 sm:space-y-5 text-left max-w-2xl">
+        <!-- Horizontal Carousel Track (Glides Smoothly on Change) -->
+        <div class="flex w-full h-full transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)]"
+             :style="'transform: translate3d(-' + (activeSlide * 100) + '%, 0, 0);'"
+             style="will-change: transform;">
 
-                        <!-- Headline Bersih & Tegas (Tanpa filter drop-shadow yang memicu bug kotak hitam Safari iOS) -->
-                        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white font-display tracking-tight leading-[1.15]">
-                            Bayi Nyaman & Ceria<br>
-                            <span class="text-[#FCD34D]">Bebas Kembung & Kolik Semalaman!</span>
-                        </h1>
+            <!-- ================= SLIDE 1: Flagship FTL (Clean Typography, Lega & Elegan) ================= -->
+            <div class="w-full h-full shrink-0 relative flex items-center overflow-hidden bg-cover bg-left sm:bg-center"
+                 style="background-image: url('<?= BASE_URL ?>assets/images/banner-ftl-hero.jpg?v=<?= filemtime(__DIR__ . '/assets/images/banner-ftl-hero.jpg') ?>');">
+                
+                <!-- Dark Gradient Overlay for Maximum Text Contrast & Readability -->
+                <div class="absolute inset-0 pointer-events-none" style="background: linear-gradient(to right, rgba(18, 44, 32, 0.96) 0%, rgba(38, 77, 59, 0.90) 50%, rgba(38, 77, 59, 0.65) 100%);"></div>
+                
+                <div class="w-full max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 relative z-10">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                        
+                        <!-- Left/Center Content (8 cols) -->
+                        <div class="lg:col-span-8 space-y-4 sm:space-y-5 text-left max-w-2xl">
 
-                        <!-- Subtitle Singkat, Lega & Enak Dibaca -->
-                        <p class="text-sm sm:text-base text-white/95 leading-relaxed font-normal max-w-xl">
-                            Krim telon alami dengan kehangatan <strong>Minyak Pala Nusantara & Calendula</strong>. Cepat meresap, 0% rasa lengket, dan lembut untuk newborn 0+ bulan.
-                        </p>
+                            <!-- Headline Bersih & Tegas (Tanpa filter drop-shadow yang memicu bug kotak hitam Safari iOS) -->
+                            <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white font-display tracking-tight leading-[1.15]">
+                                Bayi Nyaman & Ceria<br>
+                                <span class="text-[#FCD34D]">Bebas Kembung & Kolik Semalaman!</span>
+                            </h1>
 
-                        <!-- Micro Trust Highlights (Rapi & Minimalis) -->
-                        <div class="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs sm:text-sm text-emerald-200 font-semibold pt-1">
-                            <span class="inline-flex items-center gap-1.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-[#FCD34D]"></i> 100% Pala Nusantara</span>
-                            <span class="inline-flex items-center gap-1.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-[#FCD34D]"></i> 0% Rasa Lengket</span>
-                            <span class="inline-flex items-center gap-1.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-[#FCD34D]"></i> BPOM & Halal Resmi</span>
-                        </div>
-
-                        <!-- CTA Buttons -->
-                        <div class="pt-2 flex flex-wrap items-center gap-3">
-                            <button type="button" 
-                                    @click="orderModalOpen = true; modalTab = 'pesan'; selectedProduct = 'calming-rub-50g'"
-                                    class="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-bold px-6 sm:px-8 py-3 sm:py-3.5 rounded-full shadow-lg shadow-emerald-950/40 hover:scale-105 active:scale-95 transition text-xs sm:text-sm">
-                                <i data-lucide="message-circle" class="w-4 h-4"></i>
-                                <span>Pesan via WhatsApp (Hitung Ongkir)</span>
-                            </button>
-                            <a href="<?= SHOPEE_URL ?>" target="_blank" rel="noopener"
-                               class="inline-flex items-center gap-2 bg-[#EE4D2D] hover:bg-[#d73f21] text-white font-bold px-5 sm:px-7 py-3 sm:py-3.5 rounded-full shadow-lg hover:scale-105 active:scale-95 transition text-xs sm:text-sm">
-                                <i data-lucide="shopping-bag" class="w-4 h-4"></i>
-                                <span>Shopee Official</span>
-                            </a>
-                        </div>
-
-                    </div>
-
-                    <!-- Right Product Mockup Visual (4 cols) -->
-                    <div class="lg:col-span-4 hidden lg:flex flex-col justify-center items-center relative">
-                        <div class="w-64 h-64 rounded-full bg-emerald-400/20 absolute -z-10 blur-2xl"></div>
-                        <img src="<?= BASE_URL ?>assets/images/product-tube.png" 
-                             alt="FTL Calming Rub Tube" 
-                             class="h-72 lg:h-84 w-auto object-contain hover:scale-105 transition-transform duration-500">
-                        <div class="mt-2 inline-flex items-center gap-1 text-[11px] font-bold text-white bg-[#163325]/80 backdrop-blur-xs px-3 py-1 rounded-full border border-white/20">
-                            <span>Isi Bersih 50g</span> • <span>Travel Friendly</span>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-        </div>
-
-        <!-- ================= SLIDE 2: Rempah Pala Nusantara (Clean Typography) ================= -->
-        <div class="absolute inset-0 w-full h-full flex items-center overflow-hidden bg-cover bg-center sm:bg-center transition-opacity duration-700 ease-in-out"
-             :class="activeSlide === 1 ? 'opacity-100 z-10' : 'opacity-0 z-0 pointer-events-none'"
-             style="background-image: url('<?= BASE_URL ?>assets/images/banner-ftl-slide2.jpg?v=<?= filemtime(__DIR__ . '/assets/images/banner-ftl-slide2.jpg') ?>');">
-            
-            <!-- Dark Gradient Overlay for Maximum Text Contrast & Readability -->
-            <div class="absolute inset-0 pointer-events-none" style="background: linear-gradient(to right, rgba(18, 44, 32, 0.96) 0%, rgba(38, 77, 59, 0.90) 50%, rgba(38, 77, 59, 0.65) 100%);"></div>
-
-            <div class="w-full max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 relative z-10">
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-                    
-                    <!-- Left/Center Content (8 cols) -->
-                    <div class="lg:col-span-8 space-y-4 sm:space-y-5 text-left max-w-2xl">
-
-                        <!-- Headline Bersih & Tegas -->
-                        <h2 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white font-display tracking-tight leading-[1.15]">
-                            Khasiat Murni Rempah Alami<br>
-                            <span class="text-[#FCD34D]">Hangat Lembut, Tidak Panas di Kulit!</span>
-                        </h2>
-
-                        <p class="text-sm sm:text-base text-white/95 leading-relaxed font-normal max-w-xl">
-                            Perpaduan minyak atsiri buah pala nusantara dan ekstrak calendula organik yang melembapkan <em>skin barrier</em> serta menenangkan si kecil saat rewel.
-                        </p>
-
-                        <div class="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs sm:text-sm text-amber-200 font-semibold pt-1">
-                            <span class="inline-flex items-center gap-1.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-[#FCD34D]"></i> Minyak Biji Pala Murni</span>
-                            <span class="inline-flex items-center gap-1.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-[#FCD34D]"></i> Ekstrak Bunga Calendula</span>
-                            <span class="inline-flex items-center gap-1.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-[#FCD34D]"></i> Bebas Paraben & Alkohol</span>
-                        </div>
-
-                        <div class="pt-2 flex flex-wrap items-center gap-3">
-                            <a href="<?= BASE_URL ?>produk.php"
-                               class="inline-flex items-center gap-2 bg-amber-400 hover:bg-amber-300 text-amber-950 font-bold px-6 sm:px-8 py-3 sm:py-3.5 rounded-full shadow-lg transition text-xs sm:text-sm">
-                                <span>Pelajari Komposisi Lengkap</span>
-                                <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                            </a>
-                            <button type="button" 
-                                    @click="orderModalOpen = true; modalTab = 'konsultasi'"
-                                    class="inline-flex items-center gap-2 bg-white/20 hover:bg-white text-white hover:text-gray-900 border border-white/40 font-bold px-5 sm:px-7 py-3 sm:py-3.5 rounded-full transition text-xs sm:text-sm">
-                                <i data-lucide="message-circle" class="w-4 h-4"></i>
-                                <span>Konsultasi via WA</span>
-                            </button>
-                        </div>
-
-                    </div>
-
-                    <!-- Right Ingredients Visual (4 cols) -->
-                    <div class="lg:col-span-4 hidden lg:flex justify-center items-center gap-4">
-                        <div class="p-3 bg-white/10 backdrop-blur-md rounded-3xl border border-white/20 shadow-2xl flex flex-col items-center">
-                            <img src="<?= BASE_URL ?>assets/images/ingredient-nutmeg.svg" class="w-32 h-32 hover:scale-105 transition">
-                            <span class="text-xs font-bold text-amber-200 mt-2">Minyak Pala Nusantara</span>
-                        </div>
-                        <div class="p-3 bg-white/10 backdrop-blur-md rounded-3xl border border-white/20 shadow-2xl flex flex-col items-center">
-                            <img src="<?= BASE_URL ?>assets/images/ingredient-calendula.svg" class="w-32 h-32 hover:scale-105 transition">
-                            <span class="text-xs font-bold text-amber-200 mt-2">Bunga Calendula</span>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-        </div>
-
-        <!-- ================= SLIDE 3: #frommothertoanother (Clean Typography) ================= -->
-        <div class="absolute inset-0 w-full h-full flex items-center overflow-hidden bg-cover bg-center sm:bg-center transition-opacity duration-700 ease-in-out"
-             :class="activeSlide === 2 ? 'opacity-100 z-10' : 'opacity-0 z-0 pointer-events-none'"
-             style="background-image: url('<?= BASE_URL ?>assets/images/banner-ftl-slide3.jpg?v=<?= filemtime(__DIR__ . '/assets/images/banner-ftl-slide3.jpg') ?>');">
-            
-            <!-- Dark Gradient Overlay for Maximum Text Contrast & Readability -->
-            <div class="absolute inset-0 pointer-events-none" style="background: linear-gradient(to right, rgba(18, 44, 32, 0.96) 0%, rgba(38, 77, 59, 0.90) 50%, rgba(38, 77, 59, 0.65) 100%);"></div>
-            
-            <div class="w-full max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 relative z-10">
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-                    
-                    <!-- Left/Center Content (8 cols) -->
-                    <div class="lg:col-span-8 space-y-4 sm:space-y-5 text-left max-w-2xl">
-
-                        <!-- Headline Bersih & Tegas (Tanpa drop-shadow filter yang memicu bug kotak hitam Safari iOS) -->
-                        <h2 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white font-display tracking-tight leading-[1.15]">
-                            Dari Hati Seorang Ibu,<br>
-                            <span class="text-[#FCD34D]">Untuk Seluruh Bunda di Nusantara</span>
-                        </h2>
-
-                        <p class="text-sm sm:text-base text-white/95 leading-relaxed font-normal max-w-xl">
-                            Diformulasikan khusus tanpa kompromi demi kenyamanan buah hati dan ketenangan hati Bunda. Teruji klinis, halal, dan aman digunakan sejak hari pertama lahir.
-                        </p>
-
-                        <div class="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs sm:text-sm text-emerald-200 font-bold pt-1">
-                            <span class="inline-flex items-center gap-1.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-[#FCD34D]"></i> Diciptakan Ibu untuk Para Ibu</span>
-                            <span class="inline-flex items-center gap-1.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-[#FCD34D]"></i> Rating 4.9/5 dari 500+ Bunda</span>
-                            <span class="inline-flex items-center gap-1.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-[#FCD34D]"></i> Pengiriman Seluruh RI</span>
-                        </div>
-
-                        <div class="pt-2 flex flex-wrap items-center gap-3">
-                            <a href="<?= BASE_URL ?>tentang-kami.php"
-                               class="inline-flex items-center gap-2 bg-white text-ftl-forest hover:bg-emerald-50 font-bold px-6 sm:px-8 py-3 sm:py-3.5 rounded-full shadow-lg transition text-xs sm:text-sm">
-                                <span>Cerita Perjalanan FTL</span>
-                                <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                            </a>
-                            <a href="<?= INSTAGRAM_URL ?>" target="_blank" rel="noopener"
-                               class="inline-flex items-center gap-2 bg-white/20 hover:bg-white text-white hover:text-ftl-forest border border-white/40 font-bold px-5 sm:px-7 py-3 sm:py-3.5 rounded-full transition text-xs sm:text-sm">
-                                <i data-lucide="instagram" class="w-4 h-4"></i>
-                                <span>Instagram @forthelittle.id</span>
-                            </a>
-                        </div>
-
-                    </div>
-
-                    <!-- Right Testimonial Card Visual (4 cols) -->
-                    <div class="lg:col-span-4 hidden lg:flex justify-center items-center">
-                        <a href="<?= SHOPEE_URL ?>" target="_blank" rel="noopener" 
-                           class="block bg-white/10 hover:bg-white/15 backdrop-blur-md p-6 rounded-3xl border border-white/25 text-center text-white space-y-3 max-w-xs shadow-2xl transition-all duration-300 hover:scale-[1.02] group">
-                            <div class="flex items-center justify-center gap-2">
-                                <div class="text-amber-300 text-base">★★★★★</div>
-                                <span class="inline-flex items-center gap-1 text-[10px] font-bold bg-[#EE4D2D] text-white px-2 py-0.5 rounded-full shadow-xs">
-                                    <svg class="w-2.5 h-2.5 fill-current" viewBox="0 0 24 24"><path d="M19.5 7.5h-2.25a5.25 5.25 0 0 0-10.5 0H4.5A1.5 1.5 0 0 0 3 9v11.25A2.25 2.25 0 0 0 5.25 22.5h13.5A2.25 2.25 0 0 0 21 20.25V9a1.5 1.5 0 0 0-1.5-1.5zm-7.5-3.75a3.75 3.75 0 0 1 3.75 3.75h-7.5A3.75 3.75 0 0 1 12 3.75zm1.88 12.2c-.17.65-.68 1.15-1.52 1.5-1.07.45-2.28.32-3.13-.34-.23-.18-.28-.52-.1-.76.17-.23.51-.28.75-.11.58.46 1.45.54 2.19.23.47-.2.72-.45.79-.72.08-.34-.05-.62-.48-.96-.44-.35-1.37-.8-1.74-1.12-.66-.57-.91-1.22-.72-1.93.2-.75.82-1.31 1.7-1.57.94-.28 2.05-.13 2.82.37.24.16.3.49.15.73-.15.24-.48.3-.73.15-.55-.36-1.37-.46-2.03-.26-.49.15-.79.43-.88.75-.09.32.02.6.43.92.42.33 1.34.78 1.76 1.12.63.53.86 1.17.67 1.83z"/></svg>
-                                    Shopee Review
-                                </span>
-                            </div>
-                            <p class="text-xs text-emerald-100 italic leading-relaxed">
-                                "Baby Calming Rub FTL beneran ngebantu banget waktu anakku kolik di malam hari. Pijat ILU sebentar, tidurnya langsung pulas tanpa rewel."
+                            <!-- Subtitle Singkat, Lega & Enak Dibaca -->
+                            <p class="text-sm sm:text-base text-white/95 leading-relaxed font-normal max-w-xl">
+                                Krim telon alami dengan kehangatan <strong>Minyak Pala Nusantara & Calendula</strong>. Cepat meresap, 0% rasa lengket, dan lembut untuk newborn 0+ bulan.
                             </p>
-                            <div class="pt-2 border-t border-white/20 flex items-center justify-between text-[11px] text-white">
-                                <span class="font-bold">— Bunda Maya (Jakarta)</span>
-                                <span class="text-amber-200 group-hover:text-white transition flex items-center gap-0.5 text-[10px] font-semibold">
-                                    Lihat di Shopee &rarr;
-                                </span>
-                            </div>
-                        </a>
-                    </div>
 
+                            <!-- Micro Trust Highlights (Rapi & Minimalis) -->
+                            <div class="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs sm:text-sm text-emerald-200 font-semibold pt-1">
+                                <span class="inline-flex items-center gap-1.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-[#FCD34D]"></i> 100% Pala Nusantara</span>
+                                <span class="inline-flex items-center gap-1.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-[#FCD34D]"></i> 0% Rasa Lengket</span>
+                                <span class="inline-flex items-center gap-1.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-[#FCD34D]"></i> BPOM & Halal Resmi</span>
+                            </div>
+
+                            <!-- CTA Buttons -->
+                            <div class="pt-2 flex flex-wrap items-center gap-3">
+                                <button type="button" 
+                                        @click="orderModalOpen = true; modalTab = 'pesan'; selectedProduct = 'calming-rub-50g'"
+                                        class="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-bold px-6 sm:px-8 py-3 sm:py-3.5 rounded-full shadow-lg shadow-emerald-950/40 hover:scale-105 active:scale-95 transition text-xs sm:text-sm">
+                                    <i data-lucide="message-circle" class="w-4 h-4"></i>
+                                    <span>Pesan via WhatsApp (Hitung Ongkir)</span>
+                                </button>
+                                <a href="<?= SHOPEE_URL ?>" target="_blank" rel="noopener"
+                                   class="inline-flex items-center gap-2 bg-[#EE4D2D] hover:bg-[#d73f21] text-white font-bold px-5 sm:px-7 py-3 sm:py-3.5 rounded-full shadow-lg hover:scale-105 active:scale-95 transition text-xs sm:text-sm">
+                                    <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+                                    <span>Shopee Official</span>
+                                </a>
+                            </div>
+
+                        </div>
+
+                        <!-- Right Product Mockup Visual (4 cols) -->
+                        <div class="lg:col-span-4 hidden lg:flex flex-col justify-center items-center relative">
+                            <div class="w-64 h-64 rounded-full bg-emerald-400/20 absolute -z-10 blur-2xl"></div>
+                            <img src="<?= BASE_URL ?>assets/images/product-tube.png" 
+                                 alt="FTL Calming Rub Tube" 
+                                 class="h-72 lg:h-84 w-auto object-contain hover:scale-105 transition-transform duration-500">
+                            <div class="mt-2 inline-flex items-center gap-1 text-[11px] font-bold text-white bg-[#163325]/80 backdrop-blur-xs px-3 py-1 rounded-full border border-white/20">
+                                <span>Isi Bersih 50g</span> • <span>Travel Friendly</span>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
+
+            </div>
+
+            <!-- ================= SLIDE 2: Rempah Pala Nusantara (Clean Typography) ================= -->
+            <div class="w-full h-full shrink-0 relative flex items-center overflow-hidden bg-cover bg-center sm:bg-center"
+                 style="background-image: url('<?= BASE_URL ?>assets/images/banner-ftl-slide2.jpg?v=<?= filemtime(__DIR__ . '/assets/images/banner-ftl-slide2.jpg') ?>');">
+                
+                <!-- Dark Gradient Overlay for Maximum Text Contrast & Readability -->
+                <div class="absolute inset-0 pointer-events-none" style="background: linear-gradient(to right, rgba(18, 44, 32, 0.96) 0%, rgba(38, 77, 59, 0.90) 50%, rgba(38, 77, 59, 0.65) 100%);"></div>
+
+                <div class="w-full max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 relative z-10">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                        
+                        <!-- Left/Center Content (8 cols) -->
+                        <div class="lg:col-span-8 space-y-4 sm:space-y-5 text-left max-w-2xl">
+
+                            <!-- Headline Bersih & Tegas -->
+                            <h2 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white font-display tracking-tight leading-[1.15]">
+                                Khasiat Murni Rempah Alami<br>
+                                <span class="text-[#FCD34D]">Hangat Lembut, Tidak Panas di Kulit!</span>
+                            </h2>
+
+                            <p class="text-sm sm:text-base text-white/95 leading-relaxed font-normal max-w-xl">
+                                Perpaduan minyak atsiri buah pala nusantara dan ekstrak calendula organik yang melembapkan <em>skin barrier</em> serta menenangkan si kecil saat rewel.
+                            </p>
+
+                            <div class="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs sm:text-sm text-amber-200 font-semibold pt-1">
+                                <span class="inline-flex items-center gap-1.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-[#FCD34D]"></i> Minyak Biji Pala Murni</span>
+                                <span class="inline-flex items-center gap-1.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-[#FCD34D]"></i> Ekstrak Bunga Calendula</span>
+                                <span class="inline-flex items-center gap-1.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-[#FCD34D]"></i> Bebas Paraben & Alkohol</span>
+                            </div>
+
+                            <div class="pt-2 flex flex-wrap items-center gap-3">
+                                <a href="<?= BASE_URL ?>produk.php"
+                                   class="inline-flex items-center gap-2 bg-amber-400 hover:bg-amber-300 text-amber-950 font-bold px-6 sm:px-8 py-3 sm:py-3.5 rounded-full shadow-lg transition text-xs sm:text-sm">
+                                    <span>Pelajari Komposisi Lengkap</span>
+                                    <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                                </a>
+                                <button type="button" 
+                                        @click="orderModalOpen = true; modalTab = 'konsultasi'"
+                                        class="inline-flex items-center gap-2 bg-white/20 hover:bg-white text-white hover:text-gray-900 border border-white/40 font-bold px-5 sm:px-7 py-3 sm:py-3.5 rounded-full transition text-xs sm:text-sm">
+                                    <i data-lucide="message-circle" class="w-4 h-4"></i>
+                                    <span>Konsultasi via WA</span>
+                                </button>
+                            </div>
+
+                        </div>
+
+                        <!-- Right Ingredients Visual (4 cols) -->
+                        <div class="lg:col-span-4 hidden lg:flex justify-center items-center gap-4">
+                            <div class="p-3 bg-white/10 backdrop-blur-md rounded-3xl border border-white/20 shadow-2xl flex flex-col items-center">
+                                <img src="<?= BASE_URL ?>assets/images/ingredient-nutmeg.svg" class="w-32 h-32 hover:scale-105 transition">
+                                <span class="text-xs font-bold text-amber-200 mt-2">Minyak Pala Nusantara</span>
+                            </div>
+                            <div class="p-3 bg-white/10 backdrop-blur-md rounded-3xl border border-white/20 shadow-2xl flex flex-col items-center">
+                                <img src="<?= BASE_URL ?>assets/images/ingredient-calendula.svg" class="w-32 h-32 hover:scale-105 transition">
+                                <span class="text-xs font-bold text-amber-200 mt-2">Bunga Calendula</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- ================= SLIDE 3: #frommothertoanother (Clean Typography) ================= -->
+            <div class="w-full h-full shrink-0 relative flex items-center overflow-hidden bg-cover bg-center sm:bg-center"
+                 style="background-image: url('<?= BASE_URL ?>assets/images/banner-ftl-slide3.jpg?v=<?= filemtime(__DIR__ . '/assets/images/banner-ftl-slide3.jpg') ?>');">
+                
+                <!-- Dark Gradient Overlay for Maximum Text Contrast & Readability -->
+                <div class="absolute inset-0 pointer-events-none" style="background: linear-gradient(to right, rgba(18, 44, 32, 0.96) 0%, rgba(38, 77, 59, 0.90) 50%, rgba(38, 77, 59, 0.65) 100%);"></div>
+                
+                <div class="w-full max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 relative z-10">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                        
+                        <!-- Left/Center Content (8 cols) -->
+                        <div class="lg:col-span-8 space-y-4 sm:space-y-5 text-left max-w-2xl">
+
+                            <!-- Headline Bersih & Tegas (Tanpa drop-shadow filter yang memicu bug kotak hitam Safari iOS) -->
+                            <h2 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white font-display tracking-tight leading-[1.15]">
+                                Dari Hati Seorang Ibu,<br>
+                                <span class="text-[#FCD34D]">Untuk Seluruh Bunda di Nusantara</span>
+                            </h2>
+
+                            <p class="text-sm sm:text-base text-white/95 leading-relaxed font-normal max-w-xl">
+                                Diformulasikan khusus tanpa kompromi demi kenyamanan buah hati dan ketenangan hati Bunda. Teruji klinis, halal, dan aman digunakan sejak hari pertama lahir.
+                            </p>
+
+                            <div class="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs sm:text-sm text-emerald-200 font-bold pt-1">
+                                <span class="inline-flex items-center gap-1.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-[#FCD34D]"></i> Diciptakan Ibu untuk Para Ibu</span>
+                                <span class="inline-flex items-center gap-1.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-[#FCD34D]"></i> Rating 4.9/5 dari 500+ Bunda</span>
+                                <span class="inline-flex items-center gap-1.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-[#FCD34D]"></i> Pengiriman Seluruh RI</span>
+                            </div>
+
+                            <div class="pt-2 flex flex-wrap items-center gap-3">
+                                <a href="<?= BASE_URL ?>tentang-kami.php"
+                                   class="inline-flex items-center gap-2 bg-white text-ftl-forest hover:bg-emerald-50 font-bold px-6 sm:px-8 py-3 sm:py-3.5 rounded-full shadow-lg transition text-xs sm:text-sm">
+                                    <span>Cerita Perjalanan FTL</span>
+                                    <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                                </a>
+                                <a href="<?= INSTAGRAM_URL ?>" target="_blank" rel="noopener"
+                                   class="inline-flex items-center gap-2 bg-white/20 hover:bg-white text-white hover:text-ftl-forest border border-white/40 font-bold px-5 sm:px-7 py-3 sm:py-3.5 rounded-full transition text-xs sm:text-sm">
+                                    <i data-lucide="instagram" class="w-4 h-4"></i>
+                                    <span>Instagram @forthelittle.id</span>
+                                </a>
+                            </div>
+
+                        </div>
+
+                        <!-- Right Testimonial Card Visual (4 cols) -->
+                        <div class="lg:col-span-4 hidden lg:flex justify-center items-center">
+                            <a href="<?= SHOPEE_URL ?>" target="_blank" rel="noopener" 
+                               class="block bg-white/10 hover:bg-white/15 backdrop-blur-md p-6 rounded-3xl border border-white/25 text-center text-white space-y-3 max-w-xs shadow-2xl transition-all duration-300 hover:scale-[1.02] group">
+                                <div class="flex items-center justify-center gap-2">
+                                    <div class="text-amber-300 text-base">★★★★★</div>
+                                    <span class="inline-flex items-center gap-1 text-[10px] font-bold bg-[#EE4D2D] text-white px-2 py-0.5 rounded-full shadow-xs">
+                                        <svg class="w-2.5 h-2.5 fill-current" viewBox="0 0 24 24"><path d="M19.5 7.5h-2.25a5.25 5.25 0 0 0-10.5 0H4.5A1.5 1.5 0 0 0 3 9v11.25A2.25 2.25 0 0 0 5.25 22.5h13.5A2.25 2.25 0 0 0 21 20.25V9a1.5 1.5 0 0 0-1.5-1.5zm-7.5-3.75a3.75 3.75 0 0 1 3.75 3.75h-7.5A3.75 3.75 0 0 1 12 3.75zm1.88 12.2c-.17.65-.68 1.15-1.52 1.5-1.07.45-2.28.32-3.13-.34-.23-.18-.28-.52-.1-.76.17-.23.51-.28.75-.11.58.46 1.45.54 2.19.23.47-.2.72-.45.79-.72.08-.34-.05-.62-.48-.96-.44-.35-1.37-.8-1.74-1.12-.66-.57-.91-1.22-.72-1.93.2-.75.82-1.31 1.7-1.57.94-.28 2.05-.13 2.82.37.24.16.3.49.15.73-.15.24-.48.3-.73.15-.55-.36-1.37-.46-2.03-.26-.49.15-.79.43-.88.75-.09.32.02.6.43.92.42.33 1.34.78 1.76 1.12.63.53.86 1.17.67 1.83z"/></svg>
+                                        Shopee Review
+                                    </span>
+                                </div>
+                                <p class="text-xs text-emerald-100 italic leading-relaxed">
+                                    "Baby Calming Rub FTL beneran ngebantu banget waktu anakku kolik di malam hari. Pijat ILU sebentar, tidurnya langsung pulas tanpa rewel."
+                                </p>
+                                <div class="pt-2 border-t border-white/20 flex items-center justify-between text-[11px] text-white">
+                                    <span class="font-bold">— Bunda Maya (Jakarta)</span>
+                                    <span class="text-amber-200 group-hover:text-white transition flex items-center gap-0.5 text-[10px] font-semibold">
+                                        Lihat di Shopee &rarr;
+                                    </span>
+                                </div>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+
             </div>
 
         </div>
+
+        <!-- Left Prev Slide Arrow Button (Desktop & Tablet) -->
+        <button type="button" 
+                @click="prevSlide(); startAutoplay()" 
+                class="hidden sm:flex absolute left-4 lg:left-6 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-black/30 hover:bg-emerald-600 text-white backdrop-blur-md border border-white/20 items-center justify-center transition-all duration-200 shadow-lg hover:scale-110 active:scale-95 cursor-pointer"
+                aria-label="Slide Sebelumnya">
+            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m15 18-6-6 6-6"/>
+            </svg>
+        </button>
+
+        <!-- Right Next Slide Arrow Button (Desktop & Tablet) -->
+        <button type="button" 
+                @click="nextSlide(); startAutoplay()" 
+                class="hidden sm:flex absolute right-4 lg:right-6 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-black/30 hover:bg-emerald-600 text-white backdrop-blur-md border border-white/20 items-center justify-center transition-all duration-200 shadow-lg hover:scale-110 active:scale-95 cursor-pointer"
+                aria-label="Slide Selanjutnya">
+            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m9 18 6-6-6-6"/>
+            </svg>
+        </button>
 
         <!-- Slider Dots / Indicators (Interaktif & Indah di Bawah Banner) -->
-        <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-2.5 z-20 bg-[#163325]/75 backdrop-blur-md px-4 py-2 rounded-full border border-white/15">
+        <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-2.5 z-20 bg-[#122C20]/85 backdrop-blur-md px-4 py-2 rounded-full border border-white/20 shadow-lg">
             <template x-for="i in totalSlides" :key="i">
                 <button type="button" 
                         @click="activeSlide = i - 1; startAutoplay()"
-                        :class="activeSlide === (i - 1) ? 'w-8 bg-emerald-400' : 'w-2.5 bg-white/50 hover:bg-white'"
-                        class="h-2 rounded-full transition-all duration-300 focus:outline-none"
+                        :class="activeSlide === (i - 1) ? 'w-8 bg-[#FCD34D]' : 'w-2.5 bg-white/40 hover:bg-white/80'"
+                        class="h-2 rounded-full transition-all duration-300 focus:outline-none cursor-pointer"
                         :aria-label="'Pindah ke Slide ' + i">
                 </button>
             </template>
