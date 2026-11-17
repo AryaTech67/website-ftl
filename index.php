@@ -60,6 +60,18 @@ require_once __DIR__ . '/includes/navbar.php';
          @touchstart.passive="handleTouchStart($event)"
          @touchend.passive="handleTouchEnd($event)">
 
+    <!-- Hero Banner Custom Styling for Authentic FTL Forest Green Luminous Gradient -->
+    <style>
+        .ftl-hero-overlay {
+            background: linear-gradient(180deg, rgba(38, 77, 59, 0.94) 0%, rgba(38, 77, 59, 0.82) 55%, rgba(38, 77, 59, 0.40) 100%);
+        }
+        @media (min-width: 640px) {
+            .ftl-hero-overlay {
+                background: linear-gradient(90deg, rgba(38, 77, 59, 0.95) 0%, rgba(38, 77, 59, 0.85) 45%, rgba(38, 77, 59, 0.45) 78%, rgba(38, 77, 59, 0.15) 100%);
+            }
+        }
+    </style>
+
     <!-- Full Bleed Container: 100% Lebar Layar -->
     <div class="relative w-full h-[480px] sm:h-[520px] lg:h-[540px] overflow-hidden bg-ftl-forest select-none">
         
@@ -72,8 +84,8 @@ require_once __DIR__ . '/includes/navbar.php';
             <div class="w-full h-full shrink-0 relative flex items-center overflow-hidden bg-cover bg-left sm:bg-center"
                  style="background-image: url('<?= BASE_URL ?>assets/images/banner-ftl-hero.jpg?v=<?= filemtime(__DIR__ . '/assets/images/banner-ftl-hero.jpg') ?>');">
                 
-                <!-- Dark Gradient Overlay for Maximum Text Contrast & Readability -->
-                <div class="absolute inset-0 pointer-events-none" style="background: linear-gradient(to right, rgba(18, 44, 32, 0.96) 0%, rgba(38, 77, 59, 0.90) 50%, rgba(38, 77, 59, 0.65) 100%);"></div>
+                <!-- Luminous FTL Forest Green Gradient Overlay for Natural Brand Look & Maximum Text Contrast -->
+                <div class="absolute inset-0 pointer-events-none ftl-hero-overlay"></div>
                 
                 <div class="w-full max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 relative z-10">
                     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
@@ -109,7 +121,7 @@ require_once __DIR__ . '/includes/navbar.php';
                                 </button>
                                 <a href="<?= SHOPEE_URL ?>" target="_blank" rel="noopener"
                                    class="inline-flex items-center gap-2 bg-[#EE4D2D] hover:bg-[#d73f21] text-white font-bold px-5 sm:px-7 py-3 sm:py-3.5 rounded-full shadow-lg hover:scale-105 active:scale-95 transition text-xs sm:text-sm">
-                                    <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+                                    <img src="<?= BASE_URL ?>assets/images/shopee-icon-white.svg" class="w-4 h-4" alt="Shopee">
                                     <span>Shopee Official</span>
                                 </a>
                             </div>
@@ -136,8 +148,8 @@ require_once __DIR__ . '/includes/navbar.php';
             <div class="w-full h-full shrink-0 relative flex items-center overflow-hidden bg-cover bg-center sm:bg-center"
                  style="background-image: url('<?= BASE_URL ?>assets/images/banner-ftl-slide2.jpg?v=<?= filemtime(__DIR__ . '/assets/images/banner-ftl-slide2.jpg') ?>');">
                 
-                <!-- Dark Gradient Overlay for Maximum Text Contrast & Readability -->
-                <div class="absolute inset-0 pointer-events-none" style="background: linear-gradient(to right, rgba(18, 44, 32, 0.96) 0%, rgba(38, 77, 59, 0.90) 50%, rgba(38, 77, 59, 0.65) 100%);"></div>
+                <!-- Luminous FTL Forest Green Gradient Overlay for Natural Brand Look & Maximum Text Contrast -->
+                <div class="absolute inset-0 pointer-events-none ftl-hero-overlay"></div>
 
                 <div class="w-full max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 relative z-10">
                     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
@@ -198,8 +210,8 @@ require_once __DIR__ . '/includes/navbar.php';
             <div class="w-full h-full shrink-0 relative flex items-center overflow-hidden bg-cover bg-center sm:bg-center"
                  style="background-image: url('<?= BASE_URL ?>assets/images/banner-ftl-slide3.jpg?v=<?= filemtime(__DIR__ . '/assets/images/banner-ftl-slide3.jpg') ?>');">
                 
-                <!-- Dark Gradient Overlay for Maximum Text Contrast & Readability -->
-                <div class="absolute inset-0 pointer-events-none" style="background: linear-gradient(to right, rgba(18, 44, 32, 0.96) 0%, rgba(38, 77, 59, 0.90) 50%, rgba(38, 77, 59, 0.65) 100%);"></div>
+                <!-- Luminous FTL Forest Green Gradient Overlay for Natural Brand Look & Maximum Text Contrast -->
+                <div class="absolute inset-0 pointer-events-none ftl-hero-overlay"></div>
                 
                 <div class="w-full max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 relative z-10">
                     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
@@ -244,8 +256,8 @@ require_once __DIR__ . '/includes/navbar.php';
                                class="block bg-white/10 hover:bg-white/15 backdrop-blur-md p-6 rounded-3xl border border-white/25 text-center text-white space-y-3 max-w-xs shadow-2xl transition-all duration-300 hover:scale-[1.02] group">
                                 <div class="flex items-center justify-center gap-2">
                                     <div class="text-amber-300 text-base">★★★★★</div>
-                                    <span class="inline-flex items-center gap-1 text-[10px] font-bold bg-[#EE4D2D] text-white px-2 py-0.5 rounded-full shadow-xs">
-                                        <svg class="w-2.5 h-2.5 fill-current" viewBox="0 0 24 24"><path d="M19.5 7.5h-2.25a5.25 5.25 0 0 0-10.5 0H4.5A1.5 1.5 0 0 0 3 9v11.25A2.25 2.25 0 0 0 5.25 22.5h13.5A2.25 2.25 0 0 0 21 20.25V9a1.5 1.5 0 0 0-1.5-1.5zm-7.5-3.75a3.75 3.75 0 0 1 3.75 3.75h-7.5A3.75 3.75 0 0 1 12 3.75zm1.88 12.2c-.17.65-.68 1.15-1.52 1.5-1.07.45-2.28.32-3.13-.34-.23-.18-.28-.52-.1-.76.17-.23.51-.28.75-.11.58.46 1.45.54 2.19.23.47-.2.72-.45.79-.72.08-.34-.05-.62-.48-.96-.44-.35-1.37-.8-1.74-1.12-.66-.57-.91-1.22-.72-1.93.2-.75.82-1.31 1.7-1.57.94-.28 2.05-.13 2.82.37.24.16.3.49.15.73-.15.24-.48.3-.73.15-.55-.36-1.37-.46-2.03-.26-.49.15-.79.43-.88.75-.09.32.02.6.43.92.42.33 1.34.78 1.76 1.12.63.53.86 1.17.67 1.83z"/></svg>
+                                    <span class="inline-flex items-center gap-1.5 text-[10px] font-bold bg-[#EE4D2D] text-white px-2 py-0.5 rounded-full shadow-xs">
+                                        <img src="<?= BASE_URL ?>assets/images/shopee-icon-white.svg" class="w-3 h-3" alt="Shopee">
                                         Shopee Review
                                     </span>
                                 </div>
@@ -271,7 +283,7 @@ require_once __DIR__ . '/includes/navbar.php';
         <!-- Left Prev Slide Arrow Button (Desktop & Tablet) -->
         <button type="button" 
                 @click="prevSlide(); startAutoplay()" 
-                class="hidden sm:flex absolute left-4 lg:left-6 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-black/30 hover:bg-emerald-600 text-white backdrop-blur-md border border-white/20 items-center justify-center transition-all duration-200 shadow-lg hover:scale-110 active:scale-95 cursor-pointer"
+                class="hidden sm:flex absolute left-4 lg:left-6 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-[#264D3B]/70 hover:bg-ftl-forest text-white backdrop-blur-md border border-white/20 items-center justify-center transition-all duration-200 shadow-lg hover:scale-110 active:scale-95 cursor-pointer"
                 aria-label="Slide Sebelumnya">
             <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                 <path d="m15 18-6-6 6-6"/>
@@ -281,7 +293,7 @@ require_once __DIR__ . '/includes/navbar.php';
         <!-- Right Next Slide Arrow Button (Desktop & Tablet) -->
         <button type="button" 
                 @click="nextSlide(); startAutoplay()" 
-                class="hidden sm:flex absolute right-4 lg:right-6 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-black/30 hover:bg-emerald-600 text-white backdrop-blur-md border border-white/20 items-center justify-center transition-all duration-200 shadow-lg hover:scale-110 active:scale-95 cursor-pointer"
+                class="hidden sm:flex absolute right-4 lg:right-6 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-[#264D3B]/70 hover:bg-ftl-forest text-white backdrop-blur-md border border-white/20 items-center justify-center transition-all duration-200 shadow-lg hover:scale-110 active:scale-95 cursor-pointer"
                 aria-label="Slide Selanjutnya">
             <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                 <path d="m9 18 6-6-6-6"/>
@@ -289,7 +301,7 @@ require_once __DIR__ . '/includes/navbar.php';
         </button>
 
         <!-- Slider Dots / Indicators (Interaktif & Indah di Bawah Banner) -->
-        <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-2.5 z-20 bg-[#122C20]/85 backdrop-blur-md px-4 py-2 rounded-full border border-white/20 shadow-lg">
+        <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-2.5 z-20 bg-[#264D3B]/90 backdrop-blur-md px-4 py-2 rounded-full border border-white/20 shadow-lg">
             <template x-for="i in totalSlides" :key="i">
                 <button type="button" 
                         @click="activeSlide = i - 1; startAutoplay()"
@@ -502,7 +514,7 @@ require_once __DIR__ . '/includes/navbar.php';
                             </button>
                             <a href="<?= SHOPEE_URL ?>" target="_blank" rel="noopener"
                                class="w-full h-12 bg-[#EE4D2D] hover:bg-[#d73f21] text-white font-bold py-3 px-3 sm:px-4 rounded-2xl text-xs sm:text-sm shadow-md hover:shadow-orange-600/30 transition flex items-center justify-center gap-2 active:scale-95 text-center group whitespace-nowrap">
-                                <i data-lucide="shopping-bag" class="w-4 h-4 shrink-0 group-hover:scale-110 transition-transform"></i>
+                                <img src="<?= BASE_URL ?>assets/images/shopee-icon-white.svg" class="w-4 h-4 shrink-0 group-hover:scale-110 transition-transform" alt="Shopee">
                                 <span>Beli di Shopee Resmi</span>
                             </a>
                         </div>
@@ -708,56 +720,71 @@ require_once __DIR__ . '/includes/navbar.php';
 
             </div>
 
-            <!-- CARD 2: MINYAK TELON TRADISIONAL (Muted Comparison Card: Santun & Objektif) -->
-            <div class="lg:col-span-5 bg-white/60 rounded-[32px] p-6 sm:p-8 border border-gray-200/80 shadow-xs flex flex-col justify-between opacity-85">
+            <!-- CARD 2: MINYAK TELON TRADISIONAL (Jelas, Tajam, Santun & Objektif) -->
+            <div class="lg:col-span-5 bg-[#FAF7F2] rounded-[32px] p-6 sm:p-8 border border-stone-300 shadow-sm flex flex-col justify-between">
                 
                 <div>
                     <!-- Header Kartu Tradisional -->
-                    <div class="pb-6 border-b border-gray-200/60 flex items-center justify-between gap-3">
+                    <div class="pb-6 border-b border-stone-200 flex items-center justify-between gap-3">
                         <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 rounded-2xl bg-gray-100 flex items-center justify-center shrink-0 text-gray-400">
-                                <svg class="w-5 h-5 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <div class="w-10 h-10 rounded-2xl bg-stone-200/80 border border-stone-300 flex items-center justify-center shrink-0 text-stone-700">
+                                <svg class="w-5 h-5 text-stone-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M10 2h4M10 5h4M6 9h12l-2 11H8L6 9z"/>
                                 </svg>
                             </div>
                             <div>
-                                <span class="text-[10px] font-bold uppercase tracking-wider text-gray-400 block">
+                                <span class="text-[10px] font-bold uppercase tracking-wider text-stone-500 block">
                                     Format Tradisional
                                 </span>
-                                <h3 class="font-display font-bold text-lg sm:text-xl text-gray-700">
+                                <h3 class="font-display font-extrabold text-lg sm:text-xl text-stone-900">
                                     Minyak Telon Konvensional
                                 </h3>
                             </div>
                         </div>
+                        <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-stone-200/80 text-stone-700">
+                            Format Lama
+                        </span>
                     </div>
 
-                    <!-- Comparison Points -->
-                    <div class="divide-y divide-gray-100 py-3 space-y-3.5 text-xs sm:text-sm">
+                    <!-- Comparison Points (Teks Tajam, Kontras Tinggi & Sangat Jelas) -->
+                    <div class="divide-y divide-stone-200/80 py-4 space-y-4 text-xs sm:text-sm">
                         
-                        <div class="pt-3.5 first:pt-0 space-y-1">
-                            <h4 class="font-semibold text-gray-700">Tekstur Minyak Cair & Licin</h4>
-                            <p class="text-gray-500 leading-relaxed text-xs">
+                        <div class="pt-4 first:pt-0 space-y-1">
+                            <h4 class="font-bold text-stone-900 text-sm sm:text-base flex items-center gap-2">
+                                <span class="w-1.5 h-1.5 rounded-full bg-stone-400 shrink-0"></span>
+                                Tekstur Minyak Cair & Licin
+                            </h4>
+                            <p class="text-stone-700 leading-relaxed text-xs sm:text-sm pl-3.5">
                                 Lambat meresap ke kulit, licin di telapak tangan, dan berpotensi meninggalkan noda kekuningan yang sulit hilang di baju bayi.
                             </p>
                         </div>
 
-                        <div class="pt-3.5 space-y-1">
-                            <h4 class="font-semibold text-gray-700">Aroma Menyengat & Kadang Terlalu Panas</h4>
-                            <p class="text-gray-500 leading-relaxed text-xs">
+                        <div class="pt-4 space-y-1">
+                            <h4 class="font-bold text-stone-900 text-sm sm:text-base flex items-center gap-2">
+                                <span class="w-1.5 h-1.5 rounded-full bg-stone-400 shrink-0"></span>
+                                Aroma Menyengat & Kadang Terlalu Panas
+                            </h4>
+                            <p class="text-stone-700 leading-relaxed text-xs sm:text-sm pl-3.5">
                                 Konsentrasi minyak kayu putih yang tajam sering kali terlalu menyengat bagi pernapasan bayi dan rentan memicu ruam panas pada newborn.
                             </p>
                         </div>
 
-                        <div class="pt-3.5 space-y-1">
-                            <h4 class="font-semibold text-gray-700">Tidak Mengandung Pelembap Kulit</h4>
-                            <p class="text-gray-500 leading-relaxed text-xs">
+                        <div class="pt-4 space-y-1">
+                            <h4 class="font-bold text-stone-900 text-sm sm:text-base flex items-center gap-2">
+                                <span class="w-1.5 h-1.5 rounded-full bg-stone-400 shrink-0"></span>
+                                Tidak Mengandung Pelembap Kulit
+                            </h4>
+                            <p class="text-stone-700 leading-relaxed text-xs sm:text-sm pl-3.5">
                                 Tanpa nutrisi pelembap aktif. Pemakaian rutin pada kulit bayi yang baru lahir berisiko menyebabkan kulit menjadi kering dan mengelupas.
                             </p>
                         </div>
 
-                        <div class="pt-3.5 space-y-1">
-                            <h4 class="font-semibold text-gray-700">Botol Rawan Tumpah</h4>
-                            <p class="text-gray-500 leading-relaxed text-xs">
+                        <div class="pt-4 space-y-1">
+                            <h4 class="font-bold text-stone-900 text-sm sm:text-base flex items-center gap-2">
+                                <span class="w-1.5 h-1.5 rounded-full bg-stone-400 shrink-0"></span>
+                                Kemasan Botol Rawan Tumpah
+                            </h4>
+                            <p class="text-stone-700 leading-relaxed text-xs sm:text-sm pl-3.5">
                                 Tutup ulir botol rawan kendur atau bocor saat ditaruh di dalam tas perlengkapan bayi, membuat isi tas berbau menyengat dan kotor.
                             </p>
                         </div>
@@ -765,8 +792,8 @@ require_once __DIR__ . '/includes/navbar.php';
                     </div>
                 </div>
 
-                <div class="pt-4 border-t border-gray-100 text-[11px] text-gray-400 italic">
-                    Format lama yang membutuhkan kehati-hatian ekstra saat diaplikasikan ke kulit bayi.
+                <div class="pt-4 border-t border-stone-200 text-xs text-stone-600 font-medium">
+                    Catatan: Format lama membutuhkan kehati-hatian ekstra saat diaplikasikan ke kulit bayi.
                 </div>
 
             </div>
@@ -1112,7 +1139,7 @@ require_once __DIR__ . '/includes/navbar.php';
         <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-8 sm:mb-12 gap-4">
             <div>
                 <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FFF0ED] text-[#EE4D2D] border border-[#EE4D2D]/20 text-xs font-bold mb-2">
-                    <svg class="w-3.5 h-3.5 fill-current shrink-0" viewBox="0 0 24 24"><path d="M19.5 7.5h-2.25a5.25 5.25 0 0 0-10.5 0H4.5A1.5 1.5 0 0 0 3 9v11.25A2.25 2.25 0 0 0 5.25 22.5h13.5A2.25 2.25 0 0 0 21 20.25V9a1.5 1.5 0 0 0-1.5-1.5zm-7.5-3.75a3.75 3.75 0 0 1 3.75 3.75h-7.5A3.75 3.75 0 0 1 12 3.75zm1.88 12.2c-.17.65-.68 1.15-1.52 1.5-1.07.45-2.28.32-3.13-.34-.23-.18-.28-.52-.1-.76.17-.23.51-.28.75-.11.58.46 1.45.54 2.19.23.47-.2.72-.45.79-.72.08-.34-.05-.62-.48-.96-.44-.35-1.37-.8-1.74-1.12-.66-.57-.91-1.22-.72-1.93.2-.75.82-1.31 1.7-1.57.94-.28 2.05-.13 2.82.37.24.16.3.49.15.73-.15.24-.48.3-.73.15-.55-.36-1.37-.46-2.03-.26-.49.15-.79.43-.88.75-.09.32.02.6.43.92.42.33 1.34.78 1.76 1.12.63.53.86 1.17.67 1.83z"/></svg>
+                    <img src="<?= BASE_URL ?>assets/images/shopee-icon-orange.svg" class="w-3.5 h-3.5 shrink-0" alt="Shopee">
                     <span>ULASAN ASLI SHOPEE OFFICIAL STORE</span>
                 </div>
                 <h2 class="text-3xl sm:text-4xl font-extrabold font-display text-ftl-forest">
@@ -1160,8 +1187,8 @@ require_once __DIR__ . '/includes/navbar.php';
                 <div class="space-y-3">
                     <div class="flex items-center justify-between">
                         <div class="flex text-amber-400 gap-1 text-sm">★★★★★</div>
-                        <span class="inline-flex items-center gap-1 text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-[#FFF0ED] text-[#EE4D2D] border border-[#EE4D2D]/20">
-                            <svg class="w-2.5 h-2.5 fill-current shrink-0" viewBox="0 0 24 24"><path d="M19.5 7.5h-2.25a5.25 5.25 0 0 0-10.5 0H4.5A1.5 1.5 0 0 0 3 9v11.25A2.25 2.25 0 0 0 5.25 22.5h13.5A2.25 2.25 0 0 0 21 20.25V9a1.5 1.5 0 0 0-1.5-1.5zm-7.5-3.75a3.75 3.75 0 0 1 3.75 3.75h-7.5A3.75 3.75 0 0 1 12 3.75zm1.88 12.2c-.17.65-.68 1.15-1.52 1.5-1.07.45-2.28.32-3.13-.34-.23-.18-.28-.52-.1-.76.17-.23.51-.28.75-.11.58.46 1.45.54 2.19.23.47-.2.72-.45.79-.72.08-.34-.05-.62-.48-.96-.44-.35-1.37-.8-1.74-1.12-.66-.57-.91-1.22-.72-1.93.2-.75.82-1.31 1.7-1.57.94-.28 2.05-.13 2.82.37.24.16.3.49.15.73-.15.24-.48.3-.73.15-.55-.36-1.37-.46-2.03-.26-.49.15-.79.43-.88.75-.09.32.02.6.43.92.42.33 1.34.78 1.76 1.12.63.53.86 1.17.67 1.83z"/></svg>
+                        <span class="inline-flex items-center gap-1.5 text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-[#FFF0ED] text-[#EE4D2D] border border-[#EE4D2D]/20">
+                            <img src="<?= BASE_URL ?>assets/images/shopee-icon-orange.svg" class="w-3 h-3 shrink-0" alt="Shopee">
                             Shopee Verified
                         </span>
                     </div>
@@ -1189,8 +1216,8 @@ require_once __DIR__ . '/includes/navbar.php';
                     </div>
                     <a href="<?= SHOPEE_URL ?>" target="_blank" rel="noopener" @click.stop
                        class="inline-flex items-center justify-between w-full text-xs font-semibold text-gray-600 hover:text-[#EE4D2D] transition pt-1">
-                        <span class="flex items-center gap-1">
-                            <svg class="w-3.5 h-3.5 fill-[#EE4D2D]" viewBox="0 0 24 24"><path d="M19.5 7.5h-2.25a5.25 5.25 0 0 0-10.5 0H4.5A1.5 1.5 0 0 0 3 9v11.25A2.25 2.25 0 0 0 5.25 22.5h13.5A2.25 2.25 0 0 0 21 20.25V9a1.5 1.5 0 0 0-1.5-1.5zm-7.5-3.75a3.75 3.75 0 0 1 3.75 3.75h-7.5A3.75 3.75 0 0 1 12 3.75zm1.88 12.2c-.17.65-.68 1.15-1.52 1.5-1.07.45-2.28.32-3.13-.34-.23-.18-.28-.52-.1-.76.17-.23.51-.28.75-.11.58.46 1.45.54 2.19.23.47-.2.72-.45.79-.72.08-.34-.05-.62-.48-.96-.44-.35-1.37-.8-1.74-1.12-.66-.57-.91-1.22-.72-1.93.2-.75.82-1.31 1.7-1.57.94-.28 2.05-.13 2.82.37.24.16.3.49.15.73-.15.24-.48.3-.73.15-.55-.36-1.37-.46-2.03-.26-.49.15-.79.43-.88.75-.09.32.02.6.43.92.42.33 1.34.78 1.76 1.12.63.53.86 1.17.67 1.83z"/></svg>
+                        <span class="flex items-center gap-1.5">
+                            <img src="<?= BASE_URL ?>assets/images/shopee-icon-orange.svg" class="w-3.5 h-3.5 shrink-0" alt="Shopee">
                             Lihat ulasan di Shopee
                         </span>
                         <span class="text-[#EE4D2D] font-bold">&rarr;</span>
@@ -1205,8 +1232,8 @@ require_once __DIR__ . '/includes/navbar.php';
                 <div class="space-y-3">
                     <div class="flex items-center justify-between">
                         <div class="flex text-amber-400 gap-1 text-sm">★★★★★</div>
-                        <span class="inline-flex items-center gap-1 text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-[#FFF0ED] text-[#EE4D2D] border border-[#EE4D2D]/20">
-                            <svg class="w-2.5 h-2.5 fill-current shrink-0" viewBox="0 0 24 24"><path d="M19.5 7.5h-2.25a5.25 5.25 0 0 0-10.5 0H4.5A1.5 1.5 0 0 0 3 9v11.25A2.25 2.25 0 0 0 5.25 22.5h13.5A2.25 2.25 0 0 0 21 20.25V9a1.5 1.5 0 0 0-1.5-1.5zm-7.5-3.75a3.75 3.75 0 0 1 3.75 3.75h-7.5A3.75 3.75 0 0 1 12 3.75zm1.88 12.2c-.17.65-.68 1.15-1.52 1.5-1.07.45-2.28.32-3.13-.34-.23-.18-.28-.52-.1-.76.17-.23.51-.28.75-.11.58.46 1.45.54 2.19.23.47-.2.72-.45.79-.72.08-.34-.05-.62-.48-.96-.44-.35-1.37-.8-1.74-1.12-.66-.57-.91-1.22-.72-1.93.2-.75.82-1.31 1.7-1.57.94-.28 2.05-.13 2.82.37.24.16.3.49.15.73-.15.24-.48.3-.73.15-.55-.36-1.37-.46-2.03-.26-.49.15-.79.43-.88.75-.09.32.02.6.43.92.42.33 1.34.78 1.76 1.12.63.53.86 1.17.67 1.83z"/></svg>
+                        <span class="inline-flex items-center gap-1.5 text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-[#FFF0ED] text-[#EE4D2D] border border-[#EE4D2D]/20">
+                            <img src="<?= BASE_URL ?>assets/images/shopee-icon-orange.svg" class="w-3 h-3 shrink-0" alt="Shopee">
                             Shopee Verified
                         </span>
                     </div>
@@ -1234,8 +1261,8 @@ require_once __DIR__ . '/includes/navbar.php';
                     </div>
                     <a href="<?= SHOPEE_URL ?>" target="_blank" rel="noopener" @click.stop
                        class="inline-flex items-center justify-between w-full text-xs font-semibold text-gray-600 hover:text-[#EE4D2D] transition pt-1">
-                        <span class="flex items-center gap-1">
-                            <svg class="w-3.5 h-3.5 fill-[#EE4D2D]" viewBox="0 0 24 24"><path d="M19.5 7.5h-2.25a5.25 5.25 0 0 0-10.5 0H4.5A1.5 1.5 0 0 0 3 9v11.25A2.25 2.25 0 0 0 5.25 22.5h13.5A2.25 2.25 0 0 0 21 20.25V9a1.5 1.5 0 0 0-1.5-1.5zm-7.5-3.75a3.75 3.75 0 0 1 3.75 3.75h-7.5A3.75 3.75 0 0 1 12 3.75zm1.88 12.2c-.17.65-.68 1.15-1.52 1.5-1.07.45-2.28.32-3.13-.34-.23-.18-.28-.52-.1-.76.17-.23.51-.28.75-.11.58.46 1.45.54 2.19.23.47-.2.72-.45.79-.72.08-.34-.05-.62-.48-.96-.44-.35-1.37-.8-1.74-1.12-.66-.57-.91-1.22-.72-1.93.2-.75.82-1.31 1.7-1.57.94-.28 2.05-.13 2.82.37.24.16.3.49.15.73-.15.24-.48.3-.73.15-.55-.36-1.37-.46-2.03-.26-.49.15-.79.43-.88.75-.09.32.02.6.43.92.42.33 1.34.78 1.76 1.12.63.53.86 1.17.67 1.83z"/></svg>
+                        <span class="flex items-center gap-1.5">
+                            <img src="<?= BASE_URL ?>assets/images/shopee-icon-orange.svg" class="w-3.5 h-3.5 shrink-0" alt="Shopee">
                             Lihat ulasan di Shopee
                         </span>
                         <span class="text-[#EE4D2D] font-bold">&rarr;</span>
@@ -1250,8 +1277,8 @@ require_once __DIR__ . '/includes/navbar.php';
                 <div class="space-y-3">
                     <div class="flex items-center justify-between">
                         <div class="flex text-amber-400 gap-1 text-sm">★★★★★</div>
-                        <span class="inline-flex items-center gap-1 text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-[#FFF0ED] text-[#EE4D2D] border border-[#EE4D2D]/20">
-                            <svg class="w-2.5 h-2.5 fill-current shrink-0" viewBox="0 0 24 24"><path d="M19.5 7.5h-2.25a5.25 5.25 0 0 0-10.5 0H4.5A1.5 1.5 0 0 0 3 9v11.25A2.25 2.25 0 0 0 5.25 22.5h13.5A2.25 2.25 0 0 0 21 20.25V9a1.5 1.5 0 0 0-1.5-1.5zm-7.5-3.75a3.75 3.75 0 0 1 3.75 3.75h-7.5A3.75 3.75 0 0 1 12 3.75zm1.88 12.2c-.17.65-.68 1.15-1.52 1.5-1.07.45-2.28.32-3.13-.34-.23-.18-.28-.52-.1-.76.17-.23.51-.28.75-.11.58.46 1.45.54 2.19.23.47-.2.72-.45.79-.72.08-.34-.05-.62-.48-.96-.44-.35-1.37-.8-1.74-1.12-.66-.57-.91-1.22-.72-1.93.2-.75.82-1.31 1.7-1.57.94-.28 2.05-.13 2.82.37.24.16.3.49.15.73-.15.24-.48.3-.73.15-.55-.36-1.37-.46-2.03-.26-.49.15-.79.43-.88.75-.09.32.02.6.43.92.42.33 1.34.78 1.76 1.12.63.53.86 1.17.67 1.83z"/></svg>
+                        <span class="inline-flex items-center gap-1.5 text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-[#FFF0ED] text-[#EE4D2D] border border-[#EE4D2D]/20">
+                            <img src="<?= BASE_URL ?>assets/images/shopee-icon-orange.svg" class="w-3 h-3 shrink-0" alt="Shopee">
                             Shopee Verified
                         </span>
                     </div>
@@ -1279,8 +1306,8 @@ require_once __DIR__ . '/includes/navbar.php';
                     </div>
                     <a href="<?= SHOPEE_URL ?>" target="_blank" rel="noopener" @click.stop
                        class="inline-flex items-center justify-between w-full text-xs font-semibold text-gray-600 hover:text-[#EE4D2D] transition pt-1">
-                        <span class="flex items-center gap-1">
-                            <svg class="w-3.5 h-3.5 fill-[#EE4D2D]" viewBox="0 0 24 24"><path d="M19.5 7.5h-2.25a5.25 5.25 0 0 0-10.5 0H4.5A1.5 1.5 0 0 0 3 9v11.25A2.25 2.25 0 0 0 5.25 22.5h13.5A2.25 2.25 0 0 0 21 20.25V9a1.5 1.5 0 0 0-1.5-1.5zm-7.5-3.75a3.75 3.75 0 0 1 3.75 3.75h-7.5A3.75 3.75 0 0 1 12 3.75zm1.88 12.2c-.17.65-.68 1.15-1.52 1.5-1.07.45-2.28.32-3.13-.34-.23-.18-.28-.52-.1-.76.17-.23.51-.28.75-.11.58.46 1.45.54 2.19.23.47-.2.72-.45.79-.72.08-.34-.05-.62-.48-.96-.44-.35-1.37-.8-1.74-1.12-.66-.57-.91-1.22-.72-1.93.2-.75.82-1.31 1.7-1.57.94-.28 2.05-.13 2.82.37.24.16.3.49.15.73-.15.24-.48.3-.73.15-.55-.36-1.37-.46-2.03-.26-.49.15-.79.43-.88.75-.09.32.02.6.43.92.42.33 1.34.78 1.76 1.12.63.53.86 1.17.67 1.83z"/></svg>
+                        <span class="flex items-center gap-1.5">
+                            <img src="<?= BASE_URL ?>assets/images/shopee-icon-orange.svg" class="w-3.5 h-3.5 shrink-0" alt="Shopee">
                             Lihat ulasan di Shopee
                         </span>
                         <span class="text-[#EE4D2D] font-bold">&rarr;</span>
@@ -1302,9 +1329,7 @@ require_once __DIR__ . '/includes/navbar.php';
         <div class="mt-10 p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-[#FFF5F2] via-white to-[#FFF5F2] border border-[#EE4D2D]/25 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-6">
             <div class="flex items-center gap-4 text-left">
                 <div class="w-14 h-14 rounded-2xl bg-[#EE4D2D] text-white flex items-center justify-center shrink-0 shadow-md">
-                    <svg class="w-8 h-8 fill-current" viewBox="0 0 24 24">
-                        <path d="M19.5 7.5h-2.25a5.25 5.25 0 0 0-10.5 0H4.5A1.5 1.5 0 0 0 3 9v11.25A2.25 2.25 0 0 0 5.25 22.5h13.5A2.25 2.25 0 0 0 21 20.25V9a1.5 1.5 0 0 0-1.5-1.5zm-7.5-3.75a3.75 3.75 0 0 1 3.75 3.75h-7.5A3.75 3.75 0 0 1 12 3.75zm1.88 12.2c-.17.65-.68 1.15-1.52 1.5-1.07.45-2.28.32-3.13-.34-.23-.18-.28-.52-.1-.76.17-.23.51-.28.75-.11.58.46 1.45.54 2.19.23.47-.2.72-.45.79-.72.08-.34-.05-.62-.48-.96-.44-.35-1.37-.8-1.74-1.12-.66-.57-.91-1.22-.72-1.93.2-.75.82-1.31 1.7-1.57.94-.28 2.05-.13 2.82.37.24.16.3.49.15.73-.15.24-.48.3-.73.15-.55-.36-1.37-.46-2.03-.26-.49.15-.79.43-.88.75-.09.32.02.6.43.92.42.33 1.34.78 1.76 1.12.63.53.86 1.17.67 1.83z"/>
-                    </svg>
+                    <img src="<?= BASE_URL ?>assets/images/shopee-icon-white.svg" class="w-8 h-8" alt="Shopee">
                 </div>
                 <div>
                     <div class="flex items-center gap-2 flex-wrap">
@@ -1322,7 +1347,7 @@ require_once __DIR__ . '/includes/navbar.php';
             </div>
             <a href="<?= SHOPEE_URL ?>" target="_blank" rel="noopener"
                class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-[#EE4D2D] hover:bg-[#d73f21] text-white font-bold px-6 py-3.5 rounded-2xl shadow-lg hover:shadow-orange-500/25 hover:scale-105 active:scale-95 transition-all text-sm shrink-0">
-                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19.5 7.5h-2.25a5.25 5.25 0 0 0-10.5 0H4.5A1.5 1.5 0 0 0 3 9v11.25A2.25 2.25 0 0 0 5.25 22.5h13.5A2.25 2.25 0 0 0 21 20.25V9a1.5 1.5 0 0 0-1.5-1.5zm-7.5-3.75a3.75 3.75 0 0 1 3.75 3.75h-7.5A3.75 3.75 0 0 1 12 3.75zm1.88 12.2c-.17.65-.68 1.15-1.52 1.5-1.07.45-2.28.32-3.13-.34-.23-.18-.28-.52-.1-.76.17-.23.51-.28.75-.11.58.46 1.45.54 2.19.23.47-.2.72-.45.79-.72.08-.34-.05-.62-.48-.96-.44-.35-1.37-.8-1.74-1.12-.66-.57-.91-1.22-.72-1.93.2-.75.82-1.31 1.7-1.57.94-.28 2.05-.13 2.82.37.24.16.3.49.15.73-.15.24-.48.3-.73.15-.55-.36-1.37-.46-2.03-.26-.49.15-.79.43-.88.75-.09.32.02.6.43.92.42.33 1.34.78 1.76 1.12.63.53.86 1.17.67 1.83z"/></svg>
+                <img src="<?= BASE_URL ?>assets/images/shopee-icon-white.svg" class="w-4 h-4" alt="Shopee">
                 <span>Lihat Semua Ulasan di Shopee</span>
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
             </a>
@@ -1334,30 +1359,32 @@ require_once __DIR__ . '/includes/navbar.php';
 <!-- ======================================================= -->
 <!-- 7. CTA PEMESANAN & KONSULTASI RESMI FOR THE LITTLE       -->
 <!-- ======================================================= -->
-<section id="kontak" class="py-16 bg-gradient-to-tr from-ftl-forest via-ftl-sage to-emerald-900 text-white relative overflow-hidden">
+<section id="kontak" class="py-16 bg-[#264D3B] text-white relative overflow-hidden">
+    <!-- Subtle natural organic background glowing blurs in authentic FTL tones -->
+    <div class="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-[#3B7056]/30 blur-3xl pointer-events-none"></div>
+    <div class="absolute -bottom-24 -left-24 w-96 h-96 rounded-full bg-[#1C3B2B]/40 blur-3xl pointer-events-none"></div>
+
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 space-y-6">
-        <span class="inline-block px-4 py-1 rounded-full bg-white/10 text-emerald-200 text-xs font-bold tracking-wider uppercase border border-emerald-400/20">
+        <span class="inline-block px-4 py-1 rounded-full bg-white/10 text-ftl-light text-xs font-bold tracking-wider uppercase border border-white/20">
             #frommothertoanother • Perawatan Alami Si Kecil
         </span>
         <h2 class="text-3xl sm:text-5xl font-extrabold font-display leading-tight">
             Berikan Kehangatan Penuh Kasih & <br class="hidden sm:inline">
             Kenyamanan Terbaik untuk Si Kecil
         </h2>
-        <p class="text-sm sm:text-base text-emerald-100 max-w-xl mx-auto">
+        <p class="text-sm sm:text-base text-ftl-light/95 max-w-xl mx-auto">
             Konsultasikan keluhan si kecil atau pesan Baby Calming Rub Cream 50g sekarang melalui WhatsApp CS resmi kami dan Shopee Official Store.
         </p>
         <div class="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">
             <button type="button" 
                     @click="orderModalOpen = true; selectedProduct = 'calming-rub-50g'" 
-                    class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white text-ftl-forest hover:bg-emerald-50 font-bold px-8 py-4 rounded-full shadow-xl hover:scale-105 active:scale-95 transition-all text-base cursor-pointer">
-                <i data-lucide="message-circle" class="w-5 h-5 text-emerald-600"></i>
+                    class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white text-ftl-forest hover:bg-ftl-light font-bold px-8 py-4 rounded-full shadow-xl hover:scale-105 active:scale-95 transition-all text-base cursor-pointer">
+                <i data-lucide="message-circle" class="w-5 h-5 text-ftl-forest"></i>
                 <span>Pesan Cepat via WhatsApp</span>
             </button>
             <a href="<?= SHOPEE_URL ?>" target="_blank" rel="noopener"
                class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#EE4D2D] hover:bg-[#d73f21] text-white font-bold px-8 py-4 rounded-full shadow-xl hover:scale-105 active:scale-95 transition-all text-base">
-                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
-                    <path d="M19.5 7.5h-2.25a5.25 5.25 0 0 0-10.5 0H4.5A1.5 1.5 0 0 0 3 9v11.25A2.25 2.25 0 0 0 5.25 22.5h13.5A2.25 2.25 0 0 0 21 20.25V9a1.5 1.5 0 0 0-1.5-1.5zm-7.5-3.75a3.75 3.75 0 0 1 3.75 3.75h-7.5A3.75 3.75 0 0 1 12 3.75zm1.88 12.2c-.17.65-.68 1.15-1.52 1.5-1.07.45-2.28.32-3.13-.34-.23-.18-.28-.52-.1-.76.17-.23.51-.28.75-.11.58.46 1.45.54 2.19.23.47-.2.72-.45.79-.72.08-.34-.05-.62-.48-.96-.44-.35-1.37-.8-1.74-1.12-.66-.57-.91-1.22-.72-1.93.2-.75.82-1.31 1.7-1.57.94-.28 2.05-.13 2.82.37.24.16.3.49.15.73-.15.24-.48.3-.73.15-.55-.36-1.37-.46-2.03-.26-.49.15-.79.43-.88.75-.09.32.02.6.43.92.42.33 1.34.78 1.76 1.12.63.53.86 1.17.67 1.83z"/>
-                </svg>
+                <img src="<?= BASE_URL ?>assets/images/shopee-icon-white.svg" class="w-5 h-5" alt="Shopee">
                 <span>Beli di Shopee Resmi</span>
             </a>
         </div>

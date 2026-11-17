@@ -75,8 +75,8 @@ $nav_items = [
             <!-- Action CTAs (Shopee Resmi + WhatsApp CS) -->
             <div class="flex items-center gap-2 sm:gap-2.5 shrink-0">
                 <a href="<?= SHOPEE_URL ?>" target="_blank" rel="noopener"
-                   class="hidden md:inline-flex items-center gap-1.5 bg-[#EE4D2D] hover:bg-[#d73f21] text-white text-xs sm:text-sm font-bold px-4 py-2.5 rounded-full shadow-xs hover:scale-105 active:scale-95 transition-all whitespace-nowrap">
-                    <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+                   class="hidden md:inline-flex items-center gap-2 bg-[#EE4D2D] hover:bg-[#d73f21] text-white text-xs sm:text-sm font-bold px-4 py-2.5 rounded-full shadow-xs hover:scale-105 active:scale-95 transition-all whitespace-nowrap">
+                    <img src="<?= BASE_URL ?>assets/images/shopee-icon-white.svg" class="w-4 h-4" alt="Shopee">
                     <span>Shopee Resmi</span>
                 </a>
 
@@ -125,7 +125,7 @@ $nav_items = [
             <div class="pt-3 border-t border-gray-100 flex flex-col gap-2">
                 <a href="<?= SHOPEE_URL ?>" target="_blank" rel="noopener"
                    class="mobile-menu-item w-full flex items-center justify-center gap-2 bg-[#EE4D2D] hover:bg-[#d73f21] text-white font-bold py-3 px-4 rounded-xl text-sm shadow transition">
-                    <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+                    <img src="<?= BASE_URL ?>assets/images/shopee-icon-white.svg" class="w-4 h-4" alt="Shopee">
                     <span>Beli di Shopee Resmi</span>
                 </a>
                 <button type="button" 

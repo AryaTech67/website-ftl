@@ -143,7 +143,7 @@ $main_product = $PRODUCTS['calming-rub-50g'];
                         </button>
                         <a href="<?= SHOPEE_URL ?>" target="_blank" rel="noopener"
                            class="w-full flex items-center justify-center gap-2 bg-[#EE4D2D] hover:bg-[#d73f21] text-white font-bold py-3.5 px-5 rounded-2xl shadow-lg active:scale-95 transition-all text-sm text-center">
-                            <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+                            <img src="<?= BASE_URL ?>assets/images/shopee-icon-white.svg" class="w-4 h-4" alt="Shopee">
                             <span>Beli di Shopee Resmi</span>
                         </a>
                     </div>
@@ -275,7 +275,7 @@ $main_product = $PRODUCTS['calming-rub-50g'];
                 </button>
                 <a href="<?= SHOPEE_URL ?>" target="_blank" rel="noopener"
                    class="w-full sm:w-auto flex-1 flex items-center justify-center gap-2 bg-[#EE4D2D] hover:bg-[#d73f21] text-white font-bold py-3.5 px-6 rounded-2xl shadow-md transition active:scale-95 text-xs sm:text-sm text-center">
-                    <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+                    <img src="<?= BASE_URL ?>assets/images/shopee-icon-white.svg" class="w-4 h-4" alt="Shopee">
                     <span>Kunjungi Toko Shopee</span>
                 </a>
             </div>

@@ -40,11 +40,9 @@ require_once __DIR__ . '/../config.php';
                 <div class="flex items-center gap-3 pt-3">
                     <!-- 1. Shopee -->
                     <a href="<?= SHOPEE_URL ?>" target="_blank" rel="noopener" 
-                       class="w-10 h-10 rounded-xl bg-[#EE4D2D] flex items-center justify-center hover:bg-[#d73f21] hover:scale-105 transition-all text-white shadow-sm" 
+                       class="w-10 h-10 rounded-xl bg-[#EE4D2D] flex items-center justify-center hover:bg-[#d73f21] hover:scale-105 transition-all shadow-sm p-2" 
                        title="Shopee Official Store @forthelittle.id">
-                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
-                            <path d="M19.5 7.5h-2.25a5.25 5.25 0 0 0-10.5 0H4.5A1.5 1.5 0 0 0 3 9v11.25A2.25 2.25 0 0 0 5.25 22.5h13.5A2.25 2.25 0 0 0 21 20.25V9a1.5 1.5 0 0 0-1.5-1.5zm-7.5-3.75a3.75 3.75 0 0 1 3.75 3.75h-7.5A3.75 3.75 0 0 1 12 3.75zm1.88 12.2c-.17.65-.68 1.15-1.52 1.5-1.07.45-2.28.32-3.13-.34-.23-.18-.28-.52-.1-.76.17-.23.51-.28.75-.11.58.46 1.45.54 2.19.23.47-.2.72-.45.79-.72.08-.34-.05-.62-.48-.96-.44-.35-1.37-.8-1.74-1.12-.66-.57-.91-1.22-.72-1.93.2-.75.82-1.31 1.7-1.57.94-.28 2.05-.13 2.82.37.24.16.3.49.15.73-.15.24-.48.3-.73.15-.55-.36-1.37-.46-2.03-.26-.49.15-.79.43-.88.75-.09.32.02.6.43.92.42.33 1.34.78 1.76 1.12.63.53.86 1.17.67 1.83z"/>
-                        </svg>
+                        <img src="<?= BASE_URL ?>assets/images/shopee-icon-white.svg" class="w-5 h-5" alt="Shopee">
                     </a>
 
                     <!-- 2. Instagram -->
