@@ -118,6 +118,7 @@ $current_page = isset($current_page) ? $current_page : 'home';
     </style>
 </head>
 <body class="bg-ftl-cream text-ftl-dark antialiased min-h-screen flex flex-col" 
+      :class="mobileMenuOpen ? 'overflow-hidden' : ''"
       x-data="{ 
           mobileMenuOpen: false, 
           orderModalOpen: false, 
