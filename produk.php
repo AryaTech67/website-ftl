@@ -37,14 +37,14 @@ $main_product = $PRODUCTS['calming-rub-50g'];
         },
         {
             title: 'Minyak Atsiri Buah Pala Nusantara',
-            img: '<?= BASE_URL ?>assets/images/ingredient-nutmeg.svg',
+            img: '<?= BASE_URL ?>assets/images/ingredient-nutmeg-real.png',
             badgeLeft: '100% Buah Pala Asli',
             badgeRight: 'Hangat Lembut Bayi',
             caption: 'Menenangkan Kolik & Redakan Perut Begah Tanpa Bikin Kulit Bayi Perih'
         },
         {
             title: 'Ekstrak Bunga Calendula Organik',
-            img: '<?= BASE_URL ?>assets/images/ingredient-calendula.svg',
+            img: '<?= BASE_URL ?>assets/images/ingredient-calendula-real.png',
             badgeLeft: 'Ekstrak Organik Alami',
             badgeRight: 'Skin Barrier Protection',
             caption: 'Menutrisi Kelembapan Kulit Sensitif Newborn & Mencegah Iritasi Ruam'

@@ -191,13 +191,17 @@ require_once __DIR__ . '/includes/navbar.php';
 
                         <!-- Right Ingredients Visual (4 cols) -->
                         <div class="lg:col-span-4 hidden lg:flex justify-center items-center gap-4">
-                            <div class="p-3 bg-white/10 backdrop-blur-md rounded-3xl border border-white/20 shadow-2xl flex flex-col items-center">
-                                <img src="<?= BASE_URL ?>assets/images/ingredient-nutmeg.svg" class="w-32 h-32 hover:scale-105 transition">
-                                <span class="text-xs font-bold text-amber-200 mt-2">Minyak Pala Nusantara</span>
+                            <div class="p-4 bg-white/15 backdrop-blur-md rounded-3xl border border-white/25 shadow-2xl flex flex-col items-center hover:scale-105 transition-all duration-300 group">
+                                <div class="w-32 h-36 flex items-center justify-center">
+                                    <img src="<?= BASE_URL ?>assets/images/ingredient-nutmeg-real.png" alt="Minyak Pala Asli Nusantara" class="h-full w-auto object-contain drop-shadow-2xl group-hover:scale-110 transition-transform duration-300">
+                                </div>
+                                <span class="text-xs font-bold text-amber-200 mt-2 tracking-wide text-center">Minyak Pala Nusantara</span>
                             </div>
-                            <div class="p-3 bg-white/10 backdrop-blur-md rounded-3xl border border-white/20 shadow-2xl flex flex-col items-center">
-                                <img src="<?= BASE_URL ?>assets/images/ingredient-calendula.svg" class="w-32 h-32 hover:scale-105 transition">
-                                <span class="text-xs font-bold text-amber-200 mt-2">Bunga Calendula</span>
+                            <div class="p-4 bg-white/15 backdrop-blur-md rounded-3xl border border-white/25 shadow-2xl flex flex-col items-center hover:scale-105 transition-all duration-300 group">
+                                <div class="w-32 h-36 flex items-center justify-center">
+                                    <img src="<?= BASE_URL ?>assets/images/ingredient-calendula-real.png" alt="Ekstrak Bunga Calendula" class="w-28 h-28 object-cover rounded-full border-2 border-white/50 shadow-2xl group-hover:scale-110 transition-transform duration-300">
+                                </div>
+                                <span class="text-xs font-bold text-amber-200 mt-2 tracking-wide text-center">Bunga Calendula</span>
                             </div>
                         </div>
 
@@ -714,8 +718,8 @@ require_once __DIR__ . '/includes/navbar.php';
             
             <!-- Card 1: Minyak Pala Nusantara -->
             <div class="bg-white rounded-3xl p-8 border border-ftl-sand shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center">
-                <div class="w-28 h-28 mb-6 p-2 rounded-2xl bg-amber-50/60 border border-amber-100 flex items-center justify-center">
-                    <img src="<?= BASE_URL ?>assets/images/ingredient-nutmeg.svg" alt="Minyak Pala Nusantara" class="w-24 h-24">
+                <div class="w-28 h-28 mb-6 p-2 rounded-2xl bg-amber-50/60 border border-amber-100 flex items-center justify-center overflow-hidden">
+                    <img src="<?= BASE_URL ?>assets/images/ingredient-nutmeg-real.png" alt="Minyak Pala Nusantara" class="h-24 w-auto object-contain drop-shadow-md">
                 </div>
                 <div class="inline-block px-3 py-1 rounded-full bg-amber-100 text-amber-800 text-xs font-bold mb-3">
                     Bahan Utama Nusantara
@@ -730,8 +734,8 @@ require_once __DIR__ . '/includes/navbar.php';
 
             <!-- Card 2: Bunga Calendula -->
             <div class="bg-white rounded-3xl p-8 border border-ftl-sand shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center">
-                <div class="w-28 h-28 mb-6 p-2 rounded-2xl bg-yellow-50/60 border border-yellow-100 flex items-center justify-center">
-                    <img src="<?= BASE_URL ?>assets/images/ingredient-calendula.svg" alt="Ekstrak Calendula" class="w-24 h-24">
+                <div class="w-28 h-28 mb-6 p-2 rounded-2xl bg-yellow-50/60 border border-yellow-100 flex items-center justify-center overflow-hidden">
+                    <img src="<?= BASE_URL ?>assets/images/ingredient-calendula-real.png" alt="Ekstrak Calendula" class="w-24 h-24 object-cover rounded-full shadow-md">
                 </div>
                 <div class="inline-block px-3 py-1 rounded-full bg-yellow-100 text-yellow-800 text-xs font-bold mb-3">
                     Pelindung Kulit Bayi
