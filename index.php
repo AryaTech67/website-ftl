@@ -231,7 +231,7 @@ require_once __DIR__ . '/includes/navbar.php';
 
                             <div class="hidden sm:flex flex-wrap items-center gap-x-4 gap-y-2 text-xs sm:text-sm text-emerald-200 font-bold pt-1">
                                 <span class="inline-flex items-center gap-1.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-[#FCD34D]"></i> Diciptakan Ibu untuk Para Ibu</span>
-                                <span class="inline-flex items-center gap-1.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-[#FCD34D]"></i> Ulasan Positif di Shopee</span>
+                                <span class="inline-flex items-center gap-1.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-[#FCD34D]"></i> Rating 5.0/5 di Shopee</span>
                                 <span class="inline-flex items-center gap-1.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-[#FCD34D]"></i> Pengiriman Seluruh RI</span>
                             </div>
 
@@ -588,8 +588,8 @@ require_once __DIR__ . '/includes/navbar.php';
                         <!-- Rating & Category -->
                         <div class="flex items-center gap-2 mb-2">
                             <div class="flex text-amber-400 text-sm">★★★★★</div>
-                            <span class="text-xs font-bold text-gray-800">4.9 / 5.0</span>
-                            <span class="text-xs text-gray-400">• Pembeli Terverifikasi di Shopee & WA</span>
+                            <span class="text-xs font-bold text-gray-800">5.0 / 5.0</span>
+                            <span class="text-xs text-gray-400">• 16 Ulasan Bintang 5 di Shopee</span>
                         </div>
 
                         <!-- Product Title -->
@@ -1294,7 +1294,7 @@ require_once __DIR__ . '/includes/navbar.php';
                     Kata Para Moms di Shopee
                 </h2>
                 <p class="text-sm sm:text-base text-gray-600 mt-1 flex items-center gap-2 flex-wrap">
-                    <span>Rating <strong class="text-gray-900 font-bold">4.9 / 5.0</strong> dari <strong class="text-gray-900 font-bold">ulasan terverifikasi</strong> pembeli resmi di Shopee.</span>
+                    <span>Rating <strong class="text-gray-900 font-bold">5.0 / 5.0</strong> dari <strong class="text-gray-900 font-bold">16 ulasan bintang 5</strong> pembeli resmi di Shopee.</span>
                 </p>
             </div>
 
@@ -1328,7 +1328,7 @@ require_once __DIR__ . '/includes/navbar.php';
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
             
-            <!-- Review 1 -->
+            <!-- Real Review 1: annisamutiara.yu -->
             <div @click="testiIndex = 0"
                  :class="testiIndex === 0 ? 'flex ring-2 ring-[#EE4D2D]/60 bg-[#FFF9F8]/60 shadow-xl shadow-orange-950/5 scale-[1.01] md:scale-[1.02] z-10 border-[#EE4D2D]/30' : 'hidden md:flex opacity-75 hover:opacity-100 hover:border-orange-200 border-ftl-sand bg-white'" 
                  class="p-6 sm:p-7 rounded-3xl border transition-all duration-300 flex-col justify-between cursor-pointer group">
@@ -1342,24 +1342,27 @@ require_once __DIR__ . '/includes/navbar.php';
                     </div>
                     <div class="flex flex-wrap gap-1.5 text-[10px] text-gray-500 font-medium">
                         <span class="bg-gray-100 px-2 py-0.5 rounded">Variasi: Cream 50g</span>
-                        <span class="bg-emerald-50 text-emerald-800 px-2 py-0.5 rounded">Performa: Hangat pas & redakan kembung</span>
+                        <span class="bg-emerald-50 text-emerald-800 px-2 py-0.5 rounded">100% Bintang 5</span>
                     </div>
-                    <p class="text-sm text-gray-700 italic leading-relaxed pt-1">
-                        "Anakku umur 2 bulan sering rewel jam 7-9 malam karena kolik. Setelah rutin dioles FTL Calming Rub sehabis mandi sore dan pijat ILU, perutnya ga bunyi kembung lagi dan tidurnya anteng pol sampai pagi!"
+                    <p class="text-sm text-gray-800 font-medium italic leading-relaxed pt-1">
+                        "Bagus untuk bayikk mengatasi kembung super love banget!🥰"
                     </p>
+                    <div class="bg-gray-50 p-3 rounded-2xl border border-gray-100 text-[11px] text-gray-600 mt-2">
+                        <strong class="text-ftl-forest block mb-0.5">Respon Toko FTL:</strong>
+                        "Haii Momss, terimakasih atas kepercayaan momss dalam memilih produk For the little untuk kebutuhn si kecil ❤️"
+                    </div>
                 </div>
                 
                 <div class="pt-5 border-t border-gray-100 mt-4 space-y-3">
                     <div class="flex items-center gap-3">
                         <div class="w-10 h-10 rounded-full border border-orange-200 bg-gradient-to-br from-[#FFF0ED] to-white text-[#EE4D2D] flex items-center justify-center shrink-0 font-bold text-xs shadow-2xs">
-                            MR
+                            AM
                         </div>
                         <div>
                             <h5 class="font-bold text-xs text-gray-900 flex items-center gap-1.5">
-                                <span>Bunda Maya Rahayu</span>
-                                <span class="text-[10px] font-normal text-gray-400">(m***a)</span>
+                                <span>annisamutiara.yu</span>
                             </h5>
-                            <span class="text-[11px] text-gray-500">Jakarta Selatan • Pembeli Terverifikasi</span>
+                            <span class="text-[11px] text-gray-500">Ulasan Asli Pembeli Shopee</span>
                         </div>
                     </div>
                     <a href="<?= SHOPEE_REVIEWS_URL ?>" target="_blank" rel="noopener" @click.stop
@@ -1373,7 +1376,7 @@ require_once __DIR__ . '/includes/navbar.php';
                 </div>
             </div>
 
-            <!-- Review 2 -->
+            <!-- Real Review 2: susirius -->
             <div @click="testiIndex = 1"
                  :class="testiIndex === 1 ? 'flex ring-2 ring-[#EE4D2D]/60 bg-[#FFF9F8]/60 shadow-xl shadow-orange-950/5 scale-[1.01] md:scale-[1.02] z-10 border-[#EE4D2D]/30' : 'hidden md:flex opacity-75 hover:opacity-100 hover:border-orange-200 border-ftl-sand bg-white'"
                  class="p-6 sm:p-7 rounded-3xl border transition-all duration-300 flex-col justify-between cursor-pointer group">
@@ -1387,24 +1390,27 @@ require_once __DIR__ . '/includes/navbar.php';
                     </div>
                     <div class="flex flex-wrap gap-1.5 text-[10px] text-gray-500 font-medium">
                         <span class="bg-gray-100 px-2 py-0.5 rounded">Variasi: Cream 50g</span>
-                        <span class="bg-amber-50 text-amber-800 px-2 py-0.5 rounded">Aroma: Rempah pala & calendula lembut</span>
+                        <span class="bg-emerald-50 text-emerald-800 px-2 py-0.5 rounded">Ulasan + Foto Kemasan</span>
                     </div>
-                    <p class="text-sm text-gray-700 italic leading-relaxed pt-1">
-                        "Paling suka karena teksturnya CREAM bukan minyak! Jadi ga licin di tangan dan ga ninggalin noda kuning di baju bayi. Aromanya juga enak banget, wangi hangat alami minyak pala dan calendula bikin si kecil relaks dan pulas."
+                    <p class="text-sm text-gray-800 font-medium italic leading-relaxed pt-1">
+                        "Tekstur: saya suka karena produk tersebut tidak lengket."
                     </p>
+                    <div class="bg-gray-50 p-3 rounded-2xl border border-gray-100 text-[11px] text-gray-600 mt-2">
+                        <strong class="text-ftl-forest block mb-0.5">Respon Toko FTL:</strong>
+                        "Semoga Baby Calming Rub Cream-nya bisa jadi favorit dan merasakan manfaatnya bagi si kecil yaa. Ditunggu order selanjutnyaa, momss🥰"
+                    </div>
                 </div>
                 
                 <div class="pt-5 border-t border-gray-100 mt-4 space-y-3">
                     <div class="flex items-center gap-3">
                         <div class="w-10 h-10 rounded-full border border-orange-200 bg-gradient-to-br from-[#FFF0ED] to-white text-[#EE4D2D] flex items-center justify-center shrink-0 font-bold text-xs shadow-2xs">
-                            DN
+                            SR
                         </div>
                         <div>
                             <h5 class="font-bold text-xs text-gray-900 flex items-center gap-1.5">
-                                <span>Bunda Dinda Nirmala</span>
-                                <span class="text-[10px] font-normal text-gray-400">(d***a)</span>
+                                <span>susirius</span>
                             </h5>
-                            <span class="text-[11px] text-gray-500">Surabaya • Pembeli Terverifikasi</span>
+                            <span class="text-[11px] text-gray-500">Ulasan Asli Pembeli Shopee</span>
                         </div>
                     </div>
                     <a href="<?= SHOPEE_REVIEWS_URL ?>" target="_blank" rel="noopener" @click.stop
@@ -1418,7 +1424,7 @@ require_once __DIR__ . '/includes/navbar.php';
                 </div>
             </div>
 
-            <!-- Review 3 -->
+            <!-- Real Review 3: tanti_fitriani -->
             <div @click="testiIndex = 2"
                  :class="testiIndex === 2 ? 'flex ring-2 ring-[#EE4D2D]/60 bg-[#FFF9F8]/60 shadow-xl shadow-orange-950/5 scale-[1.01] md:scale-[1.02] z-10 border-[#EE4D2D]/30' : 'hidden md:flex opacity-75 hover:opacity-100 hover:border-orange-200 border-ftl-sand bg-white'"
                  class="p-6 sm:p-7 rounded-3xl border transition-all duration-300 flex-col justify-between cursor-pointer group">
@@ -1432,24 +1438,27 @@ require_once __DIR__ . '/includes/navbar.php';
                     </div>
                     <div class="flex flex-wrap gap-1.5 text-[10px] text-gray-500 font-medium">
                         <span class="bg-gray-100 px-2 py-0.5 rounded">Variasi: Cream 50g</span>
-                        <span class="bg-rose-50 text-rose-800 px-2 py-0.5 rounded">Kondisi: Kulit sensitif newborn</span>
+                        <span class="bg-amber-50 text-amber-800 px-2 py-0.5 rounded">+ Free Gift Merchandise</span>
                     </div>
-                    <p class="text-sm text-gray-700 italic leading-relaxed pt-1">
-                        "Kulit anakku super sensitif, gampang merah kalau kena telon biasa. Tapi pakai For The Little ini beneran aman banget, hypoallergenic dan malah bikin kulitnya halus karena ada Calendula-nya. Sekarang jadi andalan tiap hari!"
+                    <p class="text-sm text-gray-800 font-medium italic leading-relaxed pt-1">
+                        "Produk original For The Little, pengemasan sangat rapi dan dapat free gift merchandise eksklusif. Hangatnya lembut dan tidak bikin perih di kulit si kecil."
                     </p>
+                    <div class="bg-gray-50 p-3 rounded-2xl border border-gray-100 text-[11px] text-gray-600 mt-2">
+                        <strong class="text-ftl-forest block mb-0.5">Respon Toko FTL:</strong>
+                        "Terimakasih sudah berbelanja di For the little dan kepercayaan momss dalam memilih produk kami untuk kebutuhn si kecil ❤️"
+                    </div>
                 </div>
                 
                 <div class="pt-5 border-t border-gray-100 mt-4 space-y-3">
                     <div class="flex items-center gap-3">
                         <div class="w-10 h-10 rounded-full border border-orange-200 bg-gradient-to-br from-[#FFF0ED] to-white text-[#EE4D2D] flex items-center justify-center shrink-0 font-bold text-xs shadow-2xs">
-                            CA
+                            TF
                         </div>
                         <div>
                             <h5 class="font-bold text-xs text-gray-900 flex items-center gap-1.5">
-                                <span>Bunda Citra Anggraini</span>
-                                <span class="text-[10px] font-normal text-gray-400">(c***a)</span>
+                                <span>tanti_fitriani</span>
                             </h5>
-                            <span class="text-[11px] text-gray-500">Bandung • Pembeli Terverifikasi</span>
+                            <span class="text-[11px] text-gray-500">Ulasan Asli Pembeli Shopee</span>
                         </div>
                     </div>
                     <a href="<?= SHOPEE_REVIEWS_URL ?>" target="_blank" rel="noopener" @click.stop
@@ -1485,18 +1494,18 @@ require_once __DIR__ . '/includes/navbar.php';
                         <span class="bg-[#EE4D2D] text-white text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">Shopee Resmi</span>
                     </div>
                     <p class="text-xs sm:text-sm text-gray-600 mt-1 flex items-center gap-2 flex-wrap">
-                        <span class="text-amber-500 font-bold flex items-center gap-1">★ 4.9 / 5.0</span>
+                        <span class="text-amber-500 font-bold flex items-center gap-1">★ 5.0 / 5.0</span>
                         <span class="text-gray-300">•</span>
-                        <span class="text-gray-700 font-semibold">Ulasan Bintang 5 di Shopee</span>
+                        <span class="text-gray-700 font-semibold">16 Ulasan Bintang 5 (100% Puas)</span>
                         <span class="text-gray-300">•</span>
                         <span class="text-emerald-700 font-semibold">100% Produk Original BPOM</span>
                     </p>
                 </div>
             </div>
-            <a href="<?= SHOPEE_URL ?>" target="_blank" rel="noopener"
+            <a href="<?= SHOPEE_REVIEWS_URL ?>" target="_blank" rel="noopener"
                class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-[#EE4D2D] hover:bg-[#d73f21] text-white font-bold px-6 py-3.5 rounded-2xl shadow-lg hover:shadow-orange-500/25 hover:scale-105 active:scale-95 transition-all text-sm shrink-0">
                 <img src="<?= BASE_URL ?>assets/images/shopee-icon-white.svg" class="w-4 h-4" alt="Shopee">
-                <span>Lihat Semua Ulasan di Shopee</span>
+                <span>Lihat Semua 16 Ulasan di Shopee</span>
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
             </a>
         </div>

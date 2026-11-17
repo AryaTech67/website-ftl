@@ -17,7 +17,7 @@ define('WHATSAPP_DISPLAY', '+62 821-1801-7248');
 define('INSTAGRAM_URL', 'https://www.instagram.com/forthelittle.id/');
 define('TIKTOK_URL', 'https://www.tiktok.com/@forthelittle.id');
 define('SHOPEE_URL', 'https://shopee.co.id/forthelittle.id');
-define('SHOPEE_REVIEWS_URL', 'https://shopee.co.id/forthelittle.id#shop-rating');
+define('SHOPEE_REVIEWS_URL', 'https://shopee.co.id/buyer/6118698651/rating?shop_id=1784309022&is_from_signup=true');
 define('TOKOPEDIA_URL', 'https://www.tokopedia.com/');
 define('EMAIL_CONTACT', 'hello@forthelittle.id');
 define('OPERATIONAL_HOURS_WEEKDAY', 'Senin - Jumat: 09.00 - 17.00 WIB');
@@ -54,8 +54,8 @@ $PRODUCTS = [
         'price' => 79000,
         'original_price' => 99000,
         'badge' => 'Best Seller ⭐',
-        'rating' => 4.9,
-        'reviews_count' => 340,
+        'rating' => 5.0,
+        'reviews_count' => 16,
         'image' => 'assets/images/product-calming-rub.svg',
         'short_desc' => 'Diformulasikan khusus dengan Minyak Pala asli Nusantara dan Calendula untuk meredakan kolik, perut kembung, dan membantu si kecil tidur lebih lelap tanpa rasa lengket.',
         'size' => '50 gram (Tube)',
