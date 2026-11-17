@@ -4,14 +4,18 @@ require_once __DIR__ . '/../config.php';
 ?>
 
 <!-- Order & WhatsApp Interactive Modal dengan Auto-Deteksi Lokasi GPS & Cek Ongkir Otomatis (Layer z-[60]) -->
-<div x-show="orderModalOpen" 
+<div id="ftl-order-modal-root"
+     x-data="orderModal()" 
+     x-show="isOpen || (typeof orderModalOpen !== 'undefined' && orderModalOpen)" 
+     @open-order-modal.window="openModal($event.detail)"
+     @close-order-modal.window="closeModal()"
+     @keydown.escape.window="closeModal()"
      class="fixed inset-0 z-[60] overflow-y-auto" 
      style="display: none;"
-     @keydown.escape.window="closeModal()"
      aria-labelledby="modal-title" role="dialog" aria-modal="true">
     
     <!-- Backdrop -->
-    <div x-show="orderModalOpen"
+    <div x-show="isOpen || (typeof orderModalOpen !== 'undefined' && orderModalOpen)"
          x-transition:enter="ease-out duration-300"
          x-transition:enter-start="opacity-0"
          x-transition:enter-end="opacity-100"
@@ -22,302 +26,14 @@ require_once __DIR__ . '/../config.php';
          class="fixed inset-0 bg-black/60 backdrop-blur-sm transition-opacity cursor-pointer"></div>
 
     <div class="flex min-h-full items-center justify-center p-3 sm:p-4 text-center">
-        <div x-show="orderModalOpen"
+        <div x-show="isOpen || (typeof orderModalOpen !== 'undefined' && orderModalOpen)"
              x-transition:enter="ease-out duration-300"
              x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
              x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"
              x-transition:leave="ease-in duration-200"
              x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
              x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-             class="relative transform overflow-hidden rounded-3xl bg-white text-left shadow-2xl transition-all my-6 sm:my-8 w-full max-w-lg border border-ftl-sand"
-             x-data="{
-                modalTab: 'konsultasi',
-                consultName: '',
-                consultBabyAge: '',
-                consultTopic: 'Aman untuk newborn (0+) & kulit sensitif?',
-                consultCustomQuestion: '',
-                product: 'calming-rub-50g',
-                qty: 1,
-                name: '',
-                phone: '',
-                province: '',
-                city: '',
-                address: '',
-                note: '',
-                destinations: [],
-                cityList: [],
-                couriers: [],
-                selectedCourier: null,
-                loadingOngkir: false,
-                detectingGPS: false,
-                detectedAlert: '',
-                searchQuery: '',
-                showSuggestions: false,
-                productsList: {
-                    'calming-rub-50g': { name: 'Baby Calming Rub Cream 50g', price: 79000, weight: 100 },
-                    'bundling-double-care': { name: 'Bundle Double Care (2x 50g)', price: 145000, weight: 200 },
-                    'bundling-newborn-gift': { name: 'Newborn Comfort Gift Box', price: 189000, weight: 400 }
-                },
-                get currentPrice() {
-                    return this.productsList[this.product] ? this.productsList[this.product].price : 79000;
-                },
-                get currentName() {
-                    return this.productsList[this.product] ? this.productsList[this.product].name : '';
-                },
-                get totalWeight() {
-                    const unitWeight = this.productsList[this.product] ? this.productsList[this.product].weight : 100;
-                    return unitWeight * this.qty;
-                },
-                get subtotal() {
-                    return this.currentPrice * this.qty;
-                },
-                get shippingCost() {
-                    return this.selectedCourier ? this.selectedCourier.cost : 0;
-                },
-                get grandTotal() {
-                    return this.subtotal + this.shippingCost;
-                },
-                get allCitiesList() {
-                    let list = [];
-                    this.destinations.forEach(d => {
-                        d.cities.forEach(c => {
-                            list.push({ city: c, province: d.province, full: c + ', ' + d.province });
-                        });
-                    });
-                    return list;
-                },
-                get filteredCities() {
-                    if (!this.searchQuery || this.searchQuery.trim().length < 2) return [];
-                    const q = this.searchQuery.toLowerCase().trim();
-                    return this.allCitiesList.filter(item => 
-                        item.city.toLowerCase().includes(q) || item.province.toLowerCase().includes(q)
-                    ).slice(0, 6);
-                },
-                formatRp(val) {
-                    return 'Rp ' + Number(val).toLocaleString('id-ID');
-                },
-                async initDestinations() {
-                    if (this.destinations.length > 0) return;
-                    try {
-                        const res = await fetch('<?= BASE_URL ?>api/ongkir.php?action=destinations');
-                        const data = await res.json();
-                        if (data.status === 'success') {
-                            this.destinations = data.data;
-                        }
-                    } catch (e) {
-                        console.error('Gagal memuat tujuan ongkir', e);
-                    }
-                },
-                onProvinceChange() {
-                    const found = this.destinations.find(d => d.province === this.province);
-                    this.cityList = found ? found.cities : [];
-                    this.city = '';
-                    this.couriers = [];
-                    this.selectedCourier = null;
-                    this.detectedAlert = '';
-                },
-                selectCityFromSearch(item) {
-                    this.province = item.province;
-                    const found = this.destinations.find(d => d.province === this.province);
-                    this.cityList = found ? found.cities : [];
-                    this.city = item.city;
-                    this.searchQuery = item.city + ', ' + item.province;
-                    this.showSuggestions = false;
-                    this.detectedAlert = 'Lokasi Terpilih: ' + item.city + ', ' + item.province;
-                    this.calculateOngkir();
-                },
-                async detectLocationGPS() {
-                    if (!navigator.geolocation) {
-                        alert('Browser Anda tidak mendukung deteksi lokasi otomatis. Silakan pilih kota manual.');
-                        return;
-                    }
-                    this.detectingGPS = true;
-                    this.detectedAlert = '';
-
-                    navigator.geolocation.getCurrentPosition(async (pos) => {
-                        try {
-                            const lat = pos.coords.latitude;
-                            const lon = pos.coords.longitude;
-                            // Reverse geocode via BigDataCloud client API (Gratis, HTTPS, cepat)
-                            const res = await fetch(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lon}&localityLanguage=id`);
-                            const data = await res.json();
-                            
-                            const rawProv = (data.principalSubdivision || '').toLowerCase();
-                            const rawCity = (data.city || data.locality || '').toLowerCase();
-
-                            // Cari kecocokan di database tujuan
-                            let matched = null;
-                            for (let d of this.destinations) {
-                                for (let c of d.cities) {
-                                    const cLow = c.toLowerCase();
-                                    const pLow = d.province.toLowerCase();
-                                    if (rawCity && (cLow.includes(rawCity) || rawCity.includes(cLow.replace(/^(kota|kab\.)\s*/, '')))) {
-                                        matched = { province: d.province, city: c };
-                                        break;
-                                    }
-                                    if (rawProv && pLow.includes(rawProv) && !matched) {
-                                        matched = { province: d.province, city: c };
-                                    }
-                                }
-                                if (matched) break;
-                            }
-
-                            // Fallback jika di Jakarta
-                            if (!matched && (rawProv.includes('jakarta') || rawCity.includes('jakarta'))) {
-                                matched = { province: 'DKI Jakarta', city: 'Kota Jakarta Selatan' };
-                            }
-
-                            if (matched) {
-                                this.province = matched.province;
-                                const found = this.destinations.find(d => d.province === this.province);
-                                this.cityList = found ? found.cities : [];
-                                this.city = matched.city;
-                                this.searchQuery = matched.city + ', ' + matched.province;
-                                this.detectedAlert = '📍 GPS Terdeteksi: ' + matched.city + ' (' + matched.province + ')';
-                                await this.calculateOngkir();
-                            } else {
-                                this.detectedAlert = 'Lokasi sekitar: ' + (data.city || data.locality || 'Indonesia') + '. Silakan konfirmasi di dropdown.';
-                            }
-                        } catch (e) {
-                            console.error('Error reverse geocode GPS', e);
-                            alert('Gagal mendeteksi nama kota otomatis. Silakan pilih manual melalui pencarian.');
-                        } finally {
-                            this.detectingGPS = false;
-                        }
-                    }, (err) => {
-                        this.detectingGPS = false;
-                        alert('Izin akses lokasi tidak diberikan atau GPS non-aktif. Silakan ketik nama kota manual.');
-                    }, { timeout: 8000 });
-                },
-                async calculateOngkir() {
-                    if (!this.province || !this.city) return;
-                    this.loadingOngkir = true;
-                    this.selectedCourier = null;
-                    try {
-                        const url = '<?= BASE_URL ?>api/ongkir.php?action=calculate&province=' + encodeURIComponent(this.province) + '&city=' + encodeURIComponent(this.city) + '&weight=' + this.totalWeight;
-                        const res = await fetch(url);
-                        const json = await res.json();
-                        if (json.status === 'success') {
-                            this.couriers = json.couriers;
-                            // Default otomatis pilih J&T Express
-                            this.selectedCourier = this.couriers[0];
-                        }
-                    } catch (e) {
-                        console.error('Gagal hitung ongkir', e);
-                    } finally {
-                        this.loadingOngkir = false;
-                    }
-                },
-                selectTopic(topic, defaultText = '') {
-                    this.consultTopic = topic;
-                    if (defaultText && !this.consultCustomQuestion.trim()) {
-                        this.consultCustomQuestion = defaultText;
-                    }
-                },
-                sendConsultationWA() {
-                    let msg = 'Halo Tim For The Little Indonesia 🍃\n\n';
-                    if (this.consultName && this.consultName.trim()) {
-                        msg += 'Perkenalkan, saya *' + this.consultName.trim() + '* ingin konsultasi seputar perawatan si kecil:\n\n';
-                    } else {
-                        msg += 'Saya ingin konsultasi seputar si kecil & produk FTL:\n\n';
-                    }
-                    if (this.consultBabyAge && this.consultBabyAge.trim()) {
-                        msg += '• *Usia/Kondisi Si Kecil:* ' + this.consultBabyAge.trim() + '\n';
-                    }
-                    msg += '• *Topik Pertanyaan:* ' + this.consultTopic + '\n';
-                    if (this.consultCustomQuestion && this.consultCustomQuestion.trim()) {
-                        msg += '\n*Detail Pertanyaan / Keluhan:*\n"' + this.consultCustomQuestion.trim() + '"\n';
-                    }
-                    msg += '\nMohon saran dan penjelasannya ya min. Terima kasih banyak! 🙏';
-
-                    const url = 'https://wa.me/<?= WHATSAPP_NUMBER ?>?text=' + encodeURIComponent(msg);
-                    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-                    if (isMobile) {
-                        window.location.href = url;
-                    } else {
-                        window.open(url, '_blank');
-                    }
-                    this.closeModal();
-                },
-                closeModal() {
-                    try {
-                        this.$dispatch('close-order-modal');
-                    } catch(e) {}
-                    window.dispatchEvent(new CustomEvent('close-order-modal'));
-                    try {
-                        if (document.body._x_dataStack && document.body._x_dataStack[0]) {
-                            document.body._x_dataStack[0].orderModalOpen = false;
-                        }
-                    } catch(e) {}
-                },
-                submitToWhatsApp() {
-                    if (!this.name.trim()) {
-                        alert('Mohon isi nama Bunda / Ayah.');
-                        return;
-                    }
-                    if (!this.phone.trim()) {
-                        alert('Mohon isi nomor WhatsApp Anda.');
-                        return;
-                    }
-                    if (!this.province || !this.city) {
-                        alert('Mohon tentukan lokasi tujuan (gunakan tombol Auto-Deteksi GPS atau ketik kota).');
-                        return;
-                    }
-                    if (!this.selectedCourier) {
-                        alert('Mohon pilih salah satu ekspedisi pengiriman.');
-                        return;
-                    }
-
-                    let msg = '*PESANAN FOR THE LITTLE INDONESIA* 🍃\n';
-                    msg += '------------------------------------\n';
-                    msg += '*DATA PENERIMA:*\n';
-                    msg += '• Nama: ' + this.name.trim() + '\n';
-                    msg += '• No. WhatsApp: ' + this.phone.trim() + '\n';
-                    msg += '• Tujuan: ' + this.city + ', ' + this.province + '\n';
-                    if (this.address.trim()) {
-                        msg += '• Alamat Lengkap: ' + this.address.trim() + '\n';
-                    }
-                    msg += '\n*RINCIAN PRODUK:*\n';
-                    msg += '• ' + this.currentName + '\n';
-                    msg += '• Jumlah: ' + this.qty + ' pcs (Estimasi ' + this.totalWeight + 'g)\n';
-                    msg += '• Subtotal Produk: ' + this.formatRp(this.subtotal) + '\n\n';
-                    
-                    msg += '*EKSPEDISI & ONGKOS KIRIM:*\n';
-                    msg += '• Kurir: ' + this.selectedCourier.name + ' (' + this.selectedCourier.service + ')\n';
-                    msg += '• Estimasi Tiba: ' + this.selectedCourier.etd + '\n';
-                    msg += '• Biaya Ongkir: ' + this.formatRp(this.shippingCost) + '\n';
-                    msg += '------------------------------------\n';
-                    msg += '*TOTAL PEMBAYARAN: ' + this.formatRp(this.grandTotal) + '*\n';
-                    msg += '------------------------------------\n';
-                    if (this.note.trim()) {
-                        msg += '*Catatan Tambahan:* ' + this.note.trim() + '\n\n';
-                    }
-                    msg += 'Halo Admin FTL, saya sudah mengisi form pesanan dan ongkir sudah otomatis terdeteksi via website. Mohon info nomor rekening BCA/Mandiri untuk transfer ya. Terima kasih! 🙏';
-
-                    const url = 'https://wa.me/<?= WHATSAPP_NUMBER ?>?text=' + encodeURIComponent(msg);
-                    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-                    if (isMobile) {
-                        window.location.href = url;
-                    } else {
-                        window.open(url, '_blank');
-                    }
-                    this.closeModal();
-                }
-             }"
-             @open-order-modal.window="
-                if ($event.detail && $event.detail.tab) modalTab = $event.detail.tab;
-                if ($event.detail && $event.detail.product) {
-                    product = $event.detail.product;
-                    if (city) calculateOngkir();
-                }
-                setTimeout(() => { if (window.lucide) lucide.createIcons(); }, 50);
-             "
-             x-init="
-                initDestinations();
-                $watch('modalTab', val => {
-                    setTimeout(() => { if (window.lucide) lucide.createIcons(); }, 50);
-                });
-             ">
+             class="relative transform overflow-hidden rounded-3xl bg-white text-left shadow-2xl transition-all my-6 sm:my-8 w-full max-w-lg border border-ftl-sand">
             
             <!-- Modal Header dengan Tab Navigasi -->
             <div class="bg-gradient-to-r from-ftl-forest to-ftl-sage p-5 sm:p-6 text-white relative">
@@ -481,44 +197,58 @@ require_once __DIR__ . '/../config.php';
                 
                 <!-- 1. PILIH PRODUK & JUMLAH -->
                 <div class="space-y-3">
-                    <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider flex items-center justify-between">
-                        <span>1. Produk yang Dipesan</span>
+                    <div class="flex items-center justify-between">
+                        <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider">
+                            1. Pilih Produk yang Ingin Dipesan:
+                        </label>
                         <span class="text-[10px] text-emerald-700 font-semibold uppercase tracking-wider">100% Original FTL</span>
-                    </label>
+                    </div>
 
-                    <!-- Product Card Banner -->
-                    <div class="p-3 sm:p-3.5 rounded-2xl bg-gradient-to-r from-emerald-50/70 to-ftl-light/60 border border-emerald-100 flex items-center gap-3">
-                        <div class="w-14 h-14 rounded-xl bg-white p-1.5 flex items-center justify-center shrink-0 border border-emerald-100/80 shadow-2xs">
-                            <img src="<?= BASE_URL ?>assets/images/product-calming-rub.svg" alt="Baby Calming Rub Cream 50g" class="h-full w-auto object-contain">
-                        </div>
-                        <div class="flex-1 min-w-0">
-                            <div class="flex items-center gap-1.5">
-                                <span class="bg-emerald-600 text-white text-[9px] font-extrabold px-1.5 py-0.5 rounded">OFFICIAL</span>
-                                <span class="text-[10px] text-gray-500">Netto 50g • BPOM Resmi</span>
+                    <!-- Pilihan Produk Interaktif (Kartu Produk Fleksibel) -->
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+                        <template x-for="(item, key) in productsList" :key="key">
+                            <div @click="product = key; if(city) calculateOngkir();" 
+                                 :class="product === key ? 'border-emerald-600 bg-emerald-50/70 ring-2 ring-emerald-500/25 shadow-xs' : 'border-gray-200 bg-white hover:bg-gray-50/80'"
+                                 class="p-2.5 rounded-2xl border text-left transition-all flex sm:flex-col items-center sm:items-start gap-2.5 cursor-pointer relative active:scale-[0.98]">
+                                <!-- Radio indicator dot -->
+                                <div class="absolute top-2 right-2 w-4 h-4 rounded-full border-2 flex items-center justify-center shrink-0 transition-colors"
+                                     :class="product === key ? 'border-emerald-600 bg-emerald-600 text-white' : 'border-gray-300 bg-white'">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-white" x-show="product === key"></span>
+                                </div>
+                                
+                                <!-- Product packshot image -->
+                                <div class="w-12 h-12 sm:w-full sm:h-16 rounded-xl bg-white p-1 flex items-center justify-center shrink-0 border border-gray-100">
+                                    <img :src="'<?= BASE_URL ?>' + item.image" :alt="item.name" class="h-full w-auto object-contain">
+                                </div>
+                                
+                                <!-- Product details -->
+                                <div class="min-w-0 flex-1 pr-5 sm:pr-0">
+                                    <span class="inline-block text-[9px] font-bold px-1.5 py-0.5 rounded border mb-0.5 truncate max-w-full"
+                                          :class="item.badgeClass" x-text="item.badge"></span>
+                                    <h5 class="font-bold text-xs text-gray-900 leading-snug line-clamp-1" x-text="item.name"></h5>
+                                    <div class="flex items-baseline gap-1 mt-0.5">
+                                        <span class="text-xs font-extrabold text-ftl-forest" x-text="formatRp(item.price)"></span>
+                                        <span class="text-[10px] text-gray-400 line-through" x-text="formatRp(item.originalPrice)"></span>
+                                    </div>
+                                </div>
                             </div>
-                            <h4 class="font-bold text-xs sm:text-sm text-gray-900 truncate">Baby Calming Rub Cream (50g)</h4>
-                            <div class="flex items-baseline gap-1.5 mt-0.5">
-                                <span class="text-xs sm:text-sm font-extrabold text-ftl-forest">Rp 79.000</span>
-                                <span class="text-[11px] text-gray-400 line-through">Rp 99.000</span>
-                                <span class="text-[10px] font-bold text-amber-800 bg-amber-100 px-1.5 py-0.2 rounded">Hemat 20%</span>
-                            </div>
-                        </div>
+                        </template>
                     </div>
 
                     <!-- Quantity Stepper & Price -->
-                    <div class="flex items-center justify-between bg-ftl-light p-3 rounded-2xl border border-emerald-100">
+                    <div class="flex items-center justify-between bg-ftl-light p-3.5 rounded-2xl border border-emerald-100">
                         <div class="flex flex-col">
-                            <span class="text-xs text-gray-600 font-medium">Jumlah Pesanan:</span>
-                            <div class="flex items-center gap-3 mt-1">
+                            <span class="text-xs text-gray-700 font-bold">Jumlah Pesanan:</span>
+                            <div class="flex items-center gap-3 mt-1.5">
                                 <button type="button" 
                                         @click="if (qty > 1) { qty--; if(city) calculateOngkir(); }" 
-                                        class="w-7 h-7 rounded-lg bg-white border border-gray-300 text-gray-700 flex items-center justify-center font-bold hover:bg-gray-100 active:scale-95 transition text-sm">
+                                        class="w-8 h-8 rounded-xl bg-white border border-gray-300 text-gray-800 flex items-center justify-center font-bold text-base hover:bg-gray-100 active:scale-90 transition shadow-2xs cursor-pointer select-none">
                                     -
                                 </button>
-                                <span class="font-bold text-sm sm:text-base w-6 text-center" x-text="qty"></span>
+                                <span class="font-display font-extrabold text-base sm:text-lg w-8 text-center text-gray-900" x-text="qty"></span>
                                 <button type="button" 
                                         @click="qty++; if(city) calculateOngkir();" 
-                                        class="w-7 h-7 rounded-lg bg-white border border-gray-300 text-gray-700 flex items-center justify-center font-bold hover:bg-gray-100 active:scale-95 transition text-sm">
+                                        class="w-8 h-8 rounded-xl bg-white border border-gray-300 text-gray-800 flex items-center justify-center font-bold text-base hover:bg-gray-100 active:scale-90 transition shadow-2xs cursor-pointer select-none">
                                     +
                                 </button>
                             </div>
@@ -526,7 +256,7 @@ require_once __DIR__ . '/../config.php';
                         <div class="text-right">
                             <span class="text-[11px] text-gray-500">Subtotal Produk:</span>
                             <div class="text-base sm:text-lg font-extrabold text-ftl-forest" x-text="formatRp(subtotal)"></div>
-                            <span class="text-[10px] text-emerald-700 font-semibold" x-text="'Berat: ' + totalWeight + 'g'"></span>
+                            <span class="text-[10px] text-emerald-700 font-semibold" x-text="'Estimasi Berat: ' + totalWeight + 'g'"></span>
                         </div>
                     </div>
                 </div>
@@ -740,3 +470,350 @@ require_once __DIR__ . '/../config.php';
         </div>
     </div>
 </div>
+
+<script>
+/**
+ * Order Modal Alpine Component Definition
+ * Handles: Consultations, Interactive Product Selection, Quantity, Geolocation GPS & Live Shipping calculation.
+ */
+function orderModal() {
+    return {
+        isOpen: false,
+        modalTab: 'konsultasi', // 'konsultasi' | 'pesan'
+        consultName: '',
+        consultBabyAge: '',
+        consultTopic: 'Aman untuk newborn (0+) & kulit sensitif?',
+        consultCustomQuestion: '',
+        product: 'calming-rub-50g',
+        qty: 1,
+        name: '',
+        phone: '',
+        province: '',
+        city: '',
+        address: '',
+        note: '',
+        destinations: [],
+        cityList: [],
+        couriers: [],
+        selectedCourier: null,
+        loadingOngkir: false,
+        detectingGPS: false,
+        detectedAlert: '',
+        searchQuery: '',
+        showSuggestions: false,
+        productsList: {
+            'calming-rub-50g': { 
+                id: 'calming-rub-50g',
+                name: 'Baby Calming Rub Cream 50g', 
+                desc: 'Single Tube (1x 50g)',
+                price: 79000, 
+                originalPrice: 99000,
+                badge: '🌿 100% Pala Asli',
+                badgeClass: 'bg-emerald-50 text-emerald-800 border-emerald-200/80',
+                weight: 100,
+                image: 'assets/images/product-calming-rub.svg'
+            },
+            'bundling-double-care': { 
+                id: 'bundling-double-care',
+                name: 'Paket Hemat 2 Tube', 
+                desc: 'Stok Lengkap Bunda (2x 50g)',
+                price: 149000, 
+                originalPrice: 198000,
+                badge: '🔥 Hemat 25%',
+                badgeClass: 'bg-amber-50 text-amber-800 border-amber-200/80',
+                weight: 200,
+                image: 'assets/images/product-bundle-2.svg'
+            },
+            'bundling-newborn-gift': { 
+                id: 'bundling-newborn-gift',
+                name: 'Newborn Care Gift Set', 
+                desc: 'Paket Sambut Buah Hati',
+                price: 189000, 
+                originalPrice: 249000,
+                badge: '🎁 Kado Spesial',
+                badgeClass: 'bg-rose-50 text-rose-800 border-rose-200/80',
+                weight: 350,
+                image: 'assets/images/product-gift-box.svg'
+            }
+        },
+        get currentProduct() {
+            return this.productsList[this.product] || this.productsList['calming-rub-50g'];
+        },
+        get currentPrice() {
+            return this.currentProduct.price;
+        },
+        get currentName() {
+            return this.currentProduct.name;
+        },
+        get totalWeight() {
+            return this.currentProduct.weight * this.qty;
+        },
+        get subtotal() {
+            return this.currentPrice * this.qty;
+        },
+        get shippingCost() {
+            return this.selectedCourier ? this.selectedCourier.cost : 0;
+        },
+        get grandTotal() {
+            return this.subtotal + this.shippingCost;
+        },
+        get allCitiesList() {
+            let list = [];
+            this.destinations.forEach(d => {
+                d.cities.forEach(c => {
+                    list.push({ city: c, province: d.province, full: c + ', ' + d.province });
+                });
+            });
+            return list;
+        },
+        get filteredCities() {
+            if (!this.searchQuery || this.searchQuery.trim().length < 2) return [];
+            const q = this.searchQuery.toLowerCase().trim();
+            return this.allCitiesList.filter(item => 
+                item.city.toLowerCase().includes(q) || item.province.toLowerCase().includes(q)
+            ).slice(0, 6);
+        },
+        formatRp(val) {
+            return 'Rp ' + Number(val || 0).toLocaleString('id-ID');
+        },
+        init() {
+            this.initDestinations();
+        },
+        openModal(detail) {
+            this.isOpen = true;
+            if (detail && detail.tab) this.modalTab = detail.tab;
+            if (detail && detail.product && this.productsList[detail.product]) {
+                this.product = detail.product;
+                if (this.city) this.calculateOngkir();
+            }
+            setTimeout(() => { if (window.lucide) lucide.createIcons(); }, 50);
+        },
+        closeModal() {
+            this.isOpen = false;
+            try {
+                this.$dispatch('close-order-modal');
+            } catch(e) {}
+            window.dispatchEvent(new CustomEvent('close-order-modal'));
+            try {
+                if (document.body._x_dataStack && document.body._x_dataStack[0]) {
+                    document.body._x_dataStack[0].orderModalOpen = false;
+                }
+            } catch(e) {}
+        },
+        selectTopic(topic, defaultText = '') {
+            this.consultTopic = topic;
+            if (defaultText && !this.consultCustomQuestion.trim()) {
+                this.consultCustomQuestion = defaultText;
+            }
+        },
+        async initDestinations() {
+            if (this.destinations.length > 0) return;
+            try {
+                const res = await fetch('<?= BASE_URL ?>api/ongkir.php?action=destinations');
+                const data = await res.json();
+                if (data.status === 'success') {
+                    this.destinations = data.data;
+                }
+            } catch (e) {
+                console.error('Gagal memuat tujuan ongkir', e);
+            }
+        },
+        onProvinceChange() {
+            const found = this.destinations.find(d => d.province === this.province);
+            this.cityList = found ? found.cities : [];
+            this.city = '';
+            this.couriers = [];
+            this.selectedCourier = null;
+            this.detectedAlert = '';
+        },
+        selectCityFromSearch(item) {
+            this.province = item.province;
+            const found = this.destinations.find(d => d.province === this.province);
+            this.cityList = found ? found.cities : [];
+            this.city = item.city;
+            this.searchQuery = item.city + ', ' + item.province;
+            this.showSuggestions = false;
+            this.detectedAlert = 'Lokasi Terpilih: ' + item.city + ', ' + item.province;
+            this.calculateOngkir();
+        },
+        async detectLocationGPS() {
+            if (!navigator.geolocation) {
+                alert('Browser Anda tidak mendukung deteksi lokasi otomatis. Silakan pilih kota manual.');
+                return;
+            }
+            this.detectingGPS = true;
+            this.detectedAlert = '';
+
+            navigator.geolocation.getCurrentPosition(async (pos) => {
+                try {
+                    const lat = pos.coords.latitude;
+                    const lon = pos.coords.longitude;
+                    const res = await fetch('https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=' + lat + '&longitude=' + lon + '&localityLanguage=id');
+                    const data = await res.json();
+                    
+                    const rawProv = (data.principalSubdivision || '').toLowerCase();
+                    const rawCity = (data.city || data.locality || '').toLowerCase();
+
+                    let matched = null;
+                    for (let d of this.destinations) {
+                        for (let c of d.cities) {
+                            const cLow = c.toLowerCase();
+                            const pLow = d.province.toLowerCase();
+                            if (rawCity && (cLow.includes(rawCity) || rawCity.includes(cLow.replace(/^(kota|kab\.)\s*/, '')))) {
+                                matched = { province: d.province, city: c };
+                                break;
+                            }
+                            if (rawProv && pLow.includes(rawProv) && !matched) {
+                                matched = { province: d.province, city: c };
+                            }
+                        }
+                        if (matched) break;
+                    }
+
+                    if (!matched && (rawProv.includes('jakarta') || rawCity.includes('jakarta'))) {
+                        matched = { province: 'DKI Jakarta', city: 'Kota Jakarta Selatan' };
+                    }
+
+                    if (matched) {
+                        this.province = matched.province;
+                        const found = this.destinations.find(d => d.province === this.province);
+                        this.cityList = found ? found.cities : [];
+                        this.city = matched.city;
+                        this.searchQuery = matched.city + ', ' + matched.province;
+                        this.detectedAlert = '📍 GPS Terdeteksi: ' + matched.city + ' (' + matched.province + ')';
+                        await this.calculateOngkir();
+                    } else {
+                        this.detectedAlert = 'Lokasi sekitar: ' + (data.city || data.locality || 'Indonesia') + '. Silakan konfirmasi di dropdown.';
+                    }
+                } catch (e) {
+                    console.error('Error reverse geocode GPS', e);
+                    alert('Gagal mendeteksi nama kota otomatis. Silakan pilih manual melalui pencarian.');
+                } finally {
+                    this.detectingGPS = false;
+                }
+            }, (err) => {
+                this.detectingGPS = false;
+                alert('Izin akses lokasi tidak diberikan atau GPS non-aktif. Silakan ketik nama kota manual.');
+            }, { timeout: 8000 });
+        },
+        async calculateOngkir() {
+            if (!this.province || !this.city) return;
+            this.loadingOngkir = true;
+            this.selectedCourier = null;
+            try {
+                const url = '<?= BASE_URL ?>api/ongkir.php?action=calculate&province=' + encodeURIComponent(this.province) + '&city=' + encodeURIComponent(this.city) + '&weight=' + this.totalWeight;
+                const res = await fetch(url);
+                const json = await res.json();
+                if (json.status === 'success') {
+                    this.couriers = json.couriers;
+                    this.selectedCourier = this.couriers[0];
+                }
+            } catch (e) {
+                console.error('Gagal hitung ongkir', e);
+            } finally {
+                this.loadingOngkir = false;
+            }
+        },
+        sendConsultationWA() {
+            let msg = 'Halo Tim For The Little Indonesia 🍃\n\n';
+            if (this.consultName && this.consultName.trim()) {
+                msg += 'Perkenalkan, saya *' + this.consultName.trim() + '* ingin konsultasi seputar perawatan si kecil:\n\n';
+            } else {
+                msg += 'Saya ingin konsultasi seputar si kecil & produk FTL:\n\n';
+            }
+            if (this.consultBabyAge && this.consultBabyAge.trim()) {
+                msg += '• *Usia/Kondisi Si Kecil:* ' + this.consultBabyAge.trim() + '\n';
+            }
+            msg += '• *Topik Pertanyaan:* ' + this.consultTopic + '\n';
+            if (this.consultCustomQuestion && this.consultCustomQuestion.trim()) {
+                msg += '\n*Detail Pertanyaan / Keluhan:*\n"' + this.consultCustomQuestion.trim() + '"\n';
+            }
+            msg += '\nMohon saran dan penjelasannya ya min. Terima kasih banyak! 🙏';
+
+            const url = 'https://wa.me/<?= WHATSAPP_NUMBER ?>?text=' + encodeURIComponent(msg);
+            const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+            if (isMobile) {
+                window.location.href = url;
+            } else {
+                window.open(url, '_blank');
+            }
+            this.closeModal();
+        },
+        submitToWhatsApp() {
+            if (!this.name.trim()) {
+                alert('Silakan isi Nama Bunda / Ayah terlebih dahulu.');
+                return;
+            }
+            if (!this.phone.trim()) {
+                alert('Silakan masukkan nomor WhatsApp aktif penerima.');
+                return;
+            }
+            if (!this.city || !this.province) {
+                alert('Silakan tentukan kota/kabupaten pengiriman.');
+                return;
+            }
+            if (!this.selectedCourier) {
+                alert('Silakan tunggu atau pilih kurir ekspedisi pengiriman.');
+                return;
+            }
+
+            let msg = 'Halo Admin For The Little Indonesia 🍃\n';
+            msg += 'Saya ingin memesan produk via Website Resmi FTL:\n\n';
+            msg += '------------------------------------\n';
+            msg += '*DATA PENERIMA:*\n';
+            msg += '• Nama: ' + this.name.trim() + '\n';
+            msg += '• No. WhatsApp: ' + this.phone.trim() + '\n';
+            msg += '• Tujuan: ' + this.city + ', ' + this.province + '\n';
+            if (this.address.trim()) {
+                msg += '• Alamat Lengkap: ' + this.address.trim() + '\n';
+            }
+            msg += '\n*RINCIAN PRODUK:*\n';
+            msg += '• ' + this.currentName + '\n';
+            msg += '• Jumlah: ' + this.qty + ' pcs (Estimasi ' + this.totalWeight + 'g)\n';
+            msg += '• Subtotal Produk: ' + this.formatRp(this.subtotal) + '\n\n';
+            
+            msg += '*EKSPEDISI & ONGKOS KIRIM:*\n';
+            msg += '• Kurir: ' + this.selectedCourier.name + ' (' + this.selectedCourier.service + ')\n';
+            msg += '• Estimasi Tiba: ' + this.selectedCourier.etd + '\n';
+            msg += '• Biaya Ongkir: ' + this.formatRp(this.shippingCost) + '\n';
+            msg += '------------------------------------\n';
+            msg += '*TOTAL PEMBAYARAN: ' + this.formatRp(this.grandTotal) + '*\n';
+            msg += '------------------------------------\n';
+            if (this.note.trim()) {
+                msg += '*Catatan Tambahan:* ' + this.note.trim() + '\n\n';
+            }
+            msg += 'Halo Admin FTL, saya sudah mengisi form pesanan dan ongkir sudah otomatis terdeteksi via website. Mohon info nomor rekening BCA/Mandiri untuk transfer ya. Terima kasih! 🙏';
+
+            const url = 'https://wa.me/<?= WHATSAPP_NUMBER ?>?text=' + encodeURIComponent(msg);
+            const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+            if (isMobile) {
+                window.location.href = url;
+            } else {
+                window.open(url, '_blank');
+            }
+            this.closeModal();
+        }
+    };
+}
+
+// Global modal trigger helper
+window.openOrderModal = function(tab = 'pesan', product = 'calming-rub-50g') {
+    window.dispatchEvent(new CustomEvent('open-order-modal', { detail: { tab, product } }));
+    try {
+        if (document.body._x_dataStack && document.body._x_dataStack[0]) {
+            document.body._x_dataStack[0].orderModalOpen = true;
+            document.body._x_dataStack[0].modalTab = tab;
+            document.body._x_dataStack[0].selectedProduct = product;
+        }
+    } catch(e) {}
+};
+
+window.closeOrderModal = function() {
+    window.dispatchEvent(new CustomEvent('close-order-modal'));
+    try {
+        if (document.body._x_dataStack && document.body._x_dataStack[0]) {
+            document.body._x_dataStack[0].orderModalOpen = false;
+        }
+    } catch(e) {}
+};
+</script>

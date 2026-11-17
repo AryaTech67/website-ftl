@@ -434,7 +434,7 @@ require_once __DIR__ . '/includes/navbar.php';
 
                 <!-- Beli Button (Rounded Pill Gradient Persis Tentang Anak) -->
                 <button type="button" 
-                        @click="orderModalOpen = true; selectedProduct = 'calming-rub-50g'; modalTab = 'pesan'"
+                        @click="openOrderModal('pesan', 'calming-rub-50g')"
                         class="w-full mt-3.5 py-2.5 px-4 rounded-full font-bold text-xs sm:text-sm text-white bg-gradient-to-r from-[#D97A29] via-[#EE4D2D] to-[#E63946] shadow-sm hover:shadow-md hover:scale-[1.02] active:scale-95 transition-all text-center cursor-pointer">
                     Beli
                 </button>
@@ -475,7 +475,7 @@ require_once __DIR__ . '/includes/navbar.php';
 
                 <!-- Beli Button -->
                 <button type="button" 
-                        @click="orderModalOpen = true; selectedProduct = 'calming-rub-50g'; modalTab = 'pesan'"
+                        @click="openOrderModal('pesan', 'bundling-double-care')"
                         class="w-full mt-3.5 py-2.5 px-4 rounded-full font-bold text-xs sm:text-sm text-white bg-gradient-to-r from-[#D97A29] via-[#EE4D2D] to-[#E63946] shadow-sm hover:shadow-md hover:scale-[1.02] active:scale-95 transition-all text-center cursor-pointer">
                     Beli
                 </button>
@@ -516,7 +516,7 @@ require_once __DIR__ . '/includes/navbar.php';
 
                 <!-- Beli Button -->
                 <button type="button" 
-                        @click="orderModalOpen = true; selectedProduct = 'calming-rub-50g'; modalTab = 'pesan'"
+                        @click="openOrderModal('pesan', 'bundling-newborn-gift')"
                         class="w-full mt-3.5 py-2.5 px-4 rounded-full font-bold text-xs sm:text-sm text-white bg-gradient-to-r from-[#D97A29] via-[#EE4D2D] to-[#E63946] shadow-sm hover:shadow-md hover:scale-[1.02] active:scale-95 transition-all text-center cursor-pointer">
                     Beli
                 </button>
