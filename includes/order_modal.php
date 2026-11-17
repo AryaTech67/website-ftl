@@ -30,7 +30,6 @@ require_once __DIR__ . '/../config.php';
              x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
              class="relative transform overflow-hidden rounded-3xl bg-white text-left shadow-2xl transition-all my-6 sm:my-8 w-full max-w-lg border border-ftl-sand"
              x-data="{
-                activeTab: 'konsultasi',
                 consultName: '',
                 consultBabyAge: '',
                 consultTopic: 'Aman untuk newborn (0+) & kulit sensitif?',
@@ -278,12 +277,8 @@ require_once __DIR__ . '/../config.php';
              }"
              x-init="
                 initDestinations();
-                $watch('$parent.modalTab', val => { if(val) activeTab = val; });
-                $watch('$parent.selectedProduct', value => { 
-                    if(value) {
-                        product = value;
-                        if(city) calculateOngkir();
-                    }
+                $watch('modalTab', val => {
+                    setTimeout(() => { if(window.lucide) lucide.createIcons(); }, 60);
                 });
                 $watch('orderModalOpen', val => { 
                     if(val) setTimeout(() => { if(window.lucide) lucide.createIcons(); }, 60); 
@@ -301,26 +296,26 @@ require_once __DIR__ . '/../config.php';
                     <span class="w-2 h-2 rounded-full bg-emerald-400"></span> Layanan WhatsApp Resmi FTL
                 </div>
                 <h3 class="text-xl sm:text-2xl font-bold font-display leading-tight" id="modal-title">
-                    <span x-show="activeTab === 'konsultasi'">Konsultasi Bunda & Si Kecil 👶🍃</span>
-                    <span x-show="activeTab === 'pesan'" style="display: none;">Form Pemesanan & Ongkir 🛍️</span>
+                    <span x-show="modalTab === 'konsultasi'">Konsultasi Bunda & Si Kecil 👶🍃</span>
+                    <span x-show="modalTab === 'pesan'" style="display: none;">Form Pemesanan & Ongkir 🛍️</span>
                 </h3>
                 <p class="text-xs text-emerald-100 mt-1">
-                    <span x-show="activeTab === 'konsultasi'">Bebas tanya seputar kolik, newborn, atau cara pakai tanpa harus beli.</span>
-                    <span x-show="activeTab === 'pesan'" style="display: none;">Hitung ongkir otomatis lalu kirim rincian order ke WhatsApp CS.</span>
+                    <span x-show="modalTab === 'konsultasi'">Bebas tanya seputar kolik, newborn, atau cara pakai tanpa harus beli.</span>
+                    <span x-show="modalTab === 'pesan'" style="display: none;">Hitung ongkir otomatis lalu kirim rincian order ke WhatsApp CS.</span>
                 </p>
 
                 <!-- 2-Tab Switcher -->
                 <div class="flex items-center p-1 bg-black/25 rounded-2xl mt-4 border border-white/15">
                     <button type="button" 
-                            @click="activeTab = 'konsultasi'" 
-                            :class="activeTab === 'konsultasi' ? 'bg-white text-ftl-forest font-bold shadow-sm' : 'text-white/80 hover:text-white font-medium'"
+                            @click="modalTab = 'konsultasi'" 
+                            :class="modalTab === 'konsultasi' ? 'bg-white text-ftl-forest font-bold shadow-sm' : 'text-white/80 hover:text-white font-medium'"
                             class="flex-1 py-2 text-xs sm:text-sm rounded-xl transition flex items-center justify-center gap-1.5">
                         <i data-lucide="message-circle" class="w-4 h-4"></i>
                         <span>💬 Tanya-Tanya Dulu</span>
                     </button>
                     <button type="button" 
-                            @click="activeTab = 'pesan'" 
-                            :class="activeTab === 'pesan' ? 'bg-white text-ftl-forest font-bold shadow-sm' : 'text-white/80 hover:text-white font-medium'"
+                            @click="modalTab = 'pesan'" 
+                            :class="modalTab === 'pesan' ? 'bg-white text-ftl-forest font-bold shadow-sm' : 'text-white/80 hover:text-white font-medium'"
                             class="flex-1 py-2 text-xs sm:text-sm rounded-xl transition flex items-center justify-center gap-1.5">
                         <i data-lucide="shopping-bag" class="w-4 h-4"></i>
                         <span>🛍️ Mau Pesan Produk</span>
@@ -329,7 +324,7 @@ require_once __DIR__ . '/../config.php';
             </div>
 
             <!-- ================= TAB 1: FORM KONSULTASI BUNDA ================= -->
-            <div x-show="activeTab === 'konsultasi'" class="p-5 sm:p-6 space-y-4 max-h-[72vh] overflow-y-auto">
+            <div x-show="modalTab === 'konsultasi'" class="p-5 sm:p-6 space-y-4 max-h-[72vh] overflow-y-auto">
                 
                 <!-- Info Banner Ramah -->
                 <div class="p-3.5 bg-emerald-50/90 rounded-2xl border border-emerald-200/80 flex items-start gap-3">
@@ -422,7 +417,7 @@ require_once __DIR__ . '/../config.php';
             </div>
 
             <!-- ================= TAB 2: FORM PEMESANAN & CEK ONGKIR ================= -->
-            <div x-show="activeTab === 'pesan'" style="display: none;" class="p-5 sm:p-6 space-y-4 max-h-[72vh] overflow-y-auto">
+            <div x-show="modalTab === 'pesan'" style="display: none;" class="p-5 sm:p-6 space-y-4 max-h-[72vh] overflow-y-auto">
                 
                 <!-- 1. PILIH PRODUK & JUMLAH -->
                 <div class="space-y-3">
@@ -669,7 +664,7 @@ require_once __DIR__ . '/../config.php';
             <!-- Modal Footer -->
             <div class="bg-gray-50 px-5 sm:px-6 py-4 flex flex-col sm:flex-row-reverse gap-2.5 border-t border-gray-100">
                 <button type="button" 
-                        x-show="activeTab === 'pesan'"
+                        x-show="modalTab === 'pesan'"
                         @click="submitToWhatsApp()" 
                         class="w-full sm:w-auto inline-flex justify-center items-center gap-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 px-6 py-3 text-sm font-bold text-white shadow-md active:scale-95 transition-all">
                     <i data-lucide="send" class="w-4 h-4"></i>
