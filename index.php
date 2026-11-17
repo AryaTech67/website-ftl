@@ -328,13 +328,13 @@ require_once __DIR__ . '/includes/navbar.php';
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <!-- Header Section -->
-        <div class="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
+        <div class="text-center max-w-2xl mx-auto mb-10 sm:mb-14">
             <span class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-emerald-100 text-ftl-forest text-xs font-bold uppercase tracking-wider mb-3">
                 <i data-lucide="sparkles" class="w-3.5 h-3.5 text-emerald-600"></i>
                 PRODUK RESMI FOR THE LITTLE
             </span>
             <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold font-display text-ftl-forest tracking-tight">
-                Baby Calming Rub Cream
+                Produk Unggulan Kami
             </h2>
             <p class="text-sm sm:text-base text-gray-600 mt-2">
                 Satu sentuhan hangat alami dengan khasiat Minyak Pala Nusantara & Calendula untuk redakan kembung dan buat tidur si kecil pulas.
@@ -357,12 +357,12 @@ require_once __DIR__ . '/includes/navbar.php';
                         </span>
                     </div>
 
-                    <!-- Main Product Image -->
-                    <div class="my-8 sm:my-10 relative group">
-                        <div class="absolute -inset-4 bg-emerald-200/30 rounded-full blur-2xl group-hover:bg-emerald-300/40 transition duration-500"></div>
+                    <!-- Main Product Image (Proporsi Diperbesar 20-25%) -->
+                    <div class="my-6 sm:my-8 lg:my-10 relative group flex items-center justify-center">
+                        <div class="absolute -inset-6 bg-emerald-200/40 rounded-full blur-3xl group-hover:bg-emerald-300/50 transition duration-500"></div>
                         <img src="<?= BASE_URL ?>assets/images/product-calming-rub.svg" 
                              alt="Baby Calming Rub Cream 50g - For The Little" 
-                             class="relative w-52 sm:w-64 h-auto object-contain drop-shadow-2xl hover:scale-105 transition-transform duration-300">
+                             class="relative w-64 sm:w-72 lg:w-80 max-w-full h-auto object-contain drop-shadow-2xl hover:scale-105 transition-transform duration-300">
                     </div>
 
                     <!-- Bottom Certifications Pill -->
@@ -451,19 +451,19 @@ require_once __DIR__ . '/includes/navbar.php';
                         </div>
                     </div>
 
-                    <!-- Dual CTAs: WhatsApp + Shopee -->
+                    <!-- Dual CTAs: WhatsApp + Shopee (Sejajar Sempurna 1 Baris) -->
                     <div class="mt-8 pt-6 border-t border-gray-100">
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 items-stretch">
                             <button type="button" 
                                     @click="orderModalOpen = true; selectedProduct = 'calming-rub-50g'"
-                                    class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3.5 px-4 rounded-2xl text-xs sm:text-sm shadow-md hover:shadow-emerald-600/30 transition flex items-center justify-center gap-2 active:scale-95 group cursor-pointer">
-                                <i data-lucide="message-circle" class="w-4 h-4 group-hover:scale-110 transition-transform"></i>
-                                <span>Pesan via WhatsApp (Hitung Ongkir)</span>
+                                    class="w-full h-12 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-3 xl:px-4 rounded-2xl text-xs xl:text-sm shadow-md hover:shadow-emerald-600/30 transition flex items-center justify-center gap-1.5 sm:gap-2 active:scale-95 group cursor-pointer whitespace-nowrap">
+                                <i data-lucide="message-circle" class="w-4 h-4 shrink-0 group-hover:scale-110 transition-transform"></i>
+                                <span class="whitespace-nowrap">Pesan via WhatsApp (Hitung Ongkir)</span>
                             </button>
                             <a href="<?= SHOPEE_URL ?>" target="_blank" rel="noopener"
-                               class="w-full bg-[#EE4D2D] hover:bg-[#d73f21] text-white font-bold py-3.5 px-4 rounded-2xl text-xs sm:text-sm shadow-md hover:shadow-orange-600/30 transition flex items-center justify-center gap-2 active:scale-95 text-center group">
-                                <i data-lucide="shopping-bag" class="w-4 h-4 group-hover:scale-110 transition-transform"></i>
-                                <span>Beli di Shopee Resmi</span>
+                               class="w-full h-12 bg-[#EE4D2D] hover:bg-[#d73f21] text-white font-bold py-3 px-3 xl:px-4 rounded-2xl text-xs xl:text-sm shadow-md hover:shadow-orange-600/30 transition flex items-center justify-center gap-1.5 sm:gap-2 active:scale-95 text-center group whitespace-nowrap">
+                                <i data-lucide="shopping-bag" class="w-4 h-4 shrink-0 group-hover:scale-110 transition-transform"></i>
+                                <span class="whitespace-nowrap">Beli di Shopee Resmi</span>
                             </a>
                         </div>
                         <div class="mt-3 flex items-center justify-center sm:justify-start gap-4 text-[11px] text-gray-500">
