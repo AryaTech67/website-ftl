@@ -456,14 +456,14 @@ require_once __DIR__ . '/includes/navbar.php';
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 items-stretch">
                             <button type="button" 
                                     @click="orderModalOpen = true; selectedProduct = 'calming-rub-50g'"
-                                    class="w-full h-12 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-3 xl:px-4 rounded-2xl text-xs xl:text-sm shadow-md hover:shadow-emerald-600/30 transition flex items-center justify-center gap-1.5 sm:gap-2 active:scale-95 group cursor-pointer whitespace-nowrap">
+                                    class="w-full h-12 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-3 sm:px-4 rounded-2xl text-xs sm:text-sm shadow-md hover:shadow-emerald-600/30 transition flex items-center justify-center gap-2 active:scale-95 group cursor-pointer whitespace-nowrap">
                                 <i data-lucide="message-circle" class="w-4 h-4 shrink-0 group-hover:scale-110 transition-transform"></i>
-                                <span class="whitespace-nowrap">Pesan via WhatsApp (Hitung Ongkir)</span>
+                                <span>Pesan via WhatsApp</span>
                             </button>
                             <a href="<?= SHOPEE_URL ?>" target="_blank" rel="noopener"
-                               class="w-full h-12 bg-[#EE4D2D] hover:bg-[#d73f21] text-white font-bold py-3 px-3 xl:px-4 rounded-2xl text-xs xl:text-sm shadow-md hover:shadow-orange-600/30 transition flex items-center justify-center gap-1.5 sm:gap-2 active:scale-95 text-center group whitespace-nowrap">
+                               class="w-full h-12 bg-[#EE4D2D] hover:bg-[#d73f21] text-white font-bold py-3 px-3 sm:px-4 rounded-2xl text-xs sm:text-sm shadow-md hover:shadow-orange-600/30 transition flex items-center justify-center gap-2 active:scale-95 text-center group whitespace-nowrap">
                                 <i data-lucide="shopping-bag" class="w-4 h-4 shrink-0 group-hover:scale-110 transition-transform"></i>
-                                <span class="whitespace-nowrap">Beli di Shopee Resmi</span>
+                                <span>Beli di Shopee Resmi</span>
                             </a>
                         </div>
                         <div class="mt-3 flex items-center justify-center sm:justify-start gap-4 text-[11px] text-gray-500">
