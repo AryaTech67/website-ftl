@@ -73,10 +73,10 @@ require_once __DIR__ . '/includes/navbar.php';
              x-transition:leave-start="opacity-100 translate-x-0"
              x-transition:leave-end="opacity-0 -translate-x-full"
              class="w-full h-full relative flex items-center overflow-hidden bg-cover bg-left sm:bg-center"
-             style="background-image: url('<?= BASE_URL ?>assets/images/banner-ftl-hero.jpg');">
+             style="background-image: url('<?= BASE_URL ?>assets/images/banner-ftl-hero.jpg?v=<?= filemtime(__DIR__ . '/assets/images/banner-ftl-hero.jpg') ?>');">
             
             <!-- Dark Gradient Vignette Overlay to ensure razor-sharp text contrast -->
-            <div class="absolute inset-0 bg-gradient-to-r from-black/55 via-[#142E20]/80 to-[#0D1F16]/95 lg:from-black/15 lg:via-[#142E20]/80 lg:to-[#0D1F16]/90 pointer-events-none"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-black/40 via-black/55 to-[#0D1F16]/85 lg:from-black/15 lg:via-[#142E20]/80 lg:to-[#0D1F16]/90 pointer-events-none"></div>
             
             <div class="w-full max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 relative z-10">
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
@@ -148,18 +148,18 @@ require_once __DIR__ . '/includes/navbar.php';
 
         <!-- ================= SLIDE 2: Rempah Pala Nusantara (Clean Typography) ================= -->
         <div x-show="activeSlide === 1"
+             x-cloak
              x-transition:enter="transition transform ease-out duration-500"
              x-transition:enter-start="opacity-0 translate-x-full"
              x-transition:enter-end="opacity-100 translate-x-0"
              x-transition:leave="transition transform ease-in duration-400 absolute inset-0"
              x-transition:leave-start="opacity-100 translate-x-0"
              x-transition:leave-end="opacity-0 -translate-x-full"
-             style="display: none;"
-             class="w-full h-full relative flex items-center overflow-hidden bg-cover bg-left sm:bg-center"
-             style="background-image: url('<?= BASE_URL ?>assets/images/banner-ftl-slide2.jpg');">
+             class="w-full h-full relative flex items-center overflow-hidden bg-cover bg-center sm:bg-center"
+             style="background-image: url('<?= BASE_URL ?>assets/images/banner-ftl-slide2.jpg?v=<?= filemtime(__DIR__ . '/assets/images/banner-ftl-slide2.jpg') ?>');">
             
             <!-- Dark Gradient Vignette Overlay to ensure razor-sharp text contrast (Efek Bayang-Bayang Alami) -->
-            <div class="absolute inset-0 bg-gradient-to-r from-black/55 via-[#142E20]/80 to-[#0D1F16]/95 lg:from-black/15 lg:via-[#142E20]/80 lg:to-[#0D1F16]/90 pointer-events-none"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-black/40 via-black/55 to-[#0D1F16]/85 lg:from-black/15 lg:via-[#142E20]/80 lg:to-[#0D1F16]/90 pointer-events-none"></div>
 
             <div class="w-full max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 relative z-10">
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
@@ -227,18 +227,18 @@ require_once __DIR__ . '/includes/navbar.php';
 
         <!-- ================= SLIDE 3: #frommothertoanother (Clean Typography) ================= -->
         <div x-show="activeSlide === 2"
+             x-cloak
              x-transition:enter="transition transform ease-out duration-500"
              x-transition:enter-start="opacity-0 translate-x-full"
              x-transition:enter-end="opacity-100 translate-x-0"
              x-transition:leave="transition transform ease-in duration-400 absolute inset-0"
              x-transition:leave-start="opacity-100 translate-x-0"
              x-transition:leave-end="opacity-0 -translate-x-full"
-             style="display: none;"
-             class="w-full h-full relative flex items-center overflow-hidden bg-cover bg-left sm:bg-center"
-             style="background-image: url('<?= BASE_URL ?>assets/images/banner-ftl-slide3.jpg');">
+             class="w-full h-full relative flex items-center overflow-hidden bg-cover bg-center sm:bg-center"
+             style="background-image: url('<?= BASE_URL ?>assets/images/banner-ftl-slide3.jpg?v=<?= filemtime(__DIR__ . '/assets/images/banner-ftl-slide3.jpg') ?>');">
             
             <!-- Dark Gradient Vignette Overlay to ensure razor-sharp text contrast (Efek Bayang-Bayang Alami) -->
-            <div class="absolute inset-0 bg-gradient-to-r from-black/55 via-[#142E20]/80 to-[#0D1F16]/95 lg:from-black/15 lg:via-[#142E20]/80 lg:to-[#0D1F16]/90 pointer-events-none"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-black/40 via-black/55 to-[#0D1F16]/85 lg:from-black/15 lg:via-[#142E20]/80 lg:to-[#0D1F16]/90 pointer-events-none"></div>
             
             <div class="w-full max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 relative z-10">
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
