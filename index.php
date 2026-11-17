@@ -159,7 +159,7 @@ require_once __DIR__ . '/includes/navbar.php';
              style="background-image: url('<?= BASE_URL ?>assets/images/banner-ftl-slide2.jpg');">
             
             <!-- Dark Gradient Vignette Overlay to ensure razor-sharp text contrast (Efek Bayang-Bayang Alami) -->
-            <div class="absolute inset-0 bg-gradient-to-r from-black/55 via-[#24170E]/75 to-[#140C07]/90 lg:from-black/15 lg:via-[#24170E]/75 lg:to-[#140C07]/90 pointer-events-none"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-black/55 via-[#142E20]/80 to-[#0D1F16]/95 lg:from-black/15 lg:via-[#142E20]/80 lg:to-[#0D1F16]/90 pointer-events-none"></div>
 
             <div class="w-full max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 relative z-10">
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
