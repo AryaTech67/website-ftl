@@ -26,6 +26,30 @@ $main_product = $PRODUCTS['calming-rub-50g'];
     selectedVariant: 'calming-rub-50g',
     variantPrice: 79000,
     formatRp(v) { return 'Rp ' + Number(v).toLocaleString('id-ID'); },
+    activeThumb: 0,
+    thumbnails: [
+        {
+            title: 'Baby Calming Rub Cream 50g',
+            img: '<?= BASE_URL ?>assets/images/product-calming-rub.svg',
+            badgeLeft: 'BPOM & Halal Resmi',
+            badgeRight: 'Safe for Newborn 0+',
+            caption: 'Kemasan Tube Flip-Top Anti-Bocor (Isi Bersih 50g) • Travel Friendly'
+        },
+        {
+            title: 'Minyak Atsiri Buah Pala Nusantara',
+            img: '<?= BASE_URL ?>assets/images/ingredient-nutmeg.svg',
+            badgeLeft: '100% Buah Pala Asli',
+            badgeRight: 'Hangat Lembut Bayi',
+            caption: 'Menenangkan Kolik & Redakan Perut Begah Tanpa Bikin Kulit Bayi Perih'
+        },
+        {
+            title: 'Ekstrak Bunga Calendula Organik',
+            img: '<?= BASE_URL ?>assets/images/ingredient-calendula.svg',
+            badgeLeft: 'Ekstrak Organik Alami',
+            badgeRight: 'Skin Barrier Protection',
+            caption: 'Menutrisi Kelembapan Kulit Sensitif Newborn & Mencegah Iritasi Ruam'
+        }
+    ],
     orderDirectWA() {
         const url = '<?= BASE_URL ?>' + 'index.php';
         // Trigger WA message
@@ -35,33 +59,49 @@ $main_product = $PRODUCTS['calming-rub-50g'];
 }">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 items-start">
             
-            <!-- Left: Product Image Showcase (Col 6) -->
+            <!-- Left: Product Image Showcase (Col 6) - Interaktif Penuh -->
             <div class="lg:col-span-6 space-y-4">
-                <div class="bg-gradient-to-b from-ftl-light to-white rounded-3xl p-8 border border-ftl-sand flex items-center justify-center relative min-h-[420px]">
-                    <span class="absolute top-4 left-4 bg-emerald-600 text-white text-xs font-bold px-3 py-1.5 rounded-full">
-                        BPOM & Halal Resmi
-                    </span>
-                    <span class="absolute top-4 right-4 bg-amber-500 text-white text-xs font-bold px-3 py-1.5 rounded-full">
-                        Safe for Newborn 0+
-                    </span>
-                    <img src="<?= BASE_URL ?>assets/images/product-calming-rub.svg" 
-                         alt="Baby Calming Rub Cream 50g" 
-                         class="max-h-96 w-auto object-contain drop-shadow-xl hover:scale-105 transition-transform duration-300">
+                <div class="bg-gradient-to-b from-ftl-light to-white rounded-3xl p-6 sm:p-8 border border-ftl-sand flex flex-col items-center justify-between relative min-h-[380px] sm:min-h-[420px] transition-all duration-300">
+                    <!-- Dynamic Badges based on active thumbnail -->
+                    <div class="w-full flex items-center justify-between z-10">
+                        <span class="bg-emerald-600 text-white text-[11px] sm:text-xs font-bold px-3 py-1.5 rounded-full shadow-xs transition-all"
+                              x-text="thumbnails[activeThumb].badgeLeft">
+                        </span>
+                        <span class="bg-amber-500 text-white text-[11px] sm:text-xs font-bold px-3 py-1.5 rounded-full shadow-xs transition-all"
+                              x-text="thumbnails[activeThumb].badgeRight">
+                        </span>
+                    </div>
+
+                    <!-- Main Dynamic Image Preview -->
+                    <div class="my-auto py-4 flex items-center justify-center">
+                        <img :src="thumbnails[activeThumb].img" 
+                             :alt="thumbnails[activeThumb].title" 
+                             class="max-h-64 sm:max-h-84 w-auto object-contain drop-shadow-xl hover:scale-105 transition-all duration-300">
+                    </div>
+
+                    <!-- Active Image Label & Explanation -->
+                    <div class="w-full text-center pt-3 border-t border-emerald-100/70">
+                        <h4 class="font-display font-extrabold text-xs sm:text-sm text-ftl-forest" x-text="thumbnails[activeThumb].title"></h4>
+                        <p class="text-[11px] text-gray-500 mt-0.5 line-clamp-1" x-text="thumbnails[activeThumb].caption"></p>
+                    </div>
                 </div>
 
-                <!-- Thumbnails Mini Preview -->
-                <div class="grid grid-cols-3 gap-3">
-                    <div class="p-2 rounded-2xl border-2 border-ftl-forest bg-ftl-light/50 flex items-center justify-center cursor-pointer">
-                        <img src="<?= BASE_URL ?>assets/images/product-calming-rub.svg" class="h-16 object-contain">
-                    </div>
-                    <div class="p-2 rounded-2xl border border-gray-200 bg-white hover:border-ftl-forest flex items-center justify-center cursor-pointer transition">
-                        <img src="<?= BASE_URL ?>assets/images/ingredient-nutmeg.svg" class="h-14 object-contain">
-                    </div>
-                    <div class="p-2 rounded-2xl border border-gray-200 bg-white hover:border-ftl-forest flex items-center justify-center cursor-pointer transition">
-                        <img src="<?= BASE_URL ?>assets/images/ingredient-calendula.svg" class="h-14 object-contain">
-                    </div>
+                <!-- Thumbnails Mini Preview - Sekarang Interaktif Bisa Diklik -->
+                <div class="grid grid-cols-3 gap-2.5 sm:gap-3">
+                    <template x-for="(t, index) in thumbnails" :key="index">
+                        <button type="button" 
+                                @click="activeThumb = index" 
+                                class="p-2.5 sm:p-3 rounded-2xl flex flex-col items-center justify-center cursor-pointer transition-all duration-200"
+                                :class="activeThumb === index ? 'border-2 border-ftl-forest bg-ftl-light/60 shadow-sm ring-2 ring-emerald-500/20' : 'border border-gray-200 bg-white hover:border-ftl-forest/60 hover:bg-gray-50'">
+                            <img :src="t.img" :alt="t.title" class="h-12 sm:h-14 w-auto object-contain">
+                            <span class="text-[10px] font-bold mt-1.5 truncate max-w-full"
+                                  :class="activeThumb === index ? 'text-ftl-forest font-extrabold' : 'text-gray-500'"
+                                  x-text="index === 0 ? 'Kemasan Tube' : (index === 1 ? 'Minyak Pala' : 'Calendula')">
+                            </span>
+                        </button>
+                    </template>
                 </div>
             </div>
 
@@ -137,8 +177,8 @@ $main_product = $PRODUCTS['calming-rub-50g'];
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                         <button type="button" 
                                 @click="orderDirectWA()"
-                                class="w-full flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3.5 px-5 rounded-2xl shadow-lg hover:shadow-emerald-600/30 active:scale-95 transition-all text-sm">
-                            <i data-lucide="message-circle" class="w-4 h-4"></i>
+                                class="w-full flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3.5 px-5 rounded-2xl shadow-lg hover:shadow-emerald-600/30 active:scale-95 transition-all text-sm cursor-pointer">
+                            <img src="<?= BASE_URL ?>assets/images/whatsapp-icon-white.svg" class="w-4 h-4" alt="WhatsApp">
                             <span>Pesan via WhatsApp</span>
                         </button>
                         <a href="<?= SHOPEE_URL ?>" target="_blank" rel="noopener"
@@ -269,8 +309,8 @@ $main_product = $PRODUCTS['calming-rub-50g'];
             <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 max-w-md mx-auto">
                 <button type="button" 
                         @click="orderDirectWA()"
-                        class="w-full sm:w-auto flex-1 flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3.5 px-6 rounded-2xl shadow-md transition active:scale-95 text-xs sm:text-sm">
-                    <i data-lucide="message-circle" class="w-4 h-4"></i>
+                        class="w-full sm:w-auto flex-1 flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3.5 px-6 rounded-2xl shadow-md transition active:scale-95 text-xs sm:text-sm cursor-pointer">
+                    <img src="<?= BASE_URL ?>assets/images/whatsapp-icon-white.svg" class="w-4 h-4" alt="WhatsApp">
                     <span>Pesan via WhatsApp</span>
                 </button>
                 <a href="<?= SHOPEE_URL ?>" target="_blank" rel="noopener"

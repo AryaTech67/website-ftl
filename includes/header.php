@@ -114,7 +114,6 @@ $current_page = isset($current_page) ? $current_page : 'home';
           selectedProduct: 'calming-rub-50g',
           activeSection: '<?= $current_page ?? 'home' ?>'
       }"
-      x-init="$watch('mobileMenuOpen', val => { if (typeof animateMobileMenu === 'function') animateMobileMenu(val); })"
       @scroll.window.passive="
           <?php if (($current_page ?? '') === 'home'): ?>
           if ((window.innerHeight + window.scrollY) >= (document.documentElement.scrollHeight - 60)) {

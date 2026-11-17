@@ -116,7 +116,7 @@ require_once __DIR__ . '/includes/navbar.php';
                                 <button type="button" 
                                         @click="orderModalOpen = true; modalTab = 'pesan'; selectedProduct = 'calming-rub-50g'"
                                         class="inline-flex items-center gap-1.5 sm:gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-bold px-4 sm:px-8 py-2.5 sm:py-3.5 rounded-full shadow-lg shadow-emerald-950/40 hover:scale-105 active:scale-95 transition text-xs sm:text-sm">
-                                    <i data-lucide="message-circle" class="w-4 h-4"></i>
+                                    <img src="<?= BASE_URL ?>assets/images/whatsapp-icon-white.svg" class="w-4 h-4" alt="WhatsApp">
                                     <span>Pesan via WA</span>
                                 </button>
                                 <a href="<?= SHOPEE_URL ?>" target="_blank" rel="noopener"
@@ -182,7 +182,7 @@ require_once __DIR__ . '/includes/navbar.php';
                                 <button type="button" 
                                         @click="orderModalOpen = true; modalTab = 'konsultasi'"
                                         class="inline-flex items-center gap-1.5 sm:gap-2 bg-white/20 hover:bg-white text-white hover:text-gray-900 border border-white/40 font-bold px-4 sm:px-7 py-2.5 sm:py-3.5 rounded-full transition text-xs sm:text-sm">
-                                    <i data-lucide="message-circle" class="w-4 h-4"></i>
+                                    <img src="<?= BASE_URL ?>assets/images/whatsapp-icon-white.svg" class="w-4 h-4" alt="WhatsApp">
                                     <span>Konsultasi WA</span>
                                 </button>
                             </div>
@@ -243,7 +243,7 @@ require_once __DIR__ . '/includes/navbar.php';
                                 </a>
                                 <a href="<?= INSTAGRAM_URL ?>" target="_blank" rel="noopener"
                                    class="inline-flex items-center gap-1.5 sm:gap-2 bg-white/20 hover:bg-white text-white hover:text-ftl-forest border border-white/40 font-bold px-4 sm:px-7 py-2.5 sm:py-3.5 rounded-full transition text-xs sm:text-sm">
-                                    <i data-lucide="instagram" class="w-4 h-4"></i>
+                                    <img src="<?= BASE_URL ?>assets/images/instagram-icon-white.svg" class="w-4 h-4" alt="Instagram">
                                     <span>Instagram</span>
                                 </a>
                             </div>
@@ -657,7 +657,7 @@ require_once __DIR__ . '/includes/navbar.php';
                             <button type="button" 
                                     @click="orderModalOpen = true; selectedProduct = 'calming-rub-50g'"
                                     class="w-full h-12 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-3 sm:px-4 rounded-2xl text-xs sm:text-sm shadow-md hover:shadow-emerald-600/30 transition flex items-center justify-center gap-2 active:scale-95 group cursor-pointer whitespace-nowrap">
-                                <i data-lucide="message-circle" class="w-4 h-4 shrink-0 group-hover:scale-110 transition-transform"></i>
+                                <img src="<?= BASE_URL ?>assets/images/whatsapp-icon-white.svg" class="w-4 h-4 shrink-0 group-hover:scale-110 transition-transform" alt="WhatsApp">
                                 <span>Pesan via WhatsApp</span>
                             </button>
                             <a href="<?= SHOPEE_URL ?>" target="_blank" rel="noopener"
@@ -1527,7 +1527,7 @@ require_once __DIR__ . '/includes/navbar.php';
             <button type="button" 
                     @click="orderModalOpen = true; selectedProduct = 'calming-rub-50g'" 
                     class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white text-ftl-forest hover:bg-ftl-light font-bold px-8 py-4 rounded-full shadow-xl hover:scale-105 active:scale-95 transition-all text-base cursor-pointer">
-                <i data-lucide="message-circle" class="w-5 h-5 text-ftl-forest"></i>
+                <img src="<?= BASE_URL ?>assets/images/whatsapp-icon.svg" class="w-5 h-5 shrink-0" alt="WhatsApp">
                 <span>Pesan Cepat via WhatsApp</span>
             </button>
             <a href="<?= SHOPEE_URL ?>" target="_blank" rel="noopener"

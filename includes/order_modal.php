@@ -342,15 +342,16 @@ require_once __DIR__ . '/../config.php';
                             @click="modalTab = 'konsultasi'" 
                             :class="modalTab === 'konsultasi' ? 'bg-white text-ftl-forest font-bold shadow-sm' : 'text-white/80 hover:text-white font-medium'"
                             class="flex-1 py-2 text-xs sm:text-sm rounded-xl transition flex items-center justify-center gap-1.5 cursor-pointer">
-                        <i data-lucide="message-circle" class="w-4 h-4"></i>
-                        <span>💬 Tanya-Tanya Dulu</span>
+                        <img src="<?= BASE_URL ?>assets/images/whatsapp-icon.svg" class="w-4 h-4" alt="WhatsApp" x-show="modalTab === 'konsultasi'">
+                        <img src="<?= BASE_URL ?>assets/images/whatsapp-icon-white.svg" class="w-4 h-4" alt="WhatsApp" x-show="modalTab !== 'konsultasi'">
+                        <span>Tanya-Tanya Dulu</span>
                     </button>
                     <button type="button" 
                             @click="modalTab = 'pesan'" 
                             :class="modalTab === 'pesan' ? 'bg-white text-ftl-forest font-bold shadow-sm' : 'text-white/80 hover:text-white font-medium'"
                             class="flex-1 py-2 text-xs sm:text-sm rounded-xl transition flex items-center justify-center gap-1.5 cursor-pointer">
                         <i data-lucide="shopping-bag" class="w-4 h-4"></i>
-                        <span>🛍️ Mau Pesan Produk</span>
+                        <span>Mau Pesan Produk</span>
                     </button>
                 </div>
             </div>
@@ -438,7 +439,7 @@ require_once __DIR__ . '/../config.php';
                     <button type="button" 
                             @click="sendConsultationWA()"
                             class="w-full py-3.5 px-4 rounded-2xl bg-emerald-600 hover:bg-emerald-700 active:scale-[0.99] text-white font-bold text-sm shadow-lg shadow-emerald-950/20 flex items-center justify-center gap-2 transition-all">
-                        <i data-lucide="message-circle" class="w-5 h-5"></i>
+                        <img src="<?= BASE_URL ?>assets/images/whatsapp-icon-white.svg" class="w-5 h-5" alt="WhatsApp">
                         <span>Mulai Chat Konsultasi via WhatsApp</span>
                     </button>
                     <p class="text-[11px] text-gray-400 text-center mt-2">

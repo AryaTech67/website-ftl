@@ -175,7 +175,7 @@ require_once __DIR__ . '/../config.php';
             @click="orderModalOpen = true; selectedProduct = 'calming-rub-50g'" 
             class="w-14 h-14 rounded-full bg-emerald-500 hover:bg-emerald-600 text-white flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300 ring-4 ring-emerald-200/60"
             title="Konsultasi WhatsApp / Pesan Cepat">
-        <i data-lucide="message-circle" class="w-7 h-7"></i>
+        <img src="<?= BASE_URL ?>assets/images/whatsapp-icon-white.svg" class="w-7 h-7" alt="WhatsApp">
     </button>
 </div>
 

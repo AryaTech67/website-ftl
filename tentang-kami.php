@@ -111,7 +111,8 @@ require_once __DIR__ . '/includes/navbar.php';
                     <span>Follow @forthelittle.id</span>
                 </a>
                 <button type="button" @click="orderModalOpen = true" class="bg-emerald-500 hover:bg-emerald-600 text-white font-bold px-6 py-2.5 rounded-full text-xs transition flex items-center gap-2">
-                    <i data-lucide="message-circle" class="w-4 h-4"></i> Chat WhatsApp Kami
+                    <img src="<?= BASE_URL ?>assets/images/whatsapp-icon-white.svg" class="w-4 h-4" alt="WhatsApp">
+                    <span>Chat WhatsApp Kami</span>
                 </button>
             </div>
         </div>
