@@ -92,43 +92,31 @@ $nav_items = [
                         @click="mobileMenuOpen = !mobileMenuOpen" 
                         class="p-2 rounded-xl text-gray-700 hover:text-ftl-forest hover:bg-gray-100 transition-colors focus:outline-none lg:hidden shrink-0"
                         aria-label="Toggle menu">
-                    <i x-show="!mobileMenuOpen" data-lucide="menu" class="w-6 h-6"></i>
-                    <i x-show="mobileMenuOpen" data-lucide="x" class="w-6 h-6" style="display: none;"></i>
+                    <i x-show="!mobileMenuOpen" data-lucide="menu" class="w-6 h-6 transition-transform"></i>
+                    <i x-show="mobileMenuOpen" data-lucide="x" class="w-6 h-6 transition-transform" style="display: none;"></i>
                 </button>
             </div>
 
         </div>
     </div>
 
-    <!-- Mobile Backdrop Overlay (Menutup layar di bawah header & menenggelamkan floating WhatsApp) -->
-    <div x-show="mobileMenuOpen" 
-         x-transition:enter="transition-opacity ease-out duration-300"
-         x-transition:enter-start="opacity-0"
-         x-transition:enter-end="opacity-100"
-         x-transition:leave="transition-opacity ease-in duration-200"
-         x-transition:leave-start="opacity-100"
-         x-transition:leave-end="opacity-0"
+    <!-- Mobile Backdrop Overlay (GSAP Driven 60fps, No Heavy Blur) -->
+    <div id="mobile-menu-backdrop"
          @click="mobileMenuOpen = false"
-         class="fixed inset-0 top-14 sm:top-20 bg-black/60 backdrop-blur-xs z-40 lg:hidden"
-         style="display: none;">
+         class="fixed inset-0 top-14 sm:top-20 bg-black/60 z-40 lg:hidden"
+         style="display: none; will-change: opacity;">
     </div>
 
-    <!-- Mobile Drawer Menu Panel (Layer z-50 Di Atas Floating WA) -->
-    <div x-show="mobileMenuOpen" 
-         x-transition:enter="transition ease-out duration-200"
-         x-transition:enter-start="opacity-0 -translate-y-2"
-         x-transition:enter-end="opacity-100 translate-y-0"
-         x-transition:leave="transition ease-in duration-150"
-         x-transition:leave-start="opacity-100 translate-y-0"
-         x-transition:leave-end="opacity-0 -translate-y-2"
+    <!-- Mobile Drawer Menu Panel (GSAP Driven Smooth Slide & Stagger) -->
+    <div id="mobile-menu-drawer"
          class="relative z-50 lg:hidden border-b border-gray-100 bg-white px-4 pt-3 pb-6 shadow-2xl max-h-[calc(100vh-3.5rem)] overflow-y-auto"
-         style="display: none;">
+         style="display: none; will-change: transform, opacity;">
         <nav class="flex flex-col space-y-1.5">
             <?php foreach ($nav_items as $key => $item): ?>
                 <a href="<?= $item['url'] ?>" 
                    <?= !empty($item['target']) ? 'target="' . $item['target'] . '" rel="noopener"' : '' ?>
                    @click="mobileMenuOpen = false; <?= empty($item['target']) ? "activeSection = '{$key}'" : '' ?>"
-                   class="px-4 py-3 rounded-xl text-sm font-semibold transition-all flex items-center justify-between"
+                   class="mobile-menu-item px-4 py-3 rounded-xl text-sm font-semibold transition-colors flex items-center justify-between"
                    :class="activeSection === '<?= $key ?>' ? 'bg-emerald-50 text-ftl-forest font-bold border-l-4 border-ftl-forest' : 'text-gray-700 hover:bg-gray-50'">
                     <span><?= $item['label'] ?></span>
                     <span x-show="activeSection === '<?= $key ?>'" class="w-2 h-2 rounded-full bg-ftl-forest"></span>
@@ -136,17 +124,88 @@ $nav_items = [
             <?php endforeach; ?>
             <div class="pt-3 border-t border-gray-100 flex flex-col gap-2">
                 <a href="<?= SHOPEE_URL ?>" target="_blank" rel="noopener"
-                   class="w-full flex items-center justify-center gap-2 bg-[#EE4D2D] text-white font-bold py-3 px-4 rounded-xl text-sm shadow">
+                   class="mobile-menu-item w-full flex items-center justify-center gap-2 bg-[#EE4D2D] hover:bg-[#d73f21] text-white font-bold py-3 px-4 rounded-xl text-sm shadow transition">
                     <i data-lucide="shopping-bag" class="w-4 h-4"></i>
                     <span>Beli di Shopee Resmi</span>
                 </a>
                 <button type="button" 
                         @click="mobileMenuOpen = false; orderModalOpen = true"
-                        class="w-full flex items-center justify-center gap-2 bg-emerald-600 text-white font-bold py-3 px-4 rounded-xl text-sm shadow">
+                        class="mobile-menu-item w-full flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-4 rounded-xl text-sm shadow transition">
                     <i data-lucide="message-circle" class="w-4 h-4"></i>
                     <span>Pesan via WhatsApp</span>
                 </button>
             </div>
         </nav>
     </div>
+
+    <!-- GSAP Controller for Buttery Smooth Mobile Menu Animation -->
+    <script>
+    document.addEventListener('alpine:init', () => {
+        Alpine.bind('mobileMenuHandler', () => ({
+            init() {
+                this.$watch('mobileMenuOpen', (isOpen) => {
+                    animateMobileMenu(isOpen);
+                });
+            }
+        }));
+    });
+
+    function animateMobileMenu(isOpen) {
+        const backdrop = document.getElementById('mobile-menu-backdrop');
+        const drawer = document.getElementById('mobile-menu-drawer');
+        if (!backdrop || !drawer) return;
+
+        const items = drawer.querySelectorAll('.mobile-menu-item');
+
+        if (typeof gsap === 'undefined') {
+            // Fallback if GSAP is not loaded
+            backdrop.style.display = isOpen ? 'block' : 'none';
+            drawer.style.display = isOpen ? 'block' : 'none';
+            return;
+        }
+
+        if (isOpen) {
+            backdrop.style.display = 'block';
+            drawer.style.display = 'block';
+            gsap.killTweensOf([backdrop, drawer, items]);
+
+            // 1. Smooth Fade-in Backdrop (no heavy backdrop-blur)
+            gsap.fromTo(backdrop, 
+                { opacity: 0 }, 
+                { opacity: 1, duration: 0.28, ease: 'power2.out' }
+            );
+
+            // 2. Smooth Slide & Scale-in Drawer
+            gsap.fromTo(drawer, 
+                { opacity: 0, y: -20, transformOrigin: 'top center' }, 
+                { opacity: 1, y: 0, duration: 0.32, ease: 'power3.out' }
+            );
+
+            // 3. Staggered Menu Items Animation
+            if (items.length) {
+                gsap.fromTo(items, 
+                    { opacity: 0, y: 10 }, 
+                    { opacity: 1, y: 0, duration: 0.22, stagger: 0.04, delay: 0.06, ease: 'power2.out' }
+                );
+            }
+        } else {
+            gsap.killTweensOf([backdrop, drawer, items]);
+
+            gsap.to(drawer, { 
+                opacity: 0, 
+                y: -15, 
+                duration: 0.2, 
+                ease: 'power2.in',
+                onComplete: () => { drawer.style.display = 'none'; }
+            });
+
+            gsap.to(backdrop, { 
+                opacity: 0, 
+                duration: 0.2, 
+                ease: 'power2.in',
+                onComplete: () => { backdrop.style.display = 'none'; }
+            });
+        }
+    }
+    </script>
 </header>

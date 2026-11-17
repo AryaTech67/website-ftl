@@ -63,6 +63,9 @@ $current_page = isset($current_page) ? $current_page : 'home';
     <!-- Lucide Icons CDN -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
+    <!-- GSAP for Ultra Smooth 60fps Micro-Interactions -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
     <!-- Alpine.js CDN for light reactivity -->
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
@@ -102,6 +105,7 @@ $current_page = isset($current_page) ? $current_page : 'home';
           selectedProduct: 'calming-rub-50g',
           activeSection: '<?= $current_page ?? 'home' ?>'
       }"
+      x-init="$watch('mobileMenuOpen', val => { if (typeof animateMobileMenu === 'function') animateMobileMenu(val); })"
       @scroll.window.passive="
           <?php if (($current_page ?? '') === 'home'): ?>
           if ((window.innerHeight + window.scrollY) >= (document.documentElement.scrollHeight - 60)) {
