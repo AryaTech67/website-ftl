@@ -12,8 +12,8 @@ define('SITE_DESCRIPTION', "Perawatan alami terbaik untuk bayi dan anak berbahan
 define('SITE_KEYWORDS', 'baby calming rub cream, minyak telon bayi, krim kolik bayi, skincare bayi alami, for the little indonesia, ftl baby');
 
 // Kontak & Media Sosial Resmi
-define('WHATSAPP_NUMBER', '6282118017248'); // Nomor WhatsApp admin resmi FTL (format 628xxx tanpa simbol)
-define('WHATSAPP_DISPLAY', '+62 821-1801-7248');
+define('WHATSAPP_NUMBER', '6285148313636'); // Nomor WhatsApp admin resmi FTL (format 628xxx tanpa simbol)
+define('WHATSAPP_DISPLAY', '+62 851-4831-3636');
 define('INSTAGRAM_URL', 'https://www.instagram.com/forthelittle.id/');
 define('TIKTOK_URL', 'https://www.tiktok.com/@forthelittle.id');
 define('SHOPEE_URL', 'https://shopee.co.id/forthelittle.id');
