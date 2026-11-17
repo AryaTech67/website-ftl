@@ -84,26 +84,25 @@ $nav_items = [
             <!-- Action CTAs (Shopee Resmi + WhatsApp CS) -->
             <div class="flex items-center gap-2 sm:gap-2.5 shrink-0">
                 <a href="<?= SHOPEE_URL ?>" target="_blank" rel="noopener"
-                   class="hidden sm:inline-flex items-center gap-1.5 bg-[#EE4D2D] hover:bg-[#d73f21] text-white text-xs sm:text-sm font-bold px-4 py-2.5 rounded-full shadow-xs hover:scale-105 active:scale-95 transition-all whitespace-nowrap">
+                   class="hidden md:inline-flex items-center gap-1.5 bg-[#EE4D2D] hover:bg-[#d73f21] text-white text-xs sm:text-sm font-bold px-4 py-2.5 rounded-full shadow-xs hover:scale-105 active:scale-95 transition-all whitespace-nowrap">
                     <i data-lucide="shopping-bag" class="w-4 h-4"></i>
                     <span>Shopee Resmi</span>
                 </a>
 
                 <button type="button" 
                         @click="orderModalOpen = true; selectedProduct = 'calming-rub-50g'" 
-                        class="inline-flex items-center gap-1.5 bg-emerald-600 hover:bg-emerald-700 text-white text-xs sm:text-sm font-bold py-1.5 px-3 sm:py-2.5 sm:px-5 rounded-full shadow-xs hover:scale-105 active:scale-95 transition-all whitespace-nowrap shrink-0">
-                    <i data-lucide="message-circle" class="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0"></i>
-                    <span class="sm:hidden">Chat WA</span>
-                    <span class="hidden sm:inline">Pesan via WA</span>
+                        class="hidden md:inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs sm:text-sm font-bold px-4 sm:px-5 py-2.5 rounded-full shadow-xs hover:scale-105 active:scale-95 transition-all whitespace-nowrap shrink-0">
+                    <i data-lucide="message-circle" class="w-4 h-4"></i>
+                    <span>Pesan via WA</span>
                 </button>
 
-                <!-- Mobile Hamburger Button -->
+                <!-- Mobile Hamburger Button (Satu-satunya kontrol di kanan pada layar mobile) -->
                 <button type="button" 
                         @click="mobileMenuOpen = !mobileMenuOpen" 
-                        class="p-1.5 sm:p-2 rounded-xl text-gray-700 hover:text-ftl-forest hover:bg-gray-100 transition-colors focus:outline-none lg:hidden shrink-0"
+                        class="p-2 rounded-xl text-gray-700 hover:text-ftl-forest hover:bg-gray-100 transition-colors focus:outline-none lg:hidden shrink-0"
                         aria-label="Toggle menu">
-                    <i x-show="!mobileMenuOpen" data-lucide="menu" class="w-5 h-5 sm:w-6 sm:h-6"></i>
-                    <i x-show="mobileMenuOpen" data-lucide="x" class="w-5 h-5 sm:w-6 sm:h-6" style="display: none;"></i>
+                    <i x-show="!mobileMenuOpen" data-lucide="menu" class="w-6 h-6"></i>
+                    <i x-show="mobileMenuOpen" data-lucide="x" class="w-6 h-6" style="display: none;"></i>
                 </button>
             </div>
 
