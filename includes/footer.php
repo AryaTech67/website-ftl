@@ -69,7 +69,7 @@ require_once __DIR__ . '/../config.php';
                 <ul class="space-y-2.5 text-sm text-emerald-100/80">
                     <li><a href="<?= BASE_URL ?>index.php" class="hover:text-white transition-colors">Beranda</a></li>
                     <li><a href="<?= BASE_URL ?>produk.php" class="hover:text-white transition-colors">Baby Calming Rub Cream</a></li>
-                    <li><a href="<?= BASE_URL ?>tentang-kami.php" class="hover:text-white transition-colors">Tentang Kami (#frommother)</a></li>
+                    <li><a href="<?= BASE_URL ?>tentang-kami.php" class="hover:text-white transition-colors">Tentang Kami</a></li>
                     <li><a href="<?= BASE_URL ?>artikel.php" class="hover:text-white transition-colors">Artikel & Tips Parenting</a></li>
                     <li><a href="<?= BASE_URL ?>reseller.php" class="hover:text-white transition-colors">Peluang Mitra & Reseller</a></li>
                 </ul>
@@ -123,8 +123,8 @@ require_once __DIR__ . '/../config.php';
 
         </div>
 
-        <!-- Bottom Copyright & Badges -->
-        <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-emerald-200/80">
+        <!-- Bottom Copyright & Badges (Diberi padding ekstra agar tidak tertimpa floating WA) -->
+        <div class="pt-8 pb-12 sm:pb-0 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-emerald-200/80 md:pr-24 lg:pr-28">
             <p>
                 &copy; <?= date('Y') ?> <strong><?= SITE_NAME ?></strong>. All rights reserved. Bringing Back Indonesia's Nature Blessing 🍃
             </p>

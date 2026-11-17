@@ -84,7 +84,7 @@ HTML
         'author' => 'Riset Formulasi FTL',
         'content' => <<<HTML
 <p class="text-base text-gray-700 leading-relaxed mb-6">
-Kepulauan Nusantara sejak ratusan tahun silam telah dikenal dunia sebagai pusat rempah terbaik. Di antara sekian banyak kekayaan alam Indonesia, <strong>biji dan fuli pala (*Myristica fragrans*)</strong> menempati kedudukan istimewa dalam tradisi perawatan keluarga.
+Kepulauan Nusantara sejak ratusan tahun silam telah dikenal dunia sebagai pusat rempah terbaik. Di antara sekian banyak kekayaan alam Indonesia, <strong>biji dan fuli pala <em>(Myristica fragrans)</em></strong> menempati kedudukan istimewa dalam tradisi perawatan keluarga.
 </p>
 
 <h3 class="text-xl font-bold font-display text-gray-900 mt-8 mb-4">Kandungan Utama Minyak Pala</h3>
