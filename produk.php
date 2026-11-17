@@ -51,10 +51,17 @@ $main_product = $PRODUCTS['calming-rub-50g'];
         }
     ],
     orderDirectWA() {
-        const url = '<?= BASE_URL ?>' + 'index.php';
-        // Trigger WA message
-        let text = 'Halo Admin For The Little! 👋 Saya ingin beli ' + this.qty + ' pcs Baby Calming Rub Cream 50g (Total: ' + this.formatRp(this.qty * this.variantPrice) + '). Mohon info ongkir dan no rek ya!';
-        window.open('https://wa.me/<?= WHATSAPP_NUMBER ?>?text=' + encodeURIComponent(text), '_blank');
+        if (typeof window.openOrderModal === 'function') {
+            window.openOrderModal('pesan', 'calming-rub-50g');
+        } else {
+            let text = 'Halo Admin For The Little! 👋 Saya ingin beli ' + this.qty + ' pcs Baby Calming Rub Cream 50g (Total: ' + this.formatRp(this.qty * this.variantPrice) + '). Mohon info ongkir dan no rek ya!';
+            const url = 'https://wa.me/<?= WHATSAPP_NUMBER ?>?text=' + encodeURIComponent(text);
+            if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+                window.location.href = url;
+            } else {
+                window.open(url, '_blank');
+            }
+        }
     }
 }">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

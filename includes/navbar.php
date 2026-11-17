@@ -102,7 +102,7 @@ $nav_items = [
                 </a>
 
                 <button type="button" 
-                        @click="orderModalOpen = true; selectedProduct = 'calming-rub-50g'" 
+                        @click="openOrderModal('pesan', 'calming-rub-50g')" 
                         class="hidden md:inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs sm:text-sm font-bold px-4 sm:px-5 py-2.5 rounded-full shadow-xs hover:scale-105 active:scale-95 transition-all whitespace-nowrap shrink-0 cursor-pointer">
                     <img src="<?= BASE_URL ?>assets/images/whatsapp-icon-white.svg" class="w-4 h-4" alt="WhatsApp">
                     <span>Pesan via WA</span>
@@ -163,7 +163,7 @@ $nav_items = [
                     <span>Beli di Shopee Resmi</span>
                 </a>
                 <button type="button" 
-                        @click="mobileMenuOpen = false; orderModalOpen = true"
+                        @click="mobileMenuOpen = false; openOrderModal('pesan', 'calming-rub-50g')"
                         style="touch-action: manipulation; -webkit-tap-highlight-color: transparent;"
                         class="mobile-menu-item w-full flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 active:scale-[0.98] text-white font-bold py-3 px-4 rounded-xl text-sm shadow transition cursor-pointer">
                     <img src="<?= BASE_URL ?>assets/images/whatsapp-icon-white.svg" class="w-4 h-4" alt="WhatsApp">

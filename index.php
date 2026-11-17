@@ -114,7 +114,7 @@ require_once __DIR__ . '/includes/navbar.php';
                             <!-- CTA Buttons -->
                             <div class="pt-1 sm:pt-2 flex flex-wrap items-center gap-2 sm:gap-3">
                                 <button type="button" 
-                                        @click="orderModalOpen = true; modalTab = 'pesan'; selectedProduct = 'calming-rub-50g'"
+                                        @click="openOrderModal('pesan', 'calming-rub-50g')"
                                         class="inline-flex items-center gap-1.5 sm:gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-bold px-4 sm:px-8 py-2.5 sm:py-3.5 rounded-full shadow-lg shadow-emerald-950/40 hover:scale-105 active:scale-95 transition text-xs sm:text-sm">
                                     <img src="<?= BASE_URL ?>assets/images/whatsapp-icon-white.svg" class="w-4 h-4" alt="WhatsApp">
                                     <span>Pesan via WA</span>
@@ -180,7 +180,7 @@ require_once __DIR__ . '/includes/navbar.php';
                                     <i data-lucide="arrow-right" class="w-4 h-4"></i>
                                 </a>
                                 <button type="button" 
-                                        @click="orderModalOpen = true; modalTab = 'konsultasi'"
+                                        @click="openOrderModal('konsultasi')"
                                         class="inline-flex items-center gap-1.5 sm:gap-2 bg-white/20 hover:bg-white text-white hover:text-gray-900 border border-white/40 font-bold px-4 sm:px-7 py-2.5 sm:py-3.5 rounded-full transition text-xs sm:text-sm">
                                     <img src="<?= BASE_URL ?>assets/images/whatsapp-icon-white.svg" class="w-4 h-4" alt="WhatsApp">
                                     <span>Konsultasi WA</span>
@@ -669,7 +669,7 @@ require_once __DIR__ . '/includes/navbar.php';
                     <div class="mt-8 pt-6 border-t border-gray-100">
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 items-stretch">
                             <button type="button" 
-                                    @click="orderModalOpen = true; selectedProduct = 'calming-rub-50g'"
+                                    @click="openOrderModal('pesan', 'calming-rub-50g')"
                                     class="w-full h-12 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-3 sm:px-4 rounded-2xl text-xs sm:text-sm shadow-md hover:shadow-emerald-600/30 transition flex items-center justify-center gap-2 active:scale-95 group cursor-pointer whitespace-nowrap">
                                 <img src="<?= BASE_URL ?>assets/images/whatsapp-icon-white.svg" class="w-4 h-4 shrink-0 group-hover:scale-110 transition-transform" alt="WhatsApp">
                                 <span>Pesan via WhatsApp</span>
@@ -1170,7 +1170,7 @@ require_once __DIR__ . '/includes/navbar.php';
                 <!-- CTA Actions -->
                 <div class="pt-2 flex flex-col sm:flex-row sm:items-center gap-3">
                     <button type="button" 
-                            @click="orderModalOpen = true"
+                            @click="openOrderModal('pesan', 'calming-rub-50g')"
                             class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-ftl-forest hover:bg-emerald-800 text-white font-bold px-6 py-3.5 rounded-full text-sm shadow-md transition hover:scale-[1.02]">
                         <span>Pesan via WhatsApp</span>
                         <i data-lucide="arrow-right" class="w-4 h-4"></i>
@@ -1548,7 +1548,7 @@ require_once __DIR__ . '/includes/navbar.php';
         </p>
         <div class="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">
             <button type="button" 
-                    @click="orderModalOpen = true; selectedProduct = 'calming-rub-50g'" 
+                    @click="openOrderModal('pesan', 'calming-rub-50g')" 
                     class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white text-ftl-forest hover:bg-ftl-light font-bold px-8 py-4 rounded-full shadow-xl hover:scale-105 active:scale-95 transition-all text-base cursor-pointer">
                 <img src="<?= BASE_URL ?>assets/images/whatsapp-icon.svg" class="w-5 h-5 shrink-0" alt="WhatsApp">
                 <span>Pesan Cepat via WhatsApp</span>

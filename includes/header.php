@@ -69,6 +69,40 @@ $current_page = isset($current_page) ? $current_page : 'home';
     <!-- Alpine.js CDN for light reactivity -->
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
+    <!-- Global Modal Helper Functions (Always Ready & Scope-Independent) -->
+    <script>
+        window.openOrderModal = function(tab = 'pesan', product = 'calming-rub-50g') {
+            window.dispatchEvent(new CustomEvent('open-order-modal', { detail: { tab, product } }));
+            try {
+                if (document.body && document.body._x_dataStack && document.body._x_dataStack[0]) {
+                    document.body._x_dataStack[0].orderModalOpen = true;
+                    document.body._x_dataStack[0].modalTab = tab;
+                    document.body._x_dataStack[0].selectedProduct = product;
+                }
+            } catch(e) {}
+            try {
+                const modalEl = document.getElementById('ftl-order-modal-root');
+                if (modalEl && modalEl._x_dataStack && modalEl._x_dataStack[0]) {
+                    modalEl._x_dataStack[0].openModal({ tab, product });
+                }
+            } catch(e) {}
+        };
+        window.closeOrderModal = function() {
+            window.dispatchEvent(new CustomEvent('close-order-modal'));
+            try {
+                if (document.body && document.body._x_dataStack && document.body._x_dataStack[0]) {
+                    document.body._x_dataStack[0].orderModalOpen = false;
+                }
+            } catch(e) {}
+            try {
+                const modalEl = document.getElementById('ftl-order-modal-root');
+                if (modalEl && modalEl._x_dataStack && modalEl._x_dataStack[0]) {
+                    modalEl._x_dataStack[0].closeModal();
+                }
+            } catch(e) {}
+        };
+    </script>
+
     <style>
         html {
             scroll-behavior: smooth;

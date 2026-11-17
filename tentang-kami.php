@@ -116,7 +116,7 @@ require_once __DIR__ . '/includes/navbar.php';
                     </svg>
                     <span>TikTok</span>
                 </a>
-                <button type="button" @click="orderModalOpen = true" class="bg-emerald-500 hover:bg-emerald-600 text-white font-bold px-5 py-2.5 rounded-full text-xs transition flex items-center gap-2 cursor-pointer shadow-sm">
+                <button type="button" @click="openOrderModal('pesan', 'calming-rub-50g')" class="bg-emerald-500 hover:bg-emerald-600 text-white font-bold px-5 py-2.5 rounded-full text-xs transition flex items-center gap-2 cursor-pointer shadow-sm">
                     <img src="<?= BASE_URL ?>assets/images/whatsapp-icon-white.svg" class="w-4 h-4" alt="WhatsApp">
                     <span>Chat WhatsApp Kami</span>
                 </button>

@@ -932,33 +932,24 @@ function orderModal() {
             }
         },
         sendConsultationWA() {
-            let msg = 'Halo Tim For The Little Indonesia 🍃
-
-';
+            let lines = [];
+            lines.push('Halo Tim For The Little Indonesia 🍃\n');
             if (this.consultName && this.consultName.trim()) {
-                msg += 'Perkenalkan, saya *' + this.consultName.trim() + '* ingin konsultasi seputar perawatan si kecil:
-
-';
+                lines.push('Perkenalkan, saya *' + this.consultName.trim() + '* ingin konsultasi seputar perawatan si kecil:\n');
             } else {
-                msg += 'Saya ingin konsultasi seputar si kecil & produk FTL:
-
-';
+                lines.push('Saya ingin konsultasi seputar si kecil & produk FTL:\n');
             }
             if (this.consultBabyAge && this.consultBabyAge.trim()) {
-                msg += '• *Usia/Kondisi Si Kecil:* ' + this.consultBabyAge.trim() + '
-';
+                lines.push('• *Usia/Kondisi Si Kecil:* ' + this.consultBabyAge.trim());
             }
-            msg += '• *Topik Pertanyaan:* ' + this.consultTopic + '
-';
+            lines.push('• *Topik Pertanyaan:* ' + this.consultTopic);
             if (this.consultCustomQuestion && this.consultCustomQuestion.trim()) {
-                msg += '
-*Detail Pertanyaan / Keluhan:*
-"' + this.consultCustomQuestion.trim() + '"
-';
+                lines.push('\n*Detail Pertanyaan / Keluhan:*');
+                lines.push('"' + this.consultCustomQuestion.trim() + '"');
             }
-            msg += '
-Mohon saran dan penjelasannya ya min. Terima kasih banyak! 🙏';
+            lines.push('\nMohon saran dan penjelasannya ya min. Terima kasih banyak! 🙏');
 
+            const msg = lines.join('\n');
             const url = 'https://wa.me/<?= WHATSAPP_NUMBER ?>?text=' + encodeURIComponent(msg);
             const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
             if (isMobile) {
@@ -986,57 +977,34 @@ Mohon saran dan penjelasannya ya min. Terima kasih banyak! 🙏';
                 return;
             }
 
-            let msg = 'Halo Admin For The Little Indonesia 🍃
-';
-            msg += 'Saya ingin memesan produk via Website Resmi FTL:
-
-';
-            msg += '------------------------------------
-';
-            msg += '*DATA PENERIMA:*
-';
-            msg += '• Nama: ' + this.name.trim() + '
-';
-            msg += '• No. WhatsApp: ' + this.phone.trim() + '
-';
-            msg += '• Tujuan: ' + this.city + ', ' + this.province + '
-';
+            let lines = [];
+            lines.push('Halo Admin For The Little Indonesia 🍃');
+            lines.push('Saya ingin memesan produk via Website Resmi FTL:\n');
+            lines.push('------------------------------------');
+            lines.push('*DATA PENERIMA:*');
+            lines.push('• Nama: ' + this.name.trim());
+            lines.push('• No. WhatsApp: ' + this.phone.trim());
+            lines.push('• Tujuan: ' + this.city + ', ' + this.province);
             if (this.address.trim()) {
-                msg += '• Alamat Lengkap: ' + this.address.trim() + '
-';
+                lines.push('• Alamat Lengkap: ' + this.address.trim());
             }
-            msg += '
-*RINCIAN PRODUK:*
-';
-            msg += '• ' + this.currentName + '
-';
-            msg += '• Jumlah: ' + this.qty + ' pcs (Estimasi ' + this.totalWeight + 'g)
-';
-            msg += '• Subtotal Produk: ' + this.formatRp(this.subtotal) + '
-
-';
-            
-            msg += '*EKSPEDISI & ONGKOS KIRIM:*
-';
-            msg += '• Kurir: ' + this.selectedCourier.name + ' (' + this.selectedCourier.service + ')
-';
-            msg += '• Estimasi Tiba: ' + this.selectedCourier.etd + '
-';
-            msg += '• Biaya Ongkir: ' + this.formatRp(this.shippingCost) + '
-';
-            msg += '------------------------------------
-';
-            msg += '*TOTAL PEMBAYARAN: ' + this.formatRp(this.grandTotal) + '*
-';
-            msg += '------------------------------------
-';
+            lines.push('\n*RINCIAN PRODUK:*');
+            lines.push('• ' + this.currentName);
+            lines.push('• Jumlah: ' + this.qty + ' pcs (Estimasi ' + this.totalWeight + 'g)');
+            lines.push('• Subtotal Produk: ' + this.formatRp(this.subtotal) + '\n');
+            lines.push('*EKSPEDISI & ONGKOS KIRIM:*');
+            lines.push('• Kurir: ' + this.selectedCourier.name + ' (' + this.selectedCourier.service + ')');
+            lines.push('• Estimasi Tiba: ' + this.selectedCourier.etd);
+            lines.push('• Biaya Ongkir: ' + this.formatRp(this.shippingCost));
+            lines.push('------------------------------------');
+            lines.push('*TOTAL PEMBAYARAN: ' + this.formatRp(this.grandTotal) + '*');
+            lines.push('------------------------------------');
             if (this.note.trim()) {
-                msg += '*Catatan Tambahan:* ' + this.note.trim() + '
-
-';
+                lines.push('*Catatan Tambahan:* ' + this.note.trim() + '\n');
             }
-            msg += 'Halo Admin FTL, saya sudah mengisi form pesanan dan ongkir sudah otomatis terdeteksi via website. Mohon info nomor rekening BCA/Mandiri untuk transfer ya. Terima kasih! 🙏';
+            lines.push('Halo Admin FTL, saya sudah mengisi form pesanan dan ongkir sudah otomatis terdeteksi via website. Mohon info nomor rekening BCA/Mandiri untuk transfer ya. Terima kasih! 🙏');
 
+            const msg = lines.join('\n');
             const url = 'https://wa.me/<?= WHATSAPP_NUMBER ?>?text=' + encodeURIComponent(msg);
             const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
             if (isMobile) {
@@ -1053,10 +1021,16 @@ Mohon saran dan penjelasannya ya min. Terima kasih banyak! 🙏';
 window.openOrderModal = function(tab = 'pesan', product = 'calming-rub-50g') {
     window.dispatchEvent(new CustomEvent('open-order-modal', { detail: { tab, product } }));
     try {
-        if (document.body._x_dataStack && document.body._x_dataStack[0]) {
+        if (document.body && document.body._x_dataStack && document.body._x_dataStack[0]) {
             document.body._x_dataStack[0].orderModalOpen = true;
             document.body._x_dataStack[0].modalTab = tab;
             document.body._x_dataStack[0].selectedProduct = product;
+        }
+    } catch(e) {}
+    try {
+        const modalEl = document.getElementById('ftl-order-modal-root');
+        if (modalEl && modalEl._x_dataStack && modalEl._x_dataStack[0]) {
+            modalEl._x_dataStack[0].openModal({ tab, product });
         }
     } catch(e) {}
 };
@@ -1064,8 +1038,14 @@ window.openOrderModal = function(tab = 'pesan', product = 'calming-rub-50g') {
 window.closeOrderModal = function() {
     window.dispatchEvent(new CustomEvent('close-order-modal'));
     try {
-        if (document.body._x_dataStack && document.body._x_dataStack[0]) {
+        if (document.body && document.body._x_dataStack && document.body._x_dataStack[0]) {
             document.body._x_dataStack[0].orderModalOpen = false;
+        }
+    } catch(e) {}
+    try {
+        const modalEl = document.getElementById('ftl-order-modal-root');
+        if (modalEl && modalEl._x_dataStack && modalEl._x_dataStack[0]) {
+            modalEl._x_dataStack[0].closeModal();
         }
     } catch(e) {}
 };

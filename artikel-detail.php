@@ -205,7 +205,7 @@ require_once __DIR__ . '/includes/navbar.php';
                     <div class="text-lg font-bold text-white mt-2">Rp 79.000</div>
                 </div>
             </div>
-            <button type="button" @click="orderModalOpen = true; selectedProduct = 'calming-rub-50g'" 
+            <button type="button" @click="openOrderModal('pesan', 'calming-rub-50g')" 
                     class="w-full sm:w-auto bg-white hover:bg-emerald-50 text-ftl-forest font-bold px-6 py-3 rounded-full text-xs shadow transition flex items-center justify-center gap-2 whitespace-nowrap">
                 <img src="<?= BASE_URL ?>assets/images/whatsapp-icon.svg" class="w-4 h-4" alt="WhatsApp">
                 <span>Pesan via WhatsApp</span>
