@@ -387,13 +387,13 @@ require_once __DIR__ . '/includes/navbar.php';
 <section id="produk" class="scroll-mt-16 sm:scroll-mt-24 py-10 sm:py-16 bg-[#FAF7F2] border-b border-ftl-sand">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <!-- Header Section Persis Layout Tentang Anak -->
+        <!-- Header Section Produk Resmi FTL -->
         <div class="mb-5 sm:mb-8 text-left">
-            <span class="text-xs sm:text-sm font-extrabold text-[#EE4D2D] uppercase tracking-wider block font-sans">
-                PRODUK
+            <span class="text-xs sm:text-sm font-extrabold text-ftl-forest uppercase tracking-wider block font-sans">
+                PRODUK RESMI FTL
             </span>
             <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-display text-gray-900 mt-1">
-                Kategori Produk persembahan dari Ahlinya
+                Pilihan Produk Alami For The Little
             </h2>
             <p class="text-xs sm:text-sm text-gray-500 mt-1 max-w-2xl">
                 Rangkaian perawatan alami ekstrak Minyak Pala Nusantara & Calendula untuk kehangatan dan kenyamanan si kecil.
@@ -424,10 +424,10 @@ require_once __DIR__ . '/includes/navbar.php';
                     <!-- Info -->
                     <div>
                         <h3 class="font-display font-extrabold text-base sm:text-lg text-gray-900 group-hover:text-ftl-forest transition-colors">
-                            Expert Care Rub
+                            Baby Calming Rub Cream
                         </h3>
                         <p class="text-xs text-gray-500 mt-0.5">
-                            Skincare Bayi & Anak
+                            Krim Telon & Calming (50g)
                         </p>
                         <div class="mt-2 flex items-baseline gap-2">
                             <span class="text-base font-extrabold text-ftl-forest">Rp 79.000</span>
@@ -436,11 +436,12 @@ require_once __DIR__ . '/includes/navbar.php';
                     </div>
                 </div>
 
-                <!-- Beli Button (Rounded Pill Gradient Persis Tentang Anak) -->
+                <!-- Beli Button -->
                 <button type="button" 
                         @click="openOrderModal('pesan', 'calming-rub-50g')"
-                        class="w-full mt-3.5 py-2.5 px-4 rounded-full font-bold text-xs sm:text-sm text-white bg-gradient-to-r from-[#D97A29] via-[#EE4D2D] to-[#E63946] shadow-sm hover:shadow-md hover:scale-[1.02] active:scale-95 transition-all text-center cursor-pointer">
-                    Beli
+                        class="w-full mt-3.5 py-2.5 px-4 rounded-full font-bold text-xs sm:text-sm text-white bg-emerald-600 hover:bg-emerald-700 shadow-sm hover:shadow-md hover:scale-[1.02] active:scale-95 transition-all text-center cursor-pointer flex items-center justify-center gap-1.5">
+                    <i data-lucide="shopping-bag" class="w-3.5 h-3.5"></i>
+                    <span>Beli Sekarang</span>
                 </button>
             </div>
 
@@ -465,10 +466,10 @@ require_once __DIR__ . '/includes/navbar.php';
                     <!-- Info -->
                     <div>
                         <h3 class="font-display font-extrabold text-base sm:text-lg text-gray-900 group-hover:text-ftl-forest transition-colors">
-                            Paket Hemat 2 Tube
+                            Bundle Double Care (2x 50g)
                         </h3>
                         <p class="text-xs text-gray-500 mt-0.5">
-                            Stok Lengkap Bunda (2x 50g)
+                            Paket Hemat 2 Tube Bunda
                         </p>
                         <div class="mt-2 flex items-baseline gap-2">
                             <span class="text-base font-extrabold text-ftl-forest">Rp 149.000</span>
@@ -480,8 +481,9 @@ require_once __DIR__ . '/includes/navbar.php';
                 <!-- Beli Button -->
                 <button type="button" 
                         @click="openOrderModal('pesan', 'bundling-double-care')"
-                        class="w-full mt-3.5 py-2.5 px-4 rounded-full font-bold text-xs sm:text-sm text-white bg-gradient-to-r from-[#D97A29] via-[#EE4D2D] to-[#E63946] shadow-sm hover:shadow-md hover:scale-[1.02] active:scale-95 transition-all text-center cursor-pointer">
-                    Beli
+                        class="w-full mt-3.5 py-2.5 px-4 rounded-full font-bold text-xs sm:text-sm text-white bg-emerald-600 hover:bg-emerald-700 shadow-sm hover:shadow-md hover:scale-[1.02] active:scale-95 transition-all text-center cursor-pointer flex items-center justify-center gap-1.5">
+                    <i data-lucide="shopping-bag" class="w-3.5 h-3.5"></i>
+                    <span>Beli Sekarang</span>
                 </button>
             </div>
 
@@ -506,10 +508,10 @@ require_once __DIR__ . '/includes/navbar.php';
                     <!-- Info -->
                     <div>
                         <h3 class="font-display font-extrabold text-base sm:text-lg text-gray-900 group-hover:text-ftl-forest transition-colors">
-                            Newborn Care Gift Set
+                            Newborn Comfort Gift Set
                         </h3>
                         <p class="text-xs text-gray-500 mt-0.5">
-                            Paket Sambut Buah Hati
+                            Box Eksklusif Kado Lahiran
                         </p>
                         <div class="mt-2 flex items-baseline gap-2">
                             <span class="text-base font-extrabold text-ftl-forest">Rp 189.000</span>
@@ -521,8 +523,9 @@ require_once __DIR__ . '/includes/navbar.php';
                 <!-- Beli Button -->
                 <button type="button" 
                         @click="openOrderModal('pesan', 'bundling-newborn-gift')"
-                        class="w-full mt-3.5 py-2.5 px-4 rounded-full font-bold text-xs sm:text-sm text-white bg-gradient-to-r from-[#D97A29] via-[#EE4D2D] to-[#E63946] shadow-sm hover:shadow-md hover:scale-[1.02] active:scale-95 transition-all text-center cursor-pointer">
-                    Beli
+                        class="w-full mt-3.5 py-2.5 px-4 rounded-full font-bold text-xs sm:text-sm text-white bg-emerald-600 hover:bg-emerald-700 shadow-sm hover:shadow-md hover:scale-[1.02] active:scale-95 transition-all text-center cursor-pointer flex items-center justify-center gap-1.5">
+                    <i data-lucide="shopping-bag" class="w-3.5 h-3.5"></i>
+                    <span>Beli Sekarang</span>
                 </button>
             </div>
 

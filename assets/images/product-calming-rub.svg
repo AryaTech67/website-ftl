@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="195 120 210 385" width="600" height="600">
   <defs>
     <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#E8F4EC"/>
@@ -20,14 +20,8 @@
   </defs>
 
   <!-- Background Circle / Glow -->
-  <circle cx="300" cy="300" r="240" fill="url(#bgGrad)"/>
   
-  <!-- Decorative Leaves -->
-  <path d="M120 180 C100 130 140 100 190 120 C180 160 150 190 120 180 Z" fill="#A8D5BA" opacity="0.6"/>
-  <path d="M480 380 C520 350 510 300 460 320 C460 360 480 390 480 380 Z" fill="#D2E8D8" opacity="0.7"/>
-  <circle cx="450" cy="180" r="16" fill="#F4DEB8" opacity="0.8"/>
-  <circle cx="150" cy="420" r="22" fill="#E8B87A" opacity="0.5"/>
-
+  
   <!-- Tube Shadow -->
   <ellipse cx="300" cy="490" rx="90" ry="18" fill="#D3C9BD" opacity="0.6"/>
 
