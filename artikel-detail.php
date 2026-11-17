@@ -108,7 +108,7 @@ Minyak atsiri yang diekstrak dari pala mengandung senyawa aktif <em>myristicin</
 
 <h3 class="text-xl font-bold font-display text-gray-900 mt-8 mb-4">Komitmen For The Little</h3>
 <p class="text-sm text-gray-700 leading-relaxed mb-4">
-Melalui kampanye <em>"Bringing Back Indonesia's Nature Blessing"</em>, For The Little memastikan setiap bahan baku pala dipanen secara berkelanjutan dari petani lokal Indonesia dan diproses dengan standar mutu farmasi modern.
+Melalui kampanye <em>Bringing Back Indonesia's Nature Blessing</em>, For The Little memastikan setiap bahan baku pala dipanen secara berkelanjutan dari petani lokal Indonesia dan diproses dengan standar mutu farmasi modern.
 </p>
 HTML
     ]

@@ -18,7 +18,7 @@ require_once __DIR__ . '/includes/navbar.php';
             Kisah Hangat di Balik For The Little
         </h1>
         <p class="text-base sm:text-lg text-gray-600 leading-relaxed max-w-2xl mx-auto">
-            "Bringing Back Indonesia's Nature Blessing" — Berawal dari kegelisahan seorang ibu mencari kenyamanan alami untuk bayinya yang sering rewel karena kolik.
+            Bringing Back Indonesia's Nature Blessing — Berawal dari kegelisahan seorang ibu mencari kenyamanan alami untuk bayinya yang sering rewel karena kolik.
         </p>
     </div>
 </section>

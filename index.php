@@ -71,7 +71,7 @@ require_once __DIR__ . '/includes/navbar.php';
              style="background-image: url('<?= BASE_URL ?>assets/images/banner-ftl-hero.jpg?v=<?= filemtime(__DIR__ . '/assets/images/banner-ftl-hero.jpg') ?>');">
             
             <!-- Dark Gradient Overlay for Maximum Text Contrast & Readability -->
-            <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/35 pointer-events-none"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-[#163325]/92 via-[#264D3B]/75 to-[#264D3B]/35 pointer-events-none"></div>
             
             <div class="w-full max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 relative z-10">
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
@@ -120,7 +120,7 @@ require_once __DIR__ . '/includes/navbar.php';
                         <img src="<?= BASE_URL ?>assets/images/product-tube.png" 
                              alt="FTL Calming Rub Tube" 
                              class="h-72 lg:h-84 w-auto object-contain hover:scale-105 transition-transform duration-500">
-                        <div class="mt-2 inline-flex items-center gap-1 text-[11px] font-bold text-white bg-black/40 backdrop-blur-xs px-3 py-1 rounded-full border border-white/20">
+                        <div class="mt-2 inline-flex items-center gap-1 text-[11px] font-bold text-white bg-[#163325]/80 backdrop-blur-xs px-3 py-1 rounded-full border border-white/20">
                             <span>Isi Bersih 50g</span> • <span>Travel Friendly</span>
                         </div>
                     </div>
@@ -136,7 +136,7 @@ require_once __DIR__ . '/includes/navbar.php';
              style="background-image: url('<?= BASE_URL ?>assets/images/banner-ftl-slide2.jpg?v=<?= filemtime(__DIR__ . '/assets/images/banner-ftl-slide2.jpg') ?>');">
             
             <!-- Dark Gradient Overlay for Maximum Text Contrast & Readability -->
-            <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/35 pointer-events-none"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-[#163325]/92 via-[#264D3B]/75 to-[#264D3B]/35 pointer-events-none"></div>
 
             <div class="w-full max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 relative z-10">
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
@@ -199,7 +199,7 @@ require_once __DIR__ . '/includes/navbar.php';
              style="background-image: url('<?= BASE_URL ?>assets/images/banner-ftl-slide3.jpg?v=<?= filemtime(__DIR__ . '/assets/images/banner-ftl-slide3.jpg') ?>');">
             
             <!-- Dark Gradient Overlay for Maximum Text Contrast & Readability -->
-            <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/35 pointer-events-none"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-[#163325]/92 via-[#264D3B]/75 to-[#264D3B]/35 pointer-events-none"></div>
             
             <div class="w-full max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 relative z-10">
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
@@ -257,7 +257,7 @@ require_once __DIR__ . '/includes/navbar.php';
         </div>
 
         <!-- Slider Dots / Indicators (Interaktif & Indah di Bawah Banner) -->
-        <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-2.5 z-20 bg-black/30 backdrop-blur-md px-4 py-2 rounded-full border border-white/15">
+        <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-2.5 z-20 bg-[#163325]/75 backdrop-blur-md px-4 py-2 rounded-full border border-white/15">
             <template x-for="i in totalSlides" :key="i">
                 <button type="button" 
                         @click="activeSlide = i - 1; startAutoplay()"
@@ -960,7 +960,7 @@ require_once __DIR__ . '/includes/navbar.php';
                         </div>
                         <div>
                             <h3 class="font-display font-bold text-base sm:text-lg text-ftl-forest">
-                                "Bringing Back Indonesia's Nature Blessing"
+                                Bringing Back Indonesia's Nature Blessing
                             </h3>
                             <p class="text-xs text-gray-500">
                                 Setia menemani setiap momen kasih sayang Bunda untuk buah hati
