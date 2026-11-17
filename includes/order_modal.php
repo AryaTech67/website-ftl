@@ -8,7 +8,7 @@ require_once __DIR__ . '/../config.php';
      x-data="orderModal()" 
      x-show="isOpen || (typeof orderModalOpen !== 'undefined' && orderModalOpen)" 
      @open-order-modal.window="openModal($event.detail)"
-     @close-order-modal.window="closeModal()"
+     @close-order-modal.window="isOpen = false"
      @keydown.escape.window="closeModal()"
      class="fixed inset-0 z-[60] overflow-y-auto" 
      style="display: none;"
@@ -591,11 +591,12 @@ function orderModal() {
         closeModal() {
             this.isOpen = false;
             try {
-                this.$dispatch('close-order-modal');
+                if (typeof orderModalOpen !== 'undefined') {
+                    orderModalOpen = false;
+                }
             } catch(e) {}
-            window.dispatchEvent(new CustomEvent('close-order-modal'));
             try {
-                if (document.body._x_dataStack && document.body._x_dataStack[0]) {
+                if (document.body && document.body._x_dataStack && document.body._x_dataStack[0]) {
                     document.body._x_dataStack[0].orderModalOpen = false;
                 }
             } catch(e) {}
