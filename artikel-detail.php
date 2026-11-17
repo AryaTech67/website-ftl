@@ -151,6 +151,21 @@ require_once __DIR__ . '/includes/navbar.php';
             </div>
         </header>
 
+        <!-- Featured Article Hero Image -->
+        <?php 
+        $article_images = [
+            'cara-atasi-kolik' => 'article-kolik.jpg',
+            'panduan-pijat-ilu' => 'article-pijat-ilu.jpg',
+            'manfaat-minyak-pala' => 'article-minyak-pala.jpg',
+        ];
+        $feat_img = $article_images[$article_id] ?? 'article-kolik.jpg';
+        ?>
+        <div class="my-8 rounded-3xl overflow-hidden shadow-md border border-gray-100 max-h-[420px]">
+            <img src="<?= BASE_URL ?>assets/images/<?= $feat_img ?>?v=<?= filemtime(__DIR__ . '/assets/images/' . $feat_img) ?>" 
+                 alt="<?= htmlspecialchars($article['title']) ?>" 
+                 class="w-full h-full object-cover">
+        </div>
+
         <!-- Body Content -->
         <div class="py-8 prose prose-emerald max-w-none">
             <?= $article['content'] ?>

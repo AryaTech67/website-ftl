@@ -654,22 +654,26 @@ require_once __DIR__ . '/includes/navbar.php';
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             
-            <!-- Artikel 1 -->
-            <article class="group rounded-3xl overflow-hidden border border-gray-100 shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col bg-white">
-                <div class="h-48 bg-emerald-100 flex items-center justify-center text-emerald-800 font-display font-bold text-xl relative overflow-hidden">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
-                    <span class="relative z-10 text-white text-center px-4">Mengatasi Kolik Bayi</span>
-                </div>
+            <!-- Artikel 1: Cara Mengenali Gejala Kolik -->
+            <article class="group rounded-3xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col bg-white">
+                <a href="<?= BASE_URL ?>artikel-detail.php?id=cara-atasi-kolik" class="block h-48 sm:h-52 w-full overflow-hidden bg-emerald-50 relative">
+                    <img src="<?= BASE_URL ?>assets/images/article-kolik.jpg?v=<?= filemtime(__DIR__ . '/assets/images/article-kolik.jpg') ?>" 
+                         alt="Cara Mengenali Gejala Kolik pada Bayi" 
+                         class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-60 group-hover:opacity-30 transition-opacity"></div>
+                    <span class="absolute top-3 left-3 bg-white/90 backdrop-blur-xs text-emerald-800 text-[11px] font-bold px-3 py-1 rounded-full shadow-xs">
+                        Kesehatan Bayi
+                    </span>
+                </a>
                 <div class="p-6 flex-1 flex flex-col justify-between">
                     <div>
-                        <span class="text-xs font-semibold text-emerald-600 uppercase">Kesehatan Bayi</span>
-                        <h3 class="font-bold text-lg text-gray-900 mt-1 group-hover:text-ftl-forest transition-colors">
+                        <h3 class="font-bold text-lg text-gray-900 group-hover:text-ftl-forest transition-colors leading-snug">
                             <a href="<?= BASE_URL ?>artikel-detail.php?id=cara-atasi-kolik">
                                 Cara Mengenali Gejala Kolik pada Bayi Baru Lahir dan Solusi Penanganannya
                             </a>
                         </h3>
-                        <p class="text-xs text-gray-500 mt-2 line-clamp-2">
-                            Kenali tanda-tanda saat tangisan bayi bukan sekadar lapar, melainkan kram perut akibat gas berlebih.
+                        <p class="text-xs text-gray-500 mt-2 line-clamp-2 leading-relaxed">
+                            Kenali tanda-tanda saat tangisan bayi bukan sekadar lapar, melainkan kram perut akibat gas berlebih yang terperangkap.
                         </p>
                     </div>
                     <div class="mt-4 pt-4 border-t border-gray-100 flex items-center justify-between text-xs text-gray-400">
@@ -681,21 +685,25 @@ require_once __DIR__ . '/includes/navbar.php';
                 </div>
             </article>
 
-            <!-- Artikel 2 -->
-            <article class="group rounded-3xl overflow-hidden border border-gray-100 shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col bg-white">
-                <div class="h-48 bg-amber-100 flex items-center justify-center text-amber-800 font-display font-bold text-xl relative overflow-hidden">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
-                    <span class="relative z-10 text-white text-center px-4">Teknik Pijat Bayi</span>
-                </div>
+            <!-- Artikel 2: Panduan Lengkap Pijat ILU -->
+            <article class="group rounded-3xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col bg-white">
+                <a href="<?= BASE_URL ?>artikel-detail.php?id=panduan-pijat-ilu" class="block h-48 sm:h-52 w-full overflow-hidden bg-amber-50 relative">
+                    <img src="<?= BASE_URL ?>assets/images/article-pijat-ilu.jpg?v=<?= filemtime(__DIR__ . '/assets/images/article-pijat-ilu.jpg') ?>" 
+                         alt="Panduan Lengkap Pijat ILU Bayi" 
+                         class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-60 group-hover:opacity-30 transition-opacity"></div>
+                    <span class="absolute top-3 left-3 bg-white/90 backdrop-blur-xs text-amber-800 text-[11px] font-bold px-3 py-1 rounded-full shadow-xs">
+                        Stimulasi & Tidur
+                    </span>
+                </a>
                 <div class="p-6 flex-1 flex flex-col justify-between">
                     <div>
-                        <span class="text-xs font-semibold text-amber-600 uppercase">Stimulasi & Tidur</span>
-                        <h3 class="font-bold text-lg text-gray-900 mt-1 group-hover:text-ftl-forest transition-colors">
+                        <h3 class="font-bold text-lg text-gray-900 group-hover:text-ftl-forest transition-colors leading-snug">
                             <a href="<?= BASE_URL ?>artikel-detail.php?id=panduan-pijat-ilu">
                                 Panduan Lengkap Pijat ILU untuk Membantu Bayi Tidur Nyenyak
                             </a>
                         </h3>
-                        <p class="text-xs text-gray-500 mt-2 line-clamp-2">
+                        <p class="text-xs text-gray-500 mt-2 line-clamp-2 leading-relaxed">
                             Langkah demi langkah teknik pijatan perut alami untuk melancarkan pencernaan dan bonding erat Bunda dan bayi.
                         </p>
                     </div>
@@ -708,21 +716,25 @@ require_once __DIR__ . '/includes/navbar.php';
                 </div>
             </article>
 
-            <!-- Artikel 3 -->
-            <article class="group rounded-3xl overflow-hidden border border-gray-100 shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col bg-white">
-                <div class="h-48 bg-teal-100 flex items-center justify-center text-teal-800 font-display font-bold text-xl relative overflow-hidden">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
-                    <span class="relative z-10 text-white text-center px-4">Kearifan Rempah</span>
-                </div>
+            <!-- Artikel 3: Kearifan Rempah Pala Nusantara -->
+            <article class="group rounded-3xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col bg-white">
+                <a href="<?= BASE_URL ?>artikel-detail.php?id=manfaat-minyak-pala" class="block h-48 sm:h-52 w-full overflow-hidden bg-teal-50 relative">
+                    <img src="<?= BASE_URL ?>assets/images/article-minyak-pala.jpg?v=<?= filemtime(__DIR__ . '/assets/images/article-minyak-pala.jpg') ?>" 
+                         alt="Khasiat Minyak Pala Nusantara untuk Bayi" 
+                         class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-60 group-hover:opacity-30 transition-opacity"></div>
+                    <span class="absolute top-3 left-3 bg-white/90 backdrop-blur-xs text-teal-800 text-[11px] font-bold px-3 py-1 rounded-full shadow-xs">
+                        Bahan Alami
+                    </span>
+                </a>
                 <div class="p-6 flex-1 flex flex-col justify-between">
                     <div>
-                        <span class="text-xs font-semibold text-teal-600 uppercase">Bahan Alami</span>
-                        <h3 class="font-bold text-lg text-gray-900 mt-1 group-hover:text-ftl-forest transition-colors">
+                        <h3 class="font-bold text-lg text-gray-900 group-hover:text-ftl-forest transition-colors leading-snug">
                             <a href="<?= BASE_URL ?>artikel-detail.php?id=manfaat-minyak-pala">
                                 Mengapa Minyak Pala Nusantara Sangat Baik untuk Kehangatan Bayi?
                             </a>
                         </h3>
-                        <p class="text-xs text-gray-500 mt-2 line-clamp-2">
+                        <p class="text-xs text-gray-500 mt-2 line-clamp-2 leading-relaxed">
                             Mengupas warisan nenek moyang dan bukti ilmiah tentang keunggulan minyak pala dibanding minyak kayu putih biasa.
                         </p>
                     </div>

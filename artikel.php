@@ -122,17 +122,25 @@ $ARTIKEL_LIST = [
                          x-show="currentCategory === 'semua' || currentCategory === '<?= $item['category'] ?>'">
                     
                     <div>
-                        <!-- Header banner abstract -->
-                        <div class="h-44 bg-gradient-to-tr from-ftl-forest via-ftl-sage to-emerald-800 p-6 flex flex-col justify-between text-white relative">
-                            <span class="inline-block self-start text-[11px] font-bold px-3 py-1 rounded-full bg-white/20 backdrop-blur-xs border border-white/20">
+                        <!-- Header banner image -->
+                        <?php 
+                        $art_imgs = [
+                            'cara-atasi-kolik' => 'article-kolik.jpg',
+                            'panduan-pijat-ilu' => 'article-pijat-ilu.jpg',
+                            'manfaat-minyak-pala' => 'article-minyak-pala.jpg',
+                            'tips-kulit-sensitif-newborn' => 'article-kolik.jpg',
+                            'mengatasi-perut-kembung' => 'article-pijat-ilu.jpg',
+                            'rutinitas-tidur-malam-bayi' => 'article-kolik.jpg'
+                        ];
+                        $img_file = $art_imgs[$item['id']] ?? 'article-kolik.jpg';
+                        ?>
+                        <div class="h-48 w-full overflow-hidden relative bg-gray-100">
+                            <img src="<?= BASE_URL ?>assets/images/<?= $img_file ?>?v=<?= filemtime(__DIR__ . '/assets/images/' . $img_file) ?>" 
+                                 alt="<?= htmlspecialchars($item['title']) ?>" 
+                                 class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105">
+                            <span class="absolute top-3 left-3 text-[11px] font-bold px-3 py-1 rounded-full bg-white/90 backdrop-blur-xs text-ftl-forest shadow-xs">
                                 <?= $item['category'] ?>
                             </span>
-                            <div class="flex items-center gap-2 text-xs text-emerald-200">
-                                <i data-lucide="clock" class="w-3.5 h-3.5"></i>
-                                <span><?= $item['read_time'] ?></span>
-                                <span>•</span>
-                                <span><?= $item['date'] ?></span>
-                            </div>
                         </div>
 
                         <!-- Content -->
