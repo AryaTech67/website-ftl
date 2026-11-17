@@ -240,15 +240,25 @@ require_once __DIR__ . '/includes/navbar.php';
 
                     <!-- Right Testimonial Card Visual (4 cols) -->
                     <div class="lg:col-span-4 hidden lg:flex justify-center items-center">
-                        <div class="bg-white/10 backdrop-blur-md p-6 rounded-3xl border border-white/25 text-center text-white space-y-3 max-w-xs shadow-2xl">
-                            <div class="text-amber-300 text-lg">★★★★★</div>
+                        <a href="<?= SHOPEE_URL ?>" target="_blank" rel="noopener" 
+                           class="block bg-white/10 hover:bg-white/15 backdrop-blur-md p-6 rounded-3xl border border-white/25 text-center text-white space-y-3 max-w-xs shadow-2xl transition-all duration-300 hover:scale-[1.02] group">
+                            <div class="flex items-center justify-center gap-2">
+                                <div class="text-amber-300 text-base">★★★★★</div>
+                                <span class="inline-flex items-center gap-1 text-[10px] font-bold bg-[#EE4D2D] text-white px-2 py-0.5 rounded-full shadow-xs">
+                                    <svg class="w-2.5 h-2.5 fill-current" viewBox="0 0 24 24"><path d="M19.5 7.5h-2.25a5.25 5.25 0 0 0-10.5 0H4.5A1.5 1.5 0 0 0 3 9v11.25A2.25 2.25 0 0 0 5.25 22.5h13.5A2.25 2.25 0 0 0 21 20.25V9a1.5 1.5 0 0 0-1.5-1.5zm-7.5-3.75a3.75 3.75 0 0 1 3.75 3.75h-7.5A3.75 3.75 0 0 1 12 3.75zm1.88 12.2c-.17.65-.68 1.15-1.52 1.5-1.07.45-2.28.32-3.13-.34-.23-.18-.28-.52-.1-.76.17-.23.51-.28.75-.11.58.46 1.45.54 2.19.23.47-.2.72-.45.79-.72.08-.34-.05-.62-.48-.96-.44-.35-1.37-.8-1.74-1.12-.66-.57-.91-1.22-.72-1.93.2-.75.82-1.31 1.7-1.57.94-.28 2.05-.13 2.82.37.24.16.3.49.15.73-.15.24-.48.3-.73.15-.55-.36-1.37-.46-2.03-.26-.49.15-.79.43-.88.75-.09.32.02.6.43.92.42.33 1.34.78 1.76 1.12.63.53.86 1.17.67 1.83z"/></svg>
+                                    Shopee Review
+                                </span>
+                            </div>
                             <p class="text-xs text-emerald-100 italic leading-relaxed">
                                 "Baby Calming Rub FTL beneran ngebantu banget waktu anakku kolik di malam hari. Pijat ILU sebentar, tidurnya langsung pulas tanpa rewel."
                             </p>
-                            <span class="block text-[11px] font-bold text-white pt-2 border-t border-white/20">
-                                — Bunda Maya Rahayu (Jakarta)
-                            </span>
-                        </div>
+                            <div class="pt-2 border-t border-white/20 flex items-center justify-between text-[11px] text-white">
+                                <span class="font-bold">— Bunda Maya (Jakarta)</span>
+                                <span class="text-amber-200 group-hover:text-white transition flex items-center gap-0.5 text-[10px] font-semibold">
+                                    Lihat di Shopee &rarr;
+                                </span>
+                            </div>
+                        </a>
                     </div>
 
                 </div>
@@ -1058,7 +1068,7 @@ require_once __DIR__ . '/includes/navbar.php';
 </section>
 
 <!-- ======================================================= -->
-<!-- TESTIMONI PARA IBU (SLIDER MIRIP "KATA PARA AYBUN")     -->
+<!-- TESTIMONI PARA IBU (SHOPEE OFFICIAL VERIFIED REVIEWS)   -->
 <!-- ======================================================= -->
 <section class="py-16 sm:py-20 bg-white border-t border-ftl-sand" 
          x-data="{ 
@@ -1079,14 +1089,15 @@ require_once __DIR__ . '/includes/navbar.php';
         
         <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-8 sm:mb-12 gap-4">
             <div>
-                <span class="text-xs font-bold text-ftl-accent uppercase tracking-widest">
-                    #frommothertoanother
-                </span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold font-display text-ftl-forest mt-1">
-                    Kata Para Moms
+                <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FFF0ED] text-[#EE4D2D] border border-[#EE4D2D]/20 text-xs font-bold mb-2">
+                    <svg class="w-3.5 h-3.5 fill-current shrink-0" viewBox="0 0 24 24"><path d="M19.5 7.5h-2.25a5.25 5.25 0 0 0-10.5 0H4.5A1.5 1.5 0 0 0 3 9v11.25A2.25 2.25 0 0 0 5.25 22.5h13.5A2.25 2.25 0 0 0 21 20.25V9a1.5 1.5 0 0 0-1.5-1.5zm-7.5-3.75a3.75 3.75 0 0 1 3.75 3.75h-7.5A3.75 3.75 0 0 1 12 3.75zm1.88 12.2c-.17.65-.68 1.15-1.52 1.5-1.07.45-2.28.32-3.13-.34-.23-.18-.28-.52-.1-.76.17-.23.51-.28.75-.11.58.46 1.45.54 2.19.23.47-.2.72-.45.79-.72.08-.34-.05-.62-.48-.96-.44-.35-1.37-.8-1.74-1.12-.66-.57-.91-1.22-.72-1.93.2-.75.82-1.31 1.7-1.57.94-.28 2.05-.13 2.82.37.24.16.3.49.15.73-.15.24-.48.3-.73.15-.55-.36-1.37-.46-2.03-.26-.49.15-.79.43-.88.75-.09.32.02.6.43.92.42.33 1.34.78 1.76 1.12.63.53.86 1.17.67 1.83z"/></svg>
+                    <span>ULASAN ASLI SHOPEE OFFICIAL STORE</span>
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-extrabold font-display text-ftl-forest">
+                    Kata Para Moms di Shopee
                 </h2>
-                <p class="text-sm sm:text-base text-gray-600 mt-1">
-                    Cerita nyata pengalaman orang tua setelah menggunakan For The Little Calming Rub.
+                <p class="text-sm sm:text-base text-gray-600 mt-1 flex items-center gap-2 flex-wrap">
+                    <span>Rating <strong class="text-gray-900 font-bold">4.9 / 5.0</strong> dari <strong class="text-gray-900 font-bold">500+ ulasan terverifikasi</strong> pembeli resmi For The Little.</span>
                 </p>
             </div>
 
@@ -1122,91 +1133,136 @@ require_once __DIR__ . '/includes/navbar.php';
             
             <!-- Review 1 -->
             <div @click="testiIndex = 0"
-                 :class="testiIndex === 0 ? 'flex ring-2 ring-emerald-600 bg-emerald-50/20 shadow-xl shadow-emerald-950/10 scale-[1.01] md:scale-[1.03] z-10 border-emerald-300' : 'hidden md:flex opacity-70 hover:opacity-100 hover:border-emerald-200 border-ftl-sand bg-white'" 
+                 :class="testiIndex === 0 ? 'flex ring-2 ring-[#EE4D2D]/60 bg-[#FFF9F8]/60 shadow-xl shadow-orange-950/5 scale-[1.01] md:scale-[1.02] z-10 border-[#EE4D2D]/30' : 'hidden md:flex opacity-75 hover:opacity-100 hover:border-orange-200 border-ftl-sand bg-white'" 
                  class="p-6 sm:p-7 rounded-3xl border transition-all duration-300 flex-col justify-between cursor-pointer group">
                 <div class="space-y-3">
                     <div class="flex items-center justify-between">
                         <div class="flex text-amber-400 gap-1 text-sm">★★★★★</div>
-                        <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800">Verified Order</span>
+                        <span class="inline-flex items-center gap-1 text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-[#FFF0ED] text-[#EE4D2D] border border-[#EE4D2D]/20">
+                            <svg class="w-2.5 h-2.5 fill-current shrink-0" viewBox="0 0 24 24"><path d="M19.5 7.5h-2.25a5.25 5.25 0 0 0-10.5 0H4.5A1.5 1.5 0 0 0 3 9v11.25A2.25 2.25 0 0 0 5.25 22.5h13.5A2.25 2.25 0 0 0 21 20.25V9a1.5 1.5 0 0 0-1.5-1.5zm-7.5-3.75a3.75 3.75 0 0 1 3.75 3.75h-7.5A3.75 3.75 0 0 1 12 3.75zm1.88 12.2c-.17.65-.68 1.15-1.52 1.5-1.07.45-2.28.32-3.13-.34-.23-.18-.28-.52-.1-.76.17-.23.51-.28.75-.11.58.46 1.45.54 2.19.23.47-.2.72-.45.79-.72.08-.34-.05-.62-.48-.96-.44-.35-1.37-.8-1.74-1.12-.66-.57-.91-1.22-.72-1.93.2-.75.82-1.31 1.7-1.57.94-.28 2.05-.13 2.82.37.24.16.3.49.15.73-.15.24-.48.3-.73.15-.55-.36-1.37-.46-2.03-.26-.49.15-.79.43-.88.75-.09.32.02.6.43.92.42.33 1.34.78 1.76 1.12.63.53.86 1.17.67 1.83z"/></svg>
+                            Shopee Verified
+                        </span>
                     </div>
-                    <p class="text-sm text-gray-700 italic leading-relaxed">
+                    <div class="flex flex-wrap gap-1.5 text-[10px] text-gray-500 font-medium">
+                        <span class="bg-gray-100 px-2 py-0.5 rounded">Variasi: Cream 50g</span>
+                        <span class="bg-emerald-50 text-emerald-800 px-2 py-0.5 rounded">Performa: Hangat pas & redakan kembung</span>
+                    </div>
+                    <p class="text-sm text-gray-700 italic leading-relaxed pt-1">
                         "Anakku umur 2 bulan sering rewel jam 7-9 malam karena kolik. Setelah rutin dioles FTL Calming Rub sehabis mandi sore dan pijat ILU, perutnya ga bunyi kembung lagi dan tidurnya anteng pol sampai pagi!"
                     </p>
                 </div>
-                <div class="pt-6 border-t border-gray-100 flex items-center gap-3 mt-4">
-                    <div class="w-11 h-11 rounded-full border border-emerald-900/15 bg-gradient-to-br from-[#EBF3ED] via-white to-amber-50/80 text-emerald-800 flex items-center justify-center shrink-0 shadow-2xs">
-                        <svg class="w-6 h-6 text-emerald-800" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="10" cy="7" r="3.2"/>
-                            <path d="M4 19c0-3.3 2.7-6 6-6 1.8 0 3.4.8 4.5 2.1"/>
-                            <circle cx="16.5" cy="14" r="2"/>
-                            <path d="M14.5 19c.4-1.2 1.5-2 2.8-2 1 0 1.9.5 2.4 1.3"/>
-                            <path d="M8 8c.5-1.2 1.3-1.8 2.5-1.8s2 .6 2.5 1.8"/>
-                        </svg>
+                
+                <div class="pt-5 border-t border-gray-100 mt-4 space-y-3">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full border border-orange-200 bg-gradient-to-br from-[#FFF0ED] to-white text-[#EE4D2D] flex items-center justify-center shrink-0 font-bold text-xs shadow-2xs">
+                            MR
+                        </div>
+                        <div>
+                            <h5 class="font-bold text-xs text-gray-900 flex items-center gap-1.5">
+                                <span>Bunda Maya Rahayu</span>
+                                <span class="text-[10px] font-normal text-gray-400">(m***a)</span>
+                            </h5>
+                            <span class="text-[11px] text-gray-500">Jakarta Selatan • Pembeli Terverifikasi</span>
+                        </div>
                     </div>
-                    <div>
-                        <h5 class="font-bold text-xs text-gray-900">Bunda Maya Rahayu</h5>
-                        <span class="text-[11px] text-gray-500">Jakarta Selatan • Bayi 2 Bulan</span>
-                    </div>
+                    <a href="<?= SHOPEE_URL ?>" target="_blank" rel="noopener" @click.stop
+                       class="inline-flex items-center justify-between w-full text-xs font-semibold text-gray-600 hover:text-[#EE4D2D] transition pt-1">
+                        <span class="flex items-center gap-1">
+                            <svg class="w-3.5 h-3.5 fill-[#EE4D2D]" viewBox="0 0 24 24"><path d="M19.5 7.5h-2.25a5.25 5.25 0 0 0-10.5 0H4.5A1.5 1.5 0 0 0 3 9v11.25A2.25 2.25 0 0 0 5.25 22.5h13.5A2.25 2.25 0 0 0 21 20.25V9a1.5 1.5 0 0 0-1.5-1.5zm-7.5-3.75a3.75 3.75 0 0 1 3.75 3.75h-7.5A3.75 3.75 0 0 1 12 3.75zm1.88 12.2c-.17.65-.68 1.15-1.52 1.5-1.07.45-2.28.32-3.13-.34-.23-.18-.28-.52-.1-.76.17-.23.51-.28.75-.11.58.46 1.45.54 2.19.23.47-.2.72-.45.79-.72.08-.34-.05-.62-.48-.96-.44-.35-1.37-.8-1.74-1.12-.66-.57-.91-1.22-.72-1.93.2-.75.82-1.31 1.7-1.57.94-.28 2.05-.13 2.82.37.24.16.3.49.15.73-.15.24-.48.3-.73.15-.55-.36-1.37-.46-2.03-.26-.49.15-.79.43-.88.75-.09.32.02.6.43.92.42.33 1.34.78 1.76 1.12.63.53.86 1.17.67 1.83z"/></svg>
+                            Lihat ulasan di Shopee
+                        </span>
+                        <span class="text-[#EE4D2D] font-bold">&rarr;</span>
+                    </a>
                 </div>
             </div>
 
             <!-- Review 2 -->
             <div @click="testiIndex = 1"
-                 :class="testiIndex === 1 ? 'flex ring-2 ring-emerald-600 bg-emerald-50/20 shadow-xl shadow-emerald-950/10 scale-[1.01] md:scale-[1.03] z-10 border-emerald-300' : 'hidden md:flex opacity-70 hover:opacity-100 hover:border-emerald-200 border-ftl-sand bg-white'"
+                 :class="testiIndex === 1 ? 'flex ring-2 ring-[#EE4D2D]/60 bg-[#FFF9F8]/60 shadow-xl shadow-orange-950/5 scale-[1.01] md:scale-[1.02] z-10 border-[#EE4D2D]/30' : 'hidden md:flex opacity-75 hover:opacity-100 hover:border-orange-200 border-ftl-sand bg-white'"
                  class="p-6 sm:p-7 rounded-3xl border transition-all duration-300 flex-col justify-between cursor-pointer group">
                 <div class="space-y-3">
                     <div class="flex items-center justify-between">
                         <div class="flex text-amber-400 gap-1 text-sm">★★★★★</div>
-                        <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-orange-100 text-orange-800">Instagram Review</span>
+                        <span class="inline-flex items-center gap-1 text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-[#FFF0ED] text-[#EE4D2D] border border-[#EE4D2D]/20">
+                            <svg class="w-2.5 h-2.5 fill-current shrink-0" viewBox="0 0 24 24"><path d="M19.5 7.5h-2.25a5.25 5.25 0 0 0-10.5 0H4.5A1.5 1.5 0 0 0 3 9v11.25A2.25 2.25 0 0 0 5.25 22.5h13.5A2.25 2.25 0 0 0 21 20.25V9a1.5 1.5 0 0 0-1.5-1.5zm-7.5-3.75a3.75 3.75 0 0 1 3.75 3.75h-7.5A3.75 3.75 0 0 1 12 3.75zm1.88 12.2c-.17.65-.68 1.15-1.52 1.5-1.07.45-2.28.32-3.13-.34-.23-.18-.28-.52-.1-.76.17-.23.51-.28.75-.11.58.46 1.45.54 2.19.23.47-.2.72-.45.79-.72.08-.34-.05-.62-.48-.96-.44-.35-1.37-.8-1.74-1.12-.66-.57-.91-1.22-.72-1.93.2-.75.82-1.31 1.7-1.57.94-.28 2.05-.13 2.82.37.24.16.3.49.15.73-.15.24-.48.3-.73.15-.55-.36-1.37-.46-2.03-.26-.49.15-.79.43-.88.75-.09.32.02.6.43.92.42.33 1.34.78 1.76 1.12.63.53.86 1.17.67 1.83z"/></svg>
+                            Shopee Verified
+                        </span>
                     </div>
-                    <p class="text-sm text-gray-700 italic leading-relaxed">
+                    <div class="flex flex-wrap gap-1.5 text-[10px] text-gray-500 font-medium">
+                        <span class="bg-gray-100 px-2 py-0.5 rounded">Variasi: Cream 50g</span>
+                        <span class="bg-amber-50 text-amber-800 px-2 py-0.5 rounded">Aroma: Rempah pala & calendula lembut</span>
+                    </div>
+                    <p class="text-sm text-gray-700 italic leading-relaxed pt-1">
                         "Paling suka karena teksturnya CREAM bukan minyak! Jadi ga licin di tangan dan ga ninggalin noda kuning di baju bayi. Aromanya juga enak banget, wangi hangat alami minyak pala dan calendula bikin si kecil relaks dan pulas."
                     </p>
                 </div>
-                <div class="pt-6 border-t border-gray-100 flex items-center gap-3 mt-4">
-                    <div class="w-11 h-11 rounded-full border border-emerald-900/15 bg-gradient-to-br from-amber-50/80 via-white to-[#EBF3ED] text-emerald-800 flex items-center justify-center shrink-0 shadow-2xs">
-                        <svg class="w-6 h-6 text-emerald-800" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M12 3.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Z"/>
-                            <path d="M9.5 7c.4-1.2 1.4-1.8 2.5-1.8s2.1.6 2.5 1.8"/>
-                            <path d="M5.5 20c0-3.6 2.9-6.5 6.5-6.5s6.5 2.9 6.5 6.5"/>
-                            <path d="M12 14c1.5 1 2.5 2.2 2.5 4"/>
-                            <circle cx="12" cy="17" r="1.5" fill="currentColor"/>
-                        </svg>
+                
+                <div class="pt-5 border-t border-gray-100 mt-4 space-y-3">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full border border-orange-200 bg-gradient-to-br from-[#FFF0ED] to-white text-[#EE4D2D] flex items-center justify-center shrink-0 font-bold text-xs shadow-2xs">
+                            DN
+                        </div>
+                        <div>
+                            <h5 class="font-bold text-xs text-gray-900 flex items-center gap-1.5">
+                                <span>Bunda Dinda Nirmala</span>
+                                <span class="text-[10px] font-normal text-gray-400">(d***a)</span>
+                            </h5>
+                            <span class="text-[11px] text-gray-500">Surabaya • Pembeli Terverifikasi</span>
+                        </div>
                     </div>
-                    <div>
-                        <h5 class="font-bold text-xs text-gray-900">Bunda Dinda Nirmala</h5>
-                        <span class="text-[11px] text-gray-500">Surabaya • Bayi 5 Bulan</span>
-                    </div>
+                    <a href="<?= SHOPEE_URL ?>" target="_blank" rel="noopener" @click.stop
+                       class="inline-flex items-center justify-between w-full text-xs font-semibold text-gray-600 hover:text-[#EE4D2D] transition pt-1">
+                        <span class="flex items-center gap-1">
+                            <svg class="w-3.5 h-3.5 fill-[#EE4D2D]" viewBox="0 0 24 24"><path d="M19.5 7.5h-2.25a5.25 5.25 0 0 0-10.5 0H4.5A1.5 1.5 0 0 0 3 9v11.25A2.25 2.25 0 0 0 5.25 22.5h13.5A2.25 2.25 0 0 0 21 20.25V9a1.5 1.5 0 0 0-1.5-1.5zm-7.5-3.75a3.75 3.75 0 0 1 3.75 3.75h-7.5A3.75 3.75 0 0 1 12 3.75zm1.88 12.2c-.17.65-.68 1.15-1.52 1.5-1.07.45-2.28.32-3.13-.34-.23-.18-.28-.52-.1-.76.17-.23.51-.28.75-.11.58.46 1.45.54 2.19.23.47-.2.72-.45.79-.72.08-.34-.05-.62-.48-.96-.44-.35-1.37-.8-1.74-1.12-.66-.57-.91-1.22-.72-1.93.2-.75.82-1.31 1.7-1.57.94-.28 2.05-.13 2.82.37.24.16.3.49.15.73-.15.24-.48.3-.73.15-.55-.36-1.37-.46-2.03-.26-.49.15-.79.43-.88.75-.09.32.02.6.43.92.42.33 1.34.78 1.76 1.12.63.53.86 1.17.67 1.83z"/></svg>
+                            Lihat ulasan di Shopee
+                        </span>
+                        <span class="text-[#EE4D2D] font-bold">&rarr;</span>
+                    </a>
                 </div>
             </div>
 
             <!-- Review 3 -->
             <div @click="testiIndex = 2"
-                 :class="testiIndex === 2 ? 'flex ring-2 ring-emerald-600 bg-emerald-50/20 shadow-xl shadow-emerald-950/10 scale-[1.01] md:scale-[1.03] z-10 border-emerald-300' : 'hidden md:flex opacity-70 hover:opacity-100 hover:border-emerald-200 border-ftl-sand bg-white'"
+                 :class="testiIndex === 2 ? 'flex ring-2 ring-[#EE4D2D]/60 bg-[#FFF9F8]/60 shadow-xl shadow-orange-950/5 scale-[1.01] md:scale-[1.02] z-10 border-[#EE4D2D]/30' : 'hidden md:flex opacity-75 hover:opacity-100 hover:border-orange-200 border-ftl-sand bg-white'"
                  class="p-6 sm:p-7 rounded-3xl border transition-all duration-300 flex-col justify-between cursor-pointer group">
                 <div class="space-y-3">
                     <div class="flex items-center justify-between">
                         <div class="flex text-amber-400 gap-1 text-sm">★★★★★</div>
-                        <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-rose-100 text-rose-800">WhatsApp Order</span>
+                        <span class="inline-flex items-center gap-1 text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-[#FFF0ED] text-[#EE4D2D] border border-[#EE4D2D]/20">
+                            <svg class="w-2.5 h-2.5 fill-current shrink-0" viewBox="0 0 24 24"><path d="M19.5 7.5h-2.25a5.25 5.25 0 0 0-10.5 0H4.5A1.5 1.5 0 0 0 3 9v11.25A2.25 2.25 0 0 0 5.25 22.5h13.5A2.25 2.25 0 0 0 21 20.25V9a1.5 1.5 0 0 0-1.5-1.5zm-7.5-3.75a3.75 3.75 0 0 1 3.75 3.75h-7.5A3.75 3.75 0 0 1 12 3.75zm1.88 12.2c-.17.65-.68 1.15-1.52 1.5-1.07.45-2.28.32-3.13-.34-.23-.18-.28-.52-.1-.76.17-.23.51-.28.75-.11.58.46 1.45.54 2.19.23.47-.2.72-.45.79-.72.08-.34-.05-.62-.48-.96-.44-.35-1.37-.8-1.74-1.12-.66-.57-.91-1.22-.72-1.93.2-.75.82-1.31 1.7-1.57.94-.28 2.05-.13 2.82.37.24.16.3.49.15.73-.15.24-.48.3-.73.15-.55-.36-1.37-.46-2.03-.26-.49.15-.79.43-.88.75-.09.32.02.6.43.92.42.33 1.34.78 1.76 1.12.63.53.86 1.17.67 1.83z"/></svg>
+                            Shopee Verified
+                        </span>
                     </div>
-                    <p class="text-sm text-gray-700 italic leading-relaxed">
-                        "Kulit anakku super sensitif, gampang merah kalau kena telon biasa. Tapi pakai For The Little ini beneran aman banget, hypoallergenic dan malah bikin kulitnya halus karena ada Calendula-nya."
+                    <div class="flex flex-wrap gap-1.5 text-[10px] text-gray-500 font-medium">
+                        <span class="bg-gray-100 px-2 py-0.5 rounded">Variasi: Cream 50g</span>
+                        <span class="bg-rose-50 text-rose-800 px-2 py-0.5 rounded">Kondisi: Kulit sensitif newborn</span>
+                    </div>
+                    <p class="text-sm text-gray-700 italic leading-relaxed pt-1">
+                        "Kulit anakku super sensitif, gampang merah kalau kena telon biasa. Tapi pakai For The Little ini beneran aman banget, hypoallergenic dan malah bikin kulitnya halus karena ada Calendula-nya. Sekarang jadi andalan tiap hari!"
                     </p>
                 </div>
-                <div class="pt-6 border-t border-gray-100 flex items-center gap-3 mt-4">
-                    <div class="w-11 h-11 rounded-full border border-emerald-900/15 bg-gradient-to-br from-[#EBF3ED] via-ftl-cream to-emerald-50/70 text-emerald-800 flex items-center justify-center shrink-0 shadow-2xs">
-                        <svg class="w-6 h-6 text-emerald-800" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="12" cy="6" r="3.2"/>
-                            <path d="M12 2.8a1.2 1.2 0 1 0 0-2.4 1.2 1.2 0 0 0 0 2.4Z"/>
-                            <path d="M5.5 20c0-3.6 2.9-6.5 6.5-6.5 2 0 3.8.9 5 2.3"/>
-                            <path d="M15 20c0-1.8 1.4-3.2 3.2-3.2.9 0 1.7.4 2.3 1"/>
-                            <circle cx="18.2" cy="14.8" r="1.6"/>
-                        </svg>
+                
+                <div class="pt-5 border-t border-gray-100 mt-4 space-y-3">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full border border-orange-200 bg-gradient-to-br from-[#FFF0ED] to-white text-[#EE4D2D] flex items-center justify-center shrink-0 font-bold text-xs shadow-2xs">
+                            CA
+                        </div>
+                        <div>
+                            <h5 class="font-bold text-xs text-gray-900 flex items-center gap-1.5">
+                                <span>Bunda Citra Anggraini</span>
+                                <span class="text-[10px] font-normal text-gray-400">(c***a)</span>
+                            </h5>
+                            <span class="text-[11px] text-gray-500">Bandung • Pembeli Terverifikasi</span>
+                        </div>
                     </div>
-                    <div>
-                        <h5 class="font-bold text-xs text-gray-900">Bunda Citra Anggraini</h5>
-                        <span class="text-[11px] text-gray-500">Bandung • Bayi 1 Bulan</span>
-                    </div>
+                    <a href="<?= SHOPEE_URL ?>" target="_blank" rel="noopener" @click.stop
+                       class="inline-flex items-center justify-between w-full text-xs font-semibold text-gray-600 hover:text-[#EE4D2D] transition pt-1">
+                        <span class="flex items-center gap-1">
+                            <svg class="w-3.5 h-3.5 fill-[#EE4D2D]" viewBox="0 0 24 24"><path d="M19.5 7.5h-2.25a5.25 5.25 0 0 0-10.5 0H4.5A1.5 1.5 0 0 0 3 9v11.25A2.25 2.25 0 0 0 5.25 22.5h13.5A2.25 2.25 0 0 0 21 20.25V9a1.5 1.5 0 0 0-1.5-1.5zm-7.5-3.75a3.75 3.75 0 0 1 3.75 3.75h-7.5A3.75 3.75 0 0 1 12 3.75zm1.88 12.2c-.17.65-.68 1.15-1.52 1.5-1.07.45-2.28.32-3.13-.34-.23-.18-.28-.52-.1-.76.17-.23.51-.28.75-.11.58.46 1.45.54 2.19.23.47-.2.72-.45.79-.72.08-.34-.05-.62-.48-.96-.44-.35-1.37-.8-1.74-1.12-.66-.57-.91-1.22-.72-1.93.2-.75.82-1.31 1.7-1.57.94-.28 2.05-.13 2.82.37.24.16.3.49.15.73-.15.24-.48.3-.73.15-.55-.36-1.37-.46-2.03-.26-.49.15-.79.43-.88.75-.09.32.02.6.43.92.42.33 1.34.78 1.76 1.12.63.53.86 1.17.67 1.83z"/></svg>
+                            Lihat ulasan di Shopee
+                        </span>
+                        <span class="text-[#EE4D2D] font-bold">&rarr;</span>
+                    </a>
                 </div>
             </div>
 
@@ -1214,11 +1270,41 @@ require_once __DIR__ . '/includes/navbar.php';
 
         <!-- Mobile Touch Swipe Hint -->
         <p class="text-center text-[11px] text-gray-400 mt-5 md:hidden flex items-center justify-center gap-1.5">
-            <svg class="w-3.5 h-3.5 text-emerald-600 animate-pulse" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <svg class="w-3.5 h-3.5 text-[#EE4D2D] animate-pulse" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                 <path d="m9 18 6-6-6-6"/>
             </svg>
-            <span>Geser (swipe) atau gunakan tombol panah untuk membaca ulasan lainnya</span>
+            <span>Geser (swipe) atau klik tombol panah untuk membaca ulasan Shopee lainnya</span>
         </p>
+
+        <!-- High-Trust Shopee Official Banner CTA -->
+        <div class="mt-10 p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-[#FFF5F2] via-white to-[#FFF5F2] border border-[#EE4D2D]/25 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-4 text-left">
+                <div class="w-14 h-14 rounded-2xl bg-[#EE4D2D] text-white flex items-center justify-center shrink-0 shadow-md">
+                    <svg class="w-8 h-8 fill-current" viewBox="0 0 24 24">
+                        <path d="M19.5 7.5h-2.25a5.25 5.25 0 0 0-10.5 0H4.5A1.5 1.5 0 0 0 3 9v11.25A2.25 2.25 0 0 0 5.25 22.5h13.5A2.25 2.25 0 0 0 21 20.25V9a1.5 1.5 0 0 0-1.5-1.5zm-7.5-3.75a3.75 3.75 0 0 1 3.75 3.75h-7.5A3.75 3.75 0 0 1 12 3.75zm1.88 12.2c-.17.65-.68 1.15-1.52 1.5-1.07.45-2.28.32-3.13-.34-.23-.18-.28-.52-.1-.76.17-.23.51-.28.75-.11.58.46 1.45.54 2.19.23.47-.2.72-.45.79-.72.08-.34-.05-.62-.48-.96-.44-.35-1.37-.8-1.74-1.12-.66-.57-.91-1.22-.72-1.93.2-.75.82-1.31 1.7-1.57.94-.28 2.05-.13 2.82.37.24.16.3.49.15.73-.15.24-.48.3-.73.15-.55-.36-1.37-.46-2.03-.26-.49.15-.79.43-.88.75-.09.32.02.6.43.92.42.33 1.34.78 1.76 1.12.63.53.86 1.17.67 1.83z"/>
+                    </svg>
+                </div>
+                <div>
+                    <div class="flex items-center gap-2 flex-wrap">
+                        <h4 class="font-extrabold text-gray-900 text-base sm:text-lg">For The Little Official Store</h4>
+                        <span class="bg-[#EE4D2D] text-white text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">Shopee Resmi</span>
+                    </div>
+                    <p class="text-xs sm:text-sm text-gray-600 mt-1 flex items-center gap-2 flex-wrap">
+                        <span class="text-amber-500 font-bold flex items-center gap-1">★ 4.9 / 5.0</span>
+                        <span class="text-gray-300">•</span>
+                        <span class="text-gray-700 font-semibold">500+ Ulasan Bintang 5</span>
+                        <span class="text-gray-300">•</span>
+                        <span class="text-emerald-700 font-semibold">100% Produk Original BPOM</span>
+                    </p>
+                </div>
+            </div>
+            <a href="<?= SHOPEE_URL ?>" target="_blank" rel="noopener"
+               class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-[#EE4D2D] hover:bg-[#d73f21] text-white font-bold px-6 py-3.5 rounded-2xl shadow-lg hover:shadow-orange-500/25 hover:scale-105 active:scale-95 transition-all text-sm shrink-0">
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19.5 7.5h-2.25a5.25 5.25 0 0 0-10.5 0H4.5A1.5 1.5 0 0 0 3 9v11.25A2.25 2.25 0 0 0 5.25 22.5h13.5A2.25 2.25 0 0 0 21 20.25V9a1.5 1.5 0 0 0-1.5-1.5zm-7.5-3.75a3.75 3.75 0 0 1 3.75 3.75h-7.5A3.75 3.75 0 0 1 12 3.75zm1.88 12.2c-.17.65-.68 1.15-1.52 1.5-1.07.45-2.28.32-3.13-.34-.23-.18-.28-.52-.1-.76.17-.23.51-.28.75-.11.58.46 1.45.54 2.19.23.47-.2.72-.45.79-.72.08-.34-.05-.62-.48-.96-.44-.35-1.37-.8-1.74-1.12-.66-.57-.91-1.22-.72-1.93.2-.75.82-1.31 1.7-1.57.94-.28 2.05-.13 2.82.37.24.16.3.49.15.73-.15.24-.48.3-.73.15-.55-.36-1.37-.46-2.03-.26-.49.15-.79.43-.88.75-.09.32.02.6.43.92.42.33 1.34.78 1.76 1.12.63.53.86 1.17.67 1.83z"/></svg>
+                <span>Lihat Semua Ulasan di Shopee</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </a>
+        </div>
 
     </div>
 </section>

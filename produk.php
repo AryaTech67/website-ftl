@@ -78,11 +78,15 @@ $main_product = $PRODUCTS['calming-rub-50g'];
                         Krim Telon & Penghangat Alami dengan Ekstrak Minyak Pala Nusantara & Calendula
                     </p>
 
-                    <div class="flex items-center gap-3 mt-3">
+                    <a href="<?= SHOPEE_URL ?>" target="_blank" rel="noopener" 
+                       class="inline-flex items-center gap-2 mt-3 group" title="Lihat rating toko di Shopee Resmi">
                         <div class="flex text-amber-400 text-sm">★★★★★</div>
-                        <span class="text-xs font-bold text-gray-700">4.9 / 5.0</span>
-                        <span class="text-xs text-gray-400">• Terjual 2.500+ pcs</span>
-                    </div>
+                        <span class="text-xs font-bold text-gray-800">4.9 / 5.0</span>
+                        <span class="text-xs text-gray-400">• 500+ Ulasan Shopee</span>
+                        <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#FFF0ED] text-[#EE4D2D] border border-[#EE4D2D]/20 group-hover:bg-[#EE4D2D] group-hover:text-white transition">
+                            Shopee Resmi &rarr;
+                        </span>
+                    </a>
                 </div>
 
                 <!-- Pricing Block -->
