@@ -11,10 +11,6 @@
       "dest": "/assets/$1"
     },
     {
-      "src": "/api/ongkir(.*)",
-      "dest": "/api/ongkir.php$1"
-    },
-    {
       "src": "/(.*)",
       "dest": "/api/index.php"
     }

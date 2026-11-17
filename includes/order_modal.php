@@ -1,9 +1,13 @@
 <?php
 // includes/order_modal.php
 require_once __DIR__ . '/../config.php';
+require_once __DIR__ . '/shipping_data.php';
+
+// Siapkan database wilayah & ongkir lokal langsung (instant zero-delay load)
+$FTL_DESTINATIONS = getShippingDestinations($SHIPPING_DATA);
 ?>
 
-<!-- Order & WhatsApp Interactive Modal dengan Auto-Deteksi Lokasi GPS & Cek Ongkir Otomatis (Layer z-[60]) -->
+<!-- Order & WhatsApp Interactive Modal dengan Auto-Deteksi Lokasi GPS, Live Ongkir & Custom Styled Dropdown (Layer z-[60]) -->
 <div id="ftl-order-modal-root"
      x-data="orderModal()" 
      x-show="isOpen || (typeof orderModalOpen !== 'undefined' && orderModalOpen)" 
@@ -59,7 +63,7 @@ require_once __DIR__ . '/../config.php';
                     <button type="button" 
                             @click="modalTab = 'konsultasi'" 
                             :class="modalTab === 'konsultasi' ? 'bg-white text-ftl-forest font-bold shadow-sm' : 'text-white/80 hover:text-white font-medium'"
-                            class="flex-1 py-2 text-xs sm:text-sm rounded-xl transition flex items-center justify-center gap-1.5 cursor-pointer">
+                            class="flex-1 py-2.5 text-xs sm:text-sm rounded-xl transition flex items-center justify-center gap-1.5 cursor-pointer">
                         <img src="<?= BASE_URL ?>assets/images/whatsapp-icon.svg" class="w-4 h-4" alt="WhatsApp" x-show="modalTab === 'konsultasi'">
                         <img src="<?= BASE_URL ?>assets/images/whatsapp-icon-white.svg" class="w-4 h-4" alt="WhatsApp" x-show="modalTab !== 'konsultasi'">
                         <span>Tanya-Tanya Dulu</span>
@@ -67,7 +71,7 @@ require_once __DIR__ . '/../config.php';
                     <button type="button" 
                             @click="modalTab = 'pesan'" 
                             :class="modalTab === 'pesan' ? 'bg-white text-ftl-forest font-bold shadow-sm' : 'text-white/80 hover:text-white font-medium'"
-                            class="flex-1 py-2 text-xs sm:text-sm rounded-xl transition flex items-center justify-center gap-1.5 cursor-pointer">
+                            class="flex-1 py-2.5 text-xs sm:text-sm rounded-xl transition flex items-center justify-center gap-1.5 cursor-pointer">
                         <i data-lucide="shopping-bag" class="w-4 h-4"></i>
                         <span>Mau Pesan Produk</span>
                     </button>
@@ -98,7 +102,7 @@ require_once __DIR__ . '/../config.php';
                         <button type="button" 
                                 @click="selectTopic('Aman untuk newborn (0+) & kulit sensitif?', 'Halo min, mau tanya apakah aman digunakan untuk newborn dan kulit yang sensitif/ada riwayat eksim?')"
                                 :class="consultTopic === 'Aman untuk newborn (0+) & kulit sensitif?' ? 'bg-emerald-50 border-emerald-600 text-emerald-950 font-bold ring-2 ring-emerald-500/25 shadow-xs' : 'bg-gray-50/80 border-gray-200 text-gray-700 hover:bg-gray-100'"
-                                class="min-h-[50px] p-3 rounded-2xl border text-left transition-all flex items-center justify-between gap-2.5 cursor-pointer active:scale-[0.98]">
+                                class="min-h-[52px] p-3 rounded-2xl border text-left transition-all flex items-center justify-between gap-2.5 cursor-pointer active:scale-[0.98]">
                             <div class="flex items-center gap-2.5 min-w-0">
                                 <span class="text-lg shrink-0">🍃</span>
                                 <span class="text-xs sm:text-sm leading-tight">Aman newborn / eksim?</span>
@@ -111,7 +115,7 @@ require_once __DIR__ . '/../config.php';
                         <button type="button" 
                                 @click="selectTopic('Cara pijat ILU & aturan pakai kembung/kolik', 'Halo min, mohon panduan cara pijat ILU dan dosis pemakaian Calming Rub saat si kecil kembung/kolik ya.')"
                                 :class="consultTopic === 'Cara pijat ILU & aturan pakai kembung/kolik' ? 'bg-emerald-50 border-emerald-600 text-emerald-950 font-bold ring-2 ring-emerald-500/25 shadow-xs' : 'bg-gray-50/80 border-gray-200 text-gray-700 hover:bg-gray-100'"
-                                class="min-h-[50px] p-3 rounded-2xl border text-left transition-all flex items-center justify-between gap-2.5 cursor-pointer active:scale-[0.98]">
+                                class="min-h-[52px] p-3 rounded-2xl border text-left transition-all flex items-center justify-between gap-2.5 cursor-pointer active:scale-[0.98]">
                             <div class="flex items-center gap-2.5 min-w-0">
                                 <span class="text-lg shrink-0">👶</span>
                                 <span class="text-xs sm:text-sm leading-tight">Cara pakai kembung & kolik</span>
@@ -124,7 +128,7 @@ require_once __DIR__ . '/../config.php';
                         <button type="button" 
                                 @click="selectTopic('Komposisi Minyak Pala Nusantara & Calendula', 'Halo min, mau tanya detail kandungan minyak pala dan ekstrak calendula di dalamnya, apakah halal dan ber-BPOM?')"
                                 :class="consultTopic === 'Komposisi Minyak Pala Nusantara & Calendula' ? 'bg-emerald-50 border-emerald-600 text-emerald-950 font-bold ring-2 ring-emerald-500/25 shadow-xs' : 'bg-gray-50/80 border-gray-200 text-gray-700 hover:bg-gray-100'"
-                                class="min-h-[50px] p-3 rounded-2xl border text-left transition-all flex items-center justify-between gap-2.5 cursor-pointer active:scale-[0.98]">
+                                class="min-h-[52px] p-3 rounded-2xl border text-left transition-all flex items-center justify-between gap-2.5 cursor-pointer active:scale-[0.98]">
                             <div class="flex items-center gap-2.5 min-w-0">
                                 <span class="text-lg shrink-0">🌿</span>
                                 <span class="text-xs sm:text-sm leading-tight">Komposisi & keaslian produk</span>
@@ -137,7 +141,7 @@ require_once __DIR__ . '/../config.php';
                         <button type="button" 
                                 @click="selectTopic('Pertanyaan lainnya seputar si kecil', '')"
                                 :class="consultTopic === 'Pertanyaan lainnya seputar si kecil' ? 'bg-emerald-50 border-emerald-600 text-emerald-950 font-bold ring-2 ring-emerald-500/25 shadow-xs' : 'bg-gray-50/80 border-gray-200 text-gray-700 hover:bg-gray-100'"
-                                class="min-h-[50px] p-3 rounded-2xl border text-left transition-all flex items-center justify-between gap-2.5 cursor-pointer active:scale-[0.98]">
+                                class="min-h-[52px] p-3 rounded-2xl border text-left transition-all flex items-center justify-between gap-2.5 cursor-pointer active:scale-[0.98]">
                             <div class="flex items-center gap-2.5 min-w-0">
                                 <span class="text-lg shrink-0">💬</span>
                                 <span class="text-xs sm:text-sm leading-tight">Pertanyaan lainnya</span>
@@ -150,7 +154,7 @@ require_once __DIR__ . '/../config.php';
                     </div>
                 </div>
 
-                <!-- Input Nama & Usia Bayi (Text-base on mobile to prevent iOS zoom) -->
+                <!-- Input Nama & Usia Bayi (Text-base 16px to prevent iOS Safari auto-zoom) -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <div>
                         <label class="block text-xs font-bold text-gray-700 mb-1">Nama Bunda (Opsional)</label>
@@ -168,7 +172,7 @@ require_once __DIR__ . '/../config.php';
                     </div>
                 </div>
 
-                <!-- Detail Pertanyaan (Text-base on mobile to prevent iOS zoom) -->
+                <!-- Detail Pertanyaan -->
                 <div>
                     <label class="block text-xs font-bold text-gray-700 mb-1">Pertanyaan atau Keluhan Bunda:</label>
                     <textarea x-model="consultCustomQuestion"
@@ -211,19 +215,19 @@ require_once __DIR__ . '/../config.php';
                                  :class="product === key ? 'border-emerald-600 bg-emerald-50/70 ring-2 ring-emerald-500/25 shadow-xs' : 'border-gray-200 bg-white hover:bg-gray-50/80'"
                                  class="p-2.5 rounded-2xl border text-left transition-all flex sm:flex-col items-center sm:items-start gap-2.5 cursor-pointer relative active:scale-[0.98]">
                                 <!-- Radio indicator dot -->
-                                <div class="absolute top-2 right-2 w-4 h-4 rounded-full border-2 flex items-center justify-center shrink-0 transition-colors"
+                                <div class="absolute top-2.5 right-2.5 w-4 h-4 rounded-full border-2 flex items-center justify-center shrink-0 transition-colors"
                                      :class="product === key ? 'border-emerald-600 bg-emerald-600 text-white' : 'border-gray-300 bg-white'">
                                     <span class="w-1.5 h-1.5 rounded-full bg-white" x-show="product === key"></span>
                                 </div>
                                 
                                 <!-- Product packshot image -->
-                                <div class="w-12 h-12 sm:w-full sm:h-16 rounded-xl bg-white p-1 flex items-center justify-center shrink-0 border border-gray-100">
+                                <div class="w-14 h-14 sm:w-full sm:h-18 rounded-xl bg-white p-1.5 flex items-center justify-center shrink-0 border border-gray-100 shadow-2xs">
                                     <img :src="'<?= BASE_URL ?>' + item.image" :alt="item.name" class="h-full w-auto object-contain">
                                 </div>
                                 
                                 <!-- Product details -->
-                                <div class="min-w-0 flex-1 pr-5 sm:pr-0">
-                                    <span class="inline-block text-[9px] font-bold px-1.5 py-0.5 rounded border mb-0.5 truncate max-w-full"
+                                <div class="min-w-0 flex-1 pr-6 sm:pr-0">
+                                    <span class="inline-block text-[9px] font-bold px-2 py-0.5 rounded-full border mb-1 truncate max-w-full"
                                           :class="item.badgeClass" x-text="item.badge"></span>
                                     <h5 class="font-bold text-xs text-gray-900 leading-snug line-clamp-1" x-text="item.name"></h5>
                                     <div class="flex items-baseline gap-1 mt-0.5">
@@ -242,13 +246,13 @@ require_once __DIR__ . '/../config.php';
                             <div class="flex items-center gap-3 mt-1.5">
                                 <button type="button" 
                                         @click="if (qty > 1) { qty--; if(city) calculateOngkir(); }" 
-                                        class="w-8 h-8 rounded-xl bg-white border border-gray-300 text-gray-800 flex items-center justify-center font-bold text-base hover:bg-gray-100 active:scale-90 transition shadow-2xs cursor-pointer select-none">
+                                        class="w-9 h-9 rounded-xl bg-white border border-gray-300 text-gray-800 flex items-center justify-center font-bold text-lg hover:bg-gray-100 active:scale-90 transition shadow-2xs cursor-pointer select-none">
                                     -
                                 </button>
                                 <span class="font-display font-extrabold text-base sm:text-lg w-8 text-center text-gray-900" x-text="qty"></span>
                                 <button type="button" 
                                         @click="qty++; if(city) calculateOngkir();" 
-                                        class="w-8 h-8 rounded-xl bg-white border border-gray-300 text-gray-800 flex items-center justify-center font-bold text-base hover:bg-gray-100 active:scale-90 transition shadow-2xs cursor-pointer select-none">
+                                        class="w-9 h-9 rounded-xl bg-white border border-gray-300 text-gray-800 flex items-center justify-center font-bold text-lg hover:bg-gray-100 active:scale-90 transition shadow-2xs cursor-pointer select-none">
                                     +
                                 </button>
                             </div>
@@ -290,7 +294,7 @@ require_once __DIR__ . '/../config.php';
                         <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider">
                             3. Lokasi Pengiriman & Cek Ongkir
                         </label>
-                        <span class="text-[10px] font-semibold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full">
+                        <span class="text-[10px] font-semibold text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200/60">
                             Kirim dari: Jakarta
                         </span>
                     </div>
@@ -299,10 +303,10 @@ require_once __DIR__ . '/../config.php';
                     <button type="button" 
                             @click="detectLocationGPS()" 
                             :disabled="detectingGPS"
-                            class="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-gradient-to-r from-emerald-50 to-teal-50 border border-emerald-300 text-ftl-forest hover:bg-emerald-100 font-bold text-xs sm:text-sm transition active:scale-95 shadow-2xs cursor-pointer">
+                            class="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-gradient-to-r from-emerald-50 via-teal-50 to-emerald-50 border border-emerald-300 text-ftl-forest hover:bg-emerald-100 font-bold text-xs sm:text-sm transition active:scale-95 shadow-2xs cursor-pointer">
                         <span x-show="detectingGPS" class="w-4 h-4 border-2 border-emerald-700 border-t-transparent rounded-full animate-spin"></span>
                         <i x-show="!detectingGPS" data-lucide="crosshair" class="w-4 h-4 text-emerald-600"></i>
-                        <span x-text="detectingGPS ? 'Mendeteksi Koordinat GPS Lokasi Anda...' : '📍 Auto-Deteksi Lokasi Saya (GPS Otomatis)'"></span>
+                        <span x-text="detectingGPS ? 'Mendeteksi Koordinat GPS Lokasi Anda...' : '📍 Auto-Deteksi Lokasi Saya (GPS Cepat)'"></span>
                     </button>
 
                     <!-- Alert Banner Hasil Auto-Deteksi -->
@@ -310,13 +314,13 @@ require_once __DIR__ . '/../config.php';
                          x-transition 
                          class="bg-emerald-50 border border-emerald-300 text-emerald-900 px-3.5 py-2.5 rounded-xl text-xs sm:text-sm flex items-center justify-between">
                         <span class="font-bold flex items-center gap-1.5" x-text="detectedAlert"></span>
-                        <span class="text-[10px] bg-emerald-200/80 text-emerald-800 px-2 py-0.5 rounded-full font-bold">Auto</span>
+                        <span class="text-[10px] bg-emerald-200/80 text-emerald-800 px-2 py-0.5 rounded-full font-bold">Terpilih</span>
                     </div>
 
-                    <!-- FITUR PENCARIAN CEPAT KOTA / KABUPATEN -->
+                    <!-- FITUR PENCARIAN CEPAT KOTA / KABUPATEN DI SELURUH INDONESIA -->
                     <div class="relative">
                         <label class="block text-[11px] font-semibold text-gray-600 mb-1">
-                            Atau Ketik Nama Kota / Kabupaten Kamu:
+                            Atau Ketik Langsung Kota / Kabupaten Kamu:
                         </label>
                         <div class="relative">
                             <input type="text" 
@@ -328,45 +332,155 @@ require_once __DIR__ . '/../config.php';
                             <i data-lucide="search" class="w-4 h-4 text-gray-400 absolute left-3 top-3.5"></i>
                         </div>
 
-                        <!-- Live Suggestion Dropdown -->
+                        <!-- Live Suggestion Dropdown Cepat -->
                         <div x-show="showSuggestions && filteredCities.length > 0" 
                              @click.away="showSuggestions = false"
-                             class="absolute z-30 left-0 right-0 mt-1 max-h-48 overflow-y-auto bg-white rounded-xl shadow-xl border border-gray-200 divide-y divide-gray-100 text-xs sm:text-sm">
+                             class="absolute z-40 left-0 right-0 mt-1 max-h-56 overflow-y-auto bg-white rounded-2xl shadow-xl border border-emerald-200 divide-y divide-gray-100 text-xs sm:text-sm">
                             <template x-for="item in filteredCities" :key="item.full">
                                 <div @click="selectCityFromSearch(item)" 
-                                     class="px-3.5 py-2.5 hover:bg-emerald-50 cursor-pointer flex items-center justify-between transition-colors">
-                                    <span class="font-bold text-gray-800" x-text="item.city"></span>
-                                    <span class="text-gray-400 text-[10px]" x-text="item.province"></span>
+                                     class="px-4 py-3 hover:bg-emerald-50 cursor-pointer flex items-center justify-between transition-colors">
+                                    <div class="flex items-center gap-2">
+                                        <i data-lucide="map-pin" class="w-3.5 h-3.5 text-emerald-600 shrink-0"></i>
+                                        <span class="font-bold text-gray-900" x-text="item.city"></span>
+                                    </div>
+                                    <span class="text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full text-[10px] font-semibold" x-text="item.province"></span>
                                 </div>
                             </template>
                         </div>
                     </div>
 
-                    <!-- DROPDOWN MANUAL (CADANGAN / KONFIRMASI) -->
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
-                        <div>
-                            <label class="block text-[10px] text-gray-500 mb-0.5">Provinsi:</label>
-                            <select x-model="province" 
-                                    @change="onProvinceChange()" 
-                                    class="w-full rounded-xl border border-gray-300 bg-white px-3 py-2.5 text-base sm:text-sm font-medium text-gray-800 focus:border-ftl-forest focus:outline-none focus:ring-2 focus:ring-emerald-200">
-                                <option value="">-- Pilih Provinsi --</option>
-                                <template x-for="item in destinations" :key="item.province">
-                                    <option :value="item.province" x-text="item.province"></option>
-                                </template>
-                            </select>
+                    <!-- ================= PILIHAN MODEL PROVINSI & KOTA BERGAYA ELEGAN ================= -->
+                    <div class="space-y-3 pt-1">
+                        <!-- 1. CUSTOM STYLED PROVINSI SELECTOR -->
+                        <div class="relative">
+                            <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1 flex items-center justify-between">
+                                <span>Provinsi Tujuan:</span>
+                                <span class="text-[10px] text-emerald-700 font-semibold" x-show="province" x-text="'Provinsi Terpilih'"></span>
+                            </label>
+                            
+                            <button type="button" 
+                                    @click="openProvDropdown = !openProvDropdown; openCityDropdown = false;"
+                                    class="w-full p-3 sm:p-3.5 rounded-2xl border transition-all flex items-center justify-between text-left bg-white shadow-2xs cursor-pointer active:scale-[0.99]"
+                                    :class="openProvDropdown ? 'border-emerald-600 ring-2 ring-emerald-500/25' : (province ? 'border-emerald-400 bg-emerald-50/20' : 'border-gray-300 hover:border-gray-400')">
+                                <div class="flex items-center gap-3 min-w-0">
+                                    <div class="w-8 h-8 rounded-xl flex items-center justify-center shrink-0 transition-colors"
+                                         :class="province ? 'bg-emerald-600 text-white' : 'bg-gray-100 text-gray-500'">
+                                        <i data-lucide="map" class="w-4 h-4"></i>
+                                    </div>
+                                    <div class="min-w-0">
+                                        <span class="text-[10px] uppercase font-bold text-gray-400 block leading-tight">Provinsi</span>
+                                        <span class="text-xs sm:text-sm font-bold truncate block"
+                                              :class="province ? 'text-gray-900' : 'text-gray-400'"
+                                              x-text="province || '-- Ketuk untuk Pilih Provinsi --'"></span>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-1.5 shrink-0 ml-2">
+                                    <span x-show="province" class="text-[10px] font-bold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-full hidden sm:inline-block">Ganti</span>
+                                    <i data-lucide="chevron-down" class="w-4 h-4 text-gray-400 transition-transform duration-200" :class="openProvDropdown ? 'rotate-180 text-emerald-600' : ''"></i>
+                                </div>
+                            </button>
+
+                            <!-- Dropdown Menu Box Provinsi -->
+                            <div x-show="openProvDropdown" 
+                                 @click.away="openProvDropdown = false"
+                                 x-transition:enter="transition ease-out duration-150"
+                                 x-transition:enter-start="opacity-0 scale-95 -translate-y-1"
+                                 x-transition:enter-end="opacity-100 scale-100 translate-y-0"
+                                 class="absolute z-50 left-0 right-0 mt-1.5 bg-white rounded-2xl shadow-2xl border border-emerald-300 p-2.5 text-xs sm:text-sm space-y-2">
+                                
+                                <!-- Mini Search Filter di Dalam Dropdown -->
+                                <div class="relative">
+                                    <input type="text" 
+                                           x-model="searchProvQuery" 
+                                           placeholder="Cari provinsi (misal: Jawa, Bali, Riau, Sumatera)..."
+                                           class="w-full pl-8 pr-3 py-2.5 text-xs rounded-xl border border-gray-200 focus:outline-none focus:border-emerald-600 focus:ring-1 focus:ring-emerald-500 bg-gray-50">
+                                    <i data-lucide="search" class="w-3.5 h-3.5 text-gray-400 absolute left-2.5 top-3"></i>
+                                </div>
+
+                                <!-- List Item Provinsi -->
+                                <div class="max-h-56 overflow-y-auto space-y-1 pr-1">
+                                    <template x-for="item in filteredProvincesList" :key="item.province">
+                                        <button type="button"
+                                                @click="selectProvince(item.province)"
+                                                class="w-full text-left px-3 py-2.5 rounded-xl transition flex items-center justify-between cursor-pointer active:scale-98"
+                                                :class="province === item.province ? 'bg-emerald-600 text-white font-bold shadow-xs' : 'hover:bg-emerald-50 text-gray-800'">
+                                            <div class="flex items-center gap-2">
+                                                <span class="w-1.5 h-1.5 rounded-full" :class="province === item.province ? 'bg-white' : 'bg-emerald-500'"></span>
+                                                <span class="truncate" x-text="item.province"></span>
+                                            </div>
+                                            <span class="text-[10px] px-2 py-0.5 rounded-full shrink-0 ml-2"
+                                                  :class="province === item.province ? 'bg-white/20 text-white' : 'bg-gray-100 text-gray-500'"
+                                                  x-text="item.cities.length + ' Kota'"></span>
+                                        </button>
+                                    </template>
+                                </div>
+                            </div>
                         </div>
 
-                        <div>
-                            <label class="block text-[10px] text-gray-500 mb-0.5">Kota / Kab:</label>
-                            <select x-model="city" 
-                                    @change="calculateOngkir()" 
+                        <!-- 2. CUSTOM STYLED KOTA / KABUPATEN SELECTOR -->
+                        <div class="relative">
+                            <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1 flex items-center justify-between">
+                                <span>Kota / Kabupaten:</span>
+                                <span class="text-[10px] text-gray-400" x-show="!province">Pilih provinsi dulu</span>
+                                <span class="text-[10px] text-emerald-700 font-semibold" x-show="province && city" x-text="'Kota Terpilih'"></span>
+                            </label>
+
+                            <button type="button" 
+                                    @click="if (province) { openCityDropdown = !openCityDropdown; openProvDropdown = false; }"
                                     :disabled="!province"
-                                    class="w-full rounded-xl border border-gray-300 bg-white px-3 py-2.5 text-base sm:text-sm font-medium text-gray-800 focus:border-ftl-forest focus:outline-none focus:ring-2 focus:ring-emerald-200 disabled:bg-gray-100 disabled:text-gray-400">
-                                <option value="">-- Pilih Kota / Kab --</option>
-                                <template x-for="c in cityList" :key="c">
-                                    <option :value="c" x-text="c"></option>
-                                </template>
-                            </select>
+                                    class="w-full p-3 sm:p-3.5 rounded-2xl border transition-all flex items-center justify-between text-left shadow-2xs"
+                                    :class="!province ? 'bg-gray-100/70 border-gray-200 text-gray-400 cursor-not-allowed' : (openCityDropdown ? 'bg-white border-emerald-600 ring-2 ring-emerald-500/25 cursor-pointer' : (city ? 'bg-emerald-50/20 border-emerald-400 text-gray-900 cursor-pointer' : 'bg-white border-gray-300 hover:border-gray-400 cursor-pointer active:scale-[0.99]'))">
+                                <div class="flex items-center gap-3 min-w-0">
+                                    <div class="w-8 h-8 rounded-xl flex items-center justify-center shrink-0 transition-colors"
+                                         :class="city ? 'bg-emerald-600 text-white' : 'bg-gray-100 text-gray-500'">
+                                        <i data-lucide="building-2" class="w-4 h-4"></i>
+                                    </div>
+                                    <div class="min-w-0">
+                                        <span class="text-[10px] uppercase font-bold text-gray-400 block leading-tight">Kota / Kab</span>
+                                        <span class="text-xs sm:text-sm font-bold truncate block"
+                                              :class="city ? 'text-gray-900' : 'text-gray-400'"
+                                              x-text="city || (province ? '-- Ketuk untuk Pilih Kota / Kab --' : '-- Pilih Provinsi Dulu --')"></span>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-1.5 shrink-0 ml-2">
+                                    <span x-show="city" class="text-[10px] font-bold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-full hidden sm:inline-block">Ganti</span>
+                                    <i data-lucide="chevron-down" class="w-4 h-4 text-gray-400 transition-transform duration-200" :class="openCityDropdown ? 'rotate-180 text-emerald-600' : ''"></i>
+                                </div>
+                            </button>
+
+                            <!-- Dropdown Menu Box Kota -->
+                            <div x-show="openCityDropdown && province" 
+                                 @click.away="openCityDropdown = false"
+                                 x-transition:enter="transition ease-out duration-150"
+                                 x-transition:enter-start="opacity-0 scale-95 -translate-y-1"
+                                 x-transition:enter-end="opacity-100 scale-100 translate-y-0"
+                                 class="absolute z-50 left-0 right-0 mt-1.5 bg-white rounded-2xl shadow-2xl border border-emerald-300 p-2.5 text-xs sm:text-sm space-y-2">
+                                
+                                <!-- Mini Search Filter di Dalam Dropdown Kota -->
+                                <div class="relative">
+                                    <input type="text" 
+                                           x-model="searchCityQuery" 
+                                           :placeholder="'Cari kota di ' + province + '...'"
+                                           class="w-full pl-8 pr-3 py-2.5 text-xs rounded-xl border border-gray-200 focus:outline-none focus:border-emerald-600 focus:ring-1 focus:ring-emerald-500 bg-gray-50">
+                                    <i data-lucide="search" class="w-3.5 h-3.5 text-gray-400 absolute left-2.5 top-3"></i>
+                                </div>
+
+                                <!-- List Item Kota -->
+                                <div class="max-h-56 overflow-y-auto space-y-1 pr-1">
+                                    <template x-for="c in filteredCitiesOfProvince" :key="c">
+                                        <button type="button"
+                                                @click="selectCity(c)"
+                                                class="w-full text-left px-3 py-2.5 rounded-xl transition flex items-center justify-between cursor-pointer active:scale-98"
+                                                :class="city === c ? 'bg-emerald-600 text-white font-bold shadow-xs' : 'hover:bg-emerald-50 text-gray-800'">
+                                            <div class="flex items-center gap-2">
+                                                <span class="w-1.5 h-1.5 rounded-full" :class="city === c ? 'bg-white' : 'bg-emerald-500'"></span>
+                                                <span class="truncate" x-text="c"></span>
+                                            </div>
+                                            <i data-lucide="check" class="w-4 h-4 text-white" x-show="city === c"></i>
+                                        </button>
+                                    </template>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -390,18 +504,20 @@ require_once __DIR__ . '/../config.php';
                             <span class="block text-[11px] font-bold text-gray-700 uppercase tracking-wider">
                                 Ekspedisi Terdeteksi:
                             </span>
-                            <span class="text-[10px] text-emerald-700 font-semibold">Tersedia 3 Opsi</span>
+                            <span class="text-[10px] text-emerald-700 font-semibold bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">
+                                3 Opsi Pengiriman Tersedia
+                            </span>
                         </div>
                         
                         <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
                             <template x-for="c in couriers" :key="c.code">
                                 <div @click="selectedCourier = c"
-                                     :class="selectedCourier && selectedCourier.code === c.code ? 'border-emerald-600 bg-emerald-50/50 ring-2 ring-emerald-500/20' : 'border-gray-200 hover:border-gray-300 bg-white'"
-                                     class="p-2.5 rounded-2xl border cursor-pointer transition-all flex flex-col justify-between text-left relative group">
+                                     :class="selectedCourier && selectedCourier.code === c.code ? 'border-emerald-600 bg-emerald-50/70 ring-2 ring-emerald-500/25 shadow-xs' : 'border-gray-200 hover:border-gray-300 bg-white'"
+                                     class="p-3 rounded-2xl border cursor-pointer transition-all flex flex-col justify-between text-left relative active:scale-[0.98]">
                                     <div>
                                         <div class="flex items-center justify-between mb-1">
                                             <span class="text-xs font-extrabold text-gray-900" x-text="c.name"></span>
-                                            <div class="w-4 h-4 rounded-full border flex items-center justify-center"
+                                            <div class="w-4 h-4 rounded-full border-2 flex items-center justify-center"
                                                  :class="selectedCourier && selectedCourier.code === c.code ? 'border-emerald-600 bg-emerald-600' : 'border-gray-300'">
                                                 <div x-show="selectedCourier && selectedCourier.code === c.code" class="w-1.5 h-1.5 bg-white rounded-full"></div>
                                             </div>
@@ -409,23 +525,24 @@ require_once __DIR__ . '/../config.php';
                                         <span class="text-[10px] text-gray-500 block leading-tight" x-text="c.service"></span>
                                         <span class="text-[10px] text-emerald-700 font-semibold block mt-0.5" x-text="'Est. ' + c.etd"></span>
                                     </div>
-                                    <div class="pt-2 mt-1 border-t border-gray-100 flex items-baseline justify-between">
+                                    <div class="pt-2 mt-2 border-t border-gray-100 flex items-baseline justify-between">
                                         <span class="text-xs font-extrabold text-ftl-forest" x-text="c.cost_formatted"></span>
+                                        <span class="text-[9px] font-bold text-emerald-700" x-text="c.badge"></span>
                                     </div>
                                 </div>
                             </template>
                         </div>
                     </div>
 
-                    <div x-show="!city && !loadingOngkir" class="bg-gray-50 p-3 rounded-xl text-center border border-dashed border-gray-200">
+                    <div x-show="!city && !loadingOngkir" class="bg-gray-50 p-3.5 rounded-2xl text-center border border-dashed border-gray-200">
                         <p class="text-xs text-gray-500">
-                            Klik <b>"📍 Auto-Deteksi Lokasi"</b> di atas atau ketik nama kota untuk langsung menampilkan tarif ongkir <b>J&T, JNE, dan SiCepat</b>.
+                            Pilih <b>Provinsi & Kota</b> di atas untuk langsung menampilkan tarif ongkir <b>J&T, JNE, dan SiCepat</b>.
                         </p>
                     </div>
                 </div>
 
                 <!-- 4. TOTAL RINGKASAN PEMBAYARAN -->
-                <div x-show="selectedCourier" class="bg-emerald-50/70 p-3.5 rounded-2xl border border-emerald-200 space-y-1.5 text-xs text-gray-700">
+                <div x-show="selectedCourier" class="bg-emerald-50/70 p-4 rounded-2xl border border-emerald-200 space-y-1.5 text-xs text-gray-700">
                     <div class="flex justify-between">
                         <span>Subtotal Produk (<span x-text="qty"></span> pcs):</span>
                         <span class="font-bold text-gray-900" x-text="formatRp(subtotal)"></span>
@@ -472,9 +589,13 @@ require_once __DIR__ . '/../config.php';
 </div>
 
 <script>
+// Database Wilayah & Ongkir Terintegrasi Langsung (Embedded Zero-Delay Data)
+window.FTL_EMBEDDED_DESTINATIONS = <?= json_encode($FTL_DESTINATIONS, JSON_UNESCAPED_UNICODE) ?>;
+window.FTL_EMBEDDED_SHIPPING_RATES = <?= json_encode($SHIPPING_DATA, JSON_UNESCAPED_UNICODE) ?>;
+
 /**
  * Order Modal Alpine Component Definition
- * Handles: Consultations, Interactive Product Selection, Quantity, Geolocation GPS & Live Shipping calculation.
+ * Handles: Consultations, Product Selection, Styled Dropdown, Geolocation GPS & Live Shipping calculation.
  */
 function orderModal() {
     return {
@@ -492,7 +613,11 @@ function orderModal() {
         city: '',
         address: '',
         note: '',
-        destinations: [],
+        openProvDropdown: false,
+        searchProvQuery: '',
+        openCityDropdown: false,
+        searchCityQuery: '',
+        destinations: window.FTL_EMBEDDED_DESTINATIONS || [],
         cityList: [],
         couriers: [],
         selectedCourier: null,
@@ -559,10 +684,13 @@ function orderModal() {
         },
         get allCitiesList() {
             let list = [];
+            if (!this.destinations) return [];
             this.destinations.forEach(d => {
-                d.cities.forEach(c => {
-                    list.push({ city: c, province: d.province, full: c + ', ' + d.province });
-                });
+                if (d.cities && Array.isArray(d.cities)) {
+                    d.cities.forEach(c => {
+                        list.push({ city: c, province: d.province, full: c + ', ' + d.province });
+                    });
+                }
             });
             return list;
         },
@@ -573,11 +701,29 @@ function orderModal() {
                 item.city.toLowerCase().includes(q) || item.province.toLowerCase().includes(q)
             ).slice(0, 6);
         },
+        get filteredProvincesList() {
+            if (!this.searchProvQuery || !this.searchProvQuery.trim()) {
+                return this.destinations;
+            }
+            const q = this.searchProvQuery.toLowerCase().trim();
+            return this.destinations.filter(d => d.province.toLowerCase().includes(q));
+        },
+        get filteredCitiesOfProvince() {
+            if (!this.searchCityQuery || !this.searchCityQuery.trim()) {
+                return this.cityList;
+            }
+            const q = this.searchCityQuery.toLowerCase().trim();
+            return this.cityList.filter(c => c.toLowerCase().includes(q));
+        },
         formatRp(val) {
             return 'Rp ' + Number(val || 0).toLocaleString('id-ID');
         },
         init() {
-            this.initDestinations();
+            if (window.FTL_EMBEDDED_DESTINATIONS && window.FTL_EMBEDDED_DESTINATIONS.length > 0) {
+                this.destinations = window.FTL_EMBEDDED_DESTINATIONS;
+            } else {
+                this.initDestinations();
+            }
         },
         openModal(detail) {
             this.isOpen = true;
@@ -590,6 +736,8 @@ function orderModal() {
         },
         closeModal() {
             this.isOpen = false;
+            this.openProvDropdown = false;
+            this.openCityDropdown = false;
             try {
                 if (typeof orderModalOpen !== 'undefined') {
                     orderModalOpen = false;
@@ -619,13 +767,29 @@ function orderModal() {
                 console.error('Gagal memuat tujuan ongkir', e);
             }
         },
-        onProvinceChange() {
+        selectProvince(provName) {
+            this.province = provName;
             const found = this.destinations.find(d => d.province === this.province);
             this.cityList = found ? found.cities : [];
             this.city = '';
             this.couriers = [];
             this.selectedCourier = null;
             this.detectedAlert = '';
+            this.searchQuery = '';
+            this.openProvDropdown = false;
+            this.searchProvQuery = '';
+            // Auto buka pilihan kota agar flow belanja mulus
+            this.openCityDropdown = true;
+            this.searchCityQuery = '';
+            setTimeout(() => { if (window.lucide) lucide.createIcons(); }, 30);
+        },
+        selectCity(cityName) {
+            this.city = cityName;
+            this.searchQuery = cityName + ', ' + this.province;
+            this.detectedAlert = '📍 Lokasi Terpilih: ' + cityName + ' (' + this.province + ')';
+            this.openCityDropdown = false;
+            this.searchCityQuery = '';
+            this.calculateOngkir();
         },
         selectCityFromSearch(item) {
             this.province = item.province;
@@ -634,12 +798,12 @@ function orderModal() {
             this.city = item.city;
             this.searchQuery = item.city + ', ' + item.province;
             this.showSuggestions = false;
-            this.detectedAlert = 'Lokasi Terpilih: ' + item.city + ', ' + item.province;
+            this.detectedAlert = '📍 Lokasi Terpilih: ' + item.city + ' (' + item.province + ')';
             this.calculateOngkir();
         },
         async detectLocationGPS() {
             if (!navigator.geolocation) {
-                alert('Browser Anda tidak mendukung deteksi lokasi otomatis. Silakan pilih kota manual.');
+                alert('Browser Anda tidak mendukung deteksi lokasi otomatis. Silakan pilih provinsi & kota manual.');
                 return;
             }
             this.detectingGPS = true;
@@ -684,23 +848,74 @@ function orderModal() {
                         this.detectedAlert = '📍 GPS Terdeteksi: ' + matched.city + ' (' + matched.province + ')';
                         await this.calculateOngkir();
                     } else {
-                        this.detectedAlert = 'Lokasi sekitar: ' + (data.city || data.locality || 'Indonesia') + '. Silakan konfirmasi di dropdown.';
+                        this.detectedAlert = 'Lokasi sekitar: ' + (data.city || data.locality || 'Indonesia') + '. Silakan pilih di menu Provinsi & Kota.';
                     }
                 } catch (e) {
                     console.error('Error reverse geocode GPS', e);
-                    alert('Gagal mendeteksi nama kota otomatis. Silakan pilih manual melalui pencarian.');
+                    alert('Gagal mendeteksi nama kota otomatis. Silakan pilih manual melalui menu Provinsi & Kota.');
                 } finally {
                     this.detectingGPS = false;
                 }
             }, (err) => {
                 this.detectingGPS = false;
-                alert('Izin akses lokasi tidak diberikan atau GPS non-aktif. Silakan ketik nama kota manual.');
+                alert('Izin akses lokasi tidak diberikan atau GPS non-aktif. Silakan pilih Provinsi & Kota manual.');
             }, { timeout: 8000 });
         },
         async calculateOngkir() {
             if (!this.province || !this.city) return;
             this.loadingOngkir = true;
             this.selectedCourier = null;
+
+            // 1. Instant Local Calculation (0ms response time, 100% resilient)
+            if (window.FTL_EMBEDDED_SHIPPING_RATES && window.FTL_EMBEDDED_SHIPPING_RATES[this.province]) {
+                const provData = window.FTL_EMBEDDED_SHIPPING_RATES[this.province];
+                const rateInfo = (provData.cities && provData.cities[this.city]) ? provData.cities[this.city] : provData.base;
+                const chargeableKg = Math.max(1, Math.ceil(this.totalWeight / 1000));
+                
+                const jntCost = rateInfo.jnt * chargeableKg;
+                const jneCost = rateInfo.jne * chargeableKg;
+                const sicepatCost = rateInfo.sicepat * chargeableKg;
+                const etd = rateInfo.etd || '1-2 Hari';
+
+                this.couriers = [
+                    {
+                        code: 'jnt',
+                        name: 'J&T Express',
+                        badge: 'Terpopuler ⚡',
+                        service: 'Layanan EZ (Reguler)',
+                        cost: jntCost,
+                        cost_formatted: this.formatRp(jntCost),
+                        etd: etd,
+                        color: 'red'
+                    },
+                    {
+                        code: 'jne',
+                        name: 'JNE Express',
+                        badge: 'Terpercaya 📦',
+                        service: 'Layanan REG (Reguler)',
+                        cost: jneCost,
+                        cost_formatted: this.formatRp(jneCost),
+                        etd: etd,
+                        color: 'blue'
+                    },
+                    {
+                        code: 'sicepat',
+                        name: 'SiCepat Ekspres',
+                        badge: 'Ekonomis 🚀',
+                        service: 'Layanan REG (Reguler)',
+                        cost: sicepatCost,
+                        cost_formatted: this.formatRp(sicepatCost),
+                        etd: etd,
+                        color: 'amber'
+                    }
+                ];
+                this.selectedCourier = this.couriers[0];
+                this.loadingOngkir = false;
+                setTimeout(() => { if (window.lucide) lucide.createIcons(); }, 30);
+                return;
+            }
+
+            // 2. Fallback to API if shipping rates not embedded
             try {
                 const url = '<?= BASE_URL ?>api/ongkir.php?action=calculate&province=' + encodeURIComponent(this.province) + '&city=' + encodeURIComponent(this.city) + '&weight=' + this.totalWeight;
                 const res = await fetch(url);
@@ -713,23 +928,36 @@ function orderModal() {
                 console.error('Gagal hitung ongkir', e);
             } finally {
                 this.loadingOngkir = false;
+                setTimeout(() => { if (window.lucide) lucide.createIcons(); }, 30);
             }
         },
         sendConsultationWA() {
-            let msg = 'Halo Tim For The Little Indonesia 🍃\n\n';
+            let msg = 'Halo Tim For The Little Indonesia 🍃
+
+';
             if (this.consultName && this.consultName.trim()) {
-                msg += 'Perkenalkan, saya *' + this.consultName.trim() + '* ingin konsultasi seputar perawatan si kecil:\n\n';
+                msg += 'Perkenalkan, saya *' + this.consultName.trim() + '* ingin konsultasi seputar perawatan si kecil:
+
+';
             } else {
-                msg += 'Saya ingin konsultasi seputar si kecil & produk FTL:\n\n';
+                msg += 'Saya ingin konsultasi seputar si kecil & produk FTL:
+
+';
             }
             if (this.consultBabyAge && this.consultBabyAge.trim()) {
-                msg += '• *Usia/Kondisi Si Kecil:* ' + this.consultBabyAge.trim() + '\n';
+                msg += '• *Usia/Kondisi Si Kecil:* ' + this.consultBabyAge.trim() + '
+';
             }
-            msg += '• *Topik Pertanyaan:* ' + this.consultTopic + '\n';
+            msg += '• *Topik Pertanyaan:* ' + this.consultTopic + '
+';
             if (this.consultCustomQuestion && this.consultCustomQuestion.trim()) {
-                msg += '\n*Detail Pertanyaan / Keluhan:*\n"' + this.consultCustomQuestion.trim() + '"\n';
+                msg += '
+*Detail Pertanyaan / Keluhan:*
+"' + this.consultCustomQuestion.trim() + '"
+';
             }
-            msg += '\nMohon saran dan penjelasannya ya min. Terima kasih banyak! 🙏';
+            msg += '
+Mohon saran dan penjelasannya ya min. Terima kasih banyak! 🙏';
 
             const url = 'https://wa.me/<?= WHATSAPP_NUMBER ?>?text=' + encodeURIComponent(msg);
             const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
@@ -750,7 +978,7 @@ function orderModal() {
                 return;
             }
             if (!this.city || !this.province) {
-                alert('Silakan tentukan kota/kabupaten pengiriman.');
+                alert('Silakan tentukan provinsi & kota/kabupaten pengiriman.');
                 return;
             }
             if (!this.selectedCourier) {
@@ -758,30 +986,54 @@ function orderModal() {
                 return;
             }
 
-            let msg = 'Halo Admin For The Little Indonesia 🍃\n';
-            msg += 'Saya ingin memesan produk via Website Resmi FTL:\n\n';
-            msg += '------------------------------------\n';
-            msg += '*DATA PENERIMA:*\n';
-            msg += '• Nama: ' + this.name.trim() + '\n';
-            msg += '• No. WhatsApp: ' + this.phone.trim() + '\n';
-            msg += '• Tujuan: ' + this.city + ', ' + this.province + '\n';
+            let msg = 'Halo Admin For The Little Indonesia 🍃
+';
+            msg += 'Saya ingin memesan produk via Website Resmi FTL:
+
+';
+            msg += '------------------------------------
+';
+            msg += '*DATA PENERIMA:*
+';
+            msg += '• Nama: ' + this.name.trim() + '
+';
+            msg += '• No. WhatsApp: ' + this.phone.trim() + '
+';
+            msg += '• Tujuan: ' + this.city + ', ' + this.province + '
+';
             if (this.address.trim()) {
-                msg += '• Alamat Lengkap: ' + this.address.trim() + '\n';
+                msg += '• Alamat Lengkap: ' + this.address.trim() + '
+';
             }
-            msg += '\n*RINCIAN PRODUK:*\n';
-            msg += '• ' + this.currentName + '\n';
-            msg += '• Jumlah: ' + this.qty + ' pcs (Estimasi ' + this.totalWeight + 'g)\n';
-            msg += '• Subtotal Produk: ' + this.formatRp(this.subtotal) + '\n\n';
+            msg += '
+*RINCIAN PRODUK:*
+';
+            msg += '• ' + this.currentName + '
+';
+            msg += '• Jumlah: ' + this.qty + ' pcs (Estimasi ' + this.totalWeight + 'g)
+';
+            msg += '• Subtotal Produk: ' + this.formatRp(this.subtotal) + '
+
+';
             
-            msg += '*EKSPEDISI & ONGKOS KIRIM:*\n';
-            msg += '• Kurir: ' + this.selectedCourier.name + ' (' + this.selectedCourier.service + ')\n';
-            msg += '• Estimasi Tiba: ' + this.selectedCourier.etd + '\n';
-            msg += '• Biaya Ongkir: ' + this.formatRp(this.shippingCost) + '\n';
-            msg += '------------------------------------\n';
-            msg += '*TOTAL PEMBAYARAN: ' + this.formatRp(this.grandTotal) + '*\n';
-            msg += '------------------------------------\n';
+            msg += '*EKSPEDISI & ONGKOS KIRIM:*
+';
+            msg += '• Kurir: ' + this.selectedCourier.name + ' (' + this.selectedCourier.service + ')
+';
+            msg += '• Estimasi Tiba: ' + this.selectedCourier.etd + '
+';
+            msg += '• Biaya Ongkir: ' + this.formatRp(this.shippingCost) + '
+';
+            msg += '------------------------------------
+';
+            msg += '*TOTAL PEMBAYARAN: ' + this.formatRp(this.grandTotal) + '*
+';
+            msg += '------------------------------------
+';
             if (this.note.trim()) {
-                msg += '*Catatan Tambahan:* ' + this.note.trim() + '\n\n';
+                msg += '*Catatan Tambahan:* ' + this.note.trim() + '
+
+';
             }
             msg += 'Halo Admin FTL, saya sudah mengisi form pesanan dan ongkir sudah otomatis terdeteksi via website. Mohon info nomor rekening BCA/Mandiri untuk transfer ya. Terima kasih! 🙏';
 
