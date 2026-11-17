@@ -72,11 +72,11 @@ require_once __DIR__ . '/includes/navbar.php';
              x-transition:leave="transition transform ease-in duration-400 absolute inset-0"
              x-transition:leave-start="opacity-100 translate-x-0"
              x-transition:leave-end="opacity-0 -translate-x-full"
-             class="w-full h-full bg-gradient-to-r from-ftl-forest via-[#2A5942] to-[#1E3E2F] relative flex items-center overflow-hidden">
+             class="w-full h-full relative flex items-center overflow-hidden bg-cover bg-left sm:bg-center"
+             style="background-image: url('<?= BASE_URL ?>assets/images/banner-ftl-hero.jpg');">
             
-            <!-- Background Graphic Wave (Persis gaya kurva Tentang Anak di banner) -->
-            <div class="absolute -top-20 -left-20 w-96 h-96 bg-emerald-500/20 rounded-full blur-3xl pointer-events-none"></div>
-            <div class="absolute -bottom-20 -right-20 w-[500px] h-[500px] bg-amber-500/15 rounded-full blur-3xl pointer-events-none"></div>
+            <!-- Dark Gradient Vignette Overlay to ensure razor-sharp text contrast -->
+            <div class="absolute inset-0 bg-gradient-to-r from-black/50 via-[#1A3D2C]/85 to-[#122A1E]/95 lg:from-black/15 lg:via-[#1A3D2C]/80 lg:to-[#122A1E]/95 pointer-events-none"></div>
             
             <div class="w-full max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 relative z-10">
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
