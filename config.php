@@ -12,13 +12,16 @@ define('SITE_DESCRIPTION', "Perawatan alami terbaik untuk bayi dan anak berbahan
 define('SITE_KEYWORDS', 'baby calming rub cream, minyak telon bayi, krim kolik bayi, skincare bayi alami, for the little indonesia, ftl baby');
 
 // Kontak & Media Sosial Resmi
-define('WHATSAPP_NUMBER', '6281234567890'); // Ganti dengan nomor WhatsApp admin resmi FTL (format 628xxx tanpa simbol)
-define('WHATSAPP_DISPLAY', '+62 812-3456-7890');
+define('WHATSAPP_NUMBER', '6282118017248'); // Nomor WhatsApp admin resmi FTL (format 628xxx tanpa simbol)
+define('WHATSAPP_DISPLAY', '+62 821-1801-7248');
 define('INSTAGRAM_URL', 'https://www.instagram.com/forthelittle.id/');
 define('TIKTOK_URL', 'https://www.tiktok.com/@forthelittle.id');
 define('SHOPEE_URL', 'https://shopee.co.id/forthelittle.id?mmp_pid=an_11373750717&uls_trackid=574vdd0604jd&utm_campaign=-&utm_content=-&utm_medium=affiliates&utm_source=an_11373750717&utm_term=fuxnj44gbnej');
 define('TOKOPEDIA_URL', 'https://www.tokopedia.com/');
 define('EMAIL_CONTACT', 'hello@forthelittle.id');
+define('OPERATIONAL_HOURS_WEEKDAY', 'Senin - Jumat: 09.00 - 17.00 WIB');
+define('OPERATIONAL_HOURS_SATURDAY', 'Sabtu: 09.00 - 15.00 WIB');
+define('OPERATIONAL_HOURS_SUNDAY', 'Minggu & Hari Libur: Tutup');
 
 // Pengaturan Ekspedisi & Live API Ongkir
 define('SHIPPING_ORIGIN_CITY', 'Jakarta Selatan');
@@ -27,12 +30,14 @@ define('SHIPPING_ORIGIN_ID', 153); // ID Kota Jakarta Selatan di RajaOngkir
 define('RAJAONGKIR_API_KEY', ''); // Masukkan API Key RajaOngkir jika menggunakan RajaOngkir
 define('BITESHIP_API_KEY', '');   // Atau masukkan API Key Biteship jika menggunakan Biteship
 
-// Penentuan Base URL Otomatis (Bekerja di localhost XAMPP maupun cPanel / Domain .com)
-$is_https = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') || (isset($_SERVER['SERVER_PORT']) && $_SERVER['SERVER_PORT'] == 443);
+// Penentuan Base URL Otomatis (Bekerja di localhost XAMPP, Vercel, maupun cPanel / Domain .com)
+$is_https = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') 
+    || (isset($_SERVER['SERVER_PORT']) && $_SERVER['SERVER_PORT'] == 443)
+    || (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https');
 $protocol = $is_https ? "https://" : "http://";
 $host = $_SERVER['HTTP_HOST'] ?? 'localhost';
 $script_name = isset($_SERVER['SCRIPT_NAME']) ? str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME'])) : '';
-if ($script_name == '/' || $script_name == '\\' || $script_name == '.' || empty($script_name)) {
+if ($script_name == '/' || $script_name == '\\' || $script_name == '.' || empty($script_name) || $script_name == '/api') {
     $base_url = $protocol . $host . '/';
 } else {
     $base_url = rtrim($protocol . $host . $script_name, '/') . '/';
@@ -51,7 +56,7 @@ $PRODUCTS = [
         'rating' => 4.9,
         'reviews_count' => 340,
         'image' => 'assets/images/product-calming-rub.svg',
-        'short_desc' => 'Diformulasikan khusus dengan Minyak Pala asli Nusantara, Calendula, dan Chamomile untuk meredakan kolik, perut kembung, dan membantu si kecil tidur lebih lelap tanpa rasa lengket.',
+        'short_desc' => 'Diformulasikan khusus dengan Minyak Pala asli Nusantara dan Calendula untuk meredakan kolik, perut kembung, dan membantu si kecil tidur lebih lelap tanpa rasa lengket.',
         'size' => '50 gram (Tube)',
         'certifications' => ['BPOM Certified', 'Halal Indonesia', 'Hypoallergenic', 'Dermatologically Tested', 'Safe for Newborn 0+'],
         'benefits' => [

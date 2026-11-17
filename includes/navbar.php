@@ -19,10 +19,6 @@ $nav_items = [
         'label' => 'Tentang Kami', 
         'url' => $is_home ? '#tentang' : BASE_URL . 'index.php#tentang'
     ],
-    'reseller' => [
-        'label' => 'Kemitraan & Reseller', 
-        'url' => $is_home ? '#reseller' : BASE_URL . 'index.php#reseller'
-    ],
 ];
 ?>
 

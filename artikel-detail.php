@@ -55,18 +55,27 @@ Pijat bayi bukan hanya sekadar sarana menenangkan fisik, tetapi juga bentuk komu
 Gerakan pijat ini mengikuti jalur usus besar bayi dari kanan bawah naik ke atas, melintang ke kiri, lalu turun ke kiri bawah menuju pembuangan:
 </p>
 
-<div class="space-y-4 my-6">
-    <div class="bg-ftl-cream p-4 rounded-2xl border border-ftl-sand">
-        <h4 class="font-bold text-ftl-forest mb-1">1. Gerakan 'I' (Sisi Kiri Perut Bayi)</h4>
-        <p class="text-xs text-gray-600">Usap lembut dari bawah tulang rusuk kiri bayi lurus ke arah perut bagian bawah membentuk huruf 'I'. Ulangi 3-5 kali.</p>
+<div class="space-y-3.5 my-6">
+    <div class="flex items-start gap-4 p-4 rounded-2xl bg-ftl-cream/60 border border-ftl-sand/80 shadow-2xs">
+        <span class="w-8 h-8 rounded-full border border-ftl-forest/25 bg-white text-ftl-forest font-display font-bold text-xs flex items-center justify-center shrink-0 mt-0.5 shadow-2xs">01</span>
+        <div>
+            <h4 class="font-bold text-sm sm:text-base text-ftl-forest mb-0.5">Gerakan 'I' (Sisi Kiri Perut Bayi)</h4>
+            <p class="text-xs sm:text-sm text-gray-600 leading-relaxed">Usap lembut dari bawah tulang rusuk kiri bayi lurus ke arah perut bagian bawah membentuk huruf 'I'. Ulangi 3-5 kali.</p>
+        </div>
     </div>
-    <div class="bg-ftl-cream p-4 rounded-2xl border border-ftl-sand">
-        <h4 class="font-bold text-ftl-forest mb-1">2. Gerakan 'L' Terbalik (Dari Kanan ke Kiri Bayi)</h4>
-        <p class="text-xs text-gray-600">Mulai dari sisi perut kanan atas bayi, geser mendatar ke kiri, lalu turun ke bawah membentuk huruf 'L' terbalik. Ulangi 3-5 kali.</p>
+    <div class="flex items-start gap-4 p-4 rounded-2xl bg-ftl-cream/60 border border-ftl-sand/80 shadow-2xs">
+        <span class="w-8 h-8 rounded-full border border-ftl-forest/25 bg-white text-ftl-forest font-display font-bold text-xs flex items-center justify-center shrink-0 mt-0.5 shadow-2xs">02</span>
+        <div>
+            <h4 class="font-bold text-sm sm:text-base text-ftl-forest mb-0.5">Gerakan 'L' Terbalik (Dari Kanan ke Kiri Bayi)</h4>
+            <p class="text-xs sm:text-sm text-gray-600 leading-relaxed">Mulai dari sisi perut kanan atas bayi, geser mendatar ke kiri, lalu turun ke bawah membentuk huruf 'L' terbalik. Ulangi 3-5 kali.</p>
+        </div>
     </div>
-    <div class="bg-ftl-cream p-4 rounded-2xl border border-ftl-sand">
-        <h4 class="font-bold text-ftl-forest mb-1">3. Gerakan 'U' Terbalik (Bawah Kanan Melingkar ke Bawah Kiri)</h4>
-        <p class="text-xs text-gray-600">Mulai dari perut kanan bawah bayi, naik ke atas, mendatar ke kiri, lalu turun ke perut kiri bawah membentuk huruf 'U' terbalik. Ulangi 3-5 kali.</p>
+    <div class="flex items-start gap-4 p-4 rounded-2xl bg-ftl-cream/60 border border-ftl-sand/80 shadow-2xs">
+        <span class="w-8 h-8 rounded-full border border-ftl-forest/25 bg-white text-ftl-forest font-display font-bold text-xs flex items-center justify-center shrink-0 mt-0.5 shadow-2xs">03</span>
+        <div>
+            <h4 class="font-bold text-sm sm:text-base text-ftl-forest mb-0.5">Gerakan 'U' Terbalik (Bawah Kanan Melingkar ke Bawah Kiri)</h4>
+            <p class="text-xs sm:text-sm text-gray-600 leading-relaxed">Mulai dari perut kanan bawah bayi, naik ke atas, mendatar ke kiri, lalu turun ke perut kiri bawah membentuk huruf 'U' terbalik. Ulangi 3-5 kali.</p>
+        </div>
     </div>
 </div>
 
@@ -172,9 +181,15 @@ require_once __DIR__ . '/includes/navbar.php';
         </div>
 
         <!-- Medical Disclaimer -->
-        <div class="my-8 p-4 rounded-2xl bg-amber-50 border border-amber-200 text-xs text-amber-900 flex items-start gap-3">
-            <i data-lucide="info" class="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5"></i>
-            <div>
+        <div class="my-8 p-4 rounded-2xl bg-amber-50/80 border border-amber-200/80 text-xs text-amber-950 flex items-start gap-3 shadow-2xs">
+            <span class="w-6 h-6 rounded-full border border-amber-400/50 bg-amber-100/70 text-amber-800 flex items-center justify-center shrink-0 mt-0.5">
+                <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"/>
+                    <line x1="12" y1="16" x2="12" y2="12"/>
+                    <line x1="12" y1="8" x2="12.01" y2="8"/>
+                </svg>
+            </span>
+            <div class="leading-relaxed">
                 <strong>Catatan Edukasi:</strong> Artikel ini bertujuan sebagai informasi umum dan panduan perawatan harian. Jika bayi Anda mengalami demam tinggi, muntah proyektil, atau tanda kegawatdaruratan medis, segera konsultasikan ke dokter spesialis anak (Sp.A).
             </div>
         </div>

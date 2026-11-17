@@ -105,11 +105,11 @@ $current_page = isset($current_page) ? $current_page : 'home';
       @scroll.window.passive="
           <?php if (($current_page ?? '') === 'home'): ?>
           if ((window.innerHeight + window.scrollY) >= (document.documentElement.scrollHeight - 60)) {
-              activeSection = 'reseller';
+              activeSection = 'tentang';
           } else if (window.scrollY < 120) {
               activeSection = 'home';
           } else {
-              const sections = ['beranda', 'produk', 'artikel', 'tentang', 'reseller'];
+              const sections = ['beranda', 'produk', 'artikel', 'tentang'];
               for (let i = sections.length - 1; i >= 0; i--) {
                   const el = document.getElementById(sections[i]);
                   if (el && el.getBoundingClientRect().top <= 140) {

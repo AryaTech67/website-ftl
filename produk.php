@@ -1,7 +1,7 @@
 <?php
 $current_page = 'produk';
 $page_title = 'Katalog Produk & Baby Calming Rub Cream 50g';
-$page_desc = 'Jelajahi produk perawatan bayi alami dari For The Little. Diformulasikan dengan Minyak Pala Nusantara, Calendula, dan Chamomile untuk redakan kolik dan kembung.';
+$page_desc = 'Jelajahi produk perawatan bayi alami dari For The Little. Diformulasikan dengan Minyak Pala Nusantara dan Calendula untuk redakan kolik dan kembung.';
 
 require_once __DIR__ . '/config.php';
 require_once __DIR__ . '/includes/header.php';
@@ -210,8 +210,8 @@ $main_product = $PRODUCTS['calming-rub-50g'];
                     <ul class="list-disc pl-5 space-y-2 text-xs sm:text-sm">
                         <li><strong>Myristica Fragrans (Nutmeg/Pala Nusantara Oil):</strong> Menghangatkan dan melancarkan sirkulasi alami.</li>
                         <li><strong>Calendula Officinalis Extract:</strong> Menjaga *skin barrier* dan menenangkan iritasi ringan.</li>
-                        <li><strong>Chamomilla Recutita Flower Extract:</strong> Memberikan efek aromaterapi relaksasi sebelum tidur.</li>
-                        <li><strong>Sunflower & Coconut Plant Oils:</strong> Base carrier oil nabati lembut yang cepat meresap tanpa menyumbat pori-pori.</li>
+                        <li><strong>Sunflower & Coconut Plant Oils:</strong> Base carrier oil nabati lembut yang melembapkan dan cepat meresap tanpa menyumbat pori-pori.</li>
+                        <li><strong>Natural Calming Aromatherapy:</strong> Keharuman alami lembut yang menenangkan si kecil saat rewel dan sebelum tidur.</li>
                         <li><strong>Bebas Dari:</strong> Paraben, SLS/SLES, Pewarna Buatan, Mineral Oil berbahaya, dan Alkohol.</li>
                     </ul>
                 </div>

@@ -4,7 +4,7 @@ require_once __DIR__ . '/../config.php';
 ?>
 
 <!-- Footer -->
-<footer class="bg-ftl-forest text-white mt-auto pt-16 pb-12 border-t-4 border-ftl-accent">
+<footer class="bg-ftl-forest text-white mt-auto pt-16 pb-12 border-t border-white/15">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <!-- Top Footer Grid -->
@@ -86,7 +86,6 @@ require_once __DIR__ . '/../config.php';
                     <li><a href="<?= BASE_URL ?>produk.php" class="hover:text-white transition-colors">Baby Calming Rub Cream</a></li>
                     <li><a href="<?= BASE_URL ?>tentang-kami.php" class="hover:text-white transition-colors">Tentang Kami</a></li>
                     <li><a href="<?= BASE_URL ?>artikel.php" class="hover:text-white transition-colors">Artikel & Tips Parenting</a></li>
-                    <li><a href="<?= BASE_URL ?>reseller.php" class="hover:text-white transition-colors">Peluang Mitra & Reseller</a></li>
                 </ul>
             </div>
 
@@ -128,9 +127,11 @@ require_once __DIR__ . '/../config.php';
                     </div>
                     <div class="flex items-start gap-2.5">
                         <i data-lucide="clock" class="w-4 h-4 text-emerald-400 mt-1 flex-shrink-0"></i>
-                        <div>
+                        <div class="space-y-0.5">
                             <span class="block text-xs text-emerald-200">Jam Operasional:</span>
-                            <span>Senin - Sabtu: 08.00 - 18.00 WIB</span>
+                            <span class="block text-white font-medium text-xs sm:text-sm">Senin - Jumat: 09.00 - 17.00 WIB</span>
+                            <span class="block text-emerald-100/90 text-xs">Sabtu: 09.00 - 15.00 WIB</span>
+                            <span class="block text-emerald-200/60 text-[11px]">Minggu & Tanggal Merah: Libur</span>
                         </div>
                     </div>
                 </div>

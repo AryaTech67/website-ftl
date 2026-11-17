@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <circle cx="100" cy="100" r="90" fill="#F0FDF4"/>
+  <!-- Droplet of Pure Plant Oil -->
+  <path d="M100 45 C100 45 65 95 65 125 C65 145 80 160 100 160 C120 160 135 145 135 125 C135 95 100 45 100 45 Z" fill="#10B981" opacity="0.9"/>
+  <path d="M100 55 C100 55 72 100 72 125 C72 140 85 152 100 152 C115 152 128 140 128 125 C128 100 100 55 100 55 Z" fill="#059669"/>
+  <!-- Highlight shine -->
+  <ellipse cx="88" cy="115" rx="8" ry="18" fill="#FFFFFF" opacity="0.4" transform="rotate(-25 88 115)"/>
+  <!-- Golden botanical leaf accent -->
+  <path d="M100 148 C115 135 125 110 115 95 C105 115 95 135 100 148 Z" fill="#F59E0B" opacity="0.85"/>
+  <circle cx="100" cy="130" r="4" fill="#FEF3C7"/>
+</svg>
