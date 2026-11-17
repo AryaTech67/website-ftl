@@ -11,11 +11,6 @@ $nav_items = [
         'label' => 'Produk', 
         'url' => $is_home ? '#produk' : BASE_URL . 'index.php#produk'
     ],
-    'shopee' => [
-        'label' => 'Shopee Resmi', 
-        'url' => SHOPEE_URL,
-        'target' => '_blank'
-    ],
     'artikel' => [
         'label' => 'Artikel Parenting', 
         'url' => $is_home ? '#artikel' : BASE_URL . 'index.php#artikel'
@@ -37,10 +32,10 @@ $nav_items = [
         <div class="flex items-center justify-between h-14 sm:h-20 gap-3 sm:gap-6">
             
             <!-- Brand Logo (Official Logo For The Little) -->
-            <a href="<?= BASE_URL ?>index.php" class="flex items-center gap-2 sm:gap-2.5 group shrink-0">
+            <a href="<?= BASE_URL ?>index.php" class="flex items-center gap-2.5 sm:gap-3 group shrink-0">
                 <img src="<?= BASE_URL ?>assets/images/logo-ftl.png?v=<?= filemtime(__DIR__ . '/../assets/images/logo-ftl.png') ?>" 
                      alt="For The Little" 
-                     class="w-8 h-8 sm:w-11 sm:h-11 rounded-full object-cover shadow-xs border border-gray-100 group-hover:scale-105 transition-transform duration-300 shrink-0">
+                     class="w-9 h-9 sm:w-11 sm:h-11 lg:w-12 lg:h-12 rounded-full object-cover shadow-xs border border-gray-100 group-hover:scale-105 transition-transform duration-300 shrink-0">
                 <div class="flex flex-col justify-center">
                     <span class="font-display font-extrabold text-[17px] sm:text-xl lg:text-2xl text-ftl-forest tracking-tight leading-none whitespace-nowrap">
                         For The Little
@@ -52,12 +47,12 @@ $nav_items = [
             </a>
 
             <!-- Desktop Navigation Links dengan Garis Indikator Aktif (ScrollSpy) -->
-            <nav class="hidden lg:flex items-center gap-7 h-16 sm:h-20">
+            <nav class="hidden lg:flex items-center gap-5 xl:gap-7 h-16 sm:h-20">
                 <?php foreach ($nav_items as $key => $item): ?>
                     <a href="<?= $item['url'] ?>" 
                        <?= !empty($item['target']) ? 'target="' . $item['target'] . '" rel="noopener"' : '' ?>
                        @click="<?= empty($item['target']) ? "activeSection = '{$key}'" : '' ?>"
-                       class="relative h-full flex items-center px-1 text-sm font-semibold transition-all duration-200 group"
+                       class="relative h-full flex items-center px-1 text-sm font-semibold transition-all duration-200 group whitespace-nowrap shrink-0"
                        :class="activeSection === '<?= $key ?>' ? 'text-ftl-forest font-bold' : 'text-gray-600 hover:text-ftl-forest'">
                         
                         <span><?= $item['label'] ?></span>
