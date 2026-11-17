@@ -11,7 +11,7 @@ require_once __DIR__ . '/includes/navbar.php';
 <!-- ======================================================= -->
 <!-- 1. FULL-WIDTH HERO SLIDER (LEBAR FULL LAYAR EDGE-TO-EDGE)-->
 <!-- ======================================================= -->
-<section id="beranda" class="relative w-full overflow-hidden bg-ftl-cream select-none" 
+<section id="beranda" class="relative w-full overflow-hidden bg-ftl-forest select-none" 
          x-data="{ 
              activeSlide: 0,
              totalSlides: 3,
@@ -22,7 +22,7 @@ require_once __DIR__ . '/includes/navbar.php';
                  this.stopAutoplay();
                  this.autoplayInterval = setInterval(() => {
                      this.nextSlide();
-                 }, 3000); // Geser cepat 3 detik persis Tentang Anak
+                 }, 6000); // 6 detik: tenang & nyaman dibaca, tidak buru-buru
              },
              stopAutoplay() {
                  if (this.autoplayInterval) {
@@ -38,6 +38,7 @@ require_once __DIR__ . '/includes/navbar.php';
              },
              handleTouchStart(e) {
                  this.touchStartX = e.changedTouches[0].clientX;
+                 this.stopAutoplay();
              },
              handleTouchEnd(e) {
                  this.touchEndX = e.changedTouches[0].clientX;
@@ -45,14 +46,14 @@ require_once __DIR__ . '/includes/navbar.php';
              },
              handleSwipe() {
                  const diff = this.touchStartX - this.touchEndX;
-                 if (Math.abs(diff) > 35) { // ambang batas geser tangan di HP
+                 if (Math.abs(diff) > 40) {
                      if (diff > 0) {
-                         this.nextSlide(); // Geser ke kiri -> slide berikutnya
+                         this.nextSlide();
                      } else {
-                         this.prevSlide(); // Geser ke kanan -> slide sebelumnya
+                         this.prevSlide();
                      }
-                     this.startAutoplay(); // Reset timer setelah digeser manual
                  }
+                 this.startAutoplay();
              }
          }" 
          x-init="startAutoplay()"
@@ -62,21 +63,15 @@ require_once __DIR__ . '/includes/navbar.php';
          @touchend.passive="handleTouchEnd($event)">
 
     <!-- Full Bleed Container: 100% Lebar Layar -->
-    <div class="relative w-full h-[480px] sm:h-[520px] lg:h-[540px] overflow-hidden bg-ftl-forest cursor-grab active:cursor-grabbing">
+    <div class="relative w-full h-[480px] sm:h-[520px] lg:h-[540px] overflow-hidden bg-ftl-forest select-none">
         
         <!-- ================= SLIDE 1: Flagship FTL (Clean Typography, Lega & Elegan) ================= -->
-        <div x-show="activeSlide === 0"
-             x-transition:enter="transition transform ease-out duration-500"
-             x-transition:enter-start="opacity-0 translate-x-full"
-             x-transition:enter-end="opacity-100 translate-x-0"
-             x-transition:leave="transition transform ease-in duration-400 absolute inset-0"
-             x-transition:leave-start="opacity-100 translate-x-0"
-             x-transition:leave-end="opacity-0 -translate-x-full"
-             class="w-full h-full relative flex items-center overflow-hidden bg-cover bg-left sm:bg-center"
+        <div class="absolute inset-0 w-full h-full flex items-center overflow-hidden bg-cover bg-left sm:bg-center transition-opacity duration-700 ease-in-out"
+             :class="activeSlide === 0 ? 'opacity-100 z-10' : 'opacity-0 z-0 pointer-events-none'"
              style="background-image: url('<?= BASE_URL ?>assets/images/banner-ftl-hero.jpg?v=<?= filemtime(__DIR__ . '/assets/images/banner-ftl-hero.jpg') ?>');">
             
             <!-- Dark Gradient Overlay for Maximum Text Contrast & Readability -->
-            <div class="absolute inset-0 bg-gradient-to-r from-black/75 via-black/55 to-black/30 pointer-events-none"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/35 pointer-events-none"></div>
             
             <div class="w-full max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 relative z-10">
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
@@ -84,18 +79,18 @@ require_once __DIR__ . '/includes/navbar.php';
                     <!-- Left/Center Content (8 cols) -->
                     <div class="lg:col-span-8 space-y-4 sm:space-y-5 text-left max-w-2xl">
 
-                        <!-- Headline Bersih & Tegas (Keren, Tidak Ramai) -->
-                        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white font-display tracking-tight leading-[1.15] drop-shadow-md">
+                        <!-- Headline Bersih & Tegas (Tanpa filter drop-shadow yang memicu bug kotak hitam Safari iOS) -->
+                        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white font-display tracking-tight leading-[1.15]">
                             Bayi Nyaman & Ceria<br>
                             <span class="text-[#FCD34D]">Bebas Kembung & Kolik Semalaman!</span>
                         </h1>
 
                         <!-- Subtitle Singkat, Lega & Enak Dibaca -->
-                        <p class="text-sm sm:text-base text-emerald-100/90 leading-relaxed font-normal drop-shadow-xs max-w-xl">
+                        <p class="text-sm sm:text-base text-emerald-100/90 leading-relaxed font-normal max-w-xl">
                             Krim telon alami dengan kehangatan <strong>Minyak Pala Nusantara & Calendula</strong>. Cepat meresap, 0% rasa lengket, dan lembut untuk newborn 0+ bulan.
                         </p>
 
-                        <!-- Micro Trust Highlights (Rapi & Minimalis, Bukan Kotak Penuh) -->
+                        <!-- Micro Trust Highlights (Rapi & Minimalis) -->
                         <div class="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs sm:text-sm text-emerald-200 font-semibold pt-1">
                             <span class="inline-flex items-center gap-1.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-[#FCD34D]"></i> 100% Pala Nusantara</span>
                             <span class="inline-flex items-center gap-1.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-[#FCD34D]"></i> 0% Rasa Lengket</span>
@@ -113,7 +108,7 @@ require_once __DIR__ . '/includes/navbar.php';
                             <a href="<?= SHOPEE_URL ?>" target="_blank" rel="noopener"
                                class="inline-flex items-center gap-2 bg-[#EE4D2D] hover:bg-[#d73f21] text-white font-bold px-5 sm:px-7 py-3 sm:py-3.5 rounded-full shadow-lg hover:scale-105 active:scale-95 transition text-xs sm:text-sm">
                                 <i data-lucide="shopping-bag" class="w-4 h-4"></i>
-                                <span>Beli di Shopee</span>
+                                <span>Shopee Official</span>
                             </a>
                         </div>
 
@@ -122,12 +117,12 @@ require_once __DIR__ . '/includes/navbar.php';
                     <!-- Right Product Mockup Visual (4 cols) -->
                     <div class="lg:col-span-4 hidden lg:flex flex-col justify-center items-center relative">
                         <div class="w-64 h-64 rounded-full bg-emerald-400/20 absolute -z-10 blur-2xl"></div>
-                        <img src="<?= BASE_URL ?>assets/images/product-calming-rub.svg" 
-                             alt="Baby Calming Rub Cream 50g" 
-                             class="h-72 lg:h-84 w-auto object-contain drop-shadow-2xl hover:scale-105 transition-transform duration-500">
-                        <span class="mt-2 inline-flex items-center gap-1 text-[11px] font-bold text-white bg-black/40 backdrop-blur-xs px-3 py-1 rounded-full border border-white/20">
-                            ⭐ Rp 79.000 (Hemat 20%)
-                        </span>
+                        <img src="<?= BASE_URL ?>assets/images/product-tube.png" 
+                             alt="FTL Calming Rub Tube" 
+                             class="h-72 lg:h-84 w-auto object-contain hover:scale-105 transition-transform duration-500">
+                        <div class="mt-2 inline-flex items-center gap-1 text-[11px] font-bold text-white bg-black/40 backdrop-blur-xs px-3 py-1 rounded-full border border-white/20">
+                            <span>Isi Bersih 50g</span> • <span>Travel Friendly</span>
+                        </div>
                     </div>
 
                 </div>
@@ -136,19 +131,12 @@ require_once __DIR__ . '/includes/navbar.php';
         </div>
 
         <!-- ================= SLIDE 2: Rempah Pala Nusantara (Clean Typography) ================= -->
-        <div x-show="activeSlide === 1"
-             x-cloak
-             x-transition:enter="transition transform ease-out duration-500"
-             x-transition:enter-start="opacity-0 translate-x-full"
-             x-transition:enter-end="opacity-100 translate-x-0"
-             x-transition:leave="transition transform ease-in duration-400 absolute inset-0"
-             x-transition:leave-start="opacity-100 translate-x-0"
-             x-transition:leave-end="opacity-0 -translate-x-full"
-             class="w-full h-full relative flex items-center overflow-hidden bg-cover bg-center sm:bg-center"
+        <div class="absolute inset-0 w-full h-full flex items-center overflow-hidden bg-cover bg-center sm:bg-center transition-opacity duration-700 ease-in-out"
+             :class="activeSlide === 1 ? 'opacity-100 z-10' : 'opacity-0 z-0 pointer-events-none'"
              style="background-image: url('<?= BASE_URL ?>assets/images/banner-ftl-slide2.jpg?v=<?= filemtime(__DIR__ . '/assets/images/banner-ftl-slide2.jpg') ?>');">
             
             <!-- Dark Gradient Overlay for Maximum Text Contrast & Readability -->
-            <div class="absolute inset-0 bg-gradient-to-r from-black/75 via-black/55 to-black/30 pointer-events-none"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/35 pointer-events-none"></div>
 
             <div class="w-full max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 relative z-10">
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
@@ -157,12 +145,12 @@ require_once __DIR__ . '/includes/navbar.php';
                     <div class="lg:col-span-8 space-y-4 sm:space-y-5 text-left max-w-2xl">
 
                         <!-- Headline Bersih & Tegas -->
-                        <h2 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white font-display tracking-tight leading-[1.15] drop-shadow-md">
+                        <h2 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white font-display tracking-tight leading-[1.15]">
                             Khasiat Murni Rempah Alami<br>
                             <span class="text-[#FCD34D]">Hangat Lembut, Tidak Panas di Kulit!</span>
                         </h2>
 
-                        <p class="text-sm sm:text-base text-amber-100/90 leading-relaxed font-normal drop-shadow-xs max-w-xl">
+                        <p class="text-sm sm:text-base text-amber-100/90 leading-relaxed font-normal max-w-xl">
                             Perpaduan minyak atsiri buah pala nusantara dan ekstrak calendula organik yang melembapkan <em>skin barrier</em> serta menenangkan si kecil saat rewel.
                         </p>
 
@@ -191,11 +179,11 @@ require_once __DIR__ . '/includes/navbar.php';
                     <!-- Right Ingredients Visual (4 cols) -->
                     <div class="lg:col-span-4 hidden lg:flex justify-center items-center gap-4">
                         <div class="p-3 bg-white/10 backdrop-blur-md rounded-3xl border border-white/20 shadow-2xl flex flex-col items-center">
-                            <img src="<?= BASE_URL ?>assets/images/ingredient-nutmeg.svg" class="w-32 h-32 drop-shadow-xl hover:scale-105 transition">
+                            <img src="<?= BASE_URL ?>assets/images/ingredient-nutmeg.svg" class="w-32 h-32 hover:scale-105 transition">
                             <span class="text-xs font-bold text-amber-200 mt-2">Minyak Pala Nusantara</span>
                         </div>
                         <div class="p-3 bg-white/10 backdrop-blur-md rounded-3xl border border-white/20 shadow-2xl flex flex-col items-center">
-                            <img src="<?= BASE_URL ?>assets/images/ingredient-calendula.svg" class="w-32 h-32 drop-shadow-xl hover:scale-105 transition">
+                            <img src="<?= BASE_URL ?>assets/images/ingredient-calendula.svg" class="w-32 h-32 hover:scale-105 transition">
                             <span class="text-xs font-bold text-amber-200 mt-2">Bunga Calendula</span>
                         </div>
                     </div>
@@ -206,19 +194,12 @@ require_once __DIR__ . '/includes/navbar.php';
         </div>
 
         <!-- ================= SLIDE 3: #frommothertoanother (Clean Typography) ================= -->
-        <div x-show="activeSlide === 2"
-             x-cloak
-             x-transition:enter="transition transform ease-out duration-500"
-             x-transition:enter-start="opacity-0 translate-x-full"
-             x-transition:enter-end="opacity-100 translate-x-0"
-             x-transition:leave="transition transform ease-in duration-400 absolute inset-0"
-             x-transition:leave-start="opacity-100 translate-x-0"
-             x-transition:leave-end="opacity-0 -translate-x-full"
-             class="w-full h-full relative flex items-center overflow-hidden bg-cover bg-center sm:bg-center"
+        <div class="absolute inset-0 w-full h-full flex items-center overflow-hidden bg-cover bg-center sm:bg-center transition-opacity duration-700 ease-in-out"
+             :class="activeSlide === 2 ? 'opacity-100 z-10' : 'opacity-0 z-0 pointer-events-none'"
              style="background-image: url('<?= BASE_URL ?>assets/images/banner-ftl-slide3.jpg?v=<?= filemtime(__DIR__ . '/assets/images/banner-ftl-slide3.jpg') ?>');">
             
             <!-- Dark Gradient Overlay for Maximum Text Contrast & Readability -->
-            <div class="absolute inset-0 bg-gradient-to-r from-black/75 via-black/55 to-black/30 pointer-events-none"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/35 pointer-events-none"></div>
             
             <div class="w-full max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 relative z-10">
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
@@ -226,13 +207,13 @@ require_once __DIR__ . '/includes/navbar.php';
                     <!-- Left/Center Content (8 cols) -->
                     <div class="lg:col-span-8 space-y-4 sm:space-y-5 text-left max-w-2xl">
 
-                        <!-- Headline Bersih & Tegas -->
-                        <h2 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white font-display tracking-tight leading-[1.15] drop-shadow-md">
+                        <!-- Headline Bersih & Tegas (Tanpa drop-shadow filter yang memicu bug kotak hitam Safari iOS) -->
+                        <h2 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white font-display tracking-tight leading-[1.15]">
                             Dari Hati Seorang Ibu,<br>
                             <span class="text-[#FCD34D]">Untuk Seluruh Bunda di Nusantara</span>
                         </h2>
 
-                        <p class="text-sm sm:text-base text-rose-100/90 leading-relaxed font-normal drop-shadow-xs max-w-xl">
+                        <p class="text-sm sm:text-base text-rose-100/90 leading-relaxed font-normal max-w-xl">
                             Diformulasikan khusus tanpa kompromi demi kenyamanan buah hati dan ketenangan hati Bunda. Teruji klinis, halal, dan aman digunakan sejak hari pertama lahir.
                         </p>
 
@@ -273,6 +254,18 @@ require_once __DIR__ . '/includes/navbar.php';
                 </div>
             </div>
 
+        </div>
+
+        <!-- Slider Dots / Indicators (Interaktif & Indah di Bawah Banner) -->
+        <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-2.5 z-20 bg-black/30 backdrop-blur-md px-4 py-2 rounded-full border border-white/15">
+            <template x-for="i in totalSlides" :key="i">
+                <button type="button" 
+                        @click="activeSlide = i - 1; startAutoplay()"
+                        :class="activeSlide === (i - 1) ? 'w-8 bg-emerald-400' : 'w-2.5 bg-white/50 hover:bg-white'"
+                        class="h-2 rounded-full transition-all duration-300 focus:outline-none"
+                        :aria-label="'Pindah ke Slide ' + i">
+                </button>
+            </template>
         </div>
 
     </div>
