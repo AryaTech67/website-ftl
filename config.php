@@ -32,10 +32,10 @@ $is_https = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') || (isset
 $protocol = $is_https ? "https://" : "http://";
 $host = $_SERVER['HTTP_HOST'] ?? 'localhost';
 $script_name = isset($_SERVER['SCRIPT_NAME']) ? str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME'])) : '';
-$base_url = rtrim($protocol . $host . $script_name, '/') . '/';
-// Jika di root domain, rapikan
-if ($script_name == '/' || $script_name == '\\' || empty($script_name)) {
+if ($script_name == '/' || $script_name == '\\' || $script_name == '.' || empty($script_name)) {
     $base_url = $protocol . $host . '/';
+} else {
+    $base_url = rtrim($protocol . $host . $script_name, '/') . '/';
 }
 define('BASE_URL', $base_url);
 
