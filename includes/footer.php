@@ -141,8 +141,15 @@ require_once __DIR__ . '/../config.php';
 <!-- Include Order Modal -->
 <?php require_once __DIR__ . '/order_modal.php'; ?>
 
-<!-- Floating WhatsApp Widget Button (Bottom-Right) -->
-<div class="fixed bottom-6 right-6 z-40 flex items-center gap-3">
+<!-- Floating WhatsApp Widget Button (Bottom-Right, Layer z-30 & disembunyikan saat mobileMenuOpen) -->
+<div class="fixed bottom-6 right-6 z-30 flex items-center gap-3"
+     x-show="!mobileMenuOpen"
+     x-transition:enter="transition ease-out duration-200"
+     x-transition:enter-start="opacity-0 scale-90"
+     x-transition:enter-end="opacity-100 scale-100"
+     x-transition:leave="transition ease-in duration-150"
+     x-transition:leave-start="opacity-100 scale-100"
+     x-transition:leave-end="opacity-0 scale-90">
     <!-- Tooltip Chat Bubble -->
     <div class="hidden md:flex items-center gap-2 bg-white text-gray-800 px-3.5 py-2 rounded-2xl shadow-xl border border-gray-100 text-xs font-semibold animate-bounce">
         <span class="w-2 h-2 rounded-full bg-emerald-500"></span>

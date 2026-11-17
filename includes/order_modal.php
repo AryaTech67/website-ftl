@@ -3,9 +3,9 @@
 require_once __DIR__ . '/../config.php';
 ?>
 
-<!-- Order & WhatsApp Interactive Modal dengan Auto-Deteksi Lokasi GPS & Cek Ongkir Otomatis -->
+<!-- Order & WhatsApp Interactive Modal dengan Auto-Deteksi Lokasi GPS & Cek Ongkir Otomatis (Layer z-[60]) -->
 <div x-show="orderModalOpen" 
-     class="fixed inset-0 z-50 overflow-y-auto" 
+     class="fixed inset-0 z-[60] overflow-y-auto" 
      style="display: none;"
      aria-labelledby="modal-title" role="dialog" aria-modal="true">
     

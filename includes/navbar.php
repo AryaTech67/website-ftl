@@ -31,8 +31,8 @@ $nav_items = [
 ];
 ?>
 
-<!-- Main Header (Bersih Seperti Tentang Anak, 100% Fokus WhatsApp) -->
-<header class="sticky top-0 z-40 bg-white border-b border-gray-100 shadow-xs">
+<!-- Main Header (Bersih Seperti Tentang Anak, Layer z-50) -->
+<header class="sticky top-0 z-50 bg-white border-b border-gray-100 shadow-xs">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-14 sm:h-20 gap-3 sm:gap-6">
             
@@ -109,7 +109,20 @@ $nav_items = [
         </div>
     </div>
 
-    <!-- Mobile Drawer Menu -->
+    <!-- Mobile Backdrop Overlay (Menutup layar di bawah header & menenggelamkan floating WhatsApp) -->
+    <div x-show="mobileMenuOpen" 
+         x-transition:enter="transition-opacity ease-out duration-300"
+         x-transition:enter-start="opacity-0"
+         x-transition:enter-end="opacity-100"
+         x-transition:leave="transition-opacity ease-in duration-200"
+         x-transition:leave-start="opacity-100"
+         x-transition:leave-end="opacity-0"
+         @click="mobileMenuOpen = false"
+         class="fixed inset-0 top-14 sm:top-20 bg-black/60 backdrop-blur-xs z-40 lg:hidden"
+         style="display: none;">
+    </div>
+
+    <!-- Mobile Drawer Menu Panel (Layer z-50 Di Atas Floating WA) -->
     <div x-show="mobileMenuOpen" 
          x-transition:enter="transition ease-out duration-200"
          x-transition:enter-start="opacity-0 -translate-y-2"
@@ -117,7 +130,7 @@ $nav_items = [
          x-transition:leave="transition ease-in duration-150"
          x-transition:leave-start="opacity-100 translate-y-0"
          x-transition:leave-end="opacity-0 -translate-y-2"
-         class="lg:hidden border-b border-gray-100 bg-white px-4 pt-3 pb-6 shadow-xl"
+         class="relative z-50 lg:hidden border-b border-gray-100 bg-white px-4 pt-3 pb-6 shadow-2xl max-h-[calc(100vh-3.5rem)] overflow-y-auto"
          style="display: none;">
         <nav class="flex flex-col space-y-1.5">
             <?php foreach ($nav_items as $key => $item): ?>
