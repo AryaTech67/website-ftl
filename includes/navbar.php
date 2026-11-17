@@ -27,20 +27,33 @@ $nav_items = [
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-14 sm:h-20 gap-3 sm:gap-6">
             
-            <!-- Brand Logo (Official Logo For The Little) -->
-            <a href="<?= BASE_URL ?>index.php" class="flex items-center gap-2.5 sm:gap-3 group shrink-0">
-                <img src="<?= BASE_URL ?>assets/images/logo-ftl.png?v=<?= filemtime(__DIR__ . '/../assets/images/logo-ftl.png') ?>" 
-                     alt="For The Little" 
-                     class="w-9 h-9 sm:w-11 sm:h-11 lg:w-12 lg:h-12 rounded-full object-cover shadow-xs border border-gray-100 group-hover:scale-105 transition-transform duration-300 shrink-0">
-                <div class="flex flex-col justify-center">
-                    <span class="font-display font-extrabold text-[17px] sm:text-xl lg:text-2xl text-ftl-forest tracking-tight leading-none whitespace-nowrap">
-                        For The Little
-                    </span>
-                    <span class="hidden md:block text-[9px] tracking-wider uppercase text-ftl-earth font-semibold mt-1 whitespace-nowrap">
-                        Indonesia • Natural BabyCare
-                    </span>
-                </div>
-            </a>
+            <!-- Mobile Hamburger Button di Sisi Kiri (Persis Layout Mobile Tentang Anak) -->
+            <div class="flex items-center lg:hidden">
+                <button type="button" 
+                        @click="mobileMenuOpen = !mobileMenuOpen" 
+                        class="p-2 -ml-2 rounded-xl text-gray-700 hover:text-ftl-forest hover:bg-gray-100 transition-colors focus:outline-none shrink-0"
+                        aria-label="Menu navigasi">
+                    <i x-show="!mobileMenuOpen" data-lucide="menu" class="w-6 h-6"></i>
+                    <i x-show="mobileMenuOpen" data-lucide="x" class="w-6 h-6" style="display: none;"></i>
+                </button>
+            </div>
+
+            <!-- Brand Logo (Centered on Mobile like Tentang Anak, Left-aligned on Desktop) -->
+            <div class="flex items-center justify-center lg:justify-start flex-1 lg:flex-initial">
+                <a href="<?= BASE_URL ?>index.php" class="flex items-center gap-2 sm:gap-3 group shrink-0">
+                    <img src="<?= BASE_URL ?>assets/images/logo-ftl.png?v=<?= filemtime(__DIR__ . '/../assets/images/logo-ftl.png') ?>" 
+                         alt="For The Little" 
+                         class="w-8 h-8 sm:w-11 sm:h-11 lg:w-12 lg:h-12 rounded-full object-cover shadow-xs border border-gray-100 group-hover:scale-105 transition-transform duration-300 shrink-0">
+                    <div class="flex flex-col justify-center">
+                        <span class="font-display font-extrabold text-[16px] sm:text-xl lg:text-2xl text-ftl-forest tracking-tight leading-none whitespace-nowrap">
+                            For The Little
+                        </span>
+                        <span class="hidden md:block text-[9px] tracking-wider uppercase text-ftl-earth font-semibold mt-1 whitespace-nowrap">
+                            Indonesia • Natural BabyCare
+                        </span>
+                    </div>
+                </a>
+            </div>
 
             <!-- Desktop Navigation Links dengan Garis Indikator Aktif (ScrollSpy) -->
             <nav class="hidden lg:flex items-center gap-5 xl:gap-7 h-16 sm:h-20">
@@ -87,14 +100,12 @@ $nav_items = [
                     <span>Pesan via WA</span>
                 </button>
 
-                <!-- Mobile Hamburger Button (Satu-satunya kontrol di kanan pada layar mobile) -->
-                <button type="button" 
-                        @click="mobileMenuOpen = !mobileMenuOpen" 
-                        class="p-2 rounded-xl text-gray-700 hover:text-ftl-forest hover:bg-gray-100 transition-colors focus:outline-none lg:hidden shrink-0"
-                        aria-label="Toggle menu">
-                    <i x-show="!mobileMenuOpen" data-lucide="menu" class="w-6 h-6 transition-transform"></i>
-                    <i x-show="mobileMenuOpen" data-lucide="x" class="w-6 h-6 transition-transform" style="display: none;"></i>
-                </button>
+                <!-- Mobile Quick Shopee Action Icon di Kanan (Seimbang dengan Hamburger di Kiri) -->
+                <a href="<?= SHOPEE_URL ?>" target="_blank" rel="noopener" 
+                   class="p-2 -mr-2 text-[#EE4D2D] hover:bg-orange-50 rounded-xl transition lg:hidden shrink-0 flex items-center justify-center" 
+                   title="Beli di Shopee Resmi">
+                    <img src="<?= BASE_URL ?>assets/images/shopee-icon-orange.svg" class="w-6 h-6" alt="Shopee">
+                </a>
             </div>
 
         </div>

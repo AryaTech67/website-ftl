@@ -96,6 +96,14 @@ $current_page = isset($current_page) ? $current_page : 'home';
         ::-webkit-scrollbar-thumb:hover {
             background: #3B7056;
         }
+        /* Hide scrollbar for seamless touch-swipe carousel on mobile (app-like feel) */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
     </style>
 </head>
 <body class="bg-ftl-cream text-ftl-dark antialiased min-h-screen flex flex-col" 
