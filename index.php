@@ -15,6 +15,7 @@ require_once __DIR__ . '/includes/navbar.php';
          x-data="{ 
              activeSlide: 0,
              totalSlides: 3,
+             slideDuration: 5000, // 5 detik per slide (durasi ideal untuk membaca & transisi mulus)
              autoplayInterval: null,
              touchStartX: 0,
              touchEndX: 0,
@@ -22,7 +23,7 @@ require_once __DIR__ . '/includes/navbar.php';
                  this.stopAutoplay();
                  this.autoplayInterval = setInterval(() => {
                      this.nextSlide();
-                 }, 6000); // 6 detik: tenang & nyaman dibaca, tidak buru-buru
+                 }, this.slideDuration);
              },
              stopAutoplay() {
                  if (this.autoplayInterval) {
@@ -38,7 +39,6 @@ require_once __DIR__ . '/includes/navbar.php';
              },
              handleTouchStart(e) {
                  this.touchStartX = e.changedTouches[0].clientX;
-                 this.stopAutoplay();
              },
              handleTouchEnd(e) {
                  this.touchEndX = e.changedTouches[0].clientX;
@@ -57,8 +57,6 @@ require_once __DIR__ . '/includes/navbar.php';
              }
          }" 
          x-init="startAutoplay()"
-         @mouseenter="stopAutoplay()"
-         @mouseleave="startAutoplay()"
          @touchstart.passive="handleTouchStart($event)"
          @touchend.passive="handleTouchEnd($event)">
 
