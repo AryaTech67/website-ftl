@@ -30,6 +30,11 @@ require_once __DIR__ . '/../config.php';
              x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
              class="relative transform overflow-hidden rounded-3xl bg-white text-left shadow-2xl transition-all my-6 sm:my-8 w-full max-w-lg border border-ftl-sand"
              x-data="{
+                activeTab: 'konsultasi',
+                consultName: '',
+                consultBabyAge: '',
+                consultTopic: 'Aman untuk newborn (0+) & kulit sensitif?',
+                consultCustomQuestion: '',
                 product: 'calming-rub-50g',
                 qty: 1,
                 name: '',
@@ -202,6 +207,26 @@ require_once __DIR__ . '/../config.php';
                         this.loadingOngkir = false;
                     }
                 },
+                sendConsultationWA() {
+                    let msg = 'Halo Tim For The Little Indonesia 🍃\n\n';
+                    if (this.consultName.trim()) {
+                        msg += 'Perkenalkan, saya *' + this.consultName.trim() + '* ingin konsultasi seputar perawatan si kecil:\n\n';
+                    } else {
+                        msg += 'Saya ingin konsultasi seputar si kecil & produk FTL:\n\n';
+                    }
+                    if (this.consultBabyAge.trim()) {
+                        msg += '• *Usia/Kondisi Si Kecil:* ' + this.consultBabyAge.trim() + '\n';
+                    }
+                    msg += '• *Topik Pertanyaan:* ' + this.consultTopic + '\n';
+                    if (this.consultCustomQuestion.trim()) {
+                        msg += '\n*Detail Pertanyaan / Keluhan:*\n"' + this.consultCustomQuestion.trim() + '"\n';
+                    }
+                    msg += '\nMohon saran dan penjelasannya ya min. Terima kasih banyak! 🙏';
+
+                    const url = 'https://wa.me/<?= WHATSAPP_NUMBER ?>?text=' + encodeURIComponent(msg);
+                    window.open(url, '_blank');
+                    this.$root.closest('[x-data]').orderModalOpen = false;
+                },
                 submitToWhatsApp() {
                     if (!this.name.trim()) {
                         alert('Mohon isi nama Bunda / Ayah.');
@@ -253,6 +278,7 @@ require_once __DIR__ . '/../config.php';
              }"
              x-init="
                 initDestinations();
+                $watch('$parent.modalTab', val => { if(val) activeTab = val; });
                 $watch('$parent.selectedProduct', value => { 
                     if(value) {
                         product = value;
@@ -264,25 +290,139 @@ require_once __DIR__ . '/../config.php';
                 });
              ">
             
-            <!-- Modal Header -->
+            <!-- Modal Header dengan Tab Navigasi -->
             <div class="bg-gradient-to-r from-ftl-forest to-ftl-sage p-5 sm:p-6 text-white relative">
                 <button @click="orderModalOpen = false" 
-                        class="absolute top-4 right-4 text-white/80 hover:text-white p-1.5 rounded-full hover:bg-white/10 transition-colors">
+                        class="absolute top-4 right-4 text-white/80 hover:text-white p-1.5 rounded-full hover:bg-white/10 transition-colors"
+                        aria-label="Tutup modal">
                     <i data-lucide="x" class="w-5 h-5 sm:w-6 sm:h-6"></i>
                 </button>
                 <div class="flex items-center gap-2 text-[11px] font-semibold text-emerald-200 uppercase tracking-wider mb-1">
-                    <i data-lucide="map-pin" class="w-3.5 h-3.5 text-emerald-300"></i> Auto-Deteksi Lokasi & Ongkir
+                    <span class="w-2 h-2 rounded-full bg-emerald-400"></span> Layanan WhatsApp Resmi FTL
                 </div>
                 <h3 class="text-xl sm:text-2xl font-bold font-display leading-tight" id="modal-title">
-                    Form Pemesanan Cepat FTL
+                    <span x-show="activeTab === 'konsultasi'">Konsultasi Bunda & Si Kecil 👶🍃</span>
+                    <span x-show="activeTab === 'pesan'" style="display: none;">Form Pemesanan & Ongkir 🛍️</span>
                 </h3>
                 <p class="text-xs text-emerald-100 mt-1">
-                    Isi form di bawah, deteksi ongkir otomatis, lalu kirim rincian pesanan langsung ke WhatsApp CS.
+                    <span x-show="activeTab === 'konsultasi'">Bebas tanya seputar kolik, newborn, atau cara pakai tanpa harus beli.</span>
+                    <span x-show="activeTab === 'pesan'" style="display: none;">Hitung ongkir otomatis lalu kirim rincian order ke WhatsApp CS.</span>
                 </p>
+
+                <!-- 2-Tab Switcher -->
+                <div class="flex items-center p-1 bg-black/25 rounded-2xl mt-4 border border-white/15">
+                    <button type="button" 
+                            @click="activeTab = 'konsultasi'" 
+                            :class="activeTab === 'konsultasi' ? 'bg-white text-ftl-forest font-bold shadow-sm' : 'text-white/80 hover:text-white font-medium'"
+                            class="flex-1 py-2 text-xs sm:text-sm rounded-xl transition flex items-center justify-center gap-1.5">
+                        <i data-lucide="message-circle" class="w-4 h-4"></i>
+                        <span>💬 Tanya-Tanya Dulu</span>
+                    </button>
+                    <button type="button" 
+                            @click="activeTab = 'pesan'" 
+                            :class="activeTab === 'pesan' ? 'bg-white text-ftl-forest font-bold shadow-sm' : 'text-white/80 hover:text-white font-medium'"
+                            class="flex-1 py-2 text-xs sm:text-sm rounded-xl transition flex items-center justify-center gap-1.5">
+                        <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+                        <span>🛍️ Mau Pesan Produk</span>
+                    </button>
+                </div>
             </div>
 
-            <!-- Modal Body / Form Stepper -->
-            <div class="p-5 sm:p-6 space-y-4 max-h-[72vh] overflow-y-auto">
+            <!-- ================= TAB 1: FORM KONSULTASI BUNDA ================= -->
+            <div x-show="activeTab === 'konsultasi'" class="p-5 sm:p-6 space-y-4 max-h-[72vh] overflow-y-auto">
+                
+                <!-- Info Banner Ramah -->
+                <div class="p-3.5 bg-emerald-50/90 rounded-2xl border border-emerald-200/80 flex items-start gap-3">
+                    <div class="w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center shrink-0 text-emerald-700 mt-0.5">
+                        <i data-lucide="heart" class="w-4 h-4"></i>
+                    </div>
+                    <div class="text-xs text-emerald-950 space-y-0.5 leading-relaxed">
+                        <p class="font-bold">Bebas Tanya Dulu Tanpa Beban Beli! 🍃</p>
+                        <p class="text-gray-600">Bunda ingin konsultasikan keluhan kembung, ruam, atau cara aman merawat si kecil? Tim kami siap mendampingi Bunda secara gratis via WhatsApp.</p>
+                    </div>
+                </div>
+
+                <!-- Pilihan Topik Cepat -->
+                <div class="space-y-2">
+                    <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider">
+                        Pilih Topik Pertanyaan:
+                    </label>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+                        <button type="button" 
+                                @click="consultTopic = 'Aman untuk newborn (0+) & kulit sensitif?'"
+                                :class="consultTopic === 'Aman untuk newborn (0+) & kulit sensitif?' ? 'bg-emerald-100 border-emerald-600 text-emerald-900 font-bold ring-2 ring-emerald-500/20' : 'bg-gray-50 border-gray-200 text-gray-700 hover:bg-gray-100'"
+                                class="p-2.5 rounded-xl border text-left transition flex items-center gap-2">
+                            <span class="text-base">🍃</span>
+                            <span>Aman untuk newborn / eksim?</span>
+                        </button>
+                        <button type="button" 
+                                @click="consultTopic = 'Cara pijat ILU & aturan pakai kembung/kolik'"
+                                :class="consultTopic === 'Cara pijat ILU & aturan pakai kembung/kolik' ? 'bg-emerald-100 border-emerald-600 text-emerald-900 font-bold ring-2 ring-emerald-500/20' : 'bg-gray-50 border-gray-200 text-gray-700 hover:bg-gray-100'"
+                                class="p-2.5 rounded-xl border text-left transition flex items-center gap-2">
+                            <span class="text-base">👶</span>
+                            <span>Cara pakai untuk kembung & kolik</span>
+                        </button>
+                        <button type="button" 
+                                @click="consultTopic = 'Komposisi Minyak Pala Nusantara & Calendula'"
+                                :class="consultTopic === 'Komposisi Minyak Pala Nusantara & Calendula' ? 'bg-emerald-100 border-emerald-600 text-emerald-900 font-bold ring-2 ring-emerald-500/20' : 'bg-gray-50 border-gray-200 text-gray-700 hover:bg-gray-100'"
+                                class="p-2.5 rounded-xl border text-left transition flex items-center gap-2">
+                            <span class="text-base">🌿</span>
+                            <span>Komposisi & keaslian produk</span>
+                        </button>
+                        <button type="button" 
+                                @click="consultTopic = 'Pertanyaan lainnya'"
+                                :class="consultTopic === 'Pertanyaan lainnya' ? 'bg-emerald-100 border-emerald-600 text-emerald-900 font-bold ring-2 ring-emerald-500/20' : 'bg-gray-50 border-gray-200 text-gray-700 hover:bg-gray-100'"
+                                class="p-2.5 rounded-xl border text-left transition flex items-center gap-2">
+                            <span class="text-base">💬</span>
+                            <span>Pertanyaan lainnya seputar si kecil</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Input Nama & Usia Bayi -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-xs font-bold text-gray-700 mb-1">Nama Bunda (Opsional)</label>
+                        <input type="text" 
+                               x-model="consultName"
+                               placeholder="Contoh: Bunda Sarah" 
+                               class="w-full text-xs sm:text-sm p-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 bg-gray-50/50">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-gray-700 mb-1">Usia / Kondisi Si Kecil</label>
+                        <input type="text" 
+                               x-model="consultBabyAge"
+                               placeholder="Contoh: Newborn 2 minggu / 8 bulan" 
+                               class="w-full text-xs sm:text-sm p-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 bg-gray-50/50">
+                    </div>
+                </div>
+
+                <!-- Detail Pertanyaan -->
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 mb-1">Pertanyaan atau Keluhan Bunda:</label>
+                    <textarea x-model="consultCustomQuestion"
+                              rows="3"
+                              placeholder="Tuliskan pertanyaan Bunda di sini... (Contoh: Apakah krim ini boleh dioleskan ke dada saat si kecil pilek/batuk?)"
+                              class="w-full text-xs sm:text-sm p-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 bg-gray-50/50"></textarea>
+                </div>
+
+                <!-- Tombol Submit Konsultasi WA -->
+                <div class="pt-2">
+                    <button type="button" 
+                            @click="sendConsultationWA()"
+                            class="w-full py-3.5 px-4 rounded-2xl bg-emerald-600 hover:bg-emerald-700 active:scale-[0.99] text-white font-bold text-sm shadow-lg shadow-emerald-950/20 flex items-center justify-center gap-2 transition-all">
+                        <i data-lucide="message-circle" class="w-5 h-5"></i>
+                        <span>Mulai Chat Konsultasi via WhatsApp</span>
+                    </button>
+                    <p class="text-[11px] text-gray-400 text-center mt-2">
+                        Tim admin FTL aktif setiap hari kerja (09.00 - 17.00 WIB) untuk merespons pertanyaan Bunda.
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- ================= TAB 2: FORM PEMESANAN & CEK ONGKIR ================= -->
+            <div x-show="activeTab === 'pesan'" style="display: none;" class="p-5 sm:p-6 space-y-4 max-h-[72vh] overflow-y-auto">
                 
                 <!-- 1. PILIH PRODUK & JUMLAH -->
                 <div class="space-y-3">
@@ -529,6 +669,7 @@ require_once __DIR__ . '/../config.php';
             <!-- Modal Footer -->
             <div class="bg-gray-50 px-5 sm:px-6 py-4 flex flex-col sm:flex-row-reverse gap-2.5 border-t border-gray-100">
                 <button type="button" 
+                        x-show="activeTab === 'pesan'"
                         @click="submitToWhatsApp()" 
                         class="w-full sm:w-auto inline-flex justify-center items-center gap-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 px-6 py-3 text-sm font-bold text-white shadow-md active:scale-95 transition-all">
                     <i data-lucide="send" class="w-4 h-4"></i>

@@ -100,7 +100,7 @@ require_once __DIR__ . '/includes/navbar.php';
                         <!-- CTA Buttons -->
                         <div class="pt-2 flex flex-wrap items-center gap-3">
                             <button type="button" 
-                                    @click="orderModalOpen = true; selectedProduct = 'calming-rub-50g'"
+                                    @click="orderModalOpen = true; modalTab = 'pesan'; selectedProduct = 'calming-rub-50g'"
                                     class="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-bold px-6 sm:px-8 py-3 sm:py-3.5 rounded-full shadow-lg shadow-emerald-950/40 hover:scale-105 active:scale-95 transition text-xs sm:text-sm">
                                 <i data-lucide="message-circle" class="w-4 h-4"></i>
                                 <span>Pesan via WhatsApp (Hitung Ongkir)</span>
@@ -167,7 +167,7 @@ require_once __DIR__ . '/includes/navbar.php';
                                 <i data-lucide="arrow-right" class="w-4 h-4"></i>
                             </a>
                             <button type="button" 
-                                    @click="orderModalOpen = true; selectedProduct = 'calming-rub-50g'"
+                                    @click="orderModalOpen = true; modalTab = 'konsultasi'"
                                     class="inline-flex items-center gap-2 bg-white/20 hover:bg-white text-white hover:text-gray-900 border border-white/40 font-bold px-5 sm:px-7 py-3 sm:py-3.5 rounded-full transition text-xs sm:text-sm">
                                 <i data-lucide="message-circle" class="w-4 h-4"></i>
                                 <span>Konsultasi via WA</span>

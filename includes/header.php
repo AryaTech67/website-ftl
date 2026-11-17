@@ -102,6 +102,7 @@ $current_page = isset($current_page) ? $current_page : 'home';
       x-data="{ 
           mobileMenuOpen: false, 
           orderModalOpen: false, 
+          modalTab: 'konsultasi',
           selectedProduct: 'calming-rub-50g',
           activeSection: '<?= $current_page ?? 'home' ?>'
       }"
