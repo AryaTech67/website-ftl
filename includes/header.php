@@ -72,7 +72,12 @@ $current_page = isset($current_page) ? $current_page : 'home';
     <style>
         html {
             scroll-behavior: smooth;
-            scroll-padding-top: 80px;
+            scroll-padding-top: 72px;
+        }
+        @media (min-width: 640px) {
+            html {
+                scroll-padding-top: 88px;
+            }
         }
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;

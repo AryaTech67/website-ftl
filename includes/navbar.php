@@ -58,9 +58,10 @@ $nav_items = [
             <!-- Desktop Navigation Links dengan Garis Indikator Aktif (ScrollSpy) -->
             <nav class="hidden lg:flex items-center gap-5 xl:gap-7 h-16 sm:h-20">
                 <?php foreach ($nav_items as $key => $item): ?>
+                    <?php $target_id = ($key === 'home') ? 'beranda' : $key; ?>
                     <a href="<?= $item['url'] ?>" 
                        <?= !empty($item['target']) ? 'target="' . $item['target'] . '" rel="noopener"' : '' ?>
-                       @click="<?= empty($item['target']) ? "activeSection = '{$key}'" : '' ?>"
+                       @click="<?= $is_home ? "\$event.preventDefault(); activeSection = '{$key}'; scrollToTarget('{$target_id}')" : "activeSection = '{$key}'" ?>"
                        class="relative h-full flex items-center px-1 text-sm font-semibold transition-all duration-200 group whitespace-nowrap shrink-0"
                        :class="activeSection === '<?= $key ?>' ? 'text-ftl-forest font-bold' : 'text-gray-600 hover:text-ftl-forest'">
                         
@@ -124,7 +125,7 @@ $nav_items = [
          style="display: none;">
     </div>
 
-    <!-- Mobile Drawer Menu Panel (GPU Hardware-Accelerated CSS Transition, Smooth 60fps) -->
+    <!-- Mobile Drawer Menu Panel (Absolute Overlay, 0% Layout Shift, Smooth 60fps) -->
     <div x-show="mobileMenuOpen"
          x-transition:enter="transition ease-out duration-200"
          x-transition:enter-start="opacity-0 -translate-y-4"
@@ -132,13 +133,14 @@ $nav_items = [
          x-transition:leave="transition ease-in duration-150"
          x-transition:leave-start="opacity-100 translate-y-0"
          x-transition:leave-end="opacity-0 -translate-y-4"
-         class="relative z-50 lg:hidden border-b border-gray-100 bg-white px-4 pt-3 pb-6 shadow-2xl max-h-[calc(100vh-3.5rem)] overflow-y-auto"
+         class="absolute top-full left-0 right-0 z-50 lg:hidden border-b border-gray-100 bg-white px-4 pt-3 pb-6 shadow-2xl max-h-[calc(100vh-3.5rem)] overflow-y-auto"
          style="display: none;">
         <nav class="flex flex-col space-y-1.5">
             <?php foreach ($nav_items as $key => $item): ?>
+                <?php $target_id = ($key === 'home') ? 'beranda' : $key; ?>
                 <a href="<?= $item['url'] ?>" 
                    <?= !empty($item['target']) ? 'target="' . $item['target'] . '" rel="noopener"' : '' ?>
-                   @click="mobileMenuOpen = false; <?= empty($item['target']) ? "activeSection = '{$key}'" : '' ?>"
+                   @click="<?= $is_home ? "\$event.preventDefault(); mobileMenuOpen = false; activeSection = '{$key}'; scrollToTarget('{$target_id}')" : "mobileMenuOpen = false; activeSection = '{$key}'" ?>"
                    class="mobile-menu-item px-4 py-3 rounded-xl text-sm font-semibold transition-colors flex items-center justify-between"
                    :class="activeSection === '<?= $key ?>' ? 'bg-emerald-50 text-ftl-forest font-bold border-l-4 border-ftl-forest' : 'text-gray-700 hover:bg-gray-50'">
                     <span><?= $item['label'] ?></span>
@@ -161,3 +163,29 @@ $nav_items = [
         </nav>
     </div>
 </header>
+
+<script>
+/**
+ * Smooth Scroll to Target with precise sticky header offset compensation.
+ * Guarantees zero layout jumps, perfect headroom below navbar, and handles repeat clicks.
+ */
+function scrollToTarget(targetId) {
+    if (!targetId) return;
+    const el = document.getElementById(targetId);
+    if (!el) return;
+    
+    // Header height: 56px on mobile (<640px), 80px on desktop (>=640px)
+    const headerHeight = window.innerWidth >= 640 ? 80 : 56;
+    const extraPadding = 12; // breathing space
+    const targetY = el.getBoundingClientRect().top + window.pageYOffset - (headerHeight + extraPadding);
+    
+    window.scrollTo({
+        top: Math.max(0, targetY),
+        behavior: 'smooth'
+    });
+    
+    if (window.history && window.history.pushState) {
+        window.history.pushState(null, '', '#' + targetId);
+    }
+}
+</script>

@@ -11,7 +11,7 @@ require_once __DIR__ . '/includes/navbar.php';
 <!-- ======================================================= -->
 <!-- 1. FULL-WIDTH HERO SLIDER (LEBAR FULL LAYAR EDGE-TO-EDGE)-->
 <!-- ======================================================= -->
-<section id="beranda" class="relative w-full overflow-hidden bg-ftl-forest select-none" 
+<section id="beranda" class="scroll-mt-14 sm:scroll-mt-20 relative w-full overflow-hidden bg-ftl-forest select-none" 
          x-data="{ 
              activeSlide: 0,
              totalSlides: 3,
@@ -373,7 +373,7 @@ require_once __DIR__ . '/includes/navbar.php';
 <!-- ======================================================= -->
 <!-- 3. KATALOG & KATEGORI PRODUK (TAMPILAN MODERN PERSIS TENTANG ANAK) -->
 <!-- ======================================================= -->
-<section id="produk" class="py-10 sm:py-16 bg-[#FAF7F2] border-b border-ftl-sand">
+<section id="produk" class="scroll-mt-16 sm:scroll-mt-24 py-10 sm:py-16 bg-[#FAF7F2] border-b border-ftl-sand">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <!-- Header Section Persis Layout Tentang Anak -->
@@ -954,7 +954,7 @@ require_once __DIR__ . '/includes/navbar.php';
 <!-- ======================================================= -->
 <!-- 6. ARTIKEL EDUKASI PARENTING (MIRIP TENTANG ANAK)       -->
 <!-- ======================================================= -->
-<section id="artikel" class="py-20 bg-white border-t border-ftl-sand">
+<section id="artikel" class="scroll-mt-16 sm:scroll-mt-24 py-20 bg-white border-t border-ftl-sand">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
@@ -1088,7 +1088,7 @@ require_once __DIR__ . '/includes/navbar.php';
 <!-- ======================================================= -->
 <!-- 7. TENTANG KAMI: CERITA BRAND & PILAR NILAI FOR THE LITTLE -->
 <!-- ======================================================= -->
-<section id="tentang" class="py-20 bg-ftl-cream border-t border-ftl-sand">
+<section id="tentang" class="scroll-mt-16 sm:scroll-mt-24 py-20 bg-ftl-cream border-t border-ftl-sand">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
