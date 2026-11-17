@@ -359,7 +359,7 @@ $FTL_DESTINATIONS = getShippingDestinations($SHIPPING_DATA);
                             </label>
                             
                             <button type="button" 
-                                    @click="openProvDropdown = !openProvDropdown; openCityDropdown = false;"
+                                    @click="openProvDropdown = !openProvDropdown; openCityDropdown = false; $nextTick(() => { if(window.lucide) lucide.createIcons(); });"
                                     class="w-full p-3 sm:p-3.5 rounded-2xl border transition-all flex items-center justify-between text-left bg-white shadow-2xs cursor-pointer active:scale-[0.99]"
                                     :class="openProvDropdown ? 'border-emerald-600 ring-2 ring-emerald-500/25' : (province ? 'border-emerald-400 bg-emerald-50/20' : 'border-gray-300 hover:border-gray-400')">
                                 <div class="flex items-center gap-3 min-w-0">
@@ -426,7 +426,7 @@ $FTL_DESTINATIONS = getShippingDestinations($SHIPPING_DATA);
                             </label>
 
                             <button type="button" 
-                                    @click="if (province) { openCityDropdown = !openCityDropdown; openProvDropdown = false; }"
+                                    @click="if (province) { openCityDropdown = !openCityDropdown; openProvDropdown = false; $nextTick(() => { if(window.lucide) lucide.createIcons(); }); }"
                                     :disabled="!province"
                                     class="w-full p-3 sm:p-3.5 rounded-2xl border transition-all flex items-center justify-between text-left shadow-2xs"
                                     :class="!province ? 'bg-gray-100/70 border-gray-200 text-gray-400 cursor-not-allowed' : (openCityDropdown ? 'bg-white border-emerald-600 ring-2 ring-emerald-500/25 cursor-pointer' : (city ? 'bg-emerald-50/20 border-emerald-400 text-gray-900 cursor-pointer' : 'bg-white border-gray-300 hover:border-gray-400 cursor-pointer active:scale-[0.99]'))">
