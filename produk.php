@@ -69,7 +69,7 @@ $main_product = $PRODUCTS['calming-rub-50g'];
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 items-start">
             
             <!-- Left: Product Image Showcase (Col 6) - Interaktif Penuh -->
-            <div class="lg:col-span-6 space-y-4">
+            <div data-animate="zoom-in" class="lg:col-span-6 space-y-4">
                 <div class="bg-gradient-to-b from-ftl-light to-white rounded-3xl p-6 sm:p-8 border border-ftl-sand flex flex-col items-center justify-between relative min-h-[380px] sm:min-h-[420px] transition-all duration-300">
                     <!-- Dynamic Badges based on active thumbnail -->
                     <div class="w-full flex items-center justify-between z-10">
@@ -113,7 +113,7 @@ $main_product = $PRODUCTS['calming-rub-50g'];
             </div>
 
             <!-- Right: Product Purchasing & Specs (Col 6) -->
-            <div class="lg:col-span-6 space-y-6">
+            <div data-animate="fade-left" data-delay="100" class="lg:col-span-6 space-y-6">
                 <div>
                     <span class="text-xs font-bold text-ftl-accent uppercase tracking-wider">
                         Natural BabyCare Essentials
@@ -210,7 +210,7 @@ $main_product = $PRODUCTS['calming-rub-50g'];
         </div>
 
         <!-- Detail Tabs (Manfaat, Komposisi, Cara Pakai, FAQ) -->
-        <div class="mt-16 pt-10 border-t border-ftl-sand">
+        <div data-animate="fade-up" class="mt-16 pt-10 border-t border-ftl-sand">
             <!-- Tab Headers -->
             <div class="flex flex-wrap border-b border-gray-200 gap-4 sm:gap-8">
                 <button type="button" @click="activeTab = 'manfaat'" 
@@ -301,7 +301,7 @@ $main_product = $PRODUCTS['calming-rub-50g'];
 <!-- Official Shopee & Order Banner Section -->
 <section class="py-16 bg-ftl-cream border-t border-ftl-sand">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="bg-white rounded-3xl p-8 sm:p-10 border border-ftl-sand shadow-sm text-center relative overflow-hidden">
+        <div data-animate="fade-up" class="bg-white rounded-3xl p-8 sm:p-10 border border-ftl-sand shadow-sm text-center relative overflow-hidden">
             <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-100 text-[#EE4D2D] text-xs font-bold uppercase tracking-wider mb-3">
                 <i data-lucide="store" class="w-3.5 h-3.5"></i>
                 Official Store Shopee & WhatsApp

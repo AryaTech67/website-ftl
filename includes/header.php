@@ -149,7 +149,93 @@ $current_page = isset($current_page) ? $current_page : 'home';
                 font-size: 16px !important;
             }
         }
+
+        /* ==================================================== */
+        /* High-Performance 60FPS Scroll Reveal & Micro Motion */
+        /* ==================================================== */
+        [data-animate] {
+            opacity: 0;
+            will-change: transform, opacity;
+            transition-property: opacity, transform;
+            transition-duration: 0.65s;
+            transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        [data-animate="fade-up"] {
+            transform: translateY(28px);
+        }
+        [data-animate="fade-down"] {
+            transform: translateY(-28px);
+        }
+        [data-animate="fade-left"] {
+            transform: translateX(28px);
+        }
+        [data-animate="fade-right"] {
+            transform: translateX(-28px);
+        }
+        [data-animate="zoom-in"] {
+            transform: scale(0.92);
+        }
+        [data-animate].is-visible {
+            opacity: 1;
+            transform: translate(0) scale(1);
+        }
+
+        /* Subtle floating badge & visual animation */
+        @keyframes ftlFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-5px); }
+        }
+        .animate-ftl-float {
+            animation: ftlFloat 3.6s ease-in-out infinite;
+        }
+
+        /* Accessibility: Respect Reduced Motion Preferences */
+        @media (prefers-reduced-motion: reduce) {
+            [data-animate] {
+                opacity: 1 !important;
+                transform: none !important;
+                transition: none !important;
+            }
+            .animate-ftl-float {
+                animation: none !important;
+            }
+        }
     </style>
+
+    <!-- Scroll Reveal Engine (IntersectionObserver 60fps) -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const animElements = document.querySelectorAll('[data-animate]');
+            if (!animElements.length) return;
+
+            if (!('IntersectionObserver' in window)) {
+                animElements.forEach(el => el.classList.add('is-visible'));
+                return;
+            }
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const el = entry.target;
+                        const delay = parseInt(el.getAttribute('data-delay') || '0', 10);
+                        if (delay > 0) {
+                            setTimeout(() => {
+                                el.classList.add('is-visible');
+                            }, delay);
+                        } else {
+                            el.classList.add('is-visible');
+                        }
+                        observer.unobserve(el);
+                    }
+                });
+            }, {
+                threshold: 0.08,
+                rootMargin: '0px 0px -30px 0px'
+            });
+
+            animElements.forEach(el => observer.observe(el));
+        });
+    </script>
 </head>
 <body class="bg-ftl-cream text-ftl-dark antialiased min-h-screen flex flex-col" 
       :class="mobileMenuOpen ? 'overflow-hidden' : ''"

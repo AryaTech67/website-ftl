@@ -333,7 +333,7 @@ require_once __DIR__ . '/includes/navbar.php';
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             
-            <div class="flex flex-col items-center p-3 rounded-2xl hover:bg-ftl-cream/60 transition-colors group">
+            <div data-animate="fade-up" data-delay="0" class="flex flex-col items-center p-3 rounded-2xl hover:bg-ftl-cream/60 transition-colors group">
                 <div class="w-12 h-12 rounded-full border border-emerald-900/15 bg-emerald-50/40 text-emerald-800 flex items-center justify-center mb-3 group-hover:border-emerald-600/40 group-hover:bg-emerald-50 transition-colors shadow-2xs">
                     <svg class="w-5 h-5 text-emerald-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
@@ -344,7 +344,7 @@ require_once __DIR__ . '/includes/navbar.php';
                 <p class="text-xs text-gray-500 mt-1">Terjamin resmi, aman, & higienis</p>
             </div>
 
-            <div class="flex flex-col items-center p-3 rounded-2xl hover:bg-ftl-cream/60 transition-colors group">
+            <div data-animate="fade-up" data-delay="100" class="flex flex-col items-center p-3 rounded-2xl hover:bg-ftl-cream/60 transition-colors group">
                 <div class="w-12 h-12 rounded-full border border-emerald-900/15 bg-emerald-50/40 text-emerald-800 flex items-center justify-center mb-3 group-hover:border-emerald-600/40 group-hover:bg-emerald-50 transition-colors shadow-2xs">
                     <svg class="w-5 h-5 text-emerald-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"/>
@@ -356,7 +356,7 @@ require_once __DIR__ . '/includes/navbar.php';
                 <p class="text-xs text-gray-500 mt-1">Aman untuk kulit paling sensitif</p>
             </div>
 
-            <div class="flex flex-col items-center p-3 rounded-2xl hover:bg-ftl-cream/60 transition-colors group">
+            <div data-animate="fade-up" data-delay="200" class="flex flex-col items-center p-3 rounded-2xl hover:bg-ftl-cream/60 transition-colors group">
                 <div class="w-12 h-12 rounded-full border border-emerald-900/15 bg-emerald-50/40 text-emerald-800 flex items-center justify-center mb-3 group-hover:border-emerald-600/40 group-hover:bg-emerald-50 transition-colors shadow-2xs">
                     <svg class="w-5 h-5 text-emerald-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/>
@@ -367,7 +367,7 @@ require_once __DIR__ . '/includes/navbar.php';
                 <p class="text-xs text-gray-500 mt-1">Tanpa alkohol, paraben & mineral oil berbahaya</p>
             </div>
 
-            <div class="flex flex-col items-center p-3 rounded-2xl hover:bg-ftl-cream/60 transition-colors group">
+            <div data-animate="fade-up" data-delay="300" class="flex flex-col items-center p-3 rounded-2xl hover:bg-ftl-cream/60 transition-colors group">
                 <div class="w-12 h-12 rounded-full border border-emerald-900/15 bg-emerald-50/40 text-emerald-800 flex items-center justify-center mb-3 group-hover:border-emerald-600/40 group-hover:bg-emerald-50 transition-colors shadow-2xs">
                     <svg class="w-5 h-5 text-emerald-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
@@ -388,7 +388,7 @@ require_once __DIR__ . '/includes/navbar.php';
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <!-- Header Section Produk Resmi FTL -->
-        <div class="mb-5 sm:mb-8 text-left">
+        <div data-animate="fade-up" class="mb-5 sm:mb-8 text-left">
             <span class="text-xs sm:text-sm font-extrabold text-ftl-forest uppercase tracking-wider block font-sans">
                 PRODUK RESMI FTL
             </span>
@@ -404,7 +404,7 @@ require_once __DIR__ . '/includes/navbar.php';
         <div class="flex sm:grid sm:grid-cols-3 gap-3.5 sm:gap-6 overflow-x-auto snap-x snap-mandatory pb-4 sm:pb-8 -mx-4 px-4 sm:mx-0 sm:px-0 no-scrollbar">
             
             <!-- Card 1: Baby Calming Rub Cream 50g (Single) -->
-            <div class="min-w-[210px] sm:min-w-0 max-w-[240px] sm:max-w-none flex-1 shrink-0 snap-center bg-white rounded-3xl p-4 sm:p-5 border border-stone-200/80 shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group">
+            <div data-animate="fade-up" data-delay="0" class="min-w-[210px] sm:min-w-0 max-w-[240px] sm:max-w-none flex-1 shrink-0 snap-center bg-white rounded-3xl p-4 sm:p-5 border border-stone-200/80 shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group">
                 <div>
                     <!-- Top Pill Badge -->
                     <div class="flex items-center justify-between">
@@ -446,7 +446,7 @@ require_once __DIR__ . '/includes/navbar.php';
             </div>
 
             <!-- Card 2: Paket Hemat 2 Tube (Bundling) -->
-            <div class="min-w-[210px] sm:min-w-0 max-w-[240px] sm:max-w-none flex-1 shrink-0 snap-center bg-white rounded-3xl p-4 sm:p-5 border border-stone-200/80 shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group">
+            <div data-animate="fade-up" data-delay="120" class="min-w-[210px] sm:min-w-0 max-w-[240px] sm:max-w-none flex-1 shrink-0 snap-center bg-white rounded-3xl p-4 sm:p-5 border border-stone-200/80 shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group">
                 <div>
                     <!-- Top Pill Badge -->
                     <div class="flex items-center justify-between">
@@ -488,7 +488,7 @@ require_once __DIR__ . '/includes/navbar.php';
             </div>
 
             <!-- Card 3: Newborn Care Gift Set -->
-            <div class="min-w-[210px] sm:min-w-0 max-w-[240px] sm:max-w-none flex-1 shrink-0 snap-center bg-white rounded-3xl p-4 sm:p-5 border border-stone-200/80 shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group">
+            <div data-animate="fade-up" data-delay="240" class="min-w-[210px] sm:min-w-0 max-w-[240px] sm:max-w-none flex-1 shrink-0 snap-center bg-white rounded-3xl p-4 sm:p-5 border border-stone-200/80 shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group">
                 <div>
                     <!-- Top Pill Badge -->
                     <div class="flex items-center justify-between">
@@ -556,14 +556,14 @@ require_once __DIR__ . '/includes/navbar.php';
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <!-- Single Flagship Showcase Card -->
-        <div class="bg-white rounded-3xl sm:rounded-[36px] border border-ftl-sand shadow-xl shadow-emerald-950/5 overflow-hidden">
+        <div data-animate="fade-up" class="bg-white rounded-3xl sm:rounded-[36px] border border-ftl-sand shadow-xl shadow-emerald-950/5 overflow-hidden">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-0">
                 
                 <!-- Left: Product Visual Presentation (5 cols) -->
-                <div class="lg:col-span-5 bg-gradient-to-br from-emerald-50/70 via-ftl-light/50 to-teal-50/40 p-8 sm:p-12 flex flex-col justify-between items-center relative border-b lg:border-b-0 lg:border-r border-ftl-sand/60">
+                <div data-animate="zoom-in" data-delay="100" class="lg:col-span-5 bg-gradient-to-br from-emerald-50/70 via-ftl-light/50 to-teal-50/40 p-8 sm:p-12 flex flex-col justify-between items-center relative border-b lg:border-b-0 lg:border-r border-ftl-sand/60">
                     <!-- Top Badges -->
                     <div class="w-full flex items-center justify-between z-10">
-                        <span class="inline-flex items-center gap-1 bg-white/95 backdrop-blur-xs text-ftl-forest font-bold text-xs px-3 py-1.5 rounded-full shadow-xs border border-emerald-100">
+                        <span class="inline-flex items-center gap-1 bg-white/95 backdrop-blur-xs text-ftl-forest font-bold text-xs px-3 py-1.5 rounded-full shadow-xs border border-emerald-100 animate-ftl-float">
                             ⭐ Official Flagship
                         </span>
                         <span class="inline-flex items-center gap-1 bg-emerald-600 text-white font-extrabold text-xs px-3 py-1.5 rounded-full shadow-xs">
@@ -705,7 +705,7 @@ require_once __DIR__ . '/includes/navbar.php';
 <section class="py-20 bg-white relative">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div class="text-center max-w-3xl mx-auto space-y-3 mb-16">
+        <div data-animate="fade-up" class="text-center max-w-3xl mx-auto space-y-3 mb-16">
             <span class="text-xs font-bold text-ftl-accent uppercase tracking-widest">
                 Kekayaan Hayati Indonesia
             </span>
@@ -720,7 +720,7 @@ require_once __DIR__ . '/includes/navbar.php';
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             
             <!-- Card 1: Minyak Pala Nusantara -->
-            <div class="bg-white rounded-3xl p-8 border border-ftl-sand shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center">
+            <div data-animate="fade-up" data-delay="0" class="bg-white rounded-3xl p-8 border border-ftl-sand shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center">
                 <div class="w-28 h-28 mb-6 p-2 rounded-2xl bg-amber-50/60 border border-amber-100 flex items-center justify-center overflow-hidden">
                     <img src="<?= BASE_URL ?>assets/images/ingredient-nutmeg-real.png" alt="Minyak Pala Nusantara" class="h-24 w-auto object-contain drop-shadow-md">
                 </div>
@@ -736,7 +736,7 @@ require_once __DIR__ . '/includes/navbar.php';
             </div>
 
             <!-- Card 2: Bunga Calendula -->
-            <div class="bg-white rounded-3xl p-8 border border-ftl-sand shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center">
+            <div data-animate="fade-up" data-delay="120" class="bg-white rounded-3xl p-8 border border-ftl-sand shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center">
                 <div class="w-28 h-28 mb-6 p-2 rounded-2xl bg-yellow-50/60 border border-yellow-100 flex items-center justify-center overflow-hidden">
                     <img src="<?= BASE_URL ?>assets/images/ingredient-calendula-real.png" alt="Ekstrak Calendula" class="w-24 h-24 object-cover rounded-full shadow-md">
                 </div>
@@ -752,7 +752,7 @@ require_once __DIR__ . '/includes/navbar.php';
             </div>
 
             <!-- Card 3: Minyak Nabati Alami (Carrier Oils) -->
-            <div class="bg-white rounded-3xl p-8 border border-ftl-sand shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center">
+            <div data-animate="fade-up" data-delay="240" class="bg-white rounded-3xl p-8 border border-ftl-sand shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center">
                 <div class="w-28 h-28 mb-6 p-2 rounded-2xl bg-emerald-50/60 border border-emerald-100 flex items-center justify-center">
                     <img src="<?= BASE_URL ?>assets/images/ingredient-plant-oil.svg" alt="Minyak Nabati Alami" class="w-24 h-24">
                 </div>
@@ -780,7 +780,7 @@ require_once __DIR__ . '/includes/navbar.php';
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         <!-- Section Header Editorial -->
-        <div class="text-center max-w-2xl mx-auto mb-12 sm:mb-16 space-y-3">
+        <div data-animate="fade-up" class="text-center max-w-2xl mx-auto mb-12 sm:mb-16 space-y-3">
             <span class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-emerald-100/80 text-ftl-forest text-xs font-bold tracking-wider uppercase">
                 <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
                 Inovasi Formula Perawatan Bayi
@@ -798,7 +798,7 @@ require_once __DIR__ . '/includes/navbar.php';
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
             
             <!-- CARD 1: FOR THE LITTLE (Hero Card: Elegan, Teruji & Menutrisi) -->
-            <div class="lg:col-span-7 bg-white rounded-[32px] p-6 sm:p-9 border-2 border-ftl-forest/30 shadow-xl shadow-emerald-950/5 relative flex flex-col justify-between">
+            <div data-animate="fade-right" class="lg:col-span-7 bg-white rounded-[32px] p-6 sm:p-9 border-2 border-ftl-forest/30 shadow-xl shadow-emerald-950/5 relative flex flex-col justify-between">
                 
                 <!-- Corner Header -->
                 <div class="flex items-center justify-between gap-3 pb-6 border-b border-emerald-100">
@@ -883,7 +883,7 @@ require_once __DIR__ . '/includes/navbar.php';
             </div>
 
             <!-- CARD 2: MINYAK TELON TRADISIONAL (Jelas, Tajam, Santun & Objektif) -->
-            <div class="lg:col-span-5 bg-[#FAF7F2] rounded-[32px] p-6 sm:p-8 border border-stone-300 shadow-sm flex flex-col justify-between">
+            <div data-animate="fade-left" class="lg:col-span-5 bg-[#FAF7F2] rounded-[32px] p-6 sm:p-8 border border-stone-300 shadow-sm flex flex-col justify-between">
                 
                 <div>
                     <!-- Header Kartu Tradisional -->
@@ -1108,7 +1108,7 @@ require_once __DIR__ . '/includes/navbar.php';
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
             <!-- Left: Brand Story & 3 Pillars (Col 6) -->
-            <div class="lg:col-span-6 space-y-6">
+            <div data-animate="fade-right" class="lg:col-span-6 space-y-6">
                 <div>
                     <span class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-emerald-100/80 text-ftl-forest text-xs font-bold uppercase tracking-wider mb-3 border border-emerald-200/60">
                         <svg class="w-3.5 h-3.5 text-emerald-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -1183,7 +1183,7 @@ require_once __DIR__ . '/includes/navbar.php';
             </div>
 
             <!-- Right: Brand Showcase & Caring Moments (Col 6) -->
-            <div class="lg:col-span-6">
+            <div data-animate="fade-left" data-delay="150" class="lg:col-span-6">
                 <div class="bg-gradient-to-br from-ftl-light via-white to-amber-50/60 rounded-3xl sm:rounded-[32px] p-6 sm:p-8 border border-emerald-100 shadow-md shadow-emerald-950/5 relative">
                     
                     <!-- Quote Banner Header -->
@@ -1298,7 +1298,7 @@ require_once __DIR__ . '/includes/navbar.php';
          @touchend="touchEndX = $event.changedTouches[0].screenX; handleSwipe()">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-8 sm:mb-12 gap-4">
+        <div data-animate="fade-up" class="flex flex-col sm:flex-row sm:items-end justify-between mb-8 sm:mb-12 gap-4">
             <div>
                 <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FFF0ED] text-[#EE4D2D] border border-[#EE4D2D]/20 text-xs font-bold mb-2">
                     <img src="<?= BASE_URL ?>assets/images/shopee-icon-orange.svg" class="w-3.5 h-3.5 shrink-0" alt="Shopee">
@@ -1343,7 +1343,7 @@ require_once __DIR__ . '/includes/navbar.php';
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
             
             <!-- Real Review 1: annisamutiara.yu -->
-            <div @click="testiIndex = 0"
+            <div data-animate="fade-up" data-delay="0" @click="testiIndex = 0"
                  :class="testiIndex === 0 ? 'flex ring-2 ring-[#EE4D2D]/60 bg-[#FFF9F8]/60 shadow-xl shadow-orange-950/5 scale-[1.01] md:scale-[1.02] z-10 border-[#EE4D2D]/30' : 'hidden md:flex opacity-75 hover:opacity-100 hover:border-orange-200 border-ftl-sand bg-white'" 
                  class="p-6 sm:p-7 rounded-3xl border transition-all duration-300 flex-col justify-between cursor-pointer group">
                 <div class="space-y-3">
@@ -1391,7 +1391,7 @@ require_once __DIR__ . '/includes/navbar.php';
             </div>
 
             <!-- Real Review 2: susirius -->
-            <div @click="testiIndex = 1"
+            <div data-animate="fade-up" data-delay="120" @click="testiIndex = 1"
                  :class="testiIndex === 1 ? 'flex ring-2 ring-[#EE4D2D]/60 bg-[#FFF9F8]/60 shadow-xl shadow-orange-950/5 scale-[1.01] md:scale-[1.02] z-10 border-[#EE4D2D]/30' : 'hidden md:flex opacity-75 hover:opacity-100 hover:border-orange-200 border-ftl-sand bg-white'"
                  class="p-6 sm:p-7 rounded-3xl border transition-all duration-300 flex-col justify-between cursor-pointer group">
                 <div class="space-y-3">
@@ -1439,7 +1439,7 @@ require_once __DIR__ . '/includes/navbar.php';
             </div>
 
             <!-- Real Review 3: tanti_fitriani -->
-            <div @click="testiIndex = 2"
+            <div data-animate="fade-up" data-delay="240" @click="testiIndex = 2"
                  :class="testiIndex === 2 ? 'flex ring-2 ring-[#EE4D2D]/60 bg-[#FFF9F8]/60 shadow-xl shadow-orange-950/5 scale-[1.01] md:scale-[1.02] z-10 border-[#EE4D2D]/30' : 'hidden md:flex opacity-75 hover:opacity-100 hover:border-orange-200 border-ftl-sand bg-white'"
                  class="p-6 sm:p-7 rounded-3xl border transition-all duration-300 flex-col justify-between cursor-pointer group">
                 <div class="space-y-3">
@@ -1497,7 +1497,7 @@ require_once __DIR__ . '/includes/navbar.php';
         </p>
 
         <!-- High-Trust Shopee Official Banner CTA -->
-        <div class="mt-10 p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-[#FFF5F2] via-white to-[#FFF5F2] border border-[#EE4D2D]/25 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div data-animate="fade-up" class="mt-10 p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-[#FFF5F2] via-white to-[#FFF5F2] border border-[#EE4D2D]/25 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-6">
             <div class="flex items-center gap-4 text-left">
                 <div class="w-14 h-14 rounded-2xl bg-[#EE4D2D] text-white flex items-center justify-center shrink-0 shadow-md">
                     <img src="<?= BASE_URL ?>assets/images/shopee-icon-white.svg" class="w-8 h-8" alt="Shopee">
@@ -1535,7 +1535,7 @@ require_once __DIR__ . '/includes/navbar.php';
     <div class="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-[#3B7056]/30 blur-3xl pointer-events-none"></div>
     <div class="absolute -bottom-24 -left-24 w-96 h-96 rounded-full bg-[#1C3B2B]/40 blur-3xl pointer-events-none"></div>
 
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 space-y-6">
+    <div data-animate="zoom-in" class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 space-y-6">
         <span class="inline-block px-4 py-1 rounded-full bg-white/10 text-ftl-light text-xs font-bold tracking-wider uppercase border border-white/20">
             #frommothertoanother • Perawatan Alami Si Kecil
         </span>
