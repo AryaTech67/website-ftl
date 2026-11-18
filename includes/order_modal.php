@@ -631,16 +631,16 @@ $FTL_DESTINATIONS = getShippingDestinations($SHIPPING_DATA);
                     </p>
                     <div class="grid grid-cols-4 gap-2 pt-1">
                         <div class="bg-white px-2 py-2.5 rounded-xl border border-gray-200 flex items-center justify-center shadow-2xs hover:border-emerald-400 transition-colors h-11">
-                            <img src="<?= BASE_URL ?>assets/images/bank-bca.svg" alt="BCA" class="h-5 sm:h-6 max-h-6 w-auto max-w-full object-contain">
+                            <img src="<?= BASE_URL ?>assets/images/bank-bca.svg?v=2026" alt="BCA" class="h-5 sm:h-6 max-h-6 w-auto max-w-full object-contain">
                         </div>
                         <div class="bg-white px-2 py-2.5 rounded-xl border border-gray-200 flex items-center justify-center shadow-2xs hover:border-emerald-400 transition-colors h-11">
-                            <img src="<?= BASE_URL ?>assets/images/bank-mandiri.svg" alt="Mandiri" class="h-5 sm:h-6 max-h-6 w-auto max-w-full object-contain">
+                            <img src="<?= BASE_URL ?>assets/images/bank-mandiri.svg?v=2026" alt="Mandiri" class="h-5 sm:h-6 max-h-6 w-auto max-w-full object-contain">
                         </div>
                         <div class="bg-white px-2 py-2.5 rounded-xl border border-gray-200 flex items-center justify-center shadow-2xs hover:border-emerald-400 transition-colors h-11">
-                            <img src="<?= BASE_URL ?>assets/images/bank-bri.svg" alt="BRI" class="h-5 sm:h-6 max-h-6 w-auto max-w-full object-contain">
+                            <img src="<?= BASE_URL ?>assets/images/bank-bri.svg?v=2026" alt="BRI" class="h-5 sm:h-6 max-h-6 w-auto max-w-full object-contain">
                         </div>
                         <div class="bg-white px-2 py-2.5 rounded-xl border border-gray-200 flex items-center justify-center shadow-2xs hover:border-emerald-400 transition-colors h-11">
-                            <img src="<?= BASE_URL ?>assets/images/bank-qris.svg" alt="QRIS" class="h-5 sm:h-6 max-h-6 w-auto max-w-full object-contain">
+                            <img src="<?= BASE_URL ?>assets/images/bank-qris.svg?v=2026" alt="QRIS" class="h-5 sm:h-6 max-h-6 w-auto max-w-full object-contain">
                         </div>
                     </div>
                     <p class="text-[10px] text-gray-400 italic">
