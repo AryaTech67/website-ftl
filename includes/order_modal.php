@@ -630,17 +630,17 @@ $FTL_DESTINATIONS = getShippingDestinations($SHIPPING_DATA);
                         Bisa transfer antar-bank atau scan QRIS langsung via semua aplikasi m-Banking & E-Wallet (GoPay, OVO, ShopeePay, Dana).
                     </p>
                     <div class="grid grid-cols-4 gap-2 pt-1">
-                        <div class="bg-white p-2 rounded-xl border border-gray-200 flex items-center justify-center shadow-2xs hover:border-emerald-400 transition-colors">
-                            <img src="<?= BASE_URL ?>assets/images/bank-bca.svg" alt="BCA" class="h-5 sm:h-6 max-w-full object-contain">
+                        <div class="bg-white px-2 py-2.5 rounded-xl border border-gray-200 flex items-center justify-center shadow-2xs hover:border-emerald-400 transition-colors h-11">
+                            <img src="<?= BASE_URL ?>assets/images/bank-bca.svg" alt="BCA" class="h-5 sm:h-6 max-h-6 w-auto max-w-full object-contain">
                         </div>
-                        <div class="bg-white p-2 rounded-xl border border-gray-200 flex items-center justify-center shadow-2xs hover:border-emerald-400 transition-colors">
-                            <img src="<?= BASE_URL ?>assets/images/bank-mandiri.svg" alt="Mandiri" class="h-5 sm:h-6 max-w-full object-contain">
+                        <div class="bg-white px-2 py-2.5 rounded-xl border border-gray-200 flex items-center justify-center shadow-2xs hover:border-emerald-400 transition-colors h-11">
+                            <img src="<?= BASE_URL ?>assets/images/bank-mandiri.svg" alt="Mandiri" class="h-5 sm:h-6 max-h-6 w-auto max-w-full object-contain">
                         </div>
-                        <div class="bg-white p-2 rounded-xl border border-gray-200 flex items-center justify-center shadow-2xs hover:border-emerald-400 transition-colors">
-                            <img src="<?= BASE_URL ?>assets/images/bank-bri.svg" alt="BRI" class="h-5 sm:h-6 max-w-full object-contain">
+                        <div class="bg-white px-2 py-2.5 rounded-xl border border-gray-200 flex items-center justify-center shadow-2xs hover:border-emerald-400 transition-colors h-11">
+                            <img src="<?= BASE_URL ?>assets/images/bank-bri.svg" alt="BRI" class="h-5 sm:h-6 max-h-6 w-auto max-w-full object-contain">
                         </div>
-                        <div class="bg-white p-2 rounded-xl border border-gray-200 flex items-center justify-center shadow-2xs hover:border-emerald-400 transition-colors">
-                            <img src="<?= BASE_URL ?>assets/images/bank-qris.svg" alt="QRIS" class="h-5 sm:h-6 max-w-full object-contain">
+                        <div class="bg-white px-2 py-2.5 rounded-xl border border-gray-200 flex items-center justify-center shadow-2xs hover:border-emerald-400 transition-colors h-11">
+                            <img src="<?= BASE_URL ?>assets/images/bank-qris.svg" alt="QRIS" class="h-5 sm:h-6 max-h-6 w-auto max-w-full object-contain">
                         </div>
                     </div>
                     <p class="text-[10px] text-gray-400 italic">
