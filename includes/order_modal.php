@@ -14,7 +14,7 @@ $FTL_DESTINATIONS = getShippingDestinations($SHIPPING_DATA);
      @open-order-modal.window="openModal($event.detail)"
      @close-order-modal.window="isOpen = false"
      @keydown.escape.window="closeModal()"
-     class="fixed inset-0 z-[60] overflow-y-auto" 
+     class="fixed inset-0 z-[60] flex flex-col justify-end sm:justify-center sm:items-center overflow-hidden" 
      style="display: none;"
      aria-labelledby="modal-title" role="dialog" aria-modal="true">
     
@@ -29,15 +29,16 @@ $FTL_DESTINATIONS = getShippingDestinations($SHIPPING_DATA);
          @click="closeModal()"
          class="fixed inset-0 bg-black/60 backdrop-blur-sm transition-opacity cursor-pointer"></div>
 
-    <div class="flex min-h-full items-center justify-center p-2.5 sm:p-4 text-center">
-        <div x-show="isOpen || (typeof orderModalOpen !== 'undefined' && orderModalOpen)"
-             x-transition:enter="ease-out duration-300"
-             x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-             x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"
-             x-transition:leave="ease-in duration-200"
-             x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
-             x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-             class="relative transform flex flex-col rounded-3xl bg-white text-left shadow-2xl transition-all my-2 sm:my-6 w-full max-w-lg border border-ftl-sand max-h-[92vh] sm:max-h-[88vh] overflow-hidden">
+    <!-- Modal Card Container (Bottom Sheet di Mobile, Centered Card di Desktop) -->
+    <div x-show="isOpen || (typeof orderModalOpen !== 'undefined' && orderModalOpen)"
+         x-transition:enter="ease-out duration-300"
+         x-transition:enter-start="opacity-0 translate-y-full sm:translate-y-0 sm:scale-95"
+         x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"
+         x-transition:leave="ease-in duration-200"
+         x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
+         x-transition:leave-end="opacity-0 translate-y-full sm:translate-y-0 sm:scale-95"
+         class="relative z-10 transform flex flex-col rounded-t-[32px] sm:rounded-3xl bg-white text-left shadow-2xl transition-all w-full max-w-lg border-t sm:border border-ftl-sand overflow-hidden"
+         style="max-height: 82dvh; max-height: calc(100dvh - 3.5rem);">
             
             <!-- Modal Header dengan Tab Navigasi (Sticky Top) -->
             <div class="bg-gradient-to-r from-ftl-forest to-ftl-sage p-4 sm:p-5 text-white relative shrink-0">
@@ -616,33 +617,34 @@ $FTL_DESTINATIONS = getShippingDestinations($SHIPPING_DATA);
 
             </div>
 
-            <!-- ================= MODAL FOOTER (Sticky Bottom - Zero Lag / Instant View) ================= -->
-            <div class="bg-white/95 backdrop-blur-md px-4 sm:px-6 py-3 border-t border-gray-200 shrink-0 shadow-lg z-30">
+            <!-- ================= MODAL FOOTER (Sticky Bottom - 100% Kelihatan di iPhone & Android) ================= -->
+            <div class="bg-white/98 backdrop-blur-md px-4 sm:px-6 pt-2.5 sm:pt-3 border-t border-gray-200 shrink-0 shadow-lg z-30"
+                 style="padding-bottom: max(16px, env(safe-area-inset-bottom, 16px));">
                 <!-- Banner Notifikasi Error -->
                 <div x-show="errorMessage" 
                      x-transition 
-                     class="p-2.5 mb-2.5 bg-rose-50 border border-rose-300 text-rose-800 rounded-xl text-xs font-bold flex items-center gap-2">
+                     class="p-2 mb-2 bg-rose-50 border border-rose-300 text-rose-800 rounded-xl text-xs font-bold flex items-center gap-2">
                     <i data-lucide="alert-circle" class="w-4 h-4 text-rose-600 shrink-0"></i>
                     <span x-text="errorMessage"></span>
                 </div>
 
-                <div class="flex items-center justify-between gap-3">
-                    <div x-show="modalTab === 'pesan'" class="min-w-0 pr-2">
-                        <span class="text-[10px] text-gray-500 uppercase font-semibold block leading-tight">Total Tagihan:</span>
+                <div class="flex items-center justify-between gap-2.5">
+                    <div x-show="modalTab === 'pesan'" class="min-w-0 pr-1">
+                        <span class="text-[10px] text-gray-500 uppercase font-bold block leading-tight">Total Tagihan:</span>
                         <span class="text-base sm:text-lg font-extrabold text-ftl-forest truncate block whitespace-nowrap" 
                               x-text="product ? formatRp(grandTotal) : 'Pilih produk'"></span>
                     </div>
-                    <div class="flex items-center gap-2 ml-auto">
+                    <div class="flex items-center gap-2 ml-auto shrink-0">
                         <button type="button" 
                                 @click="closeModal()"
-                                class="px-4 py-3 rounded-xl border border-gray-300 bg-white text-xs sm:text-sm font-semibold text-gray-700 hover:bg-gray-100 transition-colors cursor-pointer active:scale-95 no-tap-zoom"
+                                class="px-3.5 py-2.5 sm:px-4 sm:py-3 rounded-xl border border-gray-300 bg-white text-xs sm:text-sm font-semibold text-gray-700 hover:bg-gray-100 transition-colors cursor-pointer active:scale-95 no-tap-zoom"
                                 style="touch-action: manipulation;">
                             Batal
                         </button>
                         <button type="button" 
                                 x-show="modalTab === 'pesan'"
                                 @click="submitToWhatsApp()" 
-                                class="inline-flex justify-center items-center gap-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 px-5 sm:px-6 py-3 text-xs sm:text-sm font-bold text-white shadow-md active:scale-95 transition-all cursor-pointer no-tap-zoom"
+                                class="inline-flex justify-center items-center gap-1.5 sm:gap-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 px-4 sm:px-6 py-2.5 sm:py-3 text-xs sm:text-sm font-bold text-white shadow-md active:scale-95 transition-all cursor-pointer no-tap-zoom whitespace-nowrap"
                                 style="touch-action: manipulation;">
                             <i data-lucide="send" class="w-4 h-4"></i>
                             <span>Kirim ke WhatsApp</span>
@@ -650,7 +652,7 @@ $FTL_DESTINATIONS = getShippingDestinations($SHIPPING_DATA);
                         <button type="button" 
                                 x-show="modalTab === 'konsultasi'"
                                 @click="sendConsultationWA()" 
-                                class="inline-flex justify-center items-center gap-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 px-5 sm:px-6 py-3 text-xs sm:text-sm font-bold text-white shadow-md active:scale-95 transition-all cursor-pointer no-tap-zoom"
+                                class="inline-flex justify-center items-center gap-1.5 sm:gap-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 px-4 sm:px-6 py-2.5 sm:py-3 text-xs sm:text-sm font-bold text-white shadow-md active:scale-95 transition-all cursor-pointer no-tap-zoom whitespace-nowrap"
                                 style="touch-action: manipulation;">
                             <img src="<?= BASE_URL ?>assets/images/whatsapp-icon-white.svg" class="w-4 h-4" alt="WA">
                             <span>Mulai Konsultasi</span>
@@ -661,7 +663,6 @@ $FTL_DESTINATIONS = getShippingDestinations($SHIPPING_DATA);
 
         </div>
     </div>
-</div>
 
 <script>
 // Database Wilayah & Ongkir Terintegrasi Langsung (Embedded Zero-Delay Data)
