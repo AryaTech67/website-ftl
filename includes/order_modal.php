@@ -615,6 +615,114 @@ $FTL_DESTINATIONS = getShippingDestinations($SHIPPING_DATA);
                            class="w-full rounded-xl border border-gray-300 px-3.5 py-3 text-base sm:text-sm focus:border-ftl-forest focus:outline-none focus:ring-2 focus:ring-emerald-200 bg-white">
                 </div>
 
+                <!-- 5. METODE PEMBAYARAN RESMI (OFFICIAL LOGOS) -->
+                <div class="bg-gray-50/90 p-3.5 sm:p-4 rounded-2xl border border-gray-200 space-y-2.5">
+                    <div class="flex items-center justify-between">
+                        <span class="text-[11px] font-bold text-gray-800 uppercase tracking-wider flex items-center gap-1.5">
+                            <i data-lucide="credit-card" class="w-3.5 h-3.5 text-emerald-700"></i>
+                            <span>Metode Pembayaran Didukung:</span>
+                        </span>
+                        <span class="text-[10px] font-bold text-emerald-700 bg-emerald-100/80 px-2 py-0.5 rounded-full">
+                            Bebas Biaya Admin
+                        </span>
+                    </div>
+                    <p class="text-[11px] text-gray-500 leading-snug">
+                        Bisa transfer antar-bank atau scan QRIS langsung via semua aplikasi m-Banking & E-Wallet (GoPay, OVO, ShopeePay, Dana).
+                    </p>
+                    <div class="grid grid-cols-4 gap-2 pt-1">
+                        <div class="bg-white p-2 rounded-xl border border-gray-200 flex items-center justify-center shadow-2xs hover:border-emerald-400 transition-colors">
+                            <img src="<?= BASE_URL ?>assets/images/bank-bca.svg" alt="BCA" class="h-5 sm:h-6 max-w-full object-contain">
+                        </div>
+                        <div class="bg-white p-2 rounded-xl border border-gray-200 flex items-center justify-center shadow-2xs hover:border-emerald-400 transition-colors">
+                            <img src="<?= BASE_URL ?>assets/images/bank-mandiri.svg" alt="Mandiri" class="h-5 sm:h-6 max-w-full object-contain">
+                        </div>
+                        <div class="bg-white p-2 rounded-xl border border-gray-200 flex items-center justify-center shadow-2xs hover:border-emerald-400 transition-colors">
+                            <img src="<?= BASE_URL ?>assets/images/bank-bri.svg" alt="BRI" class="h-5 sm:h-6 max-w-full object-contain">
+                        </div>
+                        <div class="bg-white p-2 rounded-xl border border-gray-200 flex items-center justify-center shadow-2xs hover:border-emerald-400 transition-colors">
+                            <img src="<?= BASE_URL ?>assets/images/bank-qris.svg" alt="QRIS" class="h-5 sm:h-6 max-w-full object-contain">
+                        </div>
+                    </div>
+                    <p class="text-[10px] text-gray-400 italic">
+                        *Nomor rekening & kode QRIS resmi FTL akan dikirim oleh CS saat verifikasi pesanan untuk memastikan pesanan tercatat dengan benar.
+                    </p>
+                </div>
+
+                <!-- 6. ALUR & PROSES SETELAH KLIK KIRIM (3 LANGKAH MUDAH) -->
+                <div class="bg-emerald-50/40 rounded-2xl p-3.5 sm:p-4 border border-emerald-200/80 space-y-3">
+                    <div class="flex items-center gap-2">
+                        <div class="w-6 h-6 rounded-lg bg-emerald-600 text-white flex items-center justify-center shrink-0">
+                            <i data-lucide="help-circle" class="w-3.5 h-3.5"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-xs font-bold text-gray-900 leading-tight">Alur Proses Setelah Kirim Pesanan:</h4>
+                            <p class="text-[10px] text-gray-500">Transparan, cepat & dipandu langsung oleh CS FTL</p>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+                        <!-- Step 1 -->
+                        <div class="bg-white p-3 rounded-xl border border-emerald-100/90 shadow-2xs flex items-start gap-2.5">
+                            <span class="w-5 h-5 rounded-full bg-emerald-600 text-white text-[11px] font-black flex items-center justify-center shrink-0">1</span>
+                            <div class="min-w-0">
+                                <p class="font-bold text-gray-900 text-[11px]">Rincian Terkirim Otomatis</p>
+                                <p class="text-[10px] text-gray-500 leading-snug mt-0.5">Pesan format order rapi langsung terbuka di WhatsApp Anda, cukup tekan Kirim.</p>
+                            </div>
+                        </div>
+                        <!-- Step 2 -->
+                        <div class="bg-white p-3 rounded-xl border border-emerald-100/90 shadow-2xs flex items-start gap-2.5">
+                            <span class="w-5 h-5 rounded-full bg-emerald-600 text-white text-[11px] font-black flex items-center justify-center shrink-0">2</span>
+                            <div class="min-w-0">
+                                <p class="font-bold text-gray-900 text-[11px]">Konfirmasi & Rekening</p>
+                                <p class="text-[10px] text-gray-500 leading-snug mt-0.5">Admin CS langsung konfirmasi stok & info rekening resmi / barcode QRIS.</p>
+                            </div>
+                        </div>
+                        <!-- Step 3 -->
+                        <div class="bg-white p-3 rounded-xl border border-emerald-100/90 shadow-2xs flex items-start gap-2.5">
+                            <span class="w-5 h-5 rounded-full bg-emerald-600 text-white text-[11px] font-black flex items-center justify-center shrink-0">3</span>
+                            <div class="min-w-0">
+                                <p class="font-bold text-gray-900 text-[11px]">Packing & Kirim Resi</p>
+                                <p class="text-[10px] text-gray-500 leading-snug mt-0.5">Paket dipacking bubble wrap tebal, dikirim di hari yang sama + update nomor resi.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 7. JAMINAN & GARANSI PENGIRIMAN FTL -->
+                <div class="bg-white rounded-2xl p-3 sm:p-3.5 border border-gray-200 shadow-2xs">
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5 text-[11px]">
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="shield-check" class="w-4 h-4 text-emerald-600 shrink-0"></i>
+                            <span class="font-bold text-gray-800">100% Original & BPOM Resmi</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="package-check" class="w-4 h-4 text-emerald-600 shrink-0"></i>
+                            <span class="font-bold text-gray-800">Free Bubble Wrap Tebal & Dus</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="rotate-ccw" class="w-4 h-4 text-emerald-600 shrink-0"></i>
+                            <span class="font-bold text-gray-800">Garansi Ganti Baru jika Bocor/Rusak</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 8. PINTU ALTERNATIF SHOPEE OFFICIAL -->
+                <div class="flex items-center justify-between p-3 rounded-2xl bg-orange-50/70 border border-orange-200 text-xs">
+                    <div class="flex items-center gap-2.5 min-w-0">
+                        <img src="<?= BASE_URL ?>assets/images/shopee-icon-orange.svg" alt="Shopee" class="w-6 h-6 shrink-0">
+                        <div class="min-w-0">
+                            <p class="font-bold text-gray-900 text-[11px] truncate">Mau Checkout via Marketplace Shopee?</p>
+                            <p class="text-[10px] text-gray-600 truncate">Bisa klaim Voucher Gratis Ongkir & opsi Bayar di Tempat (COD)</p>
+                        </div>
+                    </div>
+                    <a href="<?= SHOPEE_URL ?>" target="_blank" rel="noopener noreferrer" 
+                       class="shrink-0 ml-2 px-3 py-1.5 rounded-xl bg-orange-500 hover:bg-orange-600 text-white font-bold text-[11px] flex items-center gap-1 shadow-2xs transition-all active:scale-95 no-tap-zoom"
+                       style="touch-action: manipulation;">
+                        <span>Ke Shopee</span>
+                        <i data-lucide="external-link" class="w-3 h-3"></i>
+                    </a>
+                </div>
+
             </div>
 
             <!-- ================= MODAL FOOTER (Sticky Bottom - 100% Kelihatan di iPhone & Android) ================= -->

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 90 26" width="90" height="26" fill="none">
+  <rect width="90" height="26" rx="4" fill="#FFFFFF"/>
+  <g transform="translate(6, 4)">
+    <!-- Mandiri Yellow Ribbon Waves -->
+    <path d="M34 2 C37 0.5 41 1 44 2.5 C42 3.5 39 3.2 36 2.5 Z" fill="#F59E0B"/>
+    <path d="M36 3.5 C40 2.5 45 3.5 48 5 C45 5.8 41 5.2 38 4.2 Z" fill="#FBBF24"/>
+    <!-- mandiri text -->
+    <text x="3" y="13" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-size="12" font-weight="800" fill="#003366" letter-spacing="-0.5">mandiri</text>
+  </g>
+  <rect x="0.5" y="0.5" width="89" height="25" rx="3.5" stroke="#E2E8F0"/>
+</svg>
