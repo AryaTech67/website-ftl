@@ -265,9 +265,7 @@ require_once __DIR__ . '/includes/navbar.php';
                                 </a>
                                 <a href="<?= TIKTOK_URL ?>" target="_blank" rel="noopener"
                                    class="inline-flex items-center gap-1.5 sm:gap-2 bg-black/40 hover:bg-black text-white border border-white/40 font-bold px-3.5 sm:px-6 py-2.5 sm:py-3.5 rounded-full transition text-xs sm:text-sm">
-                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
-                                        <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.24 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
-                                    </svg>
+                                    <img src="<?= BASE_URL ?>assets/images/tiktok-icon-official.svg" class="w-4 h-4 object-contain" alt="TikTok">
                                     <span>TikTok</span>
                                 </a>
                             </div>
@@ -532,36 +530,34 @@ require_once __DIR__ . '/includes/navbar.php';
 
         </div>
 
-        <!-- Section Divider / Highlight Flagship Detail -->
-        <div class="mt-12 sm:mt-16 pt-8 border-t border-stone-200/60">
-            <div class="text-center max-w-2xl mx-auto mb-8 sm:mb-12">
-                <span class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-emerald-100/80 text-ftl-forest text-xs font-bold uppercase tracking-wider mb-2 border border-emerald-200/60">
-                    DETAIL FORMULA & SERTIFIKASI
-                </span>
-                <h3 class="text-2xl sm:text-3xl font-extrabold font-display text-ftl-forest">
-                    Mengapa Bunda Memilih For The Little?
-                </h3>
-                <p class="text-xs sm:text-sm text-gray-600 mt-1">
-                    Kombinasi formulasi modern tanpa rasa lengket dan kehangatan alami Minyak Pala Nusantara.
-                </p>
-            </div>
-        </div>
-
     </div>
 </section>
 
 <!-- ======================================================= -->
 <!-- 4. PRODUK UNGGULAN RESMI (FLAGSHIP SHOWCASE)             -->
 <!-- ======================================================= -->
-<section class="py-12 sm:py-20 bg-white border-b border-ftl-sand">
+<section id="produk" class="py-12 sm:py-20 bg-white border-b border-ftl-sand">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- Section Title (Rapi, Terpusat & Bebas Offside) -->
+        <div data-animate="fade-up" class="text-center max-w-2xl mx-auto mb-8 sm:mb-12">
+            <span class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-emerald-100/80 text-ftl-forest text-xs font-bold uppercase tracking-wider mb-2 border border-emerald-200/60">
+                PRODUK UNGGULAN RESMI FTL
+            </span>
+            <h2 class="text-2xl sm:text-4xl font-extrabold font-display text-ftl-forest">
+                Baby Calming Rub Cream 50g
+            </h2>
+            <p class="text-xs sm:text-base text-gray-600 mt-1.5">
+                Kombinasi formulasi modern tanpa rasa lengket dan kehangatan alami Minyak Pala Nusantara.
+            </p>
+        </div>
 
         <!-- Single Flagship Showcase Card -->
         <div data-animate="fade-up" class="bg-white rounded-3xl sm:rounded-[36px] border border-ftl-sand shadow-xl shadow-emerald-950/5 overflow-hidden">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-0">
                 
                 <!-- Left: Product Visual Presentation (5 cols) -->
-                <div data-animate="zoom-in" data-delay="100" class="lg:col-span-5 bg-gradient-to-br from-emerald-50/70 via-ftl-light/50 to-teal-50/40 p-8 sm:p-12 flex flex-col justify-between items-center relative border-b lg:border-b-0 lg:border-r border-ftl-sand/60">
+                <div data-animate="zoom-in" data-delay="100" class="lg:col-span-5 bg-gradient-to-br from-emerald-50/70 via-ftl-light/50 to-teal-50/40 p-6 sm:p-10 flex flex-col justify-between items-center relative border-b lg:border-b-0 lg:border-r border-ftl-sand/60">
                     <!-- Top Badges -->
                     <div class="w-full flex items-center justify-between z-10">
                         <span class="inline-flex items-center gap-1 bg-white/95 backdrop-blur-xs text-ftl-forest font-bold text-xs px-3 py-1.5 rounded-full shadow-xs border border-emerald-100 animate-ftl-float">
@@ -572,12 +568,15 @@ require_once __DIR__ . '/includes/navbar.php';
                         </span>
                     </div>
 
-                    <!-- Main Product Image (Proporsi Diperbesar 20-25%) -->
-                    <div class="my-6 sm:my-8 lg:my-10 relative group flex items-center justify-center">
-                        <div class="absolute -inset-6 bg-emerald-200/40 rounded-full blur-3xl group-hover:bg-emerald-300/50 transition duration-500"></div>
-                        <img src="<?= BASE_URL ?>assets/images/product-calming-rub.svg" 
-                             alt="Baby Calming Rub Cream 50g - For The Little" 
-                             class="relative w-64 sm:w-72 lg:w-80 max-w-full h-auto object-contain drop-shadow-2xl hover:scale-105 transition-transform duration-300">
+                    <!-- Main Product Image (Foto Studio Asli Produk 50g) -->
+                    <div class="my-5 sm:my-7 relative group flex items-center justify-center">
+                        <div class="absolute -inset-4 bg-emerald-200/30 rounded-3xl blur-2xl group-hover:bg-emerald-300/40 transition duration-500"></div>
+                        <picture>
+                            <source srcset="<?= BASE_URL ?>assets/images/product-calming-rub-real.webp?v=<?= filemtime(__DIR__ . '/assets/images/product-calming-rub-real.webp') ?>" type="image/webp">
+                            <img src="<?= BASE_URL ?>assets/images/product-calming-rub-real.jpg?v=<?= filemtime(__DIR__ . '/assets/images/product-calming-rub-real.jpg') ?>" 
+                                 alt="Baby Calming Rub Cream 50g - For The Little" 
+                                 class="relative w-64 sm:w-72 lg:w-80 max-w-full h-auto rounded-2xl object-cover shadow-xl hover:scale-105 transition-transform duration-300">
+                        </picture>
                     </div>
 
                     <!-- Bottom Certifications Pill -->
