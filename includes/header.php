@@ -16,6 +16,13 @@ $current_page = isset($current_page) ? $current_page : 'home';
     <meta name="keywords" content="<?= SITE_KEYWORDS ?>">
     <meta name="author" content="<?= SITE_NAME ?>">
 
+    <!-- Favicon & Touch Icons (Official FTL Logo) -->
+    <link rel="icon" type="image/x-icon" href="<?= BASE_URL ?>favicon.ico?v=2">
+    <link rel="icon" type="image/png" sizes="32x32" href="<?= BASE_URL ?>assets/images/favicon-32x32.png?v=2">
+    <link rel="icon" type="image/png" sizes="16x16" href="<?= BASE_URL ?>assets/images/favicon-16x16.png?v=2">
+    <link rel="apple-touch-icon" sizes="180x180" href="<?= BASE_URL ?>assets/images/apple-touch-icon.png?v=2">
+    <link rel="shortcut icon" href="<?= BASE_URL ?>favicon.ico?v=2">
+
     <!-- Open Graph / Facebook / WhatsApp Share Preview -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="<?= BASE_URL ?>">
