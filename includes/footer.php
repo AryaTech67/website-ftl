@@ -172,9 +172,10 @@ require_once __DIR__ . '/../config.php';
 
     <!-- Floating Action Button -->
     <button type="button" 
-            @click="openOrderModal('pesan', 'calming-rub-50g')" 
+            @click="openOrderModal('pesan', '')" 
             class="w-14 h-14 rounded-full bg-emerald-500 hover:bg-emerald-600 text-white flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300 ring-4 ring-emerald-200/60"
-            title="Konsultasi WhatsApp / Pesan Cepat">
+            title="Konsultasi WhatsApp / Pesan Cepat"
+            style="touch-action: manipulation;">
         <img src="<?= BASE_URL ?>assets/images/whatsapp-icon-white.svg" class="w-7 h-7" alt="WhatsApp">
     </button>
 </div>

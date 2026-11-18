@@ -29,7 +29,7 @@ $FTL_DESTINATIONS = getShippingDestinations($SHIPPING_DATA);
          @click="closeModal()"
          class="fixed inset-0 bg-black/60 backdrop-blur-sm transition-opacity cursor-pointer"></div>
 
-    <div class="flex min-h-full items-center justify-center p-3 sm:p-4 text-center">
+    <div class="flex min-h-full items-center justify-center p-2.5 sm:p-4 text-center">
         <div x-show="isOpen || (typeof orderModalOpen !== 'undefined' && orderModalOpen)"
              x-transition:enter="ease-out duration-300"
              x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
@@ -37,14 +37,15 @@ $FTL_DESTINATIONS = getShippingDestinations($SHIPPING_DATA);
              x-transition:leave="ease-in duration-200"
              x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
              x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-             class="relative transform overflow-hidden rounded-3xl bg-white text-left shadow-2xl transition-all my-6 sm:my-8 w-full max-w-lg border border-ftl-sand">
+             class="relative transform flex flex-col rounded-3xl bg-white text-left shadow-2xl transition-all my-2 sm:my-6 w-full max-w-lg border border-ftl-sand max-h-[92vh] sm:max-h-[88vh] overflow-hidden">
             
-            <!-- Modal Header dengan Tab Navigasi -->
-            <div class="bg-gradient-to-r from-ftl-forest to-ftl-sage p-5 sm:p-6 text-white relative">
+            <!-- Modal Header dengan Tab Navigasi (Sticky Top) -->
+            <div class="bg-gradient-to-r from-ftl-forest to-ftl-sage p-4 sm:p-5 text-white relative shrink-0">
                 <button type="button" @click="closeModal()" 
-                        class="absolute top-3 right-3 sm:top-4 sm:right-4 z-30 w-11 h-11 flex items-center justify-center text-white/90 hover:text-white bg-black/25 hover:bg-black/40 rounded-full transition-all cursor-pointer active:scale-90"
+                        class="absolute top-3 right-3 sm:top-4 sm:right-4 z-30 w-10 h-10 flex items-center justify-center text-white/90 hover:text-white bg-black/25 hover:bg-black/40 rounded-full transition-all cursor-pointer active:scale-90 no-tap-zoom"
+                        style="touch-action: manipulation;"
                         aria-label="Tutup modal">
-                    <i data-lucide="x" class="w-6 h-6"></i>
+                    <i data-lucide="x" class="w-5 h-5"></i>
                 </button>
                 <div class="flex items-center gap-2 text-[11px] font-semibold text-emerald-200 uppercase tracking-wider mb-1">
                     <span class="w-2 h-2 rounded-full bg-emerald-400"></span> Layanan WhatsApp Resmi FTL
@@ -59,11 +60,12 @@ $FTL_DESTINATIONS = getShippingDestinations($SHIPPING_DATA);
                 </p>
 
                 <!-- 2-Tab Switcher -->
-                <div class="flex items-center p-1 bg-black/25 rounded-2xl mt-4 border border-white/15">
+                <div class="flex items-center p-1 bg-black/25 rounded-2xl mt-3.5 border border-white/15">
                     <button type="button" 
                             @click="modalTab = 'konsultasi'" 
                             :class="modalTab === 'konsultasi' ? 'bg-white text-ftl-forest font-bold shadow-sm' : 'text-white/80 hover:text-white font-medium'"
-                            class="flex-1 py-2.5 text-xs sm:text-sm rounded-xl transition flex items-center justify-center gap-1.5 cursor-pointer">
+                            class="flex-1 py-2 text-xs sm:text-sm rounded-xl transition flex items-center justify-center gap-1.5 cursor-pointer no-tap-zoom"
+                            style="touch-action: manipulation;">
                         <img src="<?= BASE_URL ?>assets/images/whatsapp-icon.svg" class="w-4 h-4" alt="WhatsApp" x-show="modalTab === 'konsultasi'">
                         <img src="<?= BASE_URL ?>assets/images/whatsapp-icon-white.svg" class="w-4 h-4" alt="WhatsApp" x-show="modalTab !== 'konsultasi'">
                         <span>Tanya-Tanya Dulu</span>
@@ -71,15 +73,16 @@ $FTL_DESTINATIONS = getShippingDestinations($SHIPPING_DATA);
                     <button type="button" 
                             @click="modalTab = 'pesan'" 
                             :class="modalTab === 'pesan' ? 'bg-white text-ftl-forest font-bold shadow-sm' : 'text-white/80 hover:text-white font-medium'"
-                            class="flex-1 py-2.5 text-xs sm:text-sm rounded-xl transition flex items-center justify-center gap-1.5 cursor-pointer">
+                            class="flex-1 py-2 text-xs sm:text-sm rounded-xl transition flex items-center justify-center gap-1.5 cursor-pointer no-tap-zoom"
+                            style="touch-action: manipulation;">
                         <i data-lucide="shopping-bag" class="w-4 h-4"></i>
                         <span>Mau Pesan Produk</span>
                     </button>
                 </div>
             </div>
 
-            <!-- ================= TAB 1: FORM KONSULTASI BUNDA ================= -->
-            <div x-show="modalTab === 'konsultasi'" class="p-5 sm:p-6 space-y-4 max-h-[72vh] overflow-y-auto">
+            <!-- ================= TAB 1: FORM KONSULTASI BUNDA (Scrollable Body) ================= -->
+            <div x-show="modalTab === 'konsultasi'" class="p-4 sm:p-5 space-y-4 flex-1 overflow-y-auto overscroll-contain">
                 
                 <!-- Info Banner Ramah -->
                 <div class="p-3.5 bg-emerald-50/90 rounded-2xl border border-emerald-200/80 flex items-start gap-3">
@@ -102,7 +105,8 @@ $FTL_DESTINATIONS = getShippingDestinations($SHIPPING_DATA);
                         <button type="button" 
                                 @click="selectTopic('Aman untuk newborn (0+) & kulit sensitif?', 'Halo min, mau tanya apakah aman digunakan untuk newborn dan kulit yang sensitif/ada riwayat eksim?')"
                                 :class="consultTopic === 'Aman untuk newborn (0+) & kulit sensitif?' ? 'bg-emerald-50 border-emerald-600 text-emerald-950 font-bold ring-2 ring-emerald-500/25 shadow-xs' : 'bg-gray-50/80 border-gray-200 text-gray-700 hover:bg-gray-100'"
-                                class="min-h-[52px] p-3 rounded-2xl border text-left transition-all flex items-center justify-between gap-2.5 cursor-pointer active:scale-[0.98]">
+                                class="min-h-[50px] p-3 rounded-2xl border text-left transition-all flex items-center justify-between gap-2.5 cursor-pointer active:scale-[0.98] no-tap-zoom"
+                                style="touch-action: manipulation;">
                             <div class="flex items-center gap-2.5 min-w-0">
                                 <span class="text-lg shrink-0">🍃</span>
                                 <span class="text-xs sm:text-sm leading-tight">Aman newborn / eksim?</span>
@@ -115,7 +119,8 @@ $FTL_DESTINATIONS = getShippingDestinations($SHIPPING_DATA);
                         <button type="button" 
                                 @click="selectTopic('Cara pijat ILU & aturan pakai kembung/kolik', 'Halo min, mohon panduan cara pijat ILU dan dosis pemakaian Calming Rub saat si kecil kembung/kolik ya.')"
                                 :class="consultTopic === 'Cara pijat ILU & aturan pakai kembung/kolik' ? 'bg-emerald-50 border-emerald-600 text-emerald-950 font-bold ring-2 ring-emerald-500/25 shadow-xs' : 'bg-gray-50/80 border-gray-200 text-gray-700 hover:bg-gray-100'"
-                                class="min-h-[52px] p-3 rounded-2xl border text-left transition-all flex items-center justify-between gap-2.5 cursor-pointer active:scale-[0.98]">
+                                class="min-h-[50px] p-3 rounded-2xl border text-left transition-all flex items-center justify-between gap-2.5 cursor-pointer active:scale-[0.98] no-tap-zoom"
+                                style="touch-action: manipulation;">
                             <div class="flex items-center gap-2.5 min-w-0">
                                 <span class="text-lg shrink-0">👶</span>
                                 <span class="text-xs sm:text-sm leading-tight">Cara pakai kembung & kolik</span>
@@ -128,7 +133,8 @@ $FTL_DESTINATIONS = getShippingDestinations($SHIPPING_DATA);
                         <button type="button" 
                                 @click="selectTopic('Komposisi Minyak Pala Nusantara & Calendula', 'Halo min, mau tanya detail kandungan minyak pala dan ekstrak calendula di dalamnya, apakah halal dan ber-BPOM?')"
                                 :class="consultTopic === 'Komposisi Minyak Pala Nusantara & Calendula' ? 'bg-emerald-50 border-emerald-600 text-emerald-950 font-bold ring-2 ring-emerald-500/25 shadow-xs' : 'bg-gray-50/80 border-gray-200 text-gray-700 hover:bg-gray-100'"
-                                class="min-h-[52px] p-3 rounded-2xl border text-left transition-all flex items-center justify-between gap-2.5 cursor-pointer active:scale-[0.98]">
+                                class="min-h-[50px] p-3 rounded-2xl border text-left transition-all flex items-center justify-between gap-2.5 cursor-pointer active:scale-[0.98] no-tap-zoom"
+                                style="touch-action: manipulation;">
                             <div class="flex items-center gap-2.5 min-w-0">
                                 <span class="text-lg shrink-0">🌿</span>
                                 <span class="text-xs sm:text-sm leading-tight">Komposisi & keaslian produk</span>
@@ -141,7 +147,8 @@ $FTL_DESTINATIONS = getShippingDestinations($SHIPPING_DATA);
                         <button type="button" 
                                 @click="selectTopic('Pertanyaan lainnya seputar si kecil', '')"
                                 :class="consultTopic === 'Pertanyaan lainnya seputar si kecil' ? 'bg-emerald-50 border-emerald-600 text-emerald-950 font-bold ring-2 ring-emerald-500/25 shadow-xs' : 'bg-gray-50/80 border-gray-200 text-gray-700 hover:bg-gray-100'"
-                                class="min-h-[52px] p-3 rounded-2xl border text-left transition-all flex items-center justify-between gap-2.5 cursor-pointer active:scale-[0.98]">
+                                class="min-h-[50px] p-3 rounded-2xl border text-left transition-all flex items-center justify-between gap-2.5 cursor-pointer active:scale-[0.98] no-tap-zoom"
+                                style="touch-action: manipulation;">
                             <div class="flex items-center gap-2.5 min-w-0">
                                 <span class="text-lg shrink-0">💬</span>
                                 <span class="text-xs sm:text-sm leading-tight">Pertanyaan lainnya</span>
@@ -154,66 +161,64 @@ $FTL_DESTINATIONS = getShippingDestinations($SHIPPING_DATA);
                     </div>
                 </div>
 
-                <!-- Input Nama & Usia Bayi (Text-base 16px to prevent iOS Safari auto-zoom) -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <!-- Input Nama & Usia Bayi (Opsional) -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
                     <div>
-                        <label class="block text-xs font-bold text-gray-700 mb-1">Nama Bunda (Opsional)</label>
-                        <input type="text" 
-                               x-model="consultName"
-                               placeholder="Contoh: Bunda Sarah" 
-                               class="w-full text-base sm:text-sm p-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-emerald-500 bg-white">
+                        <label class="block text-[11px] font-semibold text-gray-600 mb-1">
+                            Nama Bunda / Ayah (Opsional):
+                        </label>
+                        <input type="text" x-model="consultName" placeholder="Misal: Bunda Dian" 
+                               class="w-full rounded-xl border border-gray-300 px-3.5 py-2.5 text-base sm:text-sm focus:border-ftl-forest focus:outline-none focus:ring-2 focus:ring-emerald-200 bg-white">
                     </div>
                     <div>
-                        <label class="block text-xs font-bold text-gray-700 mb-1">Usia / Kondisi Si Kecil</label>
-                        <input type="text" 
-                               x-model="consultBabyAge"
-                               placeholder="Contoh: Newborn 2 minggu / 8 bulan" 
-                               class="w-full text-base sm:text-sm p-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-emerald-500 bg-white">
+                        <label class="block text-[11px] font-semibold text-gray-600 mb-1">
+                            Usia Si Kecil (Opsional):
+                        </label>
+                        <input type="text" x-model="consultBabyAge" placeholder="Misal: 2 Bulan / Newborn" 
+                               class="w-full rounded-xl border border-gray-300 px-3.5 py-2.5 text-base sm:text-sm focus:border-ftl-forest focus:outline-none focus:ring-2 focus:ring-emerald-200 bg-white">
                     </div>
                 </div>
 
-                <!-- Detail Pertanyaan -->
+                <!-- Input Detail Pertanyaan -->
                 <div>
-                    <label class="block text-xs font-bold text-gray-700 mb-1">Pertanyaan atau Keluhan Bunda:</label>
-                    <textarea x-model="consultCustomQuestion"
-                              rows="3"
-                              placeholder="Tuliskan pertanyaan Bunda di sini... (Contoh: Apakah krim ini boleh dioleskan ke dada saat si kecil pilek/batuk?)"
-                              class="w-full text-base sm:text-sm p-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-emerald-500 bg-white"></textarea>
+                    <label class="block text-[11px] font-semibold text-gray-600 mb-1">
+                        Pesan / Pertanyaan Spesifik Bunda:
+                    </label>
+                    <textarea x-model="consultCustomQuestion" rows="3" 
+                              placeholder="Tuliskan keluhan atau pertanyaan Bunda secara bebas di sini..." 
+                              class="w-full rounded-xl border border-gray-300 p-3 text-base sm:text-sm focus:border-ftl-forest focus:outline-none focus:ring-2 focus:ring-emerald-200 bg-white leading-relaxed"></textarea>
                 </div>
-
-                <!-- Tombol Submit Konsultasi WA -->
-                <div class="pt-2">
-                    <button type="button" 
-                            @click="sendConsultationWA()"
-                            class="w-full py-4 px-5 rounded-2xl bg-emerald-600 hover:bg-emerald-700 active:scale-[0.98] text-white font-bold text-sm sm:text-base shadow-lg shadow-emerald-950/20 flex items-center justify-center gap-2.5 transition-all cursor-pointer">
-                        <img src="<?= BASE_URL ?>assets/images/whatsapp-icon-white.svg" class="w-5 h-5 shrink-0" alt="WhatsApp">
-                        <span>Mulai Chat Konsultasi via WhatsApp</span>
-                    </button>
-                    <p class="text-[11px] text-gray-400 text-center mt-2">
-                        Tim admin FTL aktif setiap hari kerja (09.00 - 17.00 WIB) untuk merespons pertanyaan Bunda.
-                    </p>
-                </div>
-
             </div>
 
-            <!-- ================= TAB 2: FORM PEMESANAN & CEK ONGKIR ================= -->
-            <div x-show="modalTab === 'pesan'" class="p-5 sm:p-6 space-y-4 max-h-[72vh] overflow-y-auto">
+            <!-- ================= TAB 2: FORM PEMESANAN & ONGKIR (Scrollable Body) ================= -->
+            <div x-show="modalTab === 'pesan'" class="p-4 sm:p-5 space-y-4 flex-1 overflow-y-auto overscroll-contain">
                 
                 <!-- 1. PILIH PRODUK & JUMLAH -->
-                <div class="space-y-3">
+                <div id="field-product-selection" class="space-y-3">
                     <div class="flex items-center justify-between">
                         <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider">
-                            1. Pilih Produk yang Ingin Dipesan:
+                            1. Pilih Produk yang Ingin Dipesan: <span class="text-rose-500">*</span>
                         </label>
                         <span class="text-[10px] text-emerald-700 font-semibold uppercase tracking-wider">100% Original FTL</span>
+                    </div>
+
+                    <!-- Panduan / Warning jika belum memilih produk -->
+                    <div x-show="!product && !errors.product" class="text-xs text-amber-800 bg-amber-50 border border-amber-200 px-3.5 py-2 rounded-xl flex items-center gap-2">
+                        <i data-lucide="info" class="w-4 h-4 text-amber-600 shrink-0"></i>
+                        <span>Silakan ketuk salah satu pilihan paket produk di bawah untuk memilih:</span>
+                    </div>
+                    <div x-show="errors.product" class="text-xs font-bold text-rose-700 bg-rose-50 border border-rose-300 px-3.5 py-2 rounded-xl flex items-center gap-2 animate-pulse">
+                        <i data-lucide="alert-circle" class="w-4 h-4 text-rose-600 shrink-0"></i>
+                        <span x-text="errors.product"></span>
                     </div>
 
                     <!-- Pilihan Produk Interaktif (Kartu Produk Fleksibel) -->
                     <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
                         <template x-for="(item, key) in productsList" :key="key">
-                            <div @click="product = key; if(city) calculateOngkir();" 
+                            <div @click="product = key; delete errors.product; errorMessage = ''; if(city) calculateOngkir();" 
                                  :class="product === key ? 'border-emerald-600 bg-emerald-50/70 ring-2 ring-emerald-500/25 shadow-xs' : 'border-gray-200 bg-white hover:bg-gray-50/80'"
-                                 class="p-2.5 rounded-2xl border text-left transition-all flex sm:flex-col items-center sm:items-start gap-2.5 cursor-pointer relative active:scale-[0.98]">
+                                 class="p-2.5 rounded-2xl border text-left transition-all flex sm:flex-col items-center sm:items-start gap-2.5 cursor-pointer relative active:scale-[0.98] no-tap-zoom"
+                                 style="touch-action: manipulation;">
                                 <!-- Radio indicator dot -->
                                 <div class="absolute top-2.5 right-2.5 w-4 h-4 rounded-full border-2 flex items-center justify-center shrink-0 transition-colors"
                                      :class="product === key ? 'border-emerald-600 bg-emerald-600 text-white' : 'border-gray-300 bg-white'">
@@ -231,82 +236,101 @@ $FTL_DESTINATIONS = getShippingDestinations($SHIPPING_DATA);
                                           :class="item.badgeClass" x-text="item.badge"></span>
                                     <h5 class="font-bold text-xs text-gray-900 leading-snug line-clamp-1" x-text="item.name"></h5>
                                     <div class="flex items-baseline gap-1 mt-0.5">
-                                        <span class="text-xs font-extrabold text-ftl-forest" x-text="formatRp(item.price)"></span>
-                                        <span class="text-[10px] text-gray-400 line-through" x-text="formatRp(item.originalPrice)"></span>
+                                        <span class="text-xs font-extrabold text-ftl-forest whitespace-nowrap" x-text="formatRp(item.price)"></span>
+                                        <span class="text-[10px] text-gray-400 line-through whitespace-nowrap" x-text="formatRp(item.originalPrice)"></span>
                                     </div>
                                 </div>
                             </div>
                         </template>
                     </div>
 
-                    <!-- Quantity Stepper & Price -->
+                    <!-- Quantity Stepper & Price (Anti Double-Tap Zoom) -->
                     <div class="flex items-center justify-between bg-ftl-light p-3.5 rounded-2xl border border-emerald-100">
                         <div class="flex flex-col">
                             <span class="text-xs text-gray-700 font-bold">Jumlah Pesanan:</span>
                             <div class="flex items-center gap-3 mt-1.5">
                                 <button type="button" 
                                         @click="if (qty > 1) { qty--; if(city) calculateOngkir(); }" 
-                                        class="w-9 h-9 rounded-xl bg-white border border-gray-300 text-gray-800 flex items-center justify-center font-bold text-lg hover:bg-gray-100 active:scale-90 transition shadow-2xs cursor-pointer select-none">
+                                        class="w-9 h-9 rounded-xl bg-white border border-gray-300 text-gray-800 flex items-center justify-center font-bold text-lg hover:bg-gray-100 active:scale-90 transition shadow-2xs cursor-pointer select-none no-tap-zoom"
+                                        style="touch-action: manipulation; user-select: none; -webkit-user-select: none;"
+                                        aria-label="Kurangi jumlah">
                                     -
                                 </button>
-                                <span class="font-display font-extrabold text-base sm:text-lg w-8 text-center text-gray-900" x-text="qty"></span>
+                                <span class="font-display font-extrabold text-base sm:text-lg w-8 text-center text-gray-900 select-none" x-text="qty"></span>
                                 <button type="button" 
                                         @click="qty++; if(city) calculateOngkir();" 
-                                        class="w-9 h-9 rounded-xl bg-white border border-gray-300 text-gray-800 flex items-center justify-center font-bold text-lg hover:bg-gray-100 active:scale-90 transition shadow-2xs cursor-pointer select-none">
+                                        class="w-9 h-9 rounded-xl bg-white border border-gray-300 text-gray-800 flex items-center justify-center font-bold text-lg hover:bg-gray-100 active:scale-90 transition shadow-2xs cursor-pointer select-none no-tap-zoom"
+                                        style="touch-action: manipulation; user-select: none; -webkit-user-select: none;"
+                                        aria-label="Tambah jumlah">
                                     +
                                 </button>
                             </div>
                         </div>
                         <div class="text-right">
                             <span class="text-[11px] text-gray-500">Subtotal Produk:</span>
-                            <div class="text-base sm:text-lg font-extrabold text-ftl-forest" x-text="formatRp(subtotal)"></div>
-                            <span class="text-[10px] text-emerald-700 font-semibold" x-text="'Estimasi Berat: ' + totalWeight + 'g'"></span>
+                            <div class="text-base sm:text-lg font-extrabold text-ftl-forest whitespace-nowrap" x-text="product ? formatRp(subtotal) : 'Pilih produk dulu'"></div>
+                            <span class="text-[10px] text-emerald-700 font-semibold" x-text="product ? ('Estimasi Berat: ' + totalWeight + 'g') : ''"></span>
                         </div>
                     </div>
                 </div>
 
                 <!-- 2. DATA PENERIMA -->
-                <div class="space-y-3 pt-2 border-t border-gray-100">
+                <div id="field-receiver" class="space-y-3 pt-2 border-t border-gray-100">
                     <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider">
                         2. Data Penerima
                     </label>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                        <div>
+                        <div id="field-name">
                             <label class="block text-[11px] font-semibold text-gray-600 mb-1">
-                                Nama Bunda / Ayah *
+                                Nama Bunda / Ayah <span class="text-rose-500">*</span>
                             </label>
-                            <input type="text" x-model="name" placeholder="Misal: Bunda Rina" 
-                                   class="w-full rounded-xl border border-gray-300 px-3.5 py-3 text-base sm:text-sm focus:border-ftl-forest focus:outline-none focus:ring-2 focus:ring-emerald-200 bg-white">
+                            <input type="text" x-model="name" 
+                                   @input="delete errors.name; errorMessage = '';"
+                                   placeholder="Misal: Bunda Rina" 
+                                   class="w-full rounded-xl border px-3.5 py-3 text-base sm:text-sm focus:outline-none focus:ring-2 bg-white transition-colors"
+                                   :class="errors.name ? 'border-rose-500 ring-2 ring-rose-200 bg-rose-50/20' : 'border-gray-300 focus:border-ftl-forest focus:ring-emerald-200'">
+                            <span x-show="errors.name" class="text-xs font-bold text-rose-600 flex items-center gap-1 mt-1">
+                                <i data-lucide="alert-circle" class="w-3.5 h-3.5 shrink-0"></i>
+                                <span x-text="errors.name"></span>
+                            </span>
                         </div>
-                        <div>
+                        <div id="field-phone">
                             <label class="block text-[11px] font-semibold text-gray-600 mb-1">
-                                No. WhatsApp Aktif *
+                                No. WhatsApp Aktif <span class="text-rose-500">*</span>
                             </label>
-                            <input type="tel" x-model="phone" placeholder="Misal: 081234567890" 
-                                   class="w-full rounded-xl border border-gray-300 px-3.5 py-3 text-base sm:text-sm focus:border-ftl-forest focus:outline-none focus:ring-2 focus:ring-emerald-200 bg-white">
+                            <input type="tel" x-model="phone" 
+                                   @input="delete errors.phone; errorMessage = '';"
+                                   placeholder="Misal: 081234567890" 
+                                   class="w-full rounded-xl border px-3.5 py-3 text-base sm:text-sm focus:outline-none focus:ring-2 bg-white transition-colors"
+                                   :class="errors.phone ? 'border-rose-500 ring-2 ring-rose-200 bg-rose-50/20' : 'border-gray-300 focus:border-ftl-forest focus:ring-emerald-200'">
+                            <span x-show="errors.phone" class="text-xs font-bold text-rose-600 flex items-center gap-1 mt-1">
+                                <i data-lucide="alert-circle" class="w-3.5 h-3.5 shrink-0"></i>
+                                <span x-text="errors.phone"></span>
+                            </span>
                         </div>
                     </div>
                 </div>
 
                 <!-- 3. LOKASI PENGIRIMAN DENGAN AUTO-DETEKSI GPS & SEARCH -->
-                <div class="space-y-3 pt-2 border-t border-gray-100">
+                <div id="field-shipping-location" class="space-y-3 pt-2 border-t border-gray-100">
                     <div class="flex items-center justify-between">
                         <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider">
-                            3. Lokasi Pengiriman & Cek Ongkir
+                            3. Lokasi Pengiriman & Cek Ongkir <span class="text-rose-500">*</span>
                         </label>
                         <span class="text-[10px] font-semibold text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200/60">
                             Kirim dari: Jakarta
                         </span>
                     </div>
 
-                    <!-- TOMBOL AUTO-DETEKSI GPS -->
+                    <!-- TOMBOL AUTO-DETEKSI GPS (Clean, Authentic, No-Slop) -->
                     <button type="button" 
                             @click="detectLocationGPS()" 
                             :disabled="detectingGPS"
-                            class="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-gradient-to-r from-emerald-50 via-teal-50 to-emerald-50 border border-emerald-300 text-ftl-forest hover:bg-emerald-100 font-bold text-xs sm:text-sm transition active:scale-95 shadow-2xs cursor-pointer">
-                        <span x-show="detectingGPS" class="w-4 h-4 border-2 border-emerald-700 border-t-transparent rounded-full animate-spin"></span>
-                        <i x-show="!detectingGPS" data-lucide="crosshair" class="w-4 h-4 text-emerald-600"></i>
-                        <span x-text="detectingGPS ? 'Mendeteksi Koordinat GPS Lokasi Anda...' : '📍 Auto-Deteksi Lokasi Saya (GPS Cepat)'"></span>
+                            class="w-full inline-flex items-center justify-center gap-2.5 py-3 px-4 rounded-xl bg-emerald-50/80 hover:bg-emerald-100 border border-emerald-300 text-emerald-900 font-bold text-xs sm:text-sm transition-all active:scale-[0.99] shadow-2xs cursor-pointer no-tap-zoom"
+                            style="touch-action: manipulation;">
+                        <span x-show="detectingGPS" class="w-4 h-4 border-2 border-emerald-700 border-t-transparent rounded-full animate-spin shrink-0"></span>
+                        <i x-show="!detectingGPS" data-lucide="locate-fixed" class="w-4 h-4 text-emerald-700 shrink-0"></i>
+                        <span x-text="detectingGPS ? 'Mendeteksi Koordinat Lokasi Anda...' : 'Auto-Deteksi Lokasi Saya (GPS)'"></span>
                     </button>
 
                     <!-- Alert Banner Hasil Auto-Deteksi -->
@@ -317,6 +341,12 @@ $FTL_DESTINATIONS = getShippingDestinations($SHIPPING_DATA);
                         <span class="text-[10px] bg-emerald-200/80 text-emerald-800 px-2 py-0.5 rounded-full font-bold">Terpilih</span>
                     </div>
 
+                    <!-- Error Lokasi -->
+                    <div x-show="errors.city" class="text-xs font-bold text-rose-700 bg-rose-50 border border-rose-300 px-3.5 py-2 rounded-xl flex items-center gap-2">
+                        <i data-lucide="alert-circle" class="w-4 h-4 text-rose-600 shrink-0"></i>
+                        <span x-text="errors.city"></span>
+                    </div>
+
                     <!-- FITUR PENCARIAN CEPAT KOTA / KABUPATEN DI SELURUH INDONESIA -->
                     <div class="relative">
                         <label class="block text-[11px] font-semibold text-gray-600 mb-1">
@@ -325,7 +355,7 @@ $FTL_DESTINATIONS = getShippingDestinations($SHIPPING_DATA);
                         <div class="relative">
                             <input type="text" 
                                    x-model="searchQuery" 
-                                   @input="showSuggestions = true"
+                                   @input="showSuggestions = true; delete errors.city; errorMessage = '';"
                                    @focus="showSuggestions = true"
                                    placeholder="Ketik kota tujuan (misal: Bandung, Tangerang, Surabaya...)" 
                                    class="w-full rounded-xl border border-gray-300 pl-9 pr-3.5 py-3 text-base sm:text-sm focus:border-ftl-forest focus:outline-none focus:ring-2 focus:ring-emerald-200 bg-white">
@@ -349,7 +379,7 @@ $FTL_DESTINATIONS = getShippingDestinations($SHIPPING_DATA);
                         </div>
                     </div>
 
-                    <!-- ================= PILIHAN MODEL PROVINSI & KOTA BERGAYA ELEGAN ================= -->
+                    <!-- ================= PILIHAN MODEL PROVINSI & KOTA (Clean, Authentic UI) ================= -->
                     <div class="space-y-3 pt-1">
                         <!-- 1. CUSTOM STYLED PROVINSI SELECTOR -->
                         <div class="relative">
@@ -360,11 +390,12 @@ $FTL_DESTINATIONS = getShippingDestinations($SHIPPING_DATA);
                             
                             <button type="button" 
                                     @click="openProvDropdown = !openProvDropdown; openCityDropdown = false; $nextTick(() => { if(window.lucide) lucide.createIcons(); });"
-                                    class="w-full p-3 sm:p-3.5 rounded-2xl border transition-all flex items-center justify-between text-left bg-white shadow-2xs cursor-pointer active:scale-[0.99]"
+                                    class="w-full p-3 sm:p-3.5 rounded-2xl border transition-all flex items-center justify-between text-left bg-white shadow-2xs cursor-pointer active:scale-[0.99] no-tap-zoom"
+                                    style="touch-action: manipulation;"
                                     :class="openProvDropdown ? 'border-emerald-600 ring-2 ring-emerald-500/25' : (province ? 'border-emerald-400 bg-emerald-50/20' : 'border-gray-300 hover:border-gray-400')">
                                 <div class="flex items-center gap-3 min-w-0">
                                     <div class="w-8 h-8 rounded-xl flex items-center justify-center shrink-0 transition-colors"
-                                         :class="province ? 'bg-emerald-600 text-white' : 'bg-gray-100 text-gray-500'">
+                                         :class="province ? 'bg-emerald-100 text-emerald-800 border border-emerald-300' : 'bg-gray-100 text-gray-500 border border-gray-200'">
                                         <i data-lucide="map" class="w-4 h-4"></i>
                                     </div>
                                     <div class="min-w-0">
@@ -402,7 +433,8 @@ $FTL_DESTINATIONS = getShippingDestinations($SHIPPING_DATA);
                                     <template x-for="item in filteredProvincesList" :key="item.province">
                                         <button type="button"
                                                 @click="selectProvince(item.province)"
-                                                class="w-full text-left px-3 py-2.5 rounded-xl transition flex items-center justify-between cursor-pointer active:scale-98"
+                                                class="w-full text-left px-3 py-2.5 rounded-xl transition flex items-center justify-between cursor-pointer active:scale-98 no-tap-zoom"
+                                                style="touch-action: manipulation;"
                                                 :class="province === item.province ? 'bg-emerald-600 text-white font-bold shadow-xs' : 'hover:bg-emerald-50 text-gray-800'">
                                             <div class="flex items-center gap-2">
                                                 <span class="w-1.5 h-1.5 rounded-full" :class="province === item.province ? 'bg-white' : 'bg-emerald-500'"></span>
@@ -428,12 +460,13 @@ $FTL_DESTINATIONS = getShippingDestinations($SHIPPING_DATA);
                             <button type="button" 
                                     @click="if (province) { openCityDropdown = !openCityDropdown; openProvDropdown = false; $nextTick(() => { if(window.lucide) lucide.createIcons(); }); }"
                                     :disabled="!province"
-                                    class="w-full p-3 sm:p-3.5 rounded-2xl border transition-all flex items-center justify-between text-left shadow-2xs"
+                                    class="w-full p-3 sm:p-3.5 rounded-2xl border transition-all flex items-center justify-between text-left shadow-2xs no-tap-zoom"
+                                    style="touch-action: manipulation;"
                                     :class="!province ? 'bg-gray-100/70 border-gray-200 text-gray-400 cursor-not-allowed' : (openCityDropdown ? 'bg-white border-emerald-600 ring-2 ring-emerald-500/25 cursor-pointer' : (city ? 'bg-emerald-50/20 border-emerald-400 text-gray-900 cursor-pointer' : 'bg-white border-gray-300 hover:border-gray-400 cursor-pointer active:scale-[0.99]'))">
                                 <div class="flex items-center gap-3 min-w-0">
                                     <div class="w-8 h-8 rounded-xl flex items-center justify-center shrink-0 transition-colors"
-                                         :class="city ? 'bg-emerald-600 text-white' : 'bg-gray-100 text-gray-500'">
-                                        <i data-lucide="building-2" class="w-4 h-4"></i>
+                                         :class="city ? 'bg-emerald-100 text-emerald-800 border border-emerald-300' : 'bg-gray-100 text-gray-500 border border-gray-200'">
+                                        <i data-lucide="map-pin" class="w-4 h-4"></i>
                                     </div>
                                     <div class="min-w-0">
                                         <span class="text-[10px] uppercase font-bold text-gray-400 block leading-tight">Kota / Kab</span>
@@ -470,7 +503,8 @@ $FTL_DESTINATIONS = getShippingDestinations($SHIPPING_DATA);
                                     <template x-for="c in filteredCitiesOfProvince" :key="c">
                                         <button type="button"
                                                 @click="selectCity(c)"
-                                                class="w-full text-left px-3 py-2.5 rounded-xl transition flex items-center justify-between cursor-pointer active:scale-98"
+                                                class="w-full text-left px-3 py-2.5 rounded-xl transition flex items-center justify-between cursor-pointer active:scale-98 no-tap-zoom"
+                                                style="touch-action: manipulation;"
                                                 :class="city === c ? 'bg-emerald-600 text-white font-bold shadow-xs' : 'hover:bg-emerald-50 text-gray-800'">
                                             <div class="flex items-center gap-2">
                                                 <span class="w-1.5 h-1.5 rounded-full" :class="city === c ? 'bg-white' : 'bg-emerald-500'"></span>
@@ -499,7 +533,7 @@ $FTL_DESTINATIONS = getShippingDestinations($SHIPPING_DATA);
                         <span>Menghubungkan & mendeteksi ongkir otomatis...</span>
                     </div>
 
-                    <div x-show="couriers.length > 0 && !loadingOngkir" class="space-y-2 pt-1">
+                    <div id="field-couriers" x-show="couriers.length > 0 && !loadingOngkir" class="space-y-2 pt-1">
                         <div class="flex items-center justify-between">
                             <span class="block text-[11px] font-bold text-gray-700 uppercase tracking-wider">
                                 Ekspedisi Terdeteksi:
@@ -511,9 +545,10 @@ $FTL_DESTINATIONS = getShippingDestinations($SHIPPING_DATA);
                         
                         <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
                             <template x-for="c in couriers" :key="c.code">
-                                <div @click="selectedCourier = c"
+                                <div @click="selectedCourier = c; delete errors.courier; errorMessage = '';"
                                      :class="selectedCourier && selectedCourier.code === c.code ? 'border-emerald-600 bg-emerald-50/70 ring-2 ring-emerald-500/25 shadow-xs' : 'border-gray-200 hover:border-gray-300 bg-white'"
-                                     class="p-3 rounded-2xl border cursor-pointer transition-all flex flex-col justify-between text-left relative active:scale-[0.98]">
+                                     class="p-3 rounded-2xl border cursor-pointer transition-all flex flex-col justify-between text-left relative active:scale-[0.98] no-tap-zoom"
+                                     style="touch-action: manipulation;">
                                     <div>
                                         <div class="flex items-center justify-between mb-1">
                                             <span class="text-xs font-extrabold text-gray-900" x-text="c.name"></span>
@@ -526,7 +561,7 @@ $FTL_DESTINATIONS = getShippingDestinations($SHIPPING_DATA);
                                         <span class="text-[10px] text-emerald-700 font-semibold block mt-0.5" x-text="'Est. ' + c.etd"></span>
                                     </div>
                                     <div class="pt-2 mt-2 border-t border-gray-100 flex items-baseline justify-between">
-                                        <span class="text-xs font-extrabold text-ftl-forest" x-text="c.cost_formatted"></span>
+                                        <span class="text-xs font-extrabold text-ftl-forest whitespace-nowrap" x-text="c.cost_formatted"></span>
                                         <span class="text-[9px] font-bold text-emerald-700" x-text="c.badge"></span>
                                     </div>
                                 </div>
@@ -542,18 +577,18 @@ $FTL_DESTINATIONS = getShippingDestinations($SHIPPING_DATA);
                 </div>
 
                 <!-- 4. TOTAL RINGKASAN PEMBAYARAN -->
-                <div x-show="selectedCourier" class="bg-emerald-50/70 p-4 rounded-2xl border border-emerald-200 space-y-1.5 text-xs text-gray-700">
+                <div x-show="selectedCourier && product" class="bg-emerald-50/70 p-4 rounded-2xl border border-emerald-200 space-y-1.5 text-xs text-gray-700">
                     <div class="flex justify-between">
                         <span>Subtotal Produk (<span x-text="qty"></span> pcs):</span>
-                        <span class="font-bold text-gray-900" x-text="formatRp(subtotal)"></span>
+                        <span class="font-bold text-gray-900 whitespace-nowrap" x-text="formatRp(subtotal)"></span>
                     </div>
                     <div class="flex justify-between">
                         <span>Ongkir (<span x-text="selectedCourier ? selectedCourier.name : ''"></span>):</span>
-                        <span class="font-bold text-gray-900" x-text="formatRp(shippingCost)"></span>
+                        <span class="font-bold text-gray-900 whitespace-nowrap" x-text="formatRp(shippingCost)"></span>
                     </div>
                     <div class="pt-2 border-t border-emerald-200 flex justify-between items-baseline font-display">
                         <span class="font-extrabold text-sm text-gray-900">Total Tagihan Transfer:</span>
-                        <span class="text-lg font-extrabold text-ftl-forest" x-text="formatRp(grandTotal)"></span>
+                        <span class="text-lg font-extrabold text-ftl-forest whitespace-nowrap" x-text="formatRp(grandTotal)"></span>
                     </div>
                 </div>
 
@@ -568,20 +603,47 @@ $FTL_DESTINATIONS = getShippingDestinations($SHIPPING_DATA);
 
             </div>
 
-            <!-- Modal Footer -->
-            <div class="bg-gray-50 px-5 sm:px-6 py-4 flex flex-col sm:flex-row-reverse gap-2.5 border-t border-gray-100">
-                <button type="button" 
-                        x-show="modalTab === 'pesan'"
-                        @click="submitToWhatsApp()" 
-                        class="w-full sm:w-auto inline-flex justify-center items-center gap-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 px-6 py-3.5 text-sm font-bold text-white shadow-md active:scale-95 transition-all cursor-pointer">
-                    <i data-lucide="send" class="w-4 h-4"></i>
-                    <span>Kirim Pesanan ke WhatsApp</span>
-                </button>
-                <button type="button" 
-                        @click="closeModal()"
-                        class="w-full sm:w-auto inline-flex justify-center items-center rounded-xl border border-gray-300 bg-white px-5 py-3 text-xs sm:text-sm font-semibold text-gray-700 hover:bg-gray-100 transition-colors cursor-pointer active:scale-95">
-                    Batal
-                </button>
+            <!-- ================= MODAL FOOTER (Sticky Bottom - Zero Lag / Instant View) ================= -->
+            <div class="bg-white/95 backdrop-blur-md px-4 sm:px-6 py-3 border-t border-gray-200 shrink-0 shadow-lg z-30">
+                <!-- Banner Notifikasi Error -->
+                <div x-show="errorMessage" 
+                     x-transition 
+                     class="p-2.5 mb-2.5 bg-rose-50 border border-rose-300 text-rose-800 rounded-xl text-xs font-bold flex items-center gap-2">
+                    <i data-lucide="alert-circle" class="w-4 h-4 text-rose-600 shrink-0"></i>
+                    <span x-text="errorMessage"></span>
+                </div>
+
+                <div class="flex items-center justify-between gap-3">
+                    <div x-show="modalTab === 'pesan'" class="min-w-0 pr-2">
+                        <span class="text-[10px] text-gray-500 uppercase font-semibold block leading-tight">Total Tagihan:</span>
+                        <span class="text-base sm:text-lg font-extrabold text-ftl-forest truncate block whitespace-nowrap" 
+                              x-text="product ? formatRp(grandTotal) : 'Pilih produk'"></span>
+                    </div>
+                    <div class="flex items-center gap-2 ml-auto">
+                        <button type="button" 
+                                @click="closeModal()"
+                                class="px-4 py-3 rounded-xl border border-gray-300 bg-white text-xs sm:text-sm font-semibold text-gray-700 hover:bg-gray-100 transition-colors cursor-pointer active:scale-95 no-tap-zoom"
+                                style="touch-action: manipulation;">
+                            Batal
+                        </button>
+                        <button type="button" 
+                                x-show="modalTab === 'pesan'"
+                                @click="submitToWhatsApp()" 
+                                class="inline-flex justify-center items-center gap-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 px-5 sm:px-6 py-3 text-xs sm:text-sm font-bold text-white shadow-md active:scale-95 transition-all cursor-pointer no-tap-zoom"
+                                style="touch-action: manipulation;">
+                            <i data-lucide="send" class="w-4 h-4"></i>
+                            <span>Kirim ke WhatsApp</span>
+                        </button>
+                        <button type="button" 
+                                x-show="modalTab === 'konsultasi'"
+                                @click="sendConsultationWA()" 
+                                class="inline-flex justify-center items-center gap-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 px-5 sm:px-6 py-3 text-xs sm:text-sm font-bold text-white shadow-md active:scale-95 transition-all cursor-pointer no-tap-zoom"
+                                style="touch-action: manipulation;">
+                            <img src="<?= BASE_URL ?>assets/images/whatsapp-icon-white.svg" class="w-4 h-4" alt="WA">
+                            <span>Mulai Konsultasi</span>
+                        </button>
+                    </div>
+                </div>
             </div>
 
         </div>
@@ -600,12 +662,12 @@ window.FTL_EMBEDDED_SHIPPING_RATES = <?= json_encode($SHIPPING_DATA, JSON_UNESCA
 function orderModal() {
     return {
         isOpen: false,
-        modalTab: 'konsultasi', // 'konsultasi' | 'pesan'
+        modalTab: 'pesan', // 'konsultasi' | 'pesan'
         consultName: '',
         consultBabyAge: '',
         consultTopic: 'Aman untuk newborn (0+) & kulit sensitif?',
         consultCustomQuestion: '',
-        product: 'calming-rub-50g',
+        product: '', // DEFAULT KOSONG: User bebas memilih sendiri tanpa dipaksa lock produk
         qty: 1,
         name: '',
         phone: '',
@@ -613,6 +675,8 @@ function orderModal() {
         city: '',
         address: '',
         note: '',
+        errors: {},
+        errorMessage: '',
         openProvDropdown: false,
         searchProvQuery: '',
         openCityDropdown: false,
@@ -662,16 +726,16 @@ function orderModal() {
             }
         },
         get currentProduct() {
-            return this.productsList[this.product] || this.productsList['calming-rub-50g'];
+            return (this.product && this.productsList[this.product]) ? this.productsList[this.product] : null;
         },
         get currentPrice() {
-            return this.currentProduct.price;
+            return this.currentProduct ? this.currentProduct.price : 0;
         },
         get currentName() {
-            return this.currentProduct.name;
+            return this.currentProduct ? this.currentProduct.name : 'Belum memilih produk';
         },
         get totalWeight() {
-            return this.currentProduct.weight * this.qty;
+            return this.currentProduct ? (this.currentProduct.weight * this.qty) : 100;
         },
         get subtotal() {
             return this.currentPrice * this.qty;
@@ -727,10 +791,14 @@ function orderModal() {
         },
         openModal(detail) {
             this.isOpen = true;
+            this.errors = {};
+            this.errorMessage = '';
             if (detail && detail.tab) this.modalTab = detail.tab;
             if (detail && detail.product && this.productsList[detail.product]) {
                 this.product = detail.product;
                 if (this.city) this.calculateOngkir();
+            } else if (detail && detail.product === '') {
+                this.product = '';
             }
             setTimeout(() => { if (window.lucide) lucide.createIcons(); }, 50);
         },
@@ -738,6 +806,8 @@ function orderModal() {
             this.isOpen = false;
             this.openProvDropdown = false;
             this.openCityDropdown = false;
+            this.errors = {};
+            this.errorMessage = '';
             try {
                 if (typeof orderModalOpen !== 'undefined') {
                     orderModalOpen = false;
@@ -769,113 +839,140 @@ function orderModal() {
         },
         selectProvince(provName) {
             this.province = provName;
-            const found = this.destinations.find(d => d.province === this.province);
-            this.cityList = found ? found.cities : [];
+            this.openProvDropdown = false;
             this.city = '';
+            this.openCityDropdown = true;
+            this.searchProvQuery = '';
+            this.searchCityQuery = '';
+            delete this.errors.city;
+            this.errorMessage = '';
+            const found = this.destinations.find(d => d.province === provName);
+            this.cityList = found ? found.cities : [];
             this.couriers = [];
             this.selectedCourier = null;
-            this.detectedAlert = '';
-            this.searchQuery = '';
-            this.openProvDropdown = false;
-            this.searchProvQuery = '';
-            // Auto buka pilihan kota agar flow belanja mulus
-            this.openCityDropdown = true;
-            this.searchCityQuery = '';
             setTimeout(() => { if (window.lucide) lucide.createIcons(); }, 30);
         },
         selectCity(cityName) {
             this.city = cityName;
-            this.searchQuery = cityName + ', ' + this.province;
-            this.detectedAlert = '📍 Lokasi Terpilih: ' + cityName + ' (' + this.province + ')';
             this.openCityDropdown = false;
             this.searchCityQuery = '';
+            delete this.errors.city;
+            this.errorMessage = '';
             this.calculateOngkir();
+            setTimeout(() => { if (window.lucide) lucide.createIcons(); }, 30);
         },
         selectCityFromSearch(item) {
             this.province = item.province;
-            const found = this.destinations.find(d => d.province === this.province);
-            this.cityList = found ? found.cities : [];
             this.city = item.city;
-            this.searchQuery = item.city + ', ' + item.province;
+            this.searchQuery = '';
             this.showSuggestions = false;
-            this.detectedAlert = '📍 Lokasi Terpilih: ' + item.city + ' (' + item.province + ')';
+            delete this.errors.city;
+            this.errorMessage = '';
+            const found = this.destinations.find(d => d.province === item.province);
+            this.cityList = found ? found.cities : [];
             this.calculateOngkir();
+            setTimeout(() => { if (window.lucide) lucide.createIcons(); }, 30);
         },
-        async detectLocationGPS() {
+        detectLocationGPS() {
             if (!navigator.geolocation) {
-                alert('Browser Anda tidak mendukung deteksi lokasi otomatis. Silakan pilih provinsi & kota manual.');
+                alert('Browser Anda tidak mendukung deteksi lokasi GPS. Silakan pilih provinsi dan kota secara manual.');
                 return;
             }
             this.detectingGPS = true;
             this.detectedAlert = '';
 
-            navigator.geolocation.getCurrentPosition(async (pos) => {
-                try {
+            navigator.geolocation.getCurrentPosition(
+                async (pos) => {
                     const lat = pos.coords.latitude;
                     const lon = pos.coords.longitude;
-                    const res = await fetch('https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=' + lat + '&longitude=' + lon + '&localityLanguage=id');
-                    const data = await res.json();
                     
-                    const rawProv = (data.principalSubdivision || '').toLowerCase();
-                    const rawCity = (data.city || data.locality || '').toLowerCase();
+                    try {
+                        const res = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}&addressdetails=1`);
+                        const data = await res.json();
+                        
+                        if (data && data.address) {
+                            const addr = data.address;
+                            const detectedCity = addr.city || addr.town || addr.municipality || addr.county || addr.city_district || '';
+                            const detectedState = addr.state || '';
+                            
+                            let matchedProvince = null;
+                            let matchedCity = null;
 
-                    let matched = null;
-                    for (let d of this.destinations) {
-                        for (let c of d.cities) {
-                            const cLow = c.toLowerCase();
-                            const pLow = d.province.toLowerCase();
-                            if (rawCity && (cLow.includes(rawCity) || rawCity.includes(cLow.replace(/^(kota|kab\.)\s*/, '')))) {
-                                matched = { province: d.province, city: c };
-                                break;
+                            if (detectedState) {
+                                const cleanState = detectedState.toLowerCase().replace('daerah khusus ibukota ', '').replace('dki ', '').trim();
+                                matchedProvince = this.destinations.find(d => 
+                                    d.province.toLowerCase().includes(cleanState) || cleanState.includes(d.province.toLowerCase())
+                                );
                             }
-                            if (rawProv && pLow.includes(rawProv) && !matched) {
-                                matched = { province: d.province, city: c };
+
+                            if (detectedCity) {
+                                const cleanCity = detectedCity.toLowerCase().replace(/^(kota|kabupaten|kab\.|adm\.)\s+/i, '').trim();
+                                
+                                if (matchedProvince) {
+                                    matchedCity = matchedProvince.cities.find(c => 
+                                        c.toLowerCase().replace(/^(kota|kabupaten|kab\.|adm\.)\s+/i, '').includes(cleanCity)
+                                    );
+                                }
+                                
+                                if (!matchedCity) {
+                                    for (let d of this.destinations) {
+                                        const cMatch = d.cities.find(c => 
+                                            c.toLowerCase().replace(/^(kota|kabupaten|kab\.|adm\.)\s+/i, '').includes(cleanCity)
+                                        );
+                                        if (cMatch) {
+                                            matchedProvince = d;
+                                            matchedCity = cMatch;
+                                            break;
+                                        }
+                                    }
+                                }
+                            }
+
+                            if (matchedProvince && matchedCity) {
+                                this.province = matchedProvince.province;
+                                this.cityList = matchedProvince.cities;
+                                this.city = matchedCity;
+                                this.detectedAlert = `GPS Terdeteksi: ${matchedCity}, ${matchedProvince.province}`;
+                                delete this.errors.city;
+                                this.errorMessage = '';
+                                this.calculateOngkir();
+                            } else {
+                                this.detectedAlert = `GPS: Terdeteksi di sekitar ${detectedCity || detectedState || 'Indonesia'}. Silakan sesuaikan kota tujuan di bawah.`;
                             }
                         }
-                        if (matched) break;
+                    } catch (e) {
+                        console.error('Reverse geocode error:', e);
+                        this.detectedAlert = 'Gagal membaca nama kota dari GPS. Silakan pilih kota manual.';
+                    } finally {
+                        this.detectingGPS = false;
+                        setTimeout(() => { if (window.lucide) lucide.createIcons(); }, 30);
                     }
-
-                    if (!matched && (rawProv.includes('jakarta') || rawCity.includes('jakarta'))) {
-                        matched = { province: 'DKI Jakarta', city: 'Kota Jakarta Selatan' };
-                    }
-
-                    if (matched) {
-                        this.province = matched.province;
-                        const found = this.destinations.find(d => d.province === this.province);
-                        this.cityList = found ? found.cities : [];
-                        this.city = matched.city;
-                        this.searchQuery = matched.city + ', ' + matched.province;
-                        this.detectedAlert = '📍 GPS Terdeteksi: ' + matched.city + ' (' + matched.province + ')';
-                        await this.calculateOngkir();
-                    } else {
-                        this.detectedAlert = 'Lokasi sekitar: ' + (data.city || data.locality || 'Indonesia') + '. Silakan pilih di menu Provinsi & Kota.';
-                    }
-                } catch (e) {
-                    console.error('Error reverse geocode GPS', e);
-                    alert('Gagal mendeteksi nama kota otomatis. Silakan pilih manual melalui menu Provinsi & Kota.');
-                } finally {
+                },
+                (err) => {
                     this.detectingGPS = false;
-                }
-            }, (err) => {
-                this.detectingGPS = false;
-                alert('Izin akses lokasi tidak diberikan atau GPS non-aktif. Silakan pilih Provinsi & Kota manual.');
-            }, { timeout: 8000 });
+                    let msg = 'Izin lokasi GPS ditolak.';
+                    if (err.code === 2) msg = 'Lokasi GPS tidak dapat ditemukan.';
+                    if (err.code === 3) msg = 'Waktu permintaan GPS habis.';
+                    alert(msg + ' Silakan pilih provinsi dan kota secara manual.');
+                },
+                { timeout: 10000, maximumAge: 60000 }
+            );
         },
         async calculateOngkir() {
-            if (!this.province || !this.city) return;
+            if (!this.city || !this.province) return;
             this.loadingOngkir = true;
+            this.couriers = [];
             this.selectedCourier = null;
 
-            // 1. Instant Local Calculation (0ms response time, 100% resilient)
-            if (window.FTL_EMBEDDED_SHIPPING_RATES && window.FTL_EMBEDDED_SHIPPING_RATES[this.province]) {
-                const provData = window.FTL_EMBEDDED_SHIPPING_RATES[this.province];
-                const rateInfo = (provData.cities && provData.cities[this.city]) ? provData.cities[this.city] : provData.base;
-                const chargeableKg = Math.max(1, Math.ceil(this.totalWeight / 1000));
+            // 1. Instant Embedded Rates (Zero Network Delay)
+            if (window.FTL_EMBEDDED_SHIPPING_RATES && window.FTL_EMBEDDED_SHIPPING_RATES[this.city]) {
+                const rates = window.FTL_EMBEDDED_SHIPPING_RATES[this.city];
+                const kg = Math.max(1, Math.ceil(this.totalWeight / 1000));
                 
-                const jntCost = rateInfo.jnt * chargeableKg;
-                const jneCost = rateInfo.jne * chargeableKg;
-                const sicepatCost = rateInfo.sicepat * chargeableKg;
-                const etd = rateInfo.etd || '1-2 Hari';
+                const jntCost = rates.jnt * kg;
+                const jneCost = rates.jne * kg;
+                const sicepatCost = rates.sicepat * kg;
+                const etd = rates.etd || '1-3 Hari';
 
                 this.couriers = [
                     {
@@ -886,7 +983,7 @@ function orderModal() {
                         cost: jntCost,
                         cost_formatted: this.formatRp(jntCost),
                         etd: etd,
-                        color: 'red'
+                        color: 'emerald'
                     },
                     {
                         code: 'jne',
@@ -910,6 +1007,7 @@ function orderModal() {
                     }
                 ];
                 this.selectedCourier = this.couriers[0];
+                delete this.errors.courier;
                 this.loadingOngkir = false;
                 setTimeout(() => { if (window.lucide) lucide.createIcons(); }, 30);
                 return;
@@ -923,6 +1021,7 @@ function orderModal() {
                 if (json.status === 'success') {
                     this.couriers = json.couriers;
                     this.selectedCourier = this.couriers[0];
+                    delete this.errors.courier;
                 }
             } catch (e) {
                 console.error('Gagal hitung ongkir', e);
@@ -960,20 +1059,40 @@ function orderModal() {
             this.closeModal();
         },
         submitToWhatsApp() {
-            if (!this.name.trim()) {
-                alert('Silakan isi Nama Bunda / Ayah terlebih dahulu.');
-                return;
+            this.errors = {};
+            this.errorMessage = '';
+            let firstErrorId = null;
+
+            if (!this.product) {
+                this.errors.product = 'Silakan pilih salah satu produk yang ingin dipesan terlebih dahulu ya, Bunda.';
+                if (!firstErrorId) firstErrorId = 'field-product-selection';
             }
-            if (!this.phone.trim()) {
-                alert('Silakan masukkan nomor WhatsApp aktif penerima.');
-                return;
+            if (!this.name || !this.name.trim()) {
+                this.errors.name = 'Nama lengkap penerima wajib diisi.';
+                if (!firstErrorId) firstErrorId = 'field-name';
+            }
+            if (!this.phone || !this.phone.trim()) {
+                this.errors.phone = 'Nomor WhatsApp aktif wajib diisi.';
+                if (!firstErrorId) firstErrorId = 'field-phone';
             }
             if (!this.city || !this.province) {
-                alert('Silakan tentukan provinsi & kota/kabupaten pengiriman.');
-                return;
+                this.errors.city = 'Silakan tentukan provinsi & kota tujuan pengiriman.';
+                if (!firstErrorId) firstErrorId = 'field-shipping-location';
             }
-            if (!this.selectedCourier) {
-                alert('Silakan tunggu atau pilih kurir ekspedisi pengiriman.');
+            if (!this.selectedCourier && this.city && this.province) {
+                this.errors.courier = 'Silakan tunggu deteksi ongkir atau pilih kurir ekspedisi.';
+                if (!firstErrorId) firstErrorId = 'field-couriers';
+            }
+
+            if (Object.keys(this.errors).length > 0) {
+                this.errorMessage = 'Mohon lengkapi data wajib yang bertanda merah di atas ya, Bunda.';
+                if (firstErrorId) {
+                    const el = document.getElementById(firstErrorId);
+                    if (el) {
+                        el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
+                }
+                setTimeout(() => { if (window.lucide) lucide.createIcons(); }, 50);
                 return;
             }
 
@@ -1018,7 +1137,7 @@ function orderModal() {
 }
 
 // Global modal trigger helper
-window.openOrderModal = function(tab = 'pesan', product = 'calming-rub-50g') {
+window.openOrderModal = function(tab = 'pesan', product = '') {
     window.dispatchEvent(new CustomEvent('open-order-modal', { detail: { tab, product } }));
     try {
         if (document.body && document.body._x_dataStack && document.body._x_dataStack[0]) {

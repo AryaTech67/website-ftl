@@ -89,7 +89,7 @@ $current_page = isset($current_page) ? $current_page : 'home';
 
     <!-- Global Modal Helper Functions (Always Ready & Scope-Independent) -->
     <script>
-        window.openOrderModal = function(tab = 'pesan', product = 'calming-rub-50g') {
+        window.openOrderModal = function(tab = 'pesan', product = '') {
             window.dispatchEvent(new CustomEvent('open-order-modal', { detail: { tab, product } }));
             try {
                 if (document.body && document.body._x_dataStack && document.body._x_dataStack[0]) {
@@ -172,6 +172,16 @@ $current_page = isset($current_page) ? $current_page : 'home';
             input, select, textarea {
                 font-size: 16px !important;
             }
+        }
+        /* Anti-Double-Tap Zoom on Mobile (iOS Safari double-tap on +/- buttons prevention) */
+        button, [role="button"], a, input, select, textarea {
+            touch-action: manipulation;
+        }
+        .no-tap-zoom {
+            touch-action: manipulation !important;
+            -webkit-user-select: none !important;
+            user-select: none !important;
+            -webkit-touch-callout: none !important;
         }
 
         /* ==================================================== */

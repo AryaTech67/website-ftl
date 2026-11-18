@@ -347,44 +347,32 @@ require_once __DIR__ . '/includes/navbar.php';
         <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             
             <div data-animate="fade-up" data-delay="0" class="flex flex-col items-center p-3 rounded-2xl hover:bg-ftl-cream/60 transition-colors group">
-                <div class="w-12 h-12 rounded-full border border-emerald-900/15 bg-emerald-50/40 text-emerald-800 flex items-center justify-center mb-3 group-hover:border-emerald-600/40 group-hover:bg-emerald-50 transition-colors shadow-2xs">
-                    <svg class="w-5 h-5 text-emerald-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                        <path d="m9 12 2 2 4-4"/>
-                    </svg>
+                <div class="w-14 h-14 sm:w-16 sm:h-16 mb-2.5 p-1 rounded-2xl bg-white border border-emerald-100 flex items-center justify-center group-hover:border-emerald-300 group-hover:scale-105 transition-all shadow-xs">
+                    <img src="<?= BASE_URL ?>assets/images/badge-bpom-halal.svg?v=<?= @filemtime(__DIR__ . '/assets/images/badge-bpom-halal.svg') ?>" alt="BPOM & Halal Certified" class="w-full h-full object-contain">
                 </div>
                 <h4 class="font-bold text-sm text-gray-800">BPOM & Halal Certified</h4>
                 <p class="text-xs text-gray-500 mt-1">Terjamin resmi, aman, & higienis</p>
             </div>
 
             <div data-animate="fade-up" data-delay="100" class="flex flex-col items-center p-3 rounded-2xl hover:bg-ftl-cream/60 transition-colors group">
-                <div class="w-12 h-12 rounded-full border border-emerald-900/15 bg-emerald-50/40 text-emerald-800 flex items-center justify-center mb-3 group-hover:border-emerald-600/40 group-hover:bg-emerald-50 transition-colors shadow-2xs">
-                    <svg class="w-5 h-5 text-emerald-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"/>
-                        <line x1="16" y1="8" x2="2" y2="22"/>
-                        <line x1="17.5" y1="15" x2="9" y2="15"/>
-                    </svg>
+                <div class="w-14 h-14 sm:w-16 sm:h-16 mb-2.5 p-1 rounded-2xl bg-white border border-emerald-100 flex items-center justify-center group-hover:border-emerald-300 group-hover:scale-105 transition-all shadow-xs">
+                    <img src="<?= BASE_URL ?>assets/images/badge-hypoallergenic.svg?v=<?= @filemtime(__DIR__ . '/assets/images/badge-hypoallergenic.svg') ?>" alt="Hypoallergenic Tested" class="w-full h-full object-contain">
                 </div>
                 <h4 class="font-bold text-sm text-gray-800">Hypoallergenic Tested</h4>
                 <p class="text-xs text-gray-500 mt-1">Aman untuk kulit paling sensitif</p>
             </div>
 
             <div data-animate="fade-up" data-delay="200" class="flex flex-col items-center p-3 rounded-2xl hover:bg-ftl-cream/60 transition-colors group">
-                <div class="w-12 h-12 rounded-full border border-emerald-900/15 bg-emerald-50/40 text-emerald-800 flex items-center justify-center mb-3 group-hover:border-emerald-600/40 group-hover:bg-emerald-50 transition-colors shadow-2xs">
-                    <svg class="w-5 h-5 text-emerald-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/>
-                        <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>
-                    </svg>
+                <div class="w-14 h-14 sm:w-16 sm:h-16 mb-2.5 p-1 rounded-2xl bg-white border border-emerald-100 flex items-center justify-center group-hover:border-emerald-300 group-hover:scale-105 transition-all shadow-xs">
+                    <img src="<?= BASE_URL ?>assets/images/badge-natural.svg?v=<?= @filemtime(__DIR__ . '/assets/images/badge-natural.svg') ?>" alt="100% Bahan Alami" class="w-full h-full object-contain">
                 </div>
                 <h4 class="font-bold text-sm text-gray-800">100% Bahan Alami</h4>
                 <p class="text-xs text-gray-500 mt-1">Tanpa alkohol, paraben & mineral oil berbahaya</p>
             </div>
 
             <div data-animate="fade-up" data-delay="300" class="flex flex-col items-center p-3 rounded-2xl hover:bg-ftl-cream/60 transition-colors group">
-                <div class="w-12 h-12 rounded-full border border-emerald-900/15 bg-emerald-50/40 text-emerald-800 flex items-center justify-center mb-3 group-hover:border-emerald-600/40 group-hover:bg-emerald-50 transition-colors shadow-2xs">
-                    <svg class="w-5 h-5 text-emerald-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-                    </svg>
+                <div class="w-14 h-14 sm:w-16 sm:h-16 mb-2.5 p-1 rounded-2xl bg-white border border-emerald-100 flex items-center justify-center group-hover:border-emerald-300 group-hover:scale-105 transition-all shadow-xs">
+                    <img src="<?= BASE_URL ?>assets/images/badge-newborn.svg?v=<?= @filemtime(__DIR__ . '/assets/images/badge-newborn.svg') ?>" alt="Safe for Newborn" class="w-full h-full object-contain">
                 </div>
                 <h4 class="font-bold text-sm text-gray-800">Safe for Newborn</h4>
                 <p class="text-xs text-gray-500 mt-1">Lembut untuk bayi usia 0+ bulan</p>
@@ -627,16 +615,16 @@ require_once __DIR__ . '/includes/navbar.php';
                             Krim telon alami dengan minyak pala nusantara & ekstrak calendula organik.
                         </p>
 
-                        <!-- Price Banner -->
-                        <div class="mt-5 p-4 rounded-2xl bg-ftl-light/80 border border-emerald-100 flex flex-wrap items-baseline justify-between gap-3">
-                            <div class="flex items-baseline gap-2.5">
-                                <span class="text-xs sm:text-sm text-gray-400 line-through">Rp 99.000</span>
-                                <span class="text-2xl sm:text-3xl font-extrabold text-ftl-forest">Rp 79.000</span>
-                                <span class="text-xs font-bold text-amber-800 bg-amber-100 px-2.5 py-0.5 rounded-full">
+                        <!-- Price Banner (Konsisten Nyamping di Semua Layar HP) -->
+                        <div class="mt-5 p-4 rounded-2xl bg-ftl-light/80 border border-emerald-100 flex flex-wrap items-center justify-between gap-2.5 sm:gap-3">
+                            <div class="flex items-baseline gap-2 sm:gap-2.5 flex-wrap">
+                                <span class="text-xs sm:text-sm text-gray-400 line-through whitespace-nowrap">Rp 99.000</span>
+                                <span class="text-2xl sm:text-3xl font-extrabold text-ftl-forest whitespace-nowrap">Rp 79.000</span>
+                                <span class="text-xs font-bold text-amber-800 bg-amber-100 px-2.5 py-0.5 rounded-full whitespace-nowrap">
                                     Hemat 20%
                                 </span>
                             </div>
-                            <span class="text-xs font-semibold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full flex items-center gap-1">
+                            <span class="text-xs font-semibold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full flex items-center gap-1 whitespace-nowrap shrink-0">
                                 <i data-lucide="check" class="w-3 h-3"></i> Ready Stock
                             </span>
                         </div>
