@@ -236,6 +236,28 @@ $current_page = isset($current_page) ? $current_page : 'home';
         }
     </style>
 
+    <!-- Enforce Clean Page Load at Top (Prevents iOS Safari Restoring Mid-Page Scroll) -->
+    <script>
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+        }
+        (function() {
+            if (!window.location.hash || window.location.hash === '#beranda') {
+                window.scrollTo(0, 0);
+            }
+        })();
+        window.addEventListener('DOMContentLoaded', () => {
+            if (!window.location.hash || window.location.hash === '#beranda') {
+                window.scrollTo(0, 0);
+            }
+        });
+        window.addEventListener('load', () => {
+            if (!window.location.hash || window.location.hash === '#beranda') {
+                window.scrollTo(0, 0);
+            }
+        });
+    </script>
+
     <!-- Scroll Reveal Engine (IntersectionObserver 60fps) -->
     <script>
         document.addEventListener("DOMContentLoaded", () => {

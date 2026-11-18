@@ -217,8 +217,12 @@ function scrollToTarget(targetId) {
         behavior: 'smooth'
     });
     
-    if (window.history && window.history.pushState) {
-        window.history.pushState(null, '', '#' + targetId);
+    if (window.history && window.history.replaceState) {
+        if (targetId === 'beranda') {
+            window.history.replaceState(null, '', window.location.pathname);
+        } else {
+            window.history.replaceState(null, '', '#' + targetId);
+        }
     }
 }
 </script>
