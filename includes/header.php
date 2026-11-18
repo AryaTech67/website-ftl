@@ -236,26 +236,39 @@ $current_page = isset($current_page) ? $current_page : 'home';
         }
     </style>
 
-    <!-- Enforce Clean Page Load at Top (Prevents iOS Safari Restoring Mid-Page Scroll) -->
+    <!-- Smart Scroll & Navigation: Preserve Scroll on Refresh, Start at Top on Fresh Direct Visit -->
     <script>
-        if ('scrollRestoration' in history) {
-            history.scrollRestoration = 'manual';
-        }
         (function() {
-            if (!window.location.hash || window.location.hash === '#beranda') {
-                window.scrollTo(0, 0);
+            var isReload = false;
+            try {
+                var navEntries = performance.getEntriesByType('navigation');
+                if (navEntries && navEntries.length > 0) {
+                    isReload = (navEntries[0].type === 'reload');
+                } else if (window.performance && window.performance.navigation) {
+                    isReload = (window.performance.navigation.type === 1);
+                }
+            } catch(e) {}
+
+            if (isReload) {
+                // Saat REFRESH: Biarkan browser mempertahankan posisi scroll pengguna (halaman produk, dll)
+                if ('scrollRestoration' in history) {
+                    history.scrollRestoration = 'auto';
+                }
+            } else {
+                // Saat BUKA LINK PERTAMA KALI (Bukan Refresh):
+                // Jika tidak ada anchor hash spesifik, mulai dari tampilan paling awal (Hero)
+                if (!window.location.hash || window.location.hash === '#beranda') {
+                    if ('scrollRestoration' in history) {
+                        history.scrollRestoration = 'manual';
+                    }
+                    window.scrollTo(0, 0);
+                } else {
+                    if ('scrollRestoration' in history) {
+                        history.scrollRestoration = 'auto';
+                    }
+                }
             }
         })();
-        window.addEventListener('DOMContentLoaded', () => {
-            if (!window.location.hash || window.location.hash === '#beranda') {
-                window.scrollTo(0, 0);
-            }
-        });
-        window.addEventListener('load', () => {
-            if (!window.location.hash || window.location.hash === '#beranda') {
-                window.scrollTo(0, 0);
-            }
-        });
     </script>
 
     <!-- Scroll Reveal Engine (IntersectionObserver 60fps) -->

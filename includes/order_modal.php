@@ -910,6 +910,35 @@ function orderModal() {
             } else {
                 this.initDestinations();
             }
+
+            // Restore modal jika pengguna me-refresh saat berada di halaman/form pesan WA
+            try {
+                const saved = sessionStorage.getItem('ftl_order_modal');
+                if (saved) {
+                    const parsed = JSON.parse(saved);
+                    if (parsed && parsed.open) {
+                        setTimeout(() => {
+                            this.openModal({ tab: parsed.tab || 'pesan', product: parsed.product || '' });
+                        }, 80);
+                    }
+                }
+            } catch(e) {}
+
+            this.$watch('modalTab', () => this.saveModalState());
+            this.$watch('product', () => this.saveModalState());
+        },
+        saveModalState() {
+            try {
+                if (this.isOpen) {
+                    sessionStorage.setItem('ftl_order_modal', JSON.stringify({
+                        open: true,
+                        tab: this.modalTab,
+                        product: this.product
+                    }));
+                } else {
+                    sessionStorage.removeItem('ftl_order_modal');
+                }
+            } catch(e) {}
         },
         openModal(detail) {
             this.isOpen = true;
@@ -922,6 +951,7 @@ function orderModal() {
             } else if (detail && detail.product === '') {
                 this.product = '';
             }
+            this.saveModalState();
             setTimeout(() => { if (window.lucide) lucide.createIcons(); }, 50);
         },
         closeModal() {
@@ -930,6 +960,7 @@ function orderModal() {
             this.openCityDropdown = false;
             this.errors = {};
             this.errorMessage = '';
+            this.saveModalState();
             try {
                 if (typeof orderModalOpen !== 'undefined') {
                     orderModalOpen = false;
