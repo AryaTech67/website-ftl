@@ -281,12 +281,13 @@ $FTL_DESTINATIONS = getShippingDestinations($SHIPPING_DATA);
                     </label>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                         <div id="field-name">
-                            <label class="block text-[11px] font-semibold text-gray-600 mb-1">
-                                Nama Bunda / Ayah <span class="text-rose-500">*</span>
+                            <label class="block text-[11px] font-semibold text-gray-700 mb-1 flex items-center justify-between">
+                                <span>Nama Bunda / Ayah <span class="text-rose-500">*</span></span>
+                                <span class="text-[10px] text-gray-400 font-normal">(Contoh: Bunda Rina)</span>
                             </label>
                             <input type="text" x-model="name" 
                                    @input="delete errors.name; errorMessage = '';"
-                                   placeholder="Misal: Bunda Rina" 
+                                   placeholder="Contoh: Bunda Rina / Ayah Dimas" 
                                    class="w-full rounded-xl border px-3.5 py-3 text-base sm:text-sm focus:outline-none focus:ring-2 bg-white transition-colors"
                                    :class="errors.name ? 'border-rose-500 ring-2 ring-rose-200 bg-rose-50/20' : 'border-gray-300 focus:border-ftl-forest focus:ring-emerald-200'">
                             <span x-show="errors.name" class="text-xs font-bold text-rose-600 flex items-center gap-1 mt-1">
@@ -295,12 +296,13 @@ $FTL_DESTINATIONS = getShippingDestinations($SHIPPING_DATA);
                             </span>
                         </div>
                         <div id="field-phone">
-                            <label class="block text-[11px] font-semibold text-gray-600 mb-1">
-                                No. WhatsApp Aktif <span class="text-rose-500">*</span>
+                            <label class="block text-[11px] font-semibold text-gray-700 mb-1 flex items-center justify-between">
+                                <span>No. WhatsApp Aktif <span class="text-rose-500">*</span></span>
+                                <span class="text-[10px] text-gray-400 font-normal">(Contoh: 081234567890)</span>
                             </label>
                             <input type="tel" x-model="phone" 
                                    @input="delete errors.phone; errorMessage = '';"
-                                   placeholder="Misal: 081234567890" 
+                                   placeholder="Contoh: 081234567890" 
                                    class="w-full rounded-xl border px-3.5 py-3 text-base sm:text-sm focus:outline-none focus:ring-2 bg-white transition-colors"
                                    :class="errors.phone ? 'border-rose-500 ring-2 ring-rose-200 bg-rose-50/20' : 'border-gray-300 focus:border-ftl-forest focus:ring-emerald-200'">
                             <span x-show="errors.phone" class="text-xs font-bold text-rose-600 flex items-center gap-1 mt-1">
@@ -349,17 +351,26 @@ $FTL_DESTINATIONS = getShippingDestinations($SHIPPING_DATA);
 
                     <!-- FITUR PENCARIAN CEPAT KOTA / KABUPATEN DI SELURUH INDONESIA -->
                     <div class="relative">
-                        <label class="block text-[11px] font-semibold text-gray-600 mb-1">
-                            Atau Ketik Langsung Kota / Kabupaten Kamu:
+                        <label class="block text-[11px] font-semibold text-gray-700 mb-1 flex items-center justify-between">
+                            <span>Ketik Kota / Kabupaten Kamu:</span>
+                            <span class="text-[10px] text-emerald-700 font-semibold">(Contoh: Depok, Bandung, Surabaya)</span>
                         </label>
                         <div class="relative">
                             <input type="text" 
                                    x-model="searchQuery" 
                                    @input="showSuggestions = true; delete errors.city; errorMessage = '';"
-                                   @focus="showSuggestions = true"
-                                   placeholder="Ketik kota tujuan (misal: Bandung, Tangerang, Surabaya...)" 
-                                   class="w-full rounded-xl border border-gray-300 pl-9 pr-3.5 py-3 text-base sm:text-sm focus:border-ftl-forest focus:outline-none focus:ring-2 focus:ring-emerald-200 bg-white">
+                                   @focus="if(searchQuery.length >= 2) showSuggestions = true"
+                                   placeholder="Contoh: Depok, Bandung, Surabaya..." 
+                                   class="w-full rounded-xl border border-gray-300 pl-9 pr-9 py-3 text-base sm:text-sm focus:border-ftl-forest focus:outline-none focus:ring-2 focus:ring-emerald-200 bg-white">
                             <i data-lucide="search" class="w-4 h-4 text-gray-400 absolute left-3 top-3.5"></i>
+                            <button type="button" 
+                                    x-show="searchQuery" 
+                                    @click="searchQuery = ''; city = ''; province = ''; couriers = []; selectedCourier = null; showSuggestions = false;" 
+                                    class="absolute right-3 top-3.5 text-gray-400 hover:text-gray-600 cursor-pointer no-tap-zoom"
+                                    style="touch-action: manipulation;"
+                                    aria-label="Hapus teks pencarian">
+                                <i data-lucide="x" class="w-4 h-4"></i>
+                            </button>
                         </div>
 
                         <!-- Live Suggestion Dropdown Cepat -->
@@ -520,10 +531,11 @@ $FTL_DESTINATIONS = getShippingDestinations($SHIPPING_DATA);
 
                     <!-- Alamat Lengkap & Patokan Rumah -->
                     <div>
-                        <label class="block text-[11px] font-semibold text-gray-600 mb-1">
-                            Alamat Jalan & Patokan Rumah (Opsional):
+                        <label class="block text-[11px] font-semibold text-gray-700 mb-1 flex items-center justify-between">
+                            <span>Alamat Jalan & Patokan Rumah (Opsional):</span>
+                            <span class="text-[10px] text-gray-400 font-normal">(Contoh: Jl. Mawar No. 8, Depan Klinik)</span>
                         </label>
-                        <input type="text" x-model="address" placeholder="Jl. Mawar No. 8, RT 02/RW 04, Kec. Sukajadi (Depan Klinik)" 
+                        <input type="text" x-model="address" placeholder="Contoh: Jl. Mawar No. 8, RT 02/04, Kel. Sukajadi (Depan Klinik)" 
                                class="w-full rounded-xl border border-gray-300 px-3.5 py-3 text-base sm:text-sm focus:border-ftl-forest focus:outline-none focus:ring-2 focus:ring-emerald-200 bg-white">
                     </div>
 
@@ -594,10 +606,11 @@ $FTL_DESTINATIONS = getShippingDestinations($SHIPPING_DATA);
 
                 <!-- Catatan Tambahan (Opsional) -->
                 <div>
-                    <label class="block text-[11px] font-semibold text-gray-600 mb-1">
-                        Catatan Khusus (Opsional):
+                    <label class="block text-[11px] font-semibold text-gray-700 mb-1 flex items-center justify-between">
+                        <span>Catatan Khusus (Opsional):</span>
+                        <span class="text-[10px] text-gray-400 font-normal">(Contoh: Titip ucapan kado)</span>
                     </label>
-                    <input type="text" x-model="note" placeholder="Misal: Titip kartu ucapan kado kelahiran" 
+                    <input type="text" x-model="note" placeholder="Contoh: Titip kartu ucapan kado lahiran / Tolong dipacking ekstra aman" 
                            class="w-full rounded-xl border border-gray-300 px-3.5 py-3 text-base sm:text-sm focus:border-ftl-forest focus:outline-none focus:ring-2 focus:ring-emerald-200 bg-white">
                 </div>
 
@@ -854,6 +867,8 @@ function orderModal() {
         },
         selectCity(cityName) {
             this.city = cityName;
+            this.searchQuery = cityName;
+            this.showSuggestions = false;
             this.openCityDropdown = false;
             this.searchCityQuery = '';
             delete this.errors.city;
@@ -864,7 +879,7 @@ function orderModal() {
         selectCityFromSearch(item) {
             this.province = item.province;
             this.city = item.city;
-            this.searchQuery = '';
+            this.searchQuery = item.city;
             this.showSuggestions = false;
             delete this.errors.city;
             this.errorMessage = '';
@@ -932,6 +947,8 @@ function orderModal() {
                                 this.province = matchedProvince.province;
                                 this.cityList = matchedProvince.cities;
                                 this.city = matchedCity;
+                                this.searchQuery = matchedCity;
+                                this.showSuggestions = false;
                                 this.detectedAlert = `GPS Terdeteksi: ${matchedCity}, ${matchedProvince.province}`;
                                 delete this.errors.city;
                                 this.errorMessage = '';
