@@ -5,6 +5,17 @@
       "includeFiles": "{*.php,includes/**,api/**,assets/**}"
     }
   },
+  "headers": [
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    }
+  ],
   "routes": [
     {
       "src": "/assets/(.*)",

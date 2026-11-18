@@ -82,7 +82,7 @@ require_once __DIR__ . '/includes/navbar.php';
 
             <!-- ================= SLIDE 1: Flagship FTL (Clean Typography, Lega & Elegan) ================= -->
             <div class="w-full h-full shrink-0 relative flex items-center overflow-hidden bg-cover bg-left sm:bg-center"
-                 style="background-image: url('<?= BASE_URL ?>assets/images/banner-ftl-hero.jpg?v=<?= filemtime(__DIR__ . '/assets/images/banner-ftl-hero.jpg') ?>');">
+                 style="background-image: url('<?= BASE_URL ?>assets/images/banner-ftl-hero.webp?v=<?= filemtime(__DIR__ . '/assets/images/banner-ftl-hero.webp') ?>');">
                 
                 <!-- Luminous FTL Forest Green Gradient Overlay for Natural Brand Look & Maximum Text Contrast -->
                 <div class="absolute inset-0 pointer-events-none ftl-hero-overlay"></div>
@@ -146,7 +146,7 @@ require_once __DIR__ . '/includes/navbar.php';
 
             <!-- ================= SLIDE 2: Rempah Pala Nusantara (Clean Typography) ================= -->
             <div class="w-full h-full shrink-0 relative flex items-center overflow-hidden bg-cover bg-center sm:bg-center"
-                 style="background-image: url('<?= BASE_URL ?>assets/images/banner-ftl-slide2.jpg?v=<?= filemtime(__DIR__ . '/assets/images/banner-ftl-slide2.jpg') ?>');">
+                 style="background-image: url('<?= BASE_URL ?>assets/images/banner-ftl-slide2.webp?v=<?= filemtime(__DIR__ . '/assets/images/banner-ftl-slide2.webp') ?>');">
                 
                 <!-- Luminous FTL Forest Green Gradient Overlay for Natural Brand Look & Maximum Text Contrast -->
                 <div class="absolute inset-0 pointer-events-none ftl-hero-overlay"></div>
@@ -212,7 +212,7 @@ require_once __DIR__ . '/includes/navbar.php';
 
             <!-- ================= SLIDE 3: #frommothertoanother (Clean Typography) ================= -->
             <div class="w-full h-full shrink-0 relative flex items-center overflow-hidden bg-cover bg-center sm:bg-center"
-                 style="background-image: url('<?= BASE_URL ?>assets/images/banner-ftl-slide3.jpg?v=<?= filemtime(__DIR__ . '/assets/images/banner-ftl-slide3.jpg') ?>');">
+                 style="background-image: url('<?= BASE_URL ?>assets/images/banner-ftl-slide3.webp?v=<?= filemtime(__DIR__ . '/assets/images/banner-ftl-slide3.webp') ?>');">
                 
                 <!-- Luminous FTL Forest Green Gradient Overlay for Natural Brand Look & Maximum Text Contrast -->
                 <div class="absolute inset-0 pointer-events-none ftl-hero-overlay"></div>
@@ -995,7 +995,7 @@ require_once __DIR__ . '/includes/navbar.php';
             <!-- Artikel 1: Cara Mengenali Gejala Kolik -->
             <article class="group rounded-3xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col bg-white">
                 <a href="<?= BASE_URL ?>artikel-detail.php?id=cara-atasi-kolik" class="block h-48 sm:h-52 w-full overflow-hidden bg-emerald-50 relative">
-                    <img src="<?= BASE_URL ?>assets/images/article-kolik.jpg?v=<?= filemtime(__DIR__ . '/assets/images/article-kolik.jpg') ?>" 
+                    <img src="<?= BASE_URL ?>assets/images/article-kolik.webp?v=<?= filemtime(__DIR__ . '/assets/images/article-kolik.webp') ?>" 
                          alt="Cara Mengenali Gejala Kolik pada Bayi" 
                          class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-60 group-hover:opacity-30 transition-opacity"></div>
@@ -1029,7 +1029,7 @@ require_once __DIR__ . '/includes/navbar.php';
             <!-- Artikel 2: Panduan Lengkap Pijat ILU -->
             <article class="group rounded-3xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col bg-white">
                 <a href="<?= BASE_URL ?>artikel-detail.php?id=panduan-pijat-ilu" class="block h-48 sm:h-52 w-full overflow-hidden bg-amber-50 relative">
-                    <img src="<?= BASE_URL ?>assets/images/article-pijat-ilu.jpg?v=<?= filemtime(__DIR__ . '/assets/images/article-pijat-ilu.jpg') ?>" 
+                    <img src="<?= BASE_URL ?>assets/images/article-pijat-ilu.webp?v=<?= filemtime(__DIR__ . '/assets/images/article-pijat-ilu.webp') ?>" 
                          alt="Panduan Lengkap Pijat ILU Bayi" 
                          class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-60 group-hover:opacity-30 transition-opacity"></div>
@@ -1063,7 +1063,7 @@ require_once __DIR__ . '/includes/navbar.php';
             <!-- Artikel 3: Kearifan Rempah Pala Nusantara -->
             <article class="group rounded-3xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col bg-white">
                 <a href="<?= BASE_URL ?>artikel-detail.php?id=manfaat-minyak-pala" class="block h-48 sm:h-52 w-full overflow-hidden bg-teal-50 relative">
-                    <img src="<?= BASE_URL ?>assets/images/article-minyak-pala.jpg?v=<?= filemtime(__DIR__ . '/assets/images/article-minyak-pala.jpg') ?>" 
+                    <img src="<?= BASE_URL ?>assets/images/article-minyak-pala.webp?v=<?= filemtime(__DIR__ . '/assets/images/article-minyak-pala.webp') ?>" 
                          alt="Khasiat Minyak Pala Nusantara untuk Bayi" 
                          class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-60 group-hover:opacity-30 transition-opacity"></div>

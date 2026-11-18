@@ -163,11 +163,11 @@ require_once __DIR__ . '/includes/navbar.php';
         <!-- Featured Article Hero Image -->
         <?php 
         $article_images = [
-            'cara-atasi-kolik' => 'article-kolik.jpg',
-            'panduan-pijat-ilu' => 'article-pijat-ilu.jpg',
-            'manfaat-minyak-pala' => 'article-minyak-pala.jpg',
+            'cara-atasi-kolik' => 'article-kolik.webp',
+            'panduan-pijat-ilu' => 'article-pijat-ilu.webp',
+            'manfaat-minyak-pala' => 'article-minyak-pala.webp',
         ];
-        $feat_img = $article_images[$article_id] ?? 'article-kolik.jpg';
+        $feat_img = $article_images[$article_id] ?? 'article-kolik.webp';
         ?>
         <div class="my-8 rounded-3xl overflow-hidden shadow-md border border-gray-100 max-h-[420px]">
             <img src="<?= BASE_URL ?>assets/images/<?= $feat_img ?>?v=<?= filemtime(__DIR__ . '/assets/images/' . $feat_img) ?>" 

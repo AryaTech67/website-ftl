@@ -125,14 +125,14 @@ $ARTIKEL_LIST = [
                         <!-- Header banner image -->
                         <?php 
                         $art_imgs = [
-                            'cara-atasi-kolik' => 'article-kolik.jpg',
-                            'panduan-pijat-ilu' => 'article-pijat-ilu.jpg',
-                            'manfaat-minyak-pala' => 'article-minyak-pala.jpg',
-                            'tips-kulit-sensitif-newborn' => 'article-kolik.jpg',
-                            'mengatasi-perut-kembung' => 'article-pijat-ilu.jpg',
-                            'rutinitas-tidur-malam-bayi' => 'article-kolik.jpg'
+                            'cara-atasi-kolik' => 'article-kolik.webp',
+                            'panduan-pijat-ilu' => 'article-pijat-ilu.webp',
+                            'manfaat-minyak-pala' => 'article-minyak-pala.webp',
+                            'tips-kulit-sensitif-newborn' => 'article-kolik.webp',
+                            'mengatasi-perut-kembung' => 'article-pijat-ilu.webp',
+                            'rutinitas-tidur-malam-bayi' => 'article-kolik.webp'
                         ];
-                        $img_file = $art_imgs[$item['id']] ?? 'article-kolik.jpg';
+                        $img_file = $art_imgs[$item['id']] ?? 'article-kolik.webp';
                         ?>
                         <div class="h-48 w-full overflow-hidden relative bg-gray-100">
                             <img src="<?= BASE_URL ?>assets/images/<?= $img_file ?>?v=<?= filemtime(__DIR__ . '/assets/images/' . $img_file) ?>" 

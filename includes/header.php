@@ -33,6 +33,24 @@ $current_page = isset($current_page) ? $current_page : 'home';
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
 
+    <!-- Preload Critical Banner Slides for Zero-Delay Instant Slider -->
+    <link rel="preload" as="image" href="<?= BASE_URL ?>assets/images/banner-ftl-hero.webp" fetchpriority="high">
+    <link rel="preload" as="image" href="<?= BASE_URL ?>assets/images/banner-ftl-slide2.webp">
+    <link rel="preload" as="image" href="<?= BASE_URL ?>assets/images/banner-ftl-slide3.webp">
+    <script>
+        (function() {
+            var slides = [
+                '<?= BASE_URL ?>assets/images/banner-ftl-hero.webp',
+                '<?= BASE_URL ?>assets/images/banner-ftl-slide2.webp',
+                '<?= BASE_URL ?>assets/images/banner-ftl-slide3.webp'
+            ];
+            slides.forEach(function(url) {
+                var img = new Image();
+                img.src = url;
+            });
+        })();
+    </script>
+
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
