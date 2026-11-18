@@ -125,6 +125,9 @@ $current_page = isset($current_page) ? $current_page : 'home';
         html {
             scroll-behavior: smooth;
             scroll-padding-top: 72px;
+            overflow-x: hidden;
+            max-width: 100vw;
+            width: 100%;
         }
         @media (min-width: 640px) {
             html {
@@ -135,6 +138,9 @@ $current_page = isset($current_page) ? $current_page : 'home';
             font-family: 'Plus Jakarta Sans', sans-serif;
             background-color: #FAF7F2;
             color: #1C2822;
+            overflow-x: hidden;
+            max-width: 100vw;
+            width: 100%;
         }
         .font-display {
             font-family: 'Quicksand', sans-serif;

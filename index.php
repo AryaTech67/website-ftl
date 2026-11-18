@@ -12,12 +12,14 @@ require_once __DIR__ . '/includes/navbar.php';
 <!-- 1. FULL-WIDTH HERO SLIDER (LEBAR FULL LAYAR EDGE-TO-EDGE)-->
 <!-- ======================================================= -->
 <section id="beranda" class="scroll-mt-14 sm:scroll-mt-20 relative w-full overflow-hidden bg-ftl-forest select-none" 
+         style="touch-action: pan-y;"
          x-data="{ 
              activeSlide: 0,
              totalSlides: 3,
              slideDuration: 5000, // 5 detik per slide (durasi ideal untuk membaca & transisi mulus)
              autoplayInterval: null,
              touchStartX: 0,
+             touchStartY: 0,
              touchEndX: 0,
              startAutoplay() {
                  this.stopAutoplay();
@@ -38,7 +40,17 @@ require_once __DIR__ . '/includes/navbar.php';
                  this.activeSlide = (this.activeSlide - 1 + this.totalSlides) % this.totalSlides;
              },
              handleTouchStart(e) {
-                 this.touchStartX = e.changedTouches[0].clientX;
+                 this.touchStartX = e.touches[0].clientX;
+                 this.touchStartY = e.touches[0].clientY;
+             },
+             handleTouchMove(e) {
+                 if (!this.touchStartX || !this.touchStartY) return;
+                 const diffX = Math.abs(e.touches[0].clientX - this.touchStartX);
+                 const diffY = Math.abs(e.touches[0].clientY - this.touchStartY);
+                 // Bila geser horizontal pada banner, cegah browser menyeret seluruh layar secara horizontal
+                 if (diffX > diffY && diffX > 8) {
+                     if (e.cancelable) e.preventDefault();
+                 }
              },
              handleTouchEnd(e) {
                  this.touchEndX = e.changedTouches[0].clientX;
@@ -58,6 +70,7 @@ require_once __DIR__ . '/includes/navbar.php';
          }" 
          x-init="startAutoplay()"
          @touchstart.passive="handleTouchStart($event)"
+         @touchmove="handleTouchMove($event)"
          @touchend.passive="handleTouchEnd($event)">
 
     <!-- Hero Banner Custom Styling for Authentic FTL Forest Green Luminous Gradient -->
@@ -73,7 +86,7 @@ require_once __DIR__ . '/includes/navbar.php';
     </style>
 
     <!-- Full Bleed Container: 100% Lebar Layar (Proporsional di HP & Desktop) -->
-    <div class="relative w-full h-[300px] sm:h-[440px] lg:h-[520px] overflow-hidden bg-ftl-forest select-none">
+    <div class="relative w-full h-[300px] sm:h-[440px] lg:h-[520px] overflow-hidden bg-ftl-forest select-none" style="touch-action: pan-y;">
         
         <!-- Horizontal Carousel Track (Glides Smoothly on Change) -->
         <div class="flex w-full h-full transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)]"
@@ -655,8 +668,10 @@ require_once __DIR__ . '/includes/navbar.php';
 
                         <!-- Info Auto Ongkir Box -->
                         <div class="mt-6 p-3.5 rounded-2xl bg-emerald-50/60 border border-emerald-100 flex items-center gap-3 text-xs text-emerald-900">
-                            <div class="w-8 h-8 rounded-full border border-emerald-600/30 bg-emerald-600 text-white flex items-center justify-center shrink-0">
-                                <i data-lucide="map-pin" class="w-4 h-4"></i>
+                            <div class="w-9 h-9 rounded-2xl bg-rose-50 border border-rose-200/80 text-rose-600 flex items-center justify-center shrink-0 shadow-2xs" title="Auto-Deteksi Lokasi GPS & Ongkir">
+                                <svg class="w-5 h-5 fill-rose-600 text-rose-600" viewBox="0 0 24 24">
+                                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                                </svg>
                             </div>
                             <div>
                                 <span class="font-bold block">Pesan Mudah dengan Hitung Ongkir Otomatis</span>
@@ -753,8 +768,8 @@ require_once __DIR__ . '/includes/navbar.php';
 
             <!-- Card 3: Minyak Nabati Alami (Carrier Oils) -->
             <div data-animate="fade-up" data-delay="240" class="bg-white rounded-3xl p-8 border border-ftl-sand shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center">
-                <div class="w-28 h-28 mb-6 p-2 rounded-2xl bg-emerald-50/60 border border-emerald-100 flex items-center justify-center">
-                    <img src="<?= BASE_URL ?>assets/images/ingredient-plant-oil.svg" alt="Minyak Nabati Alami" class="w-24 h-24">
+                <div class="w-28 h-28 mb-6 p-2 rounded-2xl bg-emerald-50/60 border border-emerald-100 flex items-center justify-center overflow-hidden">
+                    <img src="<?= BASE_URL ?>assets/images/ingredient-plant-oil-real.png?v=<?= @filemtime(__DIR__ . '/assets/images/ingredient-plant-oil-real.png') ?>" alt="Minyak Nabati Murni" class="w-24 h-24 object-cover rounded-full shadow-md">
                 </div>
                 <div class="inline-block px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold mb-3">
                     Cepat Meresap & Menutrisi
@@ -804,10 +819,7 @@ require_once __DIR__ . '/includes/navbar.php';
                 <div class="flex items-center justify-between gap-3 pb-6 border-b border-emerald-100">
                     <div class="flex items-center gap-3.5">
                         <div class="w-12 h-12 rounded-2xl bg-emerald-50 border border-emerald-200/80 flex items-center justify-center shrink-0 shadow-2xs">
-                            <svg class="w-6 h-6 text-ftl-forest" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M12 2a9 9 0 0 1 9 9v1a9 9 0 0 1-9 9 9 9 0 0 1-9-9v-1a9 9 0 0 1 9-9z"/>
-                                <path d="M12 7c-2 2-3 4.5-3 6.5a3 3 0 0 0 6 0c0-2-1-4.5-3-6.5z"/>
-                            </svg>
+                            <i data-lucide="shield-check" class="w-6 h-6 text-emerald-700"></i>
                         </div>
                         <div>
                             <span class="text-[10px] font-extrabold uppercase tracking-widest text-emerald-700 block">
@@ -890,9 +902,7 @@ require_once __DIR__ . '/includes/navbar.php';
                     <div class="pb-6 border-b border-stone-200 flex items-center justify-between gap-3">
                         <div class="flex items-center gap-3">
                             <div class="w-10 h-10 rounded-2xl bg-stone-200/80 border border-stone-300 flex items-center justify-center shrink-0 text-stone-700">
-                                <svg class="w-5 h-5 text-stone-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M10 2h4M10 5h4M6 9h12l-2 11H8L6 9z"/>
-                                </svg>
+                                <i data-lucide="flask-conical" class="w-5 h-5 text-stone-600"></i>
                             </div>
                             <div>
                                 <span class="text-[10px] font-bold uppercase tracking-wider text-stone-500 block">
@@ -1189,11 +1199,7 @@ require_once __DIR__ . '/includes/navbar.php';
                     <!-- Quote Banner Header -->
                     <div class="flex items-center gap-3.5 pb-6 border-b border-emerald-100/70">
                         <div class="w-11 h-11 rounded-full border border-emerald-700/30 bg-ftl-forest text-white flex items-center justify-center shrink-0 shadow-2xs">
-                            <svg class="w-5 h-5 text-amber-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2z" stroke-dasharray="2 2"/>
-                                <path d="M12 7c-2.5 2-4 5-4 7 0 2.2 1.8 4 4 4s4-1.8 4-4c0-2-1.5-5-4-7z"/>
-                                <path d="M12 11v4"/>
-                            </svg>
+                            <i data-lucide="sparkles" class="w-5 h-5 text-amber-300"></i>
                         </div>
                         <div>
                             <h3 class="font-display font-bold text-base sm:text-lg text-ftl-forest">
@@ -1209,10 +1215,7 @@ require_once __DIR__ . '/includes/navbar.php';
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-6">
                         <div class="bg-white p-4 rounded-2xl border border-gray-100 shadow-2xs hover:border-emerald-200 transition">
                             <div class="w-8 h-8 rounded-full border border-amber-300/70 bg-amber-50/50 flex items-center justify-center text-amber-700 mb-2.5">
-                                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                                    <circle cx="12" cy="12" r="4"/>
-                                    <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
-                                </svg>
+                                <i data-lucide="sun" class="w-4 h-4 text-amber-600"></i>
                             </div>
                             <h5 class="font-bold text-sm text-gray-800">Setelah Mandi Pagi</h5>
                             <p class="text-xs text-gray-500 mt-1 leading-relaxed">Melindungi bayi dari masuk angin dan kembung saat beraktivitas ceria.</p>
@@ -1220,10 +1223,7 @@ require_once __DIR__ . '/includes/navbar.php';
 
                         <div class="bg-white p-4 rounded-2xl border border-gray-100 shadow-2xs hover:border-emerald-200 transition">
                             <div class="w-8 h-8 rounded-full border border-indigo-300/70 bg-indigo-50/50 flex items-center justify-center text-indigo-700 mb-2.5">
-                                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
-                                    <path d="M19 3v4M21 5h-4"/>
-                                </svg>
+                                <i data-lucide="moon" class="w-4 h-4 text-indigo-600"></i>
                             </div>
                             <h5 class="font-bold text-sm text-gray-800">Sebelum Tidur Malam</h5>
                             <p class="text-xs text-gray-500 mt-1 leading-relaxed">Mencegah terbangun tengah malam karena perut begah, kolik, atau rewel.</p>
@@ -1231,10 +1231,7 @@ require_once __DIR__ . '/includes/navbar.php';
 
                         <div class="bg-white p-4 rounded-2xl border border-gray-100 shadow-2xs hover:border-emerald-200 transition">
                             <div class="w-8 h-8 rounded-full border border-teal-300/70 bg-teal-50/50 flex items-center justify-center text-teal-700 mb-2.5">
-                                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/>
-                                    <path d="M11 20l-1 2M15 20l-1 2"/>
-                                </svg>
+                                <i data-lucide="cloud-rain" class="w-4 h-4 text-teal-600"></i>
                             </div>
                             <h5 class="font-bold text-sm text-gray-800">Saat Cuaca Dingin / Hujan</h5>
                             <p class="text-xs text-gray-500 mt-1 leading-relaxed">Menjaga kehangatan tubuh si kecil tetap stabil, nyaman, dan tenang.</p>
@@ -1242,10 +1239,7 @@ require_once __DIR__ . '/includes/navbar.php';
 
                         <div class="bg-white p-4 rounded-2xl border border-gray-100 shadow-2xs hover:border-emerald-200 transition">
                             <div class="w-8 h-8 rounded-full border border-emerald-300/70 bg-emerald-50/50 flex items-center justify-center text-emerald-700 mb-2.5">
-                                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                                    <circle cx="12" cy="12" r="10"/>
-                                    <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/>
-                                </svg>
+                                <i data-lucide="compass" class="w-4 h-4 text-emerald-600"></i>
                             </div>
                             <h5 class="font-bold text-sm text-gray-800">Saat Bepergian / Travelling</h5>
                             <p class="text-xs text-gray-500 mt-1 leading-relaxed">Kemasan tube 50g yang praktis dan anti tumpah di diaper bag Bunda.</p>
