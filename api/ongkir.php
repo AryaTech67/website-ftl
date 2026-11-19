@@ -39,7 +39,6 @@ if ($action === 'search_address') {
             CURLOPT_SSL_VERIFYPEER => false,
         ]);
         $res = curl_exec($ch);
-        curl_close($ch);
 
         if ($res) {
             $parsed = json_decode($res, true);
@@ -109,7 +108,6 @@ if (defined('MENGANTAR_API_KEY') && !empty(MENGANTAR_API_KEY)) {
             CURLOPT_SSL_VERIFYPEER => false,
         ]);
         $searchRes = curl_exec($ch);
-        curl_close($ch);
 
         if ($searchRes) {
             $searchJson = json_decode($searchRes, true);
@@ -146,7 +144,6 @@ if (defined('MENGANTAR_API_KEY') && !empty(MENGANTAR_API_KEY)) {
         ]);
         $estRes = curl_exec($ch);
         $estErr = curl_error($ch);
-        curl_close($ch);
 
         if (!$estErr && $estRes) {
             $estJson = json_decode($estRes, true);
