@@ -415,9 +415,9 @@ require_once __DIR__ . '/includes/navbar.php';
 
                     <!-- Packshot Image -->
                     <div class="h-36 sm:h-44 flex items-center justify-center my-3 relative overflow-hidden">
-                        <img src="<?= BASE_URL ?>assets/images/product-calming-rub-real.webp" 
+                        <img src="<?= BASE_URL ?>assets/images/product-calming-rub-real.webp?v=<?= filemtime(__DIR__ . '/assets/images/product-calming-rub-real.webp') ?>" 
                              alt="Baby Calming Rub Cream 50g" 
-                             class="max-h-32 sm:max-h-40 w-auto rounded-2xl object-cover group-hover:scale-105 transition-transform duration-300 shadow-md">
+                             class="max-h-32 sm:max-h-40 w-auto rounded-2xl object-contain group-hover:scale-105 transition-transform duration-300 drop-shadow-sm">
                     </div>
 
                     <!-- Info -->
@@ -459,7 +459,7 @@ require_once __DIR__ . '/includes/navbar.php';
                     <div class="h-36 sm:h-44 flex items-center justify-center my-3 relative overflow-hidden">
                         <img src="<?= BASE_URL ?>assets/images/product-bundle-2-real.webp?v=<?= filemtime(__DIR__ . '/assets/images/product-bundle-2-real.webp') ?>" 
                              alt="Bundle Double Care (2x 50g)" 
-                             class="max-h-32 sm:max-h-40 w-auto rounded-2xl object-cover group-hover:scale-105 transition-transform duration-300 shadow-md">
+                             class="max-h-32 sm:max-h-40 w-auto rounded-2xl object-contain group-hover:scale-105 transition-transform duration-300 drop-shadow-sm">
                     </div>
 
                     <!-- Info -->
@@ -501,7 +501,7 @@ require_once __DIR__ . '/includes/navbar.php';
                     <div class="h-36 sm:h-44 flex items-center justify-center my-3 relative overflow-hidden">
                         <img src="<?= BASE_URL ?>assets/images/product-bundle-3-real.webp?v=<?= filemtime(__DIR__ . '/assets/images/product-bundle-3-real.webp') ?>" 
                              alt="Bundle Triple Care (3x 50g)" 
-                             class="max-h-32 sm:max-h-40 w-auto rounded-2xl object-cover group-hover:scale-105 transition-transform duration-300 shadow-md">
+                             class="max-h-32 sm:max-h-40 w-auto rounded-2xl object-contain group-hover:scale-105 transition-transform duration-300 drop-shadow-sm">
                     </div>
 
                     <!-- Info -->
