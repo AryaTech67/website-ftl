@@ -301,21 +301,92 @@ require_once __DIR__ . '/includes/navbar.php';
             </button>
         </div>
 
-        <!-- Back to Articles Button -->
+        <!-- Back to Articles Button & Multi-Platform Native Share -->
         <div class="pt-6 border-t border-gray-100 flex items-center justify-between">
             <a href="<?= BASE_URL ?>artikel.php" class="inline-flex items-center gap-2 text-xs font-bold text-gray-600 hover:text-ftl-forest transition">
                 <i data-lucide="arrow-left" class="w-4 h-4"></i>
                 <span>Kembali ke Daftar Artikel</span>
             </a>
             <div class="flex items-center gap-2 text-xs text-gray-500">
-                <span>Bagikan:</span>
-                <a href="https://api.whatsapp.com/send?text=<?= rawurlencode(htmlspecialchars($article['title']) . ' ' . BASE_URL . 'artikel-detail.php?id=' . $article_id) ?>" target="_blank" rel="noopener" class="p-1.5 rounded-full bg-emerald-50 text-emerald-700 hover:bg-emerald-100">
-                    <i data-lucide="share-2" class="w-4 h-4"></i>
-                </a>
+                <span class="font-medium text-gray-600">Bagikan:</span>
+                <button type="button" 
+                        onclick="shareArticle()"
+                        class="p-2 sm:px-3 sm:py-1.5 rounded-full bg-emerald-50 text-emerald-800 hover:bg-emerald-100 active:scale-95 transition-all shadow-2xs border border-emerald-200/70 cursor-pointer flex items-center gap-1.5 font-bold"
+                        title="Bagikan artikel ini ke WhatsApp, Instagram, Telegram, atau Salin Tautan"
+                        aria-label="Bagikan Artikel">
+                    <i data-lucide="share-2" class="w-4 h-4 text-emerald-700"></i>
+                    <span class="hidden sm:inline text-xs text-emerald-800">Bagikan</span>
+                </button>
             </div>
         </div>
 
     </div>
 </article>
+
+<!-- Toast Notifikasi Berhasil Salin Tautan -->
+<div id="share-toast" 
+     class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 bg-gray-900/95 text-white px-5 py-3 rounded-full text-xs sm:text-sm font-semibold shadow-2xl flex items-center gap-2.5 opacity-0 translate-y-4 pointer-events-none transition-all duration-300 backdrop-blur-md border border-white/10"
+     role="status" aria-live="polite">
+    <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400"></i>
+    <span>Tautan artikel berhasil disalin! Siap dibagikan.</span>
+</div>
+
+<script>
+/**
+ * Modern Universal Web Share API
+ * Membuka native Share Sheet di iPhone / Android (bisa bagikan ke WA, IG, Telegram, X, SMS, Salin Link, dll).
+ * Jika di desktop atau browser tanpa Web Share, otomatis menyalin link ke clipboard dengan toast notifikasi elegan.
+ */
+function shareArticle() {
+    const shareData = {
+        title: <?= json_encode($article['title']) ?>,
+        text: <?= json_encode($page_desc) ?>,
+        url: window.location.href
+    };
+
+    if (navigator.share && navigator.canShare && navigator.canShare(shareData)) {
+        navigator.share(shareData).catch(() => {});
+    } else if (navigator.share) {
+        navigator.share({
+            title: shareData.title,
+            url: shareData.url
+        }).catch(() => {});
+    } else {
+        // Fallback untuk desktop: Salin tautan ke clipboard
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(shareData.url).then(() => {
+                showShareToast();
+            }).catch(() => {
+                fallbackCopy(shareData.url);
+            });
+        } else {
+            fallbackCopy(shareData.url);
+        }
+    }
+}
+
+function showShareToast() {
+    const toast = document.getElementById('share-toast');
+    if (!toast) return;
+    toast.classList.remove('opacity-0', 'translate-y-4', 'pointer-events-none');
+    toast.classList.add('opacity-100', 'translate-y-0');
+    setTimeout(() => {
+        toast.classList.remove('opacity-100', 'translate-y-0');
+        toast.classList.add('opacity-0', 'translate-y-4', 'pointer-events-none');
+    }, 2800);
+}
+
+function fallbackCopy(text) {
+    const tempInput = document.createElement('input');
+    tempInput.value = text;
+    document.body.appendChild(tempInput);
+    tempInput.select();
+    try {
+        document.execCommand('copy');
+        showShareToast();
+    } catch(e) {}
+    document.body.removeChild(tempInput);
+}
+</script>
 
 <?php require_once __DIR__ . '/includes/footer.php'; ?>
