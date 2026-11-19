@@ -3,6 +3,9 @@
  * Vercel Serverless Entry Router for For The Little Website
  */
 
+error_reporting(0);
+ini_set('display_errors', '0');
+
 // Parse the requested path
 $uri = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
 $uri = trim($uri, '/');

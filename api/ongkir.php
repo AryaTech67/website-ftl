@@ -6,6 +6,9 @@
  * Fallback cerdas ke database tarif lokal jika jaringan offline
  */
 
+error_reporting(0);
+ini_set('display_errors', '0');
+
 header('Content-Type: application/json; charset=utf-8');
 require_once __DIR__ . '/../config.php';
 require_once __DIR__ . '/../includes/shipping_data.php';
