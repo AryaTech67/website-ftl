@@ -10,7 +10,7 @@ Website profil brand & katalog produk **For The Little Indonesia** (`@forthelitt
    - Desain bernuansa *earthy-nature* (*sage green*, *soft cream*, dan *warm gold*) khas bahan alami pala nusantara.
    - Responsif 100% di Smartphone, Tablet, dan Desktop (*Mobile-first* untuk para Bunda).
    - Katalog produk satuan (50g), paket bundling hemat, dan paket *Newborn Gift Set*.
-   - Edukasi *Hero Ingredients* (Minyak Pala Nusantara, Bunga Calendula, dan Chamomile Alami).
+   - Edukasi *Hero Ingredients* (Biji Pala Nusantara, Bunga Calendula, dan Coconut & Avocado Oil).
    - Panduan visual langkah demi langkah ritual **Pijat ILU (I Love You)** untuk meredakan kembung & kolik bayi.
 
 2. **Sistem Pemesanan Manual via WhatsApp (Tanpa Ribet):**

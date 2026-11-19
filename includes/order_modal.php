@@ -132,8 +132,8 @@ $FTL_DESTINATIONS = getShippingDestinations($SHIPPING_DATA);
                             </div>
                         </button>
                         <button type="button" 
-                                @click="selectTopic('Komposisi Minyak Pala Nusantara & Calendula', 'Halo min, mau tanya detail kandungan minyak pala dan ekstrak calendula di dalamnya, apakah halal dan ber-BPOM?')"
-                                :class="consultTopic === 'Komposisi Minyak Pala Nusantara & Calendula' ? 'bg-emerald-50 border-emerald-600 text-emerald-950 font-bold ring-2 ring-emerald-500/25 shadow-xs' : 'bg-gray-50/80 border-gray-200 text-gray-700 hover:bg-gray-100'"
+                                @click="selectTopic('Komposisi Biji Pala Nusantara & Calendula', 'Halo min, mau tanya detail kandungan biji pala dan ekstrak calendula di dalamnya, apakah halal dan ber-BPOM?')"
+                                :class="consultTopic === 'Komposisi Biji Pala Nusantara & Calendula' ? 'bg-emerald-50 border-emerald-600 text-emerald-950 font-bold ring-2 ring-emerald-500/25 shadow-xs' : 'bg-gray-50/80 border-gray-200 text-gray-700 hover:bg-gray-100'"
                                 class="min-h-[50px] p-3 rounded-2xl border text-left transition-all flex items-center justify-between gap-2.5 cursor-pointer active:scale-[0.98] no-tap-zoom"
                                 style="touch-action: manipulation;">
                             <div class="flex items-center gap-2.5 min-w-0">
@@ -141,8 +141,8 @@ $FTL_DESTINATIONS = getShippingDestinations($SHIPPING_DATA);
                                 <span class="text-xs sm:text-sm leading-tight">Komposisi & keaslian produk</span>
                             </div>
                             <div class="w-5 h-5 rounded-full border-2 flex items-center justify-center shrink-0 transition-colors"
-                                 :class="consultTopic === 'Komposisi Minyak Pala Nusantara & Calendula' ? 'border-emerald-600 bg-emerald-600 text-white' : 'border-gray-300 bg-white'">
-                                <span class="w-2 h-2 rounded-full bg-white" x-show="consultTopic === 'Komposisi Minyak Pala Nusantara & Calendula'"></span>
+                                 :class="consultTopic === 'Komposisi Biji Pala Nusantara & Calendula' ? 'border-emerald-600 bg-emerald-600 text-white' : 'border-gray-300 bg-white'">
+                                <span class="w-2 h-2 rounded-full bg-white" x-show="consultTopic === 'Komposisi Biji Pala Nusantara & Calendula'"></span>
                             </div>
                         </button>
                         <button type="button" 
@@ -314,7 +314,7 @@ $FTL_DESTINATIONS = getShippingDestinations($SHIPPING_DATA);
                     </div>
                 </div>
 
-                <!-- 3. LOKASI PENGIRIMAN DENGAN AUTO-DETEKSI GPS & SEARCH -->
+                <!-- 3. LOKASI PENGIRIMAN DENGAN SEARCH & CEK ONGKIR PRESISI -->
                 <div id="field-shipping-location" class="space-y-3 pt-2 border-t border-gray-100">
                     <div class="flex items-center justify-between">
                         <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider">
@@ -325,210 +325,157 @@ $FTL_DESTINATIONS = getShippingDestinations($SHIPPING_DATA);
                         </span>
                     </div>
 
-                    <!-- TOMBOL AUTO-DETEKSI GPS (Clean, Authentic, No-Slop) -->
-                    <button type="button" 
-                            @click="detectLocationGPS()" 
-                            :disabled="detectingGPS"
-                            class="w-full inline-flex items-center justify-center gap-2.5 py-3 px-4 rounded-xl bg-emerald-50/80 hover:bg-emerald-100 border border-emerald-300 text-emerald-900 font-bold text-xs sm:text-sm transition-all active:scale-[0.99] shadow-2xs cursor-pointer no-tap-zoom"
-                            style="touch-action: manipulation;">
-                        <span x-show="detectingGPS" class="w-4 h-4 border-2 border-emerald-700 border-t-transparent rounded-full animate-spin shrink-0"></span>
-                        <i x-show="!detectingGPS" data-lucide="locate-fixed" class="w-4 h-4 text-emerald-700 shrink-0"></i>
-                        <span x-text="detectingGPS ? 'Mendeteksi Koordinat Lokasi Anda...' : 'Auto-Deteksi Lokasi Saya (GPS)'"></span>
-                    </button>
-
-                    <!-- Alert Banner Hasil Auto-Deteksi -->
-                    <div x-show="detectedAlert" 
-                         x-transition 
-                         class="bg-emerald-50 border border-emerald-300 text-emerald-900 px-3.5 py-2.5 rounded-xl text-xs sm:text-sm flex items-center justify-between">
-                        <span class="font-bold flex items-center gap-1.5" x-text="detectedAlert"></span>
-                        <span class="text-[10px] bg-emerald-200/80 text-emerald-800 px-2 py-0.5 rounded-full font-bold">Terpilih</span>
-                    </div>
-
                     <!-- Error Lokasi -->
                     <div x-show="errors.city" class="text-xs font-bold text-rose-700 bg-rose-50 border border-rose-300 px-3.5 py-2 rounded-xl flex items-center gap-2">
                         <i data-lucide="alert-circle" class="w-4 h-4 text-rose-600 shrink-0"></i>
                         <span x-text="errors.city"></span>
                     </div>
 
-                    <!-- FITUR PENCARIAN CEPAT KOTA / KABUPATEN DI SELURUH INDONESIA -->
-                    <div class="relative">
-                        <label class="block text-[11px] font-semibold text-gray-700 mb-1 flex items-center justify-between">
-                            <span>Ketik Kota / Kabupaten Kamu:</span>
-                            <span class="text-[10px] text-emerald-700 font-semibold">(Contoh: Depok, Bandung, Surabaya)</span>
-                        </label>
-                        <div class="relative">
-                            <input type="text" 
-                                   x-model="searchQuery" 
-                                   @input="showSuggestions = true; delete errors.city; errorMessage = '';"
-                                   @focus="if(searchQuery.length >= 2) showSuggestions = true"
-                                   placeholder="Contoh: Depok, Bandung, Surabaya..." 
-                                   class="w-full rounded-xl border border-gray-300 pl-9 pr-9 py-3 text-base sm:text-sm focus:border-ftl-forest focus:outline-none focus:ring-2 focus:ring-emerald-200 bg-white">
-                            <i data-lucide="search" class="w-4 h-4 text-gray-400 absolute left-3 top-3.5"></i>
-                            <button type="button" 
-                                    x-show="searchQuery" 
-                                    @click="searchQuery = ''; city = ''; province = ''; couriers = []; selectedCourier = null; showSuggestions = false;" 
-                                    class="absolute right-3 top-3.5 text-gray-400 hover:text-gray-600 cursor-pointer no-tap-zoom"
-                                    style="touch-action: manipulation;"
-                                    aria-label="Hapus teks pencarian">
-                                <i data-lucide="x" class="w-4 h-4"></i>
-                            </button>
+                    <!-- STATE A: KOTA SUDAH TERPILIH (Tampilan Super Bersih, Presisi & Rapi) -->
+                    <div x-show="city" class="bg-emerald-50/90 border border-emerald-300 rounded-2xl p-3 sm:p-3.5 flex items-center justify-between shadow-2xs">
+                        <div class="flex items-center gap-2.5 min-w-0">
+                            <div class="w-8 h-8 rounded-xl bg-emerald-600 text-white flex items-center justify-center shrink-0">
+                                <i data-lucide="map-pin" class="w-4 h-4"></i>
+                            </div>
+                            <div class="min-w-0">
+                                <span class="text-xs sm:text-sm font-bold text-emerald-950 block truncate" x-text="city + ', ' + province"></span>
+                                <span class="text-[10px] text-emerald-700 block font-medium">Tujuan Terpilih • Ongkir Siap Dihitung</span>
+                            </div>
                         </div>
-
-                        <!-- Live Suggestion Dropdown Cepat -->
-                        <div x-show="showSuggestions && filteredCities.length > 0" 
-                             @click.away="showSuggestions = false"
-                             class="absolute z-40 left-0 right-0 mt-1 max-h-56 overflow-y-auto bg-white rounded-2xl shadow-xl border border-emerald-200 divide-y divide-gray-100 text-xs sm:text-sm">
-                            <template x-for="item in filteredCities" :key="item.full">
-                                <div @click="selectCityFromSearch(item)" 
-                                     class="px-4 py-3 hover:bg-emerald-50 cursor-pointer flex items-center justify-between transition-colors">
-                                    <div class="flex items-center gap-2">
-                                        <i data-lucide="map-pin" class="w-3.5 h-3.5 text-emerald-600 shrink-0"></i>
-                                        <span class="font-bold text-gray-900" x-text="item.city"></span>
-                                    </div>
-                                    <span class="text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full text-[10px] font-semibold" x-text="item.province"></span>
-                                </div>
-                            </template>
-                        </div>
+                        <button type="button" 
+                                @click="city = ''; province = ''; searchQuery = ''; couriers = []; selectedCourier = null; detectedAlert = '';" 
+                                class="shrink-0 ml-2 px-3 py-1.5 rounded-xl bg-white border border-emerald-300 text-emerald-800 font-bold text-xs hover:bg-emerald-100 transition shadow-2xs cursor-pointer no-tap-zoom"
+                                style="touch-action: manipulation;">
+                            Ganti Kota
+                        </button>
                     </div>
 
-                    <!-- ================= PILIHAN MODEL PROVINSI & KOTA (Clean, Authentic UI) ================= -->
-                    <div class="space-y-3 pt-1">
-                        <!-- 1. CUSTOM STYLED PROVINSI SELECTOR -->
-                        <div class="relative">
-                            <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1 flex items-center justify-between">
-                                <span>Provinsi Tujuan:</span>
-                                <span class="text-[10px] text-emerald-700 font-semibold" x-show="province" x-text="'Provinsi Terpilih'"></span>
-                            </label>
-                            
-                            <button type="button" 
-                                    @click="openProvDropdown = !openProvDropdown; openCityDropdown = false; $nextTick(() => { if(window.lucide) lucide.createIcons(); });"
-                                    class="w-full p-3 sm:p-3.5 rounded-2xl border transition-all flex items-center justify-between text-left bg-white shadow-2xs cursor-pointer active:scale-[0.99] no-tap-zoom"
-                                    style="touch-action: manipulation;"
-                                    :class="openProvDropdown ? 'border-emerald-600 ring-2 ring-emerald-500/25' : (province ? 'border-emerald-400 bg-emerald-50/20' : 'border-gray-300 hover:border-gray-400')">
-                                <div class="flex items-center gap-3 min-w-0">
-                                    <div class="w-8 h-8 rounded-xl flex items-center justify-center shrink-0 transition-colors"
-                                         :class="province ? 'bg-emerald-100 text-emerald-800 border border-emerald-300' : 'bg-gray-100 text-gray-500 border border-gray-200'">
-                                        <i data-lucide="map" class="w-4 h-4"></i>
-                                    </div>
-                                    <div class="min-w-0">
-                                        <span class="text-[10px] uppercase font-bold text-gray-400 block leading-tight">Provinsi</span>
-                                        <span class="text-xs sm:text-sm font-bold truncate block"
-                                              :class="province ? 'text-gray-900' : 'text-gray-400'"
-                                              x-text="province || '-- Ketuk untuk Pilih Provinsi --'"></span>
-                                    </div>
-                                </div>
-                                <div class="flex items-center gap-1.5 shrink-0 ml-2">
-                                    <span x-show="province" class="text-[10px] font-bold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-full hidden sm:inline-block">Ganti</span>
-                                    <i data-lucide="chevron-down" class="w-4 h-4 text-gray-400 transition-transform duration-200" :class="openProvDropdown ? 'rotate-180 text-emerald-600' : ''"></i>
-                                </div>
-                            </button>
+                    <!-- STATE B: KOTA BELUM TERPILIH (Pencarian Cerdas & Presisi) -->
+                    <div x-show="!city" class="space-y-2.5">
+                        <!-- Mode Tab Switcher: Cari Cepat vs Pilih Manual -->
+                        <div class="flex items-center justify-between">
+                            <span class="text-[11px] font-semibold text-gray-700">Pilih Kota Tujuan:</span>
+                            <div class="flex items-center gap-1.5 text-[11px]">
+                                <button type="button" 
+                                        @click="locationMode = 'search'" 
+                                        :class="locationMode === 'search' ? 'text-emerald-700 font-bold underline' : 'text-gray-400 hover:text-gray-600'"
+                                        class="cursor-pointer">
+                                    Cari Nama Kota
+                                </button>
+                                <span class="text-gray-300">•</span>
+                                <button type="button" 
+                                        @click="locationMode = 'manual'" 
+                                        :class="locationMode === 'manual' ? 'text-emerald-700 font-bold underline' : 'text-gray-400 hover:text-gray-600'"
+                                        class="cursor-pointer">
+                                    Pilih per Provinsi
+                                </button>
+                            </div>
+                        </div>
 
-                            <!-- Dropdown Menu Box Provinsi -->
-                            <div x-show="openProvDropdown" 
-                                 @click.away="openProvDropdown = false"
-                                 x-transition:enter="transition ease-out duration-150"
-                                 x-transition:enter-start="opacity-0 scale-95 -translate-y-1"
-                                 x-transition:enter-end="opacity-100 scale-100 translate-y-0"
-                                 class="absolute z-50 left-0 right-0 mt-1.5 bg-white rounded-2xl shadow-2xl border border-emerald-300 p-2.5 text-xs sm:text-sm space-y-2">
-                                
-                                <!-- Mini Search Filter di Dalam Dropdown -->
-                                <div class="relative">
+                        <!-- 1. SEARCH INPUT WITH AUTOCOMPLETE & GPS BUTTON -->
+                        <div x-show="locationMode === 'search'" class="space-y-2">
+                            <div class="relative flex items-center gap-2">
+                                <div class="relative flex-1">
                                     <input type="text" 
-                                           x-model="searchProvQuery" 
-                                           placeholder="Cari provinsi (misal: Jawa, Bali, Riau, Sumatera)..."
-                                           class="w-full pl-8 pr-3 py-2.5 text-xs rounded-xl border border-gray-200 focus:outline-none focus:border-emerald-600 focus:ring-1 focus:ring-emerald-500 bg-gray-50">
-                                    <i data-lucide="search" class="w-3.5 h-3.5 text-gray-400 absolute left-2.5 top-3"></i>
+                                           x-model="searchQuery" 
+                                           @input="showSuggestions = true; delete errors.city; errorMessage = '';"
+                                           @focus="if(searchQuery.length >= 2) showSuggestions = true"
+                                           placeholder="Ketik nama kota (misal: Depok, Bandung, Surabaya)..." 
+                                           class="w-full rounded-xl border border-gray-300 pl-9 pr-8 py-3 text-base sm:text-sm focus:border-ftl-forest focus:outline-none focus:ring-2 focus:ring-emerald-200 bg-white">
+                                    <i data-lucide="search" class="w-4 h-4 text-gray-400 absolute left-3 top-3.5"></i>
+                                    <button type="button" 
+                                            x-show="searchQuery" 
+                                            @click="searchQuery = ''; showSuggestions = false;" 
+                                            class="absolute right-2.5 top-3.5 text-gray-400 hover:text-gray-600 cursor-pointer no-tap-zoom"
+                                            style="touch-action: manipulation;"
+                                            aria-label="Hapus teks">
+                                        <i data-lucide="x" class="w-4 h-4"></i>
+                                    </button>
                                 </div>
+                                <button type="button" 
+                                        @click="detectLocationGPS()" 
+                                        :disabled="detectingGPS"
+                                        title="Auto-Deteksi Lokasi Saya (GPS)"
+                                        class="h-11 px-3 rounded-xl bg-emerald-50 hover:bg-emerald-100 border border-emerald-300 text-emerald-800 font-bold text-xs flex items-center gap-1.5 shrink-0 transition active:scale-95 cursor-pointer no-tap-zoom"
+                                        style="touch-action: manipulation;">
+                                    <span x-show="detectingGPS" class="w-4 h-4 border-2 border-emerald-700 border-t-transparent rounded-full animate-spin shrink-0"></span>
+                                    <i x-show="!detectingGPS" data-lucide="locate-fixed" class="w-4 h-4 text-emerald-700 shrink-0"></i>
+                                    <span class="hidden sm:inline" x-text="detectingGPS ? 'Mendeteksi...' : 'Auto-GPS'"></span>
+                                </button>
+                            </div>
 
-                                <!-- List Item Provinsi -->
-                                <div class="max-h-56 overflow-y-auto space-y-1 pr-1">
-                                    <template x-for="item in filteredProvincesList" :key="item.province">
-                                        <button type="button"
-                                                @click="selectProvince(item.province)"
-                                                class="w-full text-left px-3 py-2.5 rounded-xl transition flex items-center justify-between cursor-pointer active:scale-98 no-tap-zoom"
-                                                style="touch-action: manipulation;"
-                                                :class="province === item.province ? 'bg-emerald-600 text-white font-bold shadow-xs' : 'hover:bg-emerald-50 text-gray-800'">
-                                            <div class="flex items-center gap-2">
-                                                <span class="w-1.5 h-1.5 rounded-full" :class="province === item.province ? 'bg-white' : 'bg-emerald-500'"></span>
+                            <!-- Alert Banner Hasil Auto-Deteksi -->
+                            <div x-show="detectedAlert" 
+                                 x-transition 
+                                 class="bg-emerald-50 border border-emerald-300 text-emerald-900 px-3 py-2 rounded-xl text-xs flex items-center justify-between">
+                                <span class="font-bold flex items-center gap-1.5" x-text="detectedAlert"></span>
+                                <span class="text-[10px] bg-emerald-200/80 text-emerald-800 px-2 py-0.5 rounded-full font-bold">GPS</span>
+                            </div>
+
+                            <!-- Live Suggestion Dropdown Cepat -->
+                            <div x-show="showSuggestions && filteredCities.length > 0" 
+                                 @click.away="showSuggestions = false"
+                                 class="relative z-40 max-h-56 overflow-y-auto bg-white rounded-2xl shadow-xl border border-emerald-200 divide-y divide-gray-100 text-xs sm:text-sm">
+                                <template x-for="item in filteredCities" :key="item.full">
+                                    <div @click="selectCityFromSearch(item)" 
+                                         class="px-4 py-2.5 hover:bg-emerald-50 cursor-pointer flex items-center justify-between transition-colors">
+                                        <div class="flex items-center gap-2">
+                                            <i data-lucide="map-pin" class="w-3.5 h-3.5 text-emerald-600 shrink-0"></i>
+                                            <span class="font-bold text-gray-900" x-text="item.city"></span>
+                                        </div>
+                                        <span class="text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full text-[10px] font-semibold" x-text="item.province"></span>
+                                    </div>
+                                </template>
+                            </div>
+                        </div>
+
+                        <!-- 2. DROPDOWN PER PROVINSI & KOTA (MANUAL) -->
+                        <div x-show="locationMode === 'manual'" class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                            <!-- Provinsi Selector -->
+                            <div class="relative">
+                                <button type="button" 
+                                        @click="openProvDropdown = !openProvDropdown; openCityDropdown = false; $nextTick(() => { if(window.lucide) lucide.createIcons(); });"
+                                        class="w-full p-2.5 rounded-xl border transition-all flex items-center justify-between text-left bg-white text-xs sm:text-sm cursor-pointer shadow-2xs"
+                                        :class="openProvDropdown ? 'border-emerald-600 ring-2 ring-emerald-500/25' : (province ? 'border-emerald-400 bg-emerald-50/20' : 'border-gray-300')">
+                                    <span class="truncate font-semibold" :class="province ? 'text-gray-900' : 'text-gray-400'" x-text="province || 'Pilih Provinsi'"></span>
+                                    <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-gray-400 shrink-0"></i>
+                                </button>
+                                <div x-show="openProvDropdown" @click.away="openProvDropdown = false" class="absolute z-50 left-0 right-0 mt-1 bg-white rounded-xl shadow-2xl border border-emerald-300 p-2 text-xs space-y-1.5">
+                                    <input type="text" x-model="searchProvQuery" placeholder="Cari provinsi..." class="w-full px-2.5 py-1.5 text-xs rounded-lg border border-gray-200 bg-gray-50">
+                                    <div class="max-h-48 overflow-y-auto space-y-0.5">
+                                        <template x-for="item in filteredProvincesList" :key="item.province">
+                                            <button type="button" @click="selectProvince(item.province)" class="w-full text-left px-2.5 py-1.5 rounded-lg hover:bg-emerald-50 flex items-center justify-between" :class="province === item.province ? 'bg-emerald-600 text-white font-bold' : 'text-gray-800'">
                                                 <span class="truncate" x-text="item.province"></span>
-                                            </div>
-                                            <span class="text-[10px] px-2 py-0.5 rounded-full shrink-0 ml-2"
-                                                  :class="province === item.province ? 'bg-white/20 text-white' : 'bg-gray-100 text-gray-500'"
-                                                  x-text="item.cities.length + ' Kota'"></span>
-                                        </button>
-                                    </template>
+                                            </button>
+                                        </template>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-
-                        <!-- 2. CUSTOM STYLED KOTA / KABUPATEN SELECTOR -->
-                        <div class="relative">
-                            <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1 flex items-center justify-between">
-                                <span>Kota / Kabupaten:</span>
-                                <span class="text-[10px] text-gray-400" x-show="!province">Pilih provinsi dulu</span>
-                                <span class="text-[10px] text-emerald-700 font-semibold" x-show="province && city" x-text="'Kota Terpilih'"></span>
-                            </label>
-
-                            <button type="button" 
-                                    @click="if (province) { openCityDropdown = !openCityDropdown; openProvDropdown = false; $nextTick(() => { if(window.lucide) lucide.createIcons(); }); }"
-                                    :disabled="!province"
-                                    class="w-full p-3 sm:p-3.5 rounded-2xl border transition-all flex items-center justify-between text-left shadow-2xs no-tap-zoom"
-                                    style="touch-action: manipulation;"
-                                    :class="!province ? 'bg-gray-100/70 border-gray-200 text-gray-400 cursor-not-allowed' : (openCityDropdown ? 'bg-white border-emerald-600 ring-2 ring-emerald-500/25 cursor-pointer' : (city ? 'bg-emerald-50/20 border-emerald-400 text-gray-900 cursor-pointer' : 'bg-white border-gray-300 hover:border-gray-400 cursor-pointer active:scale-[0.99]'))">
-                                <div class="flex items-center gap-3 min-w-0">
-                                    <div class="w-8 h-8 rounded-xl flex items-center justify-center shrink-0 transition-colors"
-                                         :class="city ? 'bg-emerald-100 text-emerald-800 border border-emerald-300' : 'bg-gray-100 text-gray-500 border border-gray-200'">
-                                        <i data-lucide="map-pin" class="w-4 h-4"></i>
-                                    </div>
-                                    <div class="min-w-0">
-                                        <span class="text-[10px] uppercase font-bold text-gray-400 block leading-tight">Kota / Kab</span>
-                                        <span class="text-xs sm:text-sm font-bold truncate block"
-                                              :class="city ? 'text-gray-900' : 'text-gray-400'"
-                                              x-text="city || (province ? '-- Ketuk untuk Pilih Kota / Kab --' : '-- Pilih Provinsi Dulu --')"></span>
-                                    </div>
-                                </div>
-                                <div class="flex items-center gap-1.5 shrink-0 ml-2">
-                                    <span x-show="city" class="text-[10px] font-bold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-full hidden sm:inline-block">Ganti</span>
-                                    <i data-lucide="chevron-down" class="w-4 h-4 text-gray-400 transition-transform duration-200" :class="openCityDropdown ? 'rotate-180 text-emerald-600' : ''"></i>
-                                </div>
-                            </button>
-
-                            <!-- Dropdown Menu Box Kota -->
-                            <div x-show="openCityDropdown && province" 
-                                 @click.away="openCityDropdown = false"
-                                 x-transition:enter="transition ease-out duration-150"
-                                 x-transition:enter-start="opacity-0 scale-95 -translate-y-1"
-                                 x-transition:enter-end="opacity-100 scale-100 translate-y-0"
-                                 class="absolute z-50 left-0 right-0 mt-1.5 bg-white rounded-2xl shadow-2xl border border-emerald-300 p-2.5 text-xs sm:text-sm space-y-2">
-                                
-                                <!-- Mini Search Filter di Dalam Dropdown Kota -->
-                                <div class="relative">
-                                    <input type="text" 
-                                           x-model="searchCityQuery" 
-                                           :placeholder="'Cari kota di ' + province + '...'"
-                                           class="w-full pl-8 pr-3 py-2.5 text-xs rounded-xl border border-gray-200 focus:outline-none focus:border-emerald-600 focus:ring-1 focus:ring-emerald-500 bg-gray-50">
-                                    <i data-lucide="search" class="w-3.5 h-3.5 text-gray-400 absolute left-2.5 top-3"></i>
-                                </div>
-
-                                <!-- List Item Kota -->
-                                <div class="max-h-56 overflow-y-auto space-y-1 pr-1">
-                                    <template x-for="c in filteredCitiesOfProvince" :key="c">
-                                        <button type="button"
-                                                @click="selectCity(c)"
-                                                class="w-full text-left px-3 py-2.5 rounded-xl transition flex items-center justify-between cursor-pointer active:scale-98 no-tap-zoom"
-                                                style="touch-action: manipulation;"
-                                                :class="city === c ? 'bg-emerald-600 text-white font-bold shadow-xs' : 'hover:bg-emerald-50 text-gray-800'">
-                                            <div class="flex items-center gap-2">
-                                                <span class="w-1.5 h-1.5 rounded-full" :class="city === c ? 'bg-white' : 'bg-emerald-500'"></span>
+                            <!-- Kota Selector -->
+                            <div class="relative">
+                                <button type="button" 
+                                        @click="if(province) { openCityDropdown = !openCityDropdown; openProvDropdown = false; $nextTick(() => { if(window.lucide) lucide.createIcons(); }); }"
+                                        :disabled="!province"
+                                        class="w-full p-2.5 rounded-xl border transition-all flex items-center justify-between text-left bg-white text-xs sm:text-sm shadow-2xs"
+                                        :class="!province ? 'bg-gray-100 border-gray-200 text-gray-400 cursor-not-allowed' : (openCityDropdown ? 'border-emerald-600 ring-2 ring-emerald-500/25 cursor-pointer' : 'border-gray-300 cursor-pointer')">
+                                    <span class="truncate font-semibold" :class="city ? 'text-gray-900' : 'text-gray-400'" x-text="city || (province ? 'Pilih Kota / Kab' : 'Pilih Provinsi Dulu')"></span>
+                                    <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-gray-400 shrink-0"></i>
+                                </button>
+                                <div x-show="openCityDropdown && province" @click.away="openCityDropdown = false" class="absolute z-50 left-0 right-0 mt-1 bg-white rounded-xl shadow-2xl border border-emerald-300 p-2 text-xs space-y-1.5">
+                                    <input type="text" x-model="searchCityQuery" :placeholder="'Cari kota di ' + province + '...'" class="w-full px-2.5 py-1.5 text-xs rounded-lg border border-gray-200 bg-gray-50">
+                                    <div class="max-h-48 overflow-y-auto space-y-0.5">
+                                        <template x-for="c in filteredCitiesOfProvince" :key="c">
+                                            <button type="button" @click="selectCity(c)" class="w-full text-left px-2.5 py-1.5 rounded-lg hover:bg-emerald-50 flex items-center justify-between" :class="city === c ? 'bg-emerald-600 text-white font-bold' : 'text-gray-800'">
                                                 <span class="truncate" x-text="c"></span>
-                                            </div>
-                                            <i data-lucide="check" class="w-4 h-4 text-white" x-show="city === c"></i>
-                                        </button>
-                                    </template>
+                                            </button>
+                                        </template>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+
                     </div>
+                </div>
 
                     <!-- Alamat Lengkap & Patokan Rumah -->
                     <div>
@@ -812,14 +759,15 @@ function orderModal() {
         detectedAlert: '',
         searchQuery: '',
         showSuggestions: false,
+        locationMode: 'search',
         productsList: {
             'calming-rub-50g': { 
                 id: 'calming-rub-50g',
                 name: 'Baby Calming Rub Cream 50g', 
                 desc: 'Single Tube (1x 50g)',
                 price: 79000, 
-                originalPrice: 99000,
-                badge: '🌿 100% Pala Asli',
+                originalPrice: 118000,
+                badge: '🌿 100% Biji Pala Asli',
                 badgeClass: 'bg-emerald-50 text-emerald-800 border-emerald-200/80',
                 weight: 100,
                 image: 'assets/images/product-calming-rub-real.webp'
@@ -829,8 +777,8 @@ function orderModal() {
                 name: 'Paket Hemat 2 Tube (Double Care)', 
                 desc: 'Stok Lengkap Bunda (2x 50g)',
                 price: 149000, 
-                originalPrice: 198000,
-                badge: '🔥 Hemat 25%',
+                originalPrice: 236000,
+                badge: '🔥 Hemat 37%',
                 badgeClass: 'bg-amber-50 text-amber-800 border-amber-200/80',
                 weight: 200,
                 image: 'assets/images/product-bundle-2-real.webp'
@@ -840,8 +788,8 @@ function orderModal() {
                 name: 'Bundle Triple Care (3x 50g)', 
                 desc: 'Paket Hemat 3 Tube (Stok 3 Bulan)',
                 price: 219000, 
-                originalPrice: 297000,
-                badge: '🌟 Super Hemat 30%',
+                originalPrice: 354000,
+                badge: '🌟 Super Hemat 38%',
                 badgeClass: 'bg-emerald-50 text-emerald-800 border-emerald-200/80',
                 weight: 300,
                 image: 'assets/images/product-bundle-3-real.webp'

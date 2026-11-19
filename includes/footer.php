@@ -27,7 +27,7 @@ require_once __DIR__ . '/../config.php';
                 </div>
                 
                 <p class="text-sm text-emerald-100/90 leading-relaxed max-w-sm">
-                    Membawa kembali berkah dan kekayaan alam Nusantara untuk perawatan si kecil. Diformulasikan khusus dengan minyak pala alami, aman untuk bayi baru lahir, dan teruji dermatologis.
+                    Membawa kembali berkah dan kekayaan alam Nusantara untuk perawatan si kecil. Diformulasikan khusus dengan biji pala alami, aman untuk bayi baru lahir, dan teruji dermatologis.
                 </p>
 
                 <div class="pt-2">
@@ -89,7 +89,7 @@ require_once __DIR__ . '/../config.php';
                     Keunggulan FTL
                 </h4>
                 <ul class="space-y-2.5 text-sm text-emerald-100/80">
-                    <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400"></i> Minyak Pala Asli Nusantara</li>
+                    <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400"></i> Biji Pala Asli Nusantara</li>
                     <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400"></i> Redakan Perut Kembung & Kolik</li>
                     <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400"></i> Teruji Dermatologis & BPOM</li>
                     <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400"></i> Safe for Newborn (0+ Bulan)</li>

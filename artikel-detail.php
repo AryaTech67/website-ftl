@@ -32,7 +32,7 @@ Kolik bukanlah sebuah penyakit, melainkan kumpulan gejala berupa tangisan intens
 
 <h3 class="text-xl font-bold font-display text-gray-900 mt-8 mb-4">Langkah Menenangkan Si Kecil Saat Kolik Melanda</h3>
 <ol class="list-decimal pl-6 space-y-3 text-sm text-gray-700 mb-6">
-    <li><strong>Lakukan Pijatan Perut ILU:</strong> Oleskan <em>Baby Calming Rub Cream</em> berbahan minyak pala hangat ke perut si kecil, lalu pijat memutar searah jarum jam untuk mendorong gas keluar.</li>
+    <li><strong>Lakukan Pijatan Perut ILU:</strong> Oleskan <em>Baby Calming Rub Cream</em> berbahan biji pala hangat ke perut si kecil, lalu pijat memutar searah jarum jam untuk mendorong gas keluar.</li>
     <li><strong>Sendawakan Setelah Menyusu:</strong> Pastikan bayi bersendawa setiap selesai menyusu, baik via payudara langsung maupun botol.</li>
     <li><strong>Gerakan 'Bicycle Legs':</strong> Baringkan bayi, pegang kedua kakinya, lalu gerakkan perlahan seperti mengayuh sepeda.</li>
     <li><strong>Ciptakan Lingkungan Tenang:</strong> Redupkan lampu kamar, gunakan white noise atau suara bisikan lembut Bunda.</li>
@@ -81,12 +81,12 @@ Gerakan pijat ini mengikuti jalur usus besar bayi dari kanan bawah naik ke atas,
 
 <h3 class="text-xl font-bold font-display text-gray-900 mt-8 mb-4">Tips Memilih Media Pijat yang Tepat</h3>
 <p class="text-sm text-gray-700 leading-relaxed mb-4">
-Hindari minyak yang terlalu licin dan lengket. Pilihlah <strong>calming cream</strong> berbahan dasar minyak pala nusantara dan calendula seperti <em>For The Little Baby Calming Rub</em> yang tidak berminyak, mudah diserap kulit, dan memberikan kehangatan stabil.
+Hindari minyak yang terlalu licin dan lengket. Pilihlah <strong>calming cream</strong> berbahan dasar biji pala nusantara dan calendula seperti <em>For The Little Baby Calming Rub</em> yang tidak berminyak, mudah diserap kulit, dan memberikan kehangatan stabil.
 </p>
 HTML
     ],
     'manfaat-minyak-pala' => [
-        'title' => 'Mengapa Minyak Pala Nusantara Sangat Baik untuk Kehangatan & Kenyamanan Bayi?',
+        'title' => 'Mengapa Biji Pala Nusantara Sangat Baik untuk Kehangatan & Kenyamanan Bayi?',
         'category' => 'Kekayaan Herbal',
         'read_time' => '6 Menit Baca',
         'date' => '05 November 2026',
@@ -96,7 +96,7 @@ HTML
 Kepulauan Nusantara sejak ratusan tahun silam telah dikenal dunia sebagai pusat rempah terbaik. Di antara sekian banyak kekayaan alam Indonesia, <strong>biji dan fuli pala <em>(Myristica fragrans)</em></strong> menempati kedudukan istimewa dalam tradisi perawatan keluarga.
 </p>
 
-<h3 class="text-xl font-bold font-display text-gray-900 mt-8 mb-4">Kandungan Utama Minyak Pala</h3>
+<h3 class="text-xl font-bold font-display text-gray-900 mt-8 mb-4">Kandungan Utama Biji Pala</h3>
 <p class="text-sm text-gray-700 leading-relaxed mb-4">
 Minyak atsiri yang diekstrak dari pala mengandung senyawa aktif <em>myristicin</em>, <em>elemicin</em>, dan <em>safrole</em>. Dalam konsentrasi yang diformulasikan aman untuk bayi, komponen ini memiliki fungsi istimewa:
 </p>
@@ -290,7 +290,7 @@ require_once __DIR__ . '/includes/navbar.php';
                 <div>
                     <span class="bg-amber-400 text-amber-950 text-[10px] font-extrabold px-2.5 py-0.5 rounded-full uppercase">Rekomendasi Bunda</span>
                     <h3 class="font-display font-bold text-xl mt-1">Baby Calming Rub Cream (50g)</h3>
-                    <p class="text-xs text-emerald-100 mt-1 max-w-sm">Meredakan kolik & kembung dalam hitungan menit dengan kehangatan lembut minyak pala nusantara.</p>
+                    <p class="text-xs text-emerald-100 mt-1 max-w-sm">Meredakan kolik & kembung dalam hitungan menit dengan kehangatan lembut biji pala nusantara.</p>
                     <div class="text-lg font-bold text-white mt-2">Rp 79.000</div>
                 </div>
             </div>

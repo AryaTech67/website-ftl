@@ -1,7 +1,7 @@
 <?php
 $current_page = 'home';
 $page_title = 'Natural Baby Calming Rub Cream dari Kekayaan Alam Nusantara';
-$page_desc = 'For The Little Indonesia menghadirkan Baby Calming Rub Cream alami berbahan minyak pala nusantara dan calendula. Meredakan kolik, kembung, dan aman untuk newborn 0+.';
+$page_desc = 'For The Little Indonesia menghadirkan Baby Calming Rub Cream alami berbahan biji pala nusantara, calendula, coconut oil, dan avocado oil. Meredakan kolik, kembung, dermatologically tested, dan aman untuk newborn 0+.';
 
 require_once __DIR__ . '/config.php';
 require_once __DIR__ . '/includes/header.php';
@@ -114,12 +114,13 @@ require_once __DIR__ . '/includes/navbar.php';
 
                             <!-- Subtitle Singkat, Lega & Enak Dibaca -->
                             <p class="text-xs sm:text-base text-white/95 leading-relaxed font-normal max-w-xl line-clamp-2 sm:line-clamp-none">
-                                Krim telon alami dengan kehangatan <strong>Minyak Pala Nusantara & Calendula</strong>. Cepat meresap, 0% rasa lengket, dan lembut untuk newborn 0+ bulan.
+                                Krim telon alami dengan kehangatan <strong>Biji Pala Nusantara & Calendula</strong>. Cepat meresap, 0% rasa lengket, dermatologically tested, dan lembut untuk newborn 0+ bulan.
                             </p>
 
                             <!-- Micro Trust Highlights (Rapi & Minimalis di Layar Lebar) -->
                             <div class="hidden sm:flex flex-wrap items-center gap-x-4 gap-y-2 text-xs sm:text-sm text-emerald-200 font-semibold pt-1">
-                                <span class="inline-flex items-center gap-1.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-[#FCD34D]"></i> 100% Pala Nusantara</span>
+                                <span class="inline-flex items-center gap-1.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-[#FCD34D]"></i> 100% Biji Pala Nusantara</span>
+                                <span class="inline-flex items-center gap-1.5"><i data-lucide="shield-check" class="w-4 h-4 text-[#FCD34D]"></i> Dermatologically Tested</span>
                                 <span class="inline-flex items-center gap-1.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-[#FCD34D]"></i> 0% Rasa Lengket</span>
                                 <span class="inline-flex items-center gap-1.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-[#FCD34D]"></i> BPOM & Halal Resmi</span>
                             </div>
@@ -177,11 +178,12 @@ require_once __DIR__ . '/includes/navbar.php';
                             </h2>
 
                             <p class="text-xs sm:text-base text-white/95 leading-relaxed font-normal max-w-xl line-clamp-2 sm:line-clamp-none">
-                                Perpaduan minyak atsiri buah pala nusantara dan ekstrak calendula organik yang melembapkan <em>skin barrier</em> serta menenangkan si kecil saat rewel.
+                                Perpaduan biji pala nusantara dan ekstrak calendula organik yang melembapkan <em>skin barrier</em> serta menenangkan si kecil saat rewel.
                             </p>
 
                             <div class="hidden sm:flex flex-wrap items-center gap-x-4 gap-y-2 text-xs sm:text-sm text-amber-200 font-semibold pt-1">
-                                <span class="inline-flex items-center gap-1.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-[#FCD34D]"></i> Minyak Biji Pala Murni</span>
+                                <span class="inline-flex items-center gap-1.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-[#FCD34D]"></i> Ekstrak Biji Pala Murni</span>
+                                <span class="inline-flex items-center gap-1.5"><i data-lucide="shield-check" class="w-4 h-4 text-[#FCD34D]"></i> Dermatologically Tested</span>
                                 <span class="inline-flex items-center gap-1.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-[#FCD34D]"></i> Ekstrak Bunga Calendula</span>
                                 <span class="inline-flex items-center gap-1.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-[#FCD34D]"></i> Bebas Paraben & Alkohol</span>
                             </div>
@@ -206,9 +208,9 @@ require_once __DIR__ . '/includes/navbar.php';
                         <div class="lg:col-span-4 hidden lg:flex justify-center items-center gap-4">
                             <div class="p-4 bg-white/15 backdrop-blur-md rounded-3xl border border-white/25 shadow-2xl flex flex-col items-center hover:scale-105 transition-all duration-300 group">
                                 <div class="w-32 h-36 flex items-center justify-center">
-                                    <img src="<?= BASE_URL ?>assets/images/ingredient-nutmeg-real.png" alt="Minyak Pala Asli Nusantara" class="h-full w-auto object-contain drop-shadow-2xl group-hover:scale-110 transition-transform duration-300">
+                                    <img src="<?= BASE_URL ?>assets/images/ingredient-nutmeg-real.png" alt="Biji Pala Asli Nusantara" class="h-full w-auto object-contain drop-shadow-2xl group-hover:scale-110 transition-transform duration-300">
                                 </div>
-                                <span class="text-xs font-bold text-amber-200 mt-2 tracking-wide text-center">Minyak Pala Nusantara</span>
+                                <span class="text-xs font-bold text-amber-200 mt-2 tracking-wide text-center">Biji Pala Nusantara</span>
                             </div>
                             <div class="p-4 bg-white/15 backdrop-blur-md rounded-3xl border border-white/25 shadow-2xl flex flex-col items-center hover:scale-105 transition-all duration-300 group">
                                 <div class="w-32 h-36 flex items-center justify-center">
@@ -354,10 +356,10 @@ require_once __DIR__ . '/includes/navbar.php';
 
             <div data-animate="fade-up" data-delay="100" class="flex flex-col items-center p-3 rounded-2xl hover:bg-ftl-cream/60 transition-colors group">
                 <div class="w-14 h-14 sm:w-16 sm:h-16 mb-2.5 p-1 rounded-2xl bg-white border border-emerald-100 flex items-center justify-center group-hover:border-emerald-300 group-hover:scale-105 transition-all shadow-xs">
-                    <img src="<?= BASE_URL ?>assets/images/badge-hypoallergenic.svg?v=<?= @filemtime(__DIR__ . '/assets/images/badge-hypoallergenic.svg') ?>" alt="Hypoallergenic Tested" class="w-full h-full object-contain">
+                    <img src="<?= BASE_URL ?>assets/images/badge-hypoallergenic.svg?v=<?= @filemtime(__DIR__ . '/assets/images/badge-hypoallergenic.svg') ?>" alt="Dermatologically Tested" class="w-full h-full object-contain">
                 </div>
-                <h4 class="font-bold text-sm text-gray-800">Hypoallergenic Tested</h4>
-                <p class="text-xs text-gray-500 mt-1">Aman untuk kulit paling sensitif</p>
+                <h4 class="font-bold text-sm text-gray-800">Dermatologically Tested</h4>
+                <p class="text-xs text-gray-500 mt-1">Teruji klinis aman untuk newborn & kulit sensitif</p>
             </div>
 
             <div data-animate="fade-up" data-delay="200" class="flex flex-col items-center p-3 rounded-2xl hover:bg-ftl-cream/60 transition-colors group">
@@ -395,7 +397,7 @@ require_once __DIR__ . '/includes/navbar.php';
                 Pilihan Produk Alami For The Little
             </h2>
             <p class="text-xs sm:text-sm text-gray-500 mt-1 max-w-2xl">
-                Rangkaian perawatan alami ekstrak Minyak Pala Nusantara & Calendula untuk kehangatan dan kenyamanan si kecil.
+                Rangkaian perawatan alami ekstrak Biji Pala Nusantara & Calendula untuk kehangatan dan kenyamanan si kecil.
             </p>
         </div>
 
@@ -430,7 +432,7 @@ require_once __DIR__ . '/includes/navbar.php';
                         </p>
                         <div class="mt-2 flex items-baseline gap-2">
                             <span class="text-base font-extrabold text-ftl-forest">Rp 79.000</span>
-                            <span class="text-xs text-gray-400 line-through">Rp 99.000</span>
+                            <span class="text-xs text-gray-400 line-through">Rp 118.000</span>
                         </div>
                     </div>
                 </div>
@@ -450,7 +452,7 @@ require_once __DIR__ . '/includes/navbar.php';
                     <!-- Top Pill Badge -->
                     <div class="flex items-center justify-between">
                         <span class="inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full bg-amber-50 text-amber-800 border border-amber-200/70">
-                            🔥 Hemat 25%
+                            🔥 Hemat 37%
                         </span>
                         <span class="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full">Bestseller</span>
                     </div>
@@ -472,7 +474,7 @@ require_once __DIR__ . '/includes/navbar.php';
                         </p>
                         <div class="mt-2 flex items-baseline gap-2">
                             <span class="text-base font-extrabold text-ftl-forest">Rp 149.000</span>
-                            <span class="text-xs text-gray-400 line-through">Rp 198.000</span>
+                            <span class="text-xs text-gray-400 line-through">Rp 236.000</span>
                         </div>
                     </div>
                 </div>
@@ -492,7 +494,7 @@ require_once __DIR__ . '/includes/navbar.php';
                     <!-- Top Pill Badge -->
                     <div class="flex items-center justify-between">
                         <span class="inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200/70">
-                            🌟 Super Hemat 30%
+                            🌟 Super Hemat 38%
                         </span>
                         <span class="text-[10px] font-bold text-gray-400">Stok 3 Bulan</span>
                     </div>
@@ -514,7 +516,7 @@ require_once __DIR__ . '/includes/navbar.php';
                         </p>
                         <div class="mt-2 flex items-baseline gap-2">
                             <span class="text-base font-extrabold text-ftl-forest">Rp 219.000</span>
-                            <span class="text-xs text-gray-400 line-through">Rp 297.000</span>
+                            <span class="text-xs text-gray-400 line-through">Rp 354.000</span>
                         </div>
                     </div>
                 </div>
@@ -548,7 +550,7 @@ require_once __DIR__ . '/includes/navbar.php';
                 Baby Calming Rub Cream 50g
             </h2>
             <p class="text-xs sm:text-base text-gray-600 mt-1.5">
-                Kombinasi formulasi modern tanpa rasa lengket dan kehangatan alami Minyak Pala Nusantara.
+                Kombinasi formulasi modern tanpa rasa lengket dan kehangatan alami Biji Pala Nusantara.
             </p>
         </div>
 
@@ -611,7 +613,7 @@ require_once __DIR__ . '/includes/navbar.php';
                             Baby Calming Rub Cream 50g
                         </h3>
                         <p class="text-xs sm:text-sm text-gray-500 mt-1">
-                            Krim telon alami dengan minyak pala nusantara & ekstrak calendula organik.
+                            Krim telon alami dengan biji pala nusantara & ekstrak calendula organik.
                         </p>
 
                         <!-- Price Banner (Konsisten Nyamping di Semua Layar HP) -->
@@ -721,19 +723,19 @@ require_once __DIR__ . '/includes/navbar.php';
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             
-            <!-- Card 1: Minyak Pala Nusantara -->
+            <!-- Card 1: Biji Pala Nusantara -->
             <div data-animate="fade-up" data-delay="0" class="bg-white rounded-3xl p-8 border border-ftl-sand shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center">
                 <div class="w-28 h-28 mb-6 p-2 rounded-2xl bg-amber-50/60 border border-amber-100 flex items-center justify-center overflow-hidden">
-                    <img src="<?= BASE_URL ?>assets/images/ingredient-nutmeg-real.png" alt="Minyak Pala Nusantara" class="h-24 w-auto object-contain drop-shadow-md">
+                    <img src="<?= BASE_URL ?>assets/images/ingredient-nutmeg-real.png" alt="Biji Pala Nusantara" class="h-24 w-auto object-contain drop-shadow-md">
                 </div>
                 <div class="inline-block px-3 py-1 rounded-full bg-amber-100 text-amber-800 text-xs font-bold mb-3">
                     Bahan Utama Nusantara
                 </div>
                 <h3 class="text-xl font-bold font-display text-gray-900 mb-2">
-                    Minyak Pala Nusantara
+                    Biji Pala Nusantara
                 </h3>
                 <p class="text-sm text-gray-600 leading-relaxed">
-                    Kandungan *myristicin* alami dalam minyak pala nusantara berkhasiat menghangatkan perut secara lembut, melancarkan sirkulasi, dan mengusir kembung serta kolik seketika.
+                    Kandungan *myristicin* alami dalam biji pala nusantara berkhasiat menghangatkan perut secara lembut, melancarkan sirkulasi, dan mengusir kembung serta kolik seketika.
                 </p>
             </div>
 
@@ -753,19 +755,19 @@ require_once __DIR__ . '/includes/navbar.php';
                 </p>
             </div>
 
-            <!-- Card 3: Minyak Nabati Alami (Carrier Oils) -->
+            <!-- Card 3: Coconut & Avocado Oil Alami -->
             <div data-animate="fade-up" data-delay="240" class="bg-white rounded-3xl p-8 border border-ftl-sand shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center">
                 <div class="w-28 h-28 mb-6 p-2 rounded-2xl bg-emerald-50/60 border border-emerald-100 flex items-center justify-center overflow-hidden">
-                    <img src="<?= BASE_URL ?>assets/images/ingredient-plant-oil-real.png?v=<?= @filemtime(__DIR__ . '/assets/images/ingredient-plant-oil-real.png') ?>" alt="Minyak Nabati Murni" class="w-24 h-24 object-cover rounded-full shadow-md">
+                    <img src="<?= BASE_URL ?>assets/images/ingredient-plant-oil-real.png?v=<?= @filemtime(__DIR__ . '/assets/images/ingredient-plant-oil-real.png') ?>" alt="Coconut & Avocado Oil Alami" class="w-24 h-24 object-cover rounded-full shadow-md">
                 </div>
                 <div class="inline-block px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold mb-3">
                     Cepat Meresap & Menutrisi
                 </div>
                 <h3 class="text-xl font-bold font-display text-gray-900 mb-2">
-                    Minyak Nabati Murni
+                    Coconut & Avocado Oil
                 </h3>
                 <p class="text-sm text-gray-600 leading-relaxed">
-                    Kombinasi *sunflower* dan *coconut carrier oil* nabati yang mengunci kelembapan alami, cepat meresap sempurna, serta tidak menyumbat pori-pori kulit bayi.
+                    Perpaduan virgin *coconut oil* dan *avocado oil* nabati murni yang kaya nutrisi, mengunci kelembapan alami, cepat meresap sempurna, serta menjaga kelembutan kulit bayi tanpa rasa lengket.
                 </p>
             </div>
 
@@ -840,7 +842,7 @@ require_once __DIR__ . '/includes/navbar.php';
                     <div class="pt-4 flex items-start gap-4">
                         <span class="font-display font-bold text-sm text-emerald-700 w-6 shrink-0 pt-0.5">02</span>
                         <div class="space-y-1">
-                            <h4 class="font-bold text-sm sm:text-base text-gray-900">Kehangatan Pas dari Minyak Pala Nusantara</h4>
+                            <h4 class="font-bold text-sm sm:text-base text-gray-900">Kehangatan Pas dari Biji Pala Nusantara</h4>
                             <p class="text-xs sm:text-sm text-gray-600 leading-relaxed">
                                 Kehangatan alami rempah pala yang menenangkan dan meredakan kolik/kembung seketika, tanpa sensasi panas berlebih yang berisiko membuat kulit bayi perih.
                             </p>
@@ -1061,7 +1063,7 @@ require_once __DIR__ . '/includes/navbar.php';
             <article class="group rounded-3xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col bg-white">
                 <a href="<?= BASE_URL ?>artikel-detail.php?id=manfaat-minyak-pala" class="block h-48 sm:h-52 w-full overflow-hidden bg-teal-50 relative">
                     <img src="<?= BASE_URL ?>assets/images/article-minyak-pala.webp?v=<?= filemtime(__DIR__ . '/assets/images/article-minyak-pala.webp') ?>" 
-                         alt="Khasiat Minyak Pala Nusantara untuk Bayi" 
+                         alt="Khasiat Biji Pala Nusantara untuk Bayi" 
                          class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-60 group-hover:opacity-30 transition-opacity"></div>
                     <span class="absolute top-3 left-3 bg-white/90 backdrop-blur-xs text-teal-800 text-[11px] font-bold px-3 py-1 rounded-full shadow-xs">
@@ -1072,11 +1074,11 @@ require_once __DIR__ . '/includes/navbar.php';
                     <div>
                         <h3 class="font-bold text-lg text-gray-900 group-hover:text-ftl-forest transition-colors leading-snug">
                             <a href="<?= BASE_URL ?>artikel-detail.php?id=manfaat-minyak-pala">
-                                Mengapa Minyak Pala Nusantara Sangat Baik untuk Kehangatan Bayi?
+                                Mengapa Biji Pala Nusantara Sangat Baik untuk Kehangatan Bayi?
                             </a>
                         </h3>
                         <p class="text-xs text-gray-500 mt-2 line-clamp-2 leading-relaxed">
-                            Mengupas warisan nenek moyang dan bukti ilmiah tentang keunggulan minyak pala dibanding minyak kayu putih biasa.
+                            Mengupas warisan nenek moyang dan bukti ilmiah tentang keunggulan biji pala dibanding minyak kayu putih biasa.
                         </p>
                     </div>
                     <div class="mt-4 pt-4 border-t border-gray-100 flex items-center justify-between text-xs text-gray-400">
@@ -1132,7 +1134,7 @@ require_once __DIR__ . '/includes/navbar.php';
                         <div>
                             <h4 class="font-bold text-sm sm:text-base text-gray-900">Warisan Pala Nusantara</h4>
                             <p class="text-xs sm:text-sm text-gray-600 mt-0.5 leading-relaxed">
-                                Mengangkat khasiat hangat alami minyak pala lokal yang menenangkan dan nyaman untuk bayi.
+                                Mengangkat khasiat hangat alami biji pala lokal yang menenangkan dan nyaman untuk bayi.
                             </p>
                         </div>
                     </div>
@@ -1239,10 +1241,10 @@ require_once __DIR__ . '/includes/navbar.php';
                             <i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-600"></i> BPOM & Halal Resmi
                         </span>
                         <span class="inline-flex items-center gap-1.5 text-emerald-800 font-bold">
-                            <i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-600"></i> Hypoallergenic 0+
+                            <i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-600"></i> Dermatologically Tested
                         </span>
                         <span class="inline-flex items-center gap-1.5 text-emerald-800 font-bold">
-                            <i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-600"></i> Minyak Pala Asli
+                            <i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-600"></i> Biji Pala Asli
                         </span>
                     </div>
 

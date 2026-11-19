@@ -69,7 +69,7 @@ require_once __DIR__ . '/includes/navbar.php';
                     </span>
                     <h4 class="font-bold text-base text-gray-900">Berkah Alam Nusantara</h4>
                     <p class="text-xs text-gray-600 leading-relaxed">
-                        Kami bangga menggunakan Minyak Pala (Nutmeg Oil) asli perkebunan Indonesia yang telah ratusan tahun terbukti secara empiris dan ilmiah memiliki efek relaksasi terbaik.
+                        Kami bangga menggunakan Biji Pala (Nutmeg) asli perkebunan Indonesia yang telah ratusan tahun terbukti secara empiris dan ilmiah memiliki efek relaksasi terbaik.
                     </p>
                 </div>
 

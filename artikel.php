@@ -31,12 +31,12 @@ $ARTIKEL_LIST = [
     ],
     'manfaat-minyak-pala' => [
         'id' => 'manfaat-minyak-pala',
-        'title' => 'Mengapa Minyak Pala Nusantara Sangat Baik untuk Kehangatan & Kenyamanan Bayi?',
+        'title' => 'Mengapa Biji Pala Nusantara Sangat Baik untuk Kehangatan & Kenyamanan Bayi?',
         'category' => 'Kekayaan Herbal',
         'read_time' => '6 Menit Baca',
         'date' => '05 November 2026',
         'author' => 'Riset Formulasi FTL',
-        'excerpt' => 'Mengupas warisan nenek moyang dan bukti ilmiah tentang keunggulan minyak pala dibanding minyak kayu putih biasa.',
+        'excerpt' => 'Mengupas warisan nenek moyang dan bukti ilmiah tentang keunggulan biji pala dibanding minyak kayu putih biasa.',
         'color' => 'bg-teal-100 text-teal-800'
     ],
     'tips-kulit-sensitif-newborn' => [

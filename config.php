@@ -19,7 +19,7 @@ define('TIKTOK_URL', 'https://www.tiktok.com/@forthelittle.id');
 define('SHOPEE_URL', 'https://shopee.co.id/forthelittle.id');
 define('SHOPEE_REVIEWS_URL', 'https://shopee.co.id/buyer/6118698651/rating?shop_id=1784309022&is_from_signup=true');
 define('TOKOPEDIA_URL', 'https://www.tokopedia.com/');
-define('EMAIL_CONTACT', 'hello@forthelittle.id');
+define('EMAIL_CONTACT', 'adminforthelittle@gmail.com');
 define('OPERATIONAL_HOURS_WEEKDAY', 'Senin - Jumat: 09.00 - 17.00 WIB');
 define('OPERATIONAL_HOURS_SATURDAY', 'Sabtu: 09.00 - 15.00 WIB');
 define('OPERATIONAL_HOURS_SUNDAY', 'Minggu & Hari Libur: Tutup');
@@ -50,14 +50,14 @@ $PRODUCTS = [
     'calming-rub-50g' => [
         'id' => 'calming-rub-50g',
         'name' => 'Baby Calming Rub Cream 50g',
-        'subtitle' => 'Krim Telon & Calming Alami dengan Minyak Pala Nusantara',
+        'subtitle' => 'Krim Telon & Calming Alami dengan Biji Pala Nusantara',
         'price' => 79000,
-        'original_price' => 99000,
+        'original_price' => 118000,
         'badge' => 'Best Seller ⭐',
         'rating' => 5.0,
         'reviews_count' => 16,
         'image' => 'assets/images/product-calming-rub-real.webp',
-        'short_desc' => 'Diformulasikan khusus dengan Minyak Pala asli Nusantara dan Calendula untuk meredakan kolik, perut kembung, dan membantu si kecil tidur lebih lelap tanpa rasa lengket.',
+        'short_desc' => 'Diformulasikan khusus dengan Biji Pala asli Nusantara, Calendula, Virgin Coconut Oil, dan Avocado Oil untuk meredakan kolik, perut kembung, dan membantu si kecil tidur lebih lelap tanpa rasa lengket.',
         'size' => '50 gram (Tube)',
         'certifications' => ['BPOM Certified', 'Halal Indonesia', 'Hypoallergenic', 'Dermatologically Tested', 'Safe for Newborn 0+'],
         'benefits' => [
@@ -73,7 +73,7 @@ $PRODUCTS = [
         'name' => 'Bundle Double Care (2x 50g)',
         'subtitle' => 'Paket Hemat 2 Tube Perawatan Harian & Cadangan Bepergian',
         'price' => 149000,
-        'original_price' => 198000,
+        'original_price' => 236000,
         'badge' => 'Hemat 25% 🔥',
         'rating' => 5.0,
         'reviews_count' => 128,
@@ -92,8 +92,8 @@ $PRODUCTS = [
         'name' => 'Bundle Triple Care (3x 50g)',
         'subtitle' => 'Paket Lengkap 3 Tube (Stok 3 Bulan Bebas Kolik & Rewel)',
         'price' => 219000,
-        'original_price' => 297000,
-        'badge' => 'Super Hemat 30% 🌟',
+        'original_price' => 354000,
+        'badge' => 'Super Hemat 38% 🌟',
         'rating' => 5.0,
         'reviews_count' => 84,
         'image' => 'assets/images/product-bundle-3-real.webp',
@@ -101,7 +101,7 @@ $PRODUCTS = [
         'size' => '3 x 50 gram (Total 150g)',
         'certifications' => ['BPOM Certified', 'Halal Indonesia', 'Dermatologically Tested', 'Paling Hemat'],
         'benefits' => [
-            'Hemat Rp 78.000 dibanding beli satuan',
+            'Hemat Rp 135.000 dibanding harga sebelum diskon',
             'Stok tenang 3 bulan bebas rewel malam hari',
             'Gratis konsultasi pemakaian via WhatsApp CS'
         ]

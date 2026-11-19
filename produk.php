@@ -1,7 +1,7 @@
 <?php
 $current_page = 'produk';
 $page_title = 'Katalog Produk & Baby Calming Rub Cream 50g';
-$page_desc = 'Jelajahi produk perawatan bayi alami dari For The Little. Diformulasikan dengan Minyak Pala Nusantara dan Calendula untuk redakan kolik dan kembung.';
+$page_desc = 'Jelajahi produk perawatan bayi alami dari For The Little. Diformulasikan dengan Biji Pala Nusantara, Calendula, Coconut Oil, dan Avocado Oil untuk redakan kolik dan kembung.';
 
 require_once __DIR__ . '/config.php';
 require_once __DIR__ . '/includes/header.php';
@@ -105,7 +105,7 @@ $main_product = $PRODUCTS['calming-rub-50g'];
                             <img :src="t.img" :alt="t.title" class="h-12 sm:h-14 w-auto object-contain">
                             <span class="text-[10px] font-bold mt-1.5 truncate max-w-full"
                                   :class="activeThumb === index ? 'text-ftl-forest font-extrabold' : 'text-gray-500'"
-                                  x-text="index === 0 ? 'Kemasan Tube' : (index === 1 ? 'Minyak Pala' : 'Calendula')">
+                                  x-text="index === 0 ? 'Kemasan Tube' : (index === 1 ? 'Biji Pala' : 'Calendula')">
                             </span>
                         </button>
                     </template>
@@ -122,7 +122,7 @@ $main_product = $PRODUCTS['calming-rub-50g'];
                         Baby Calming Rub Cream (50g)
                     </h1>
                     <p class="text-sm text-gray-500 mt-1">
-                        Krim Telon & Penghangat Alami dengan Ekstrak Minyak Pala Nusantara & Calendula
+                        Krim Telon & Penghangat Alami dengan Ekstrak Biji Pala Nusantara & Calendula
                     </p>
 
                     <a href="<?= SHOPEE_REVIEWS_URL ?>" target="_blank" rel="noopener" 
