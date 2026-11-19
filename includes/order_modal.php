@@ -822,7 +822,7 @@ function orderModal() {
                 badge: '🌿 100% Pala Asli',
                 badgeClass: 'bg-emerald-50 text-emerald-800 border-emerald-200/80',
                 weight: 100,
-                image: 'assets/images/product-calming-rub.svg'
+                image: 'assets/images/product-calming-rub-real.webp'
             },
             'bundling-double-care': { 
                 id: 'bundling-double-care',

@@ -197,7 +197,7 @@ require_once __DIR__ . '/includes/navbar.php';
         <!-- Product Recommendation Box in Article -->
         <div class="my-10 bg-gradient-to-r from-ftl-forest to-ftl-sage rounded-3xl p-6 sm:p-8 text-white flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl">
             <div class="flex items-center gap-4">
-                <img src="<?= BASE_URL ?>assets/images/product-calming-rub.svg" class="h-28 w-auto object-contain flex-shrink-0 drop-shadow-md">
+                <img src="<?= BASE_URL ?>assets/images/product-calming-rub-real.webp" class="h-24 sm:h-28 w-auto rounded-2xl object-cover flex-shrink-0 shadow-md">
                 <div>
                     <span class="bg-amber-400 text-amber-950 text-[10px] font-extrabold px-2.5 py-0.5 rounded-full uppercase">Rekomendasi Bunda</span>
                     <h3 class="font-display font-bold text-xl mt-1">Baby Calming Rub Cream (50g)</h3>

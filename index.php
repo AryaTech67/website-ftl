@@ -144,9 +144,9 @@ require_once __DIR__ . '/includes/navbar.php';
                         <!-- Right Product Mockup Visual (4 cols) -->
                         <div class="lg:col-span-4 hidden lg:flex flex-col justify-center items-center relative">
                             <div class="w-64 h-64 rounded-full bg-emerald-400/20 absolute -z-10 blur-2xl"></div>
-                            <img src="<?= BASE_URL ?>assets/images/product-calming-rub.svg" 
+                            <img src="<?= BASE_URL ?>assets/images/product-calming-rub-real.webp" 
                                  alt="FTL Calming Rub Tube" 
-                                 class="h-72 lg:h-84 w-auto object-contain hover:scale-105 transition-transform duration-500 drop-shadow-2xl">
+                                 class="h-64 sm:h-72 lg:h-80 w-auto rounded-3xl object-cover hover:scale-105 transition-transform duration-500 shadow-2xl">
                             <div class="mt-2 inline-flex items-center gap-1 text-[11px] font-bold text-white bg-[#163325]/80 backdrop-blur-xs px-3 py-1 rounded-full border border-white/20">
                                 <span>Isi Bersih 50g</span> • <span>Travel Friendly</span>
                             </div>
@@ -415,9 +415,9 @@ require_once __DIR__ . '/includes/navbar.php';
 
                     <!-- Packshot Image -->
                     <div class="h-36 sm:h-44 flex items-center justify-center my-3 relative overflow-hidden">
-                        <img src="<?= BASE_URL ?>assets/images/product-calming-rub.svg" 
+                        <img src="<?= BASE_URL ?>assets/images/product-calming-rub-real.webp" 
                              alt="Baby Calming Rub Cream 50g" 
-                             class="max-h-32 sm:max-h-40 w-auto object-contain group-hover:scale-105 transition-transform duration-300 drop-shadow-md">
+                             class="max-h-32 sm:max-h-40 w-auto rounded-2xl object-cover group-hover:scale-105 transition-transform duration-300 shadow-md">
                     </div>
 
                     <!-- Info -->
@@ -583,7 +583,7 @@ require_once __DIR__ . '/includes/navbar.php';
                     <div class="w-full grid grid-cols-3 gap-2 pt-4 border-t border-emerald-200/50 text-center">
                         <div class="bg-white/80 backdrop-blur-xs py-2 px-2 rounded-xl border border-emerald-100/60 shadow-2xs">
                             <span class="block text-[11px] font-bold text-gray-800">BPOM RI</span>
-                            <span class="text-[10px] text-gray-500">Terdaftar Resmi</span>
+                            <span class="text-[10px] text-gray-500 font-mono font-medium">NA18260108839</span>
                         </div>
                         <div class="bg-white/80 backdrop-blur-xs py-2 px-2 rounded-xl border border-emerald-100/60 shadow-2xs">
                             <span class="block text-[11px] font-bold text-emerald-800">Halal</span>

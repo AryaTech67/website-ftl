@@ -30,7 +30,7 @@ $main_product = $PRODUCTS['calming-rub-50g'];
     thumbnails: [
         {
             title: 'Baby Calming Rub Cream 50g',
-            img: '<?= BASE_URL ?>assets/images/product-calming-rub.svg',
+            img: '<?= BASE_URL ?>assets/images/product-calming-rub-real.webp',
             badgeLeft: 'BPOM & Halal Resmi',
             badgeRight: 'Safe for Newborn 0+',
             caption: 'Kemasan Tube Flip-Top Anti-Bocor (Isi Bersih 50g) • Travel Friendly'
