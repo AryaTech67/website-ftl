@@ -24,14 +24,14 @@ $main_product = $PRODUCTS['calming-rub-50g'];
     activeTab: 'manfaat', 
     qty: 1,
     selectedVariant: 'calming-rub-50g',
-    variantPrice: 79000,
+    variantPrice: 118000,
     formatRp(v) { return 'Rp ' + Number(v).toLocaleString('id-ID'); },
     activeThumb: 0,
     thumbnails: [
         {
-            title: 'Foto Asli Kemasan Depan (50g)',
+            title: 'Foto Resmi Kemasan Tube (50g)',
             img: '<?= BASE_URL ?>assets/images/product-calming-rub-real.webp',
-            badgeLeft: '100% Foto Produk Asli',
+            badgeLeft: 'Foto Resmi FTL',
             badgeRight: 'Dermatologically Tested',
             caption: 'Baby Calming Rub Cream 50g • Formulasi Biji Pala, Calendula & Avocado Oil Alami'
         },
@@ -45,14 +45,14 @@ $main_product = $PRODUCTS['calming-rub-50g'];
         {
             title: 'Paket Hemat 2 Tube (Double Care)',
             img: '<?= BASE_URL ?>assets/images/product-bundle-2-real.webp',
-            badgeLeft: 'Hemat 37% 🔥',
+            badgeLeft: 'Paket 2 Tube 🌿',
             badgeRight: 'Stok Terlaris',
             caption: 'Praktis untuk stok meja ganti kamar dan diaper bag bepergian'
         },
         {
             title: 'Bundle Triple Care (3x 50g)',
             img: '<?= BASE_URL ?>assets/images/product-bundle-3-real.webp',
-            badgeLeft: 'Super Hemat 38% 🌟',
+            badgeLeft: 'Paket 3 Tube 🌟',
             badgeRight: 'Stok 3 Bulan',
             caption: 'Paket terlengkap bebas kolik & kembung untuk 3 bulan tidur lelap'
         },
@@ -162,13 +162,7 @@ $main_product = $PRODUCTS['calming-rub-50g'];
                     <div>
                         <div class="flex items-baseline gap-2">
                             <span class="text-3xl font-extrabold text-ftl-forest">
-                                Rp 79.000
-                            </span>
-                            <span class="text-sm text-gray-400 line-through">
-                                Rp 99.000
-                            </span>
-                            <span class="text-xs font-bold bg-amber-100 text-amber-800 px-2 py-0.5 rounded-full">
-                                Hemat 20%
+                                Rp 118.000
                             </span>
                         </div>
                         <span class="text-xs text-gray-500 mt-1 block">Kemasan Tube 50 gram (Penggunaan 1 - 2 bulan)</span>
@@ -331,7 +325,7 @@ $main_product = $PRODUCTS['calming-rub-50g'];
                 Beli For The Little di Toko Resmi
             </h2>
             <p class="text-xs sm:text-sm text-gray-600 mt-2 max-w-xl mx-auto">
-                Dapatkan jaminan produk 100% asli, harga promo spesial Rp 79.000 (hemat 20%), dan pengiriman cepat ke seluruh Indonesia langsung ke alamat Bunda.
+                Dapatkan jaminan produk 100% asli, harga resmi Rp 118.000, dan pengiriman cepat ke seluruh Indonesia langsung ke alamat Bunda.
             </p>
 
             <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 max-w-md mx-auto">

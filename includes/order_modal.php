@@ -238,7 +238,7 @@ $FTL_DESTINATIONS = getShippingDestinations($SHIPPING_DATA);
                                     <h5 class="font-bold text-xs text-gray-900 leading-snug line-clamp-1" x-text="item.name"></h5>
                                     <div class="flex items-baseline gap-1 mt-0.5">
                                         <span class="text-xs font-extrabold text-ftl-forest whitespace-nowrap" x-text="formatRp(item.price)"></span>
-                                        <span class="text-[10px] text-gray-400 line-through whitespace-nowrap" x-text="formatRp(item.originalPrice)"></span>
+                                        <span x-show="item.originalPrice && item.originalPrice > item.price" class="text-[10px] text-gray-400 line-through whitespace-nowrap" x-text="formatRp(item.originalPrice)"></span>
                                     </div>
                                 </div>
                             </div>
@@ -682,7 +682,7 @@ function orderModal() {
                 id: 'calming-rub-50g',
                 name: 'Baby Calming Rub Cream 50g', 
                 desc: 'Single Tube (1x 50g)',
-                price: 79000, 
+                price: 118000, 
                 originalPrice: 118000,
                 badge: '🌿 100% Biji Pala Asli',
                 badgeClass: 'bg-emerald-50 text-emerald-800 border-emerald-200/80',
@@ -691,22 +691,22 @@ function orderModal() {
             },
             'bundling-double-care': { 
                 id: 'bundling-double-care',
-                name: 'Paket Hemat 2 Tube (Double Care)', 
-                desc: 'Stok Lengkap Bunda (2x 50g)',
-                price: 149000, 
+                name: 'Bundle Double Care (2x 50g)', 
+                desc: 'Paket 2 Tube Bunda (2x 50g)',
+                price: 236000, 
                 originalPrice: 236000,
-                badge: '🔥 Hemat 37%',
-                badgeClass: 'bg-amber-50 text-amber-800 border-amber-200/80',
+                badge: '🌿 Paket 2 Tube',
+                badgeClass: 'bg-emerald-50 text-emerald-800 border-emerald-200/80',
                 weight: 200,
                 image: 'assets/images/product-bundle-2-real.webp'
             },
             'bundling-newborn-gift': { 
                 id: 'bundling-newborn-gift',
                 name: 'Bundle Triple Care (3x 50g)', 
-                desc: 'Paket Hemat 3 Tube (Stok 3 Bulan)',
-                price: 219000, 
+                desc: 'Paket Lengkap 3 Tube (Stok 3 Bulan)',
+                price: 354000, 
                 originalPrice: 354000,
-                badge: '🌟 Super Hemat 38%',
+                badge: '🌟 Paket 3 Tube',
                 badgeClass: 'bg-emerald-50 text-emerald-800 border-emerald-200/80',
                 weight: 300,
                 image: 'assets/images/product-bundle-3-real.webp'

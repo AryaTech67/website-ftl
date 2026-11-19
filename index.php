@@ -431,8 +431,7 @@ require_once __DIR__ . '/includes/navbar.php';
                             Krim Telon & Calming (50g)
                         </p>
                         <div class="mt-2 flex items-baseline gap-2">
-                            <span class="text-base font-extrabold text-ftl-forest">Rp 79.000</span>
-                            <span class="text-xs text-gray-400 line-through">Rp 118.000</span>
+                            <span class="text-base font-extrabold text-ftl-forest">Rp 118.000</span>
                         </div>
                     </div>
                 </div>
@@ -446,13 +445,13 @@ require_once __DIR__ . '/includes/navbar.php';
                 </button>
             </div>
 
-            <!-- Card 2: Paket Hemat 2 Tube (Bundling) -->
+            <!-- Card 2: Paket 2 Tube (Bundling) -->
             <div data-animate="fade-up" data-delay="120" class="min-w-[210px] sm:min-w-0 max-w-[240px] sm:max-w-none flex-1 shrink-0 snap-center bg-white rounded-3xl p-4 sm:p-5 border border-stone-200/80 shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group">
                 <div>
                     <!-- Top Pill Badge -->
                     <div class="flex items-center justify-between">
-                        <span class="inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full bg-amber-50 text-amber-800 border border-amber-200/70">
-                            🔥 Hemat 37%
+                        <span class="inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200/70">
+                            🌿 Paket 2 Tube
                         </span>
                         <span class="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full">Bestseller</span>
                     </div>
@@ -470,11 +469,10 @@ require_once __DIR__ . '/includes/navbar.php';
                             Bundle Double Care (2x 50g)
                         </h3>
                         <p class="text-xs text-gray-500 mt-0.5">
-                            Paket Hemat 2 Tube Bunda
+                            Paket 2 Tube Perawatan Bunda
                         </p>
                         <div class="mt-2 flex items-baseline gap-2">
-                            <span class="text-base font-extrabold text-ftl-forest">Rp 149.000</span>
-                            <span class="text-xs text-gray-400 line-through">Rp 236.000</span>
+                            <span class="text-base font-extrabold text-ftl-forest">Rp 236.000</span>
                         </div>
                     </div>
                 </div>
@@ -494,7 +492,7 @@ require_once __DIR__ . '/includes/navbar.php';
                     <!-- Top Pill Badge -->
                     <div class="flex items-center justify-between">
                         <span class="inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200/70">
-                            🌟 Super Hemat 38%
+                            🌟 Paket 3 Tube
                         </span>
                         <span class="text-[10px] font-bold text-gray-400">Stok 3 Bulan</span>
                     </div>
@@ -512,11 +510,10 @@ require_once __DIR__ . '/includes/navbar.php';
                             Bundle Triple Care (3x 50g)
                         </h3>
                         <p class="text-xs text-gray-500 mt-0.5">
-                            Paket Hemat 3 Tube Si Kecil
+                            Paket Lengkap 3 Tube Si Kecil
                         </p>
                         <div class="mt-2 flex items-baseline gap-2">
-                            <span class="text-base font-extrabold text-ftl-forest">Rp 219.000</span>
-                            <span class="text-xs text-gray-400 line-through">Rp 354.000</span>
+                            <span class="text-base font-extrabold text-ftl-forest">Rp 354.000</span>
                         </div>
                     </div>
                 </div>
@@ -616,14 +613,11 @@ require_once __DIR__ . '/includes/navbar.php';
                             Krim telon alami dengan biji pala nusantara & ekstrak calendula organik.
                         </p>
 
-                        <!-- Price Banner (Konsisten Nyamping di Semua Layar HP) -->
+                        <!-- Price Banner -->
                         <div class="mt-5 p-4 rounded-2xl bg-ftl-light/80 border border-emerald-100 flex flex-wrap items-center justify-between gap-2.5 sm:gap-3">
                             <div class="flex items-baseline gap-2 sm:gap-2.5 flex-wrap">
-                                <span class="text-xs sm:text-sm text-gray-400 line-through whitespace-nowrap">Rp 99.000</span>
-                                <span class="text-2xl sm:text-3xl font-extrabold text-ftl-forest whitespace-nowrap">Rp 79.000</span>
-                                <span class="text-xs font-bold text-amber-800 bg-amber-100 px-2.5 py-0.5 rounded-full whitespace-nowrap">
-                                    Hemat 20%
-                                </span>
+                                <span class="text-2xl sm:text-3xl font-extrabold text-ftl-forest whitespace-nowrap">Rp 118.000</span>
+                                <span class="text-xs text-gray-500 font-medium">/ tube 50g</span>
                             </div>
                             <span class="text-xs font-semibold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full flex items-center gap-1 whitespace-nowrap shrink-0">
                                 <i data-lucide="check" class="w-3 h-3"></i> Ready Stock

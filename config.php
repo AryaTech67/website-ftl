@@ -53,7 +53,7 @@ $PRODUCTS = [
         'id' => 'calming-rub-50g',
         'name' => 'Baby Calming Rub Cream 50g',
         'subtitle' => 'Krim Telon & Calming Alami dengan Biji Pala Nusantara',
-        'price' => 79000,
+        'price' => 118000,
         'original_price' => 118000,
         'badge' => 'Best Seller ⭐',
         'rating' => 5.0,
@@ -73,10 +73,10 @@ $PRODUCTS = [
     'bundling-double-care' => [
         'id' => 'bundling-double-care',
         'name' => 'Bundle Double Care (2x 50g)',
-        'subtitle' => 'Paket Hemat 2 Tube Perawatan Harian & Cadangan Bepergian',
-        'price' => 149000,
+        'subtitle' => 'Paket 2 Tube Perawatan Harian & Cadangan Bepergian',
+        'price' => 236000,
         'original_price' => 236000,
-        'badge' => 'Hemat 37% 🔥',
+        'badge' => 'Paket 2 Tube 🌿',
         'rating' => 5.0,
         'reviews_count' => 128,
         'image' => 'assets/images/product-bundle-2-real.webp',
@@ -84,8 +84,8 @@ $PRODUCTS = [
         'size' => '2 x 50 gram (Total 100g)',
         'certifications' => ['BPOM Certified', 'Halal Indonesia', 'Dermatologically Tested'],
         'benefits' => [
-            'Lebih hemat dibanding beli satuan',
             'Praktis untuk stok di rumah dan travelling',
+            'Formula alami aman untuk newborn 0+',
             'Gratis konsultasi pemakaian via WhatsApp CS'
         ]
     ],
@@ -93,18 +93,18 @@ $PRODUCTS = [
         'id' => 'bundling-newborn-gift',
         'name' => 'Bundle Triple Care (3x 50g)',
         'subtitle' => 'Paket Lengkap 3 Tube (Stok 3 Bulan Bebas Kolik & Rewel)',
-        'price' => 219000,
+        'price' => 354000,
         'original_price' => 354000,
-        'badge' => 'Super Hemat 38% 🌟',
+        'badge' => 'Paket 3 Tube 🌟',
         'rating' => 5.0,
         'reviews_count' => 84,
         'image' => 'assets/images/product-bundle-3-real.webp',
-        'short_desc' => 'Paket terlengkap dan paling hemat untuk perlindungan optimal si kecil setiap hari. Satu untuk meja ganti kamar, satu untuk tas bepergian, satu untuk stok cadangan.',
+        'short_desc' => 'Paket terlengkap untuk perlindungan optimal si kecil setiap hari. Satu untuk meja ganti kamar, satu untuk tas bepergian, satu untuk stok cadangan.',
         'size' => '3 x 50 gram (Total 150g)',
-        'certifications' => ['BPOM Certified', 'Halal Indonesia', 'Dermatologically Tested', 'Paling Hemat'],
+        'certifications' => ['BPOM Certified', 'Halal Indonesia', 'Dermatologically Tested', 'Stok Lengkap'],
         'benefits' => [
-            'Hemat Rp 135.000 dibanding harga sebelum diskon',
-            'Stok tenang 3 bulan bebas rewel malam hari',
+            'Stok lengkap 3 bulan bebas rewel malam hari',
+            'Travel friendly kemasan flip-top anti bocor',
             'Gratis konsultasi pemakaian via WhatsApp CS'
         ]
     ]
