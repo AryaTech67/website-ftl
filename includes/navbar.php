@@ -5,19 +5,25 @@ $is_home = (($current_page ?? '') === 'home');
 $nav_items = [
     'home' => [
         'label' => 'Beranda', 
-        'url' => $is_home ? '#beranda' : BASE_URL . 'index.php#beranda'
+        'url' => $is_home ? '#beranda' : BASE_URL . 'index.php#beranda',
+        'is_scroll' => true,
+        'target_id' => 'beranda'
     ],
     'produk' => [
         'label' => 'Produk', 
-        'url' => $is_home ? '#produk' : BASE_URL . 'index.php#produk'
+        'url' => $is_home ? '#produk' : BASE_URL . 'index.php#produk',
+        'is_scroll' => true,
+        'target_id' => 'produk'
     ],
     'artikel' => [
         'label' => 'Artikel Parenting', 
-        'url' => $is_home ? '#artikel' : BASE_URL . 'index.php#artikel'
+        'url' => BASE_URL . 'artikel.php',
+        'is_scroll' => false
     ],
     'tentang' => [
         'label' => 'Tentang Kami', 
-        'url' => $is_home ? '#tentang' : BASE_URL . 'index.php#tentang'
+        'url' => BASE_URL . 'tentang-kami.php',
+        'is_scroll' => false
     ],
 ];
 ?>
@@ -65,10 +71,16 @@ $nav_items = [
             <!-- Desktop Navigation Links dengan Garis Indikator Aktif (ScrollSpy) -->
             <nav class="hidden lg:flex items-center gap-5 xl:gap-7 h-16 sm:h-20">
                 <?php foreach ($nav_items as $key => $item): ?>
-                    <?php $target_id = ($key === 'home') ? 'beranda' : $key; ?>
+                    <?php 
+                    $is_anchor_scroll = $is_home && !empty($item['is_scroll']);
+                    $target_id = $item['target_id'] ?? $key;
+                    $desktop_click = $is_anchor_scroll 
+                        ? "\$event.preventDefault(); activeSection = '{$key}'; scrollToTarget('{$target_id}')" 
+                        : "activeSection = '{$key}'";
+                    ?>
                     <a href="<?= $item['url'] ?>" 
                        <?= !empty($item['target']) ? 'target="' . $item['target'] . '" rel="noopener"' : '' ?>
-                       @click="<?= $is_home ? "\$event.preventDefault(); activeSection = '{$key}'; scrollToTarget('{$target_id}')" : "activeSection = '{$key}'" ?>"
+                       @click="<?= $desktop_click ?>"
                        class="relative h-full flex items-center px-1 text-sm font-semibold transition-all duration-200 group whitespace-nowrap shrink-0"
                        :class="activeSection === '<?= $key ?>' ? 'text-ftl-forest font-bold' : 'text-gray-600 hover:text-ftl-forest'">
                         
@@ -144,10 +156,16 @@ $nav_items = [
          style="will-change: transform, opacity; -webkit-transform: translate3d(0,0,0); transform: translate3d(0,0,0); -webkit-overflow-scrolling: touch; display: none;">
         <nav class="flex flex-col space-y-1.5">
             <?php foreach ($nav_items as $key => $item): ?>
-                <?php $target_id = ($key === 'home') ? 'beranda' : $key; ?>
+                <?php 
+                $is_anchor_scroll = $is_home && !empty($item['is_scroll']);
+                $target_id = $item['target_id'] ?? $key;
+                $mobile_click = $is_anchor_scroll 
+                    ? "\$event.preventDefault(); mobileMenuOpen = false; activeSection = '{$key}'; scrollToTarget('{$target_id}')" 
+                    : "mobileMenuOpen = false; activeSection = '{$key}'";
+                ?>
                 <a href="<?= $item['url'] ?>" 
                    <?= !empty($item['target']) ? 'target="' . $item['target'] . '" rel="noopener"' : '' ?>
-                   @click="<?= $is_home ? "\$event.preventDefault(); mobileMenuOpen = false; activeSection = '{$key}'; scrollToTarget('{$target_id}')" : "mobileMenuOpen = false; activeSection = '{$key}'" ?>"
+                   @click="<?= $mobile_click ?>"
                    style="touch-action: manipulation; -webkit-tap-highlight-color: transparent;"
                    class="mobile-menu-item px-4 py-3 rounded-xl text-sm font-semibold transition-colors flex items-center justify-between active:scale-[0.98]"
                    :class="activeSection === '<?= $key ?>' ? 'bg-emerald-50 text-ftl-forest font-bold border-l-4 border-ftl-forest' : 'text-gray-700 hover:bg-gray-50 active:bg-gray-100'">

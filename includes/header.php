@@ -326,12 +326,10 @@ $current_page = isset($current_page) ? $current_page : 'home';
       @open-order-modal.window="orderModalOpen = true; if ($event.detail && $event.detail.tab) modalTab = $event.detail.tab; if ($event.detail && $event.detail.product) selectedProduct = $event.detail.product;"
       @scroll.window.passive="
           <?php if (($current_page ?? '') === 'home'): ?>
-          if ((window.innerHeight + window.scrollY) >= (document.documentElement.scrollHeight - 60)) {
-              activeSection = 'tentang';
-          } else if (window.scrollY < 120) {
+          if (window.scrollY < 120) {
               activeSection = 'home';
           } else {
-              const sections = ['beranda', 'produk', 'artikel', 'tentang'];
+              const sections = ['beranda', 'produk'];
               for (let i = sections.length - 1; i >= 0; i--) {
                   const el = document.getElementById(sections[i]);
                   if (el && el.getBoundingClientRect().top <= 140) {
