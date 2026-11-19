@@ -305,7 +305,7 @@ require_once __DIR__ . '/includes/navbar.php';
         <!-- Left Prev Slide Arrow Button (Desktop & Tablet) -->
         <button type="button" 
                 @click="prevSlide(); startAutoplay()" 
-                class="hidden sm:flex absolute left-4 lg:left-6 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-[#264D3B]/70 hover:bg-ftl-forest text-white backdrop-blur-md border border-white/20 items-center justify-center transition-all duration-200 shadow-lg hover:scale-110 active:scale-95 cursor-pointer"
+                class="hidden sm:flex absolute left-4 lg:left-6 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-[#738a7a]/80 hover:bg-ftl-forest text-white backdrop-blur-md border border-white/20 items-center justify-center transition-all duration-200 shadow-lg hover:scale-110 active:scale-95 cursor-pointer"
                 aria-label="Slide Sebelumnya">
             <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                 <path d="m15 18-6-6 6-6"/>
@@ -315,7 +315,7 @@ require_once __DIR__ . '/includes/navbar.php';
         <!-- Right Next Slide Arrow Button (Desktop & Tablet) -->
         <button type="button" 
                 @click="nextSlide(); startAutoplay()" 
-                class="hidden sm:flex absolute right-4 lg:right-6 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-[#264D3B]/70 hover:bg-ftl-forest text-white backdrop-blur-md border border-white/20 items-center justify-center transition-all duration-200 shadow-lg hover:scale-110 active:scale-95 cursor-pointer"
+                class="hidden sm:flex absolute right-4 lg:right-6 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-[#738a7a]/80 hover:bg-ftl-forest text-white backdrop-blur-md border border-white/20 items-center justify-center transition-all duration-200 shadow-lg hover:scale-110 active:scale-95 cursor-pointer"
                 aria-label="Slide Selanjutnya">
             <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                 <path d="m9 18 6-6-6-6"/>
@@ -323,7 +323,7 @@ require_once __DIR__ . '/includes/navbar.php';
         </button>
 
         <!-- Slider Dots / Indicators (Interaktif & Indah di Bawah Banner) -->
-        <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-2.5 z-20 bg-[#264D3B]/90 backdrop-blur-md px-4 py-2 rounded-full border border-white/20 shadow-lg">
+        <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-2.5 z-20 bg-[#738a7a]/90 backdrop-blur-md px-4 py-2 rounded-full border border-white/20 shadow-lg">
             <template x-for="i in totalSlides" :key="i">
                 <button type="button" 
                         @click="activeSlide = i - 1; startAutoplay()"
@@ -1511,10 +1511,10 @@ require_once __DIR__ . '/includes/navbar.php';
 <!-- ======================================================= -->
 <!-- 7. CTA PEMESANAN & KONSULTASI RESMI FOR THE LITTLE       -->
 <!-- ======================================================= -->
-<section id="kontak" class="py-16 bg-[#264D3B] text-white relative overflow-hidden">
+<section id="kontak" class="py-16 bg-[#738a7a] text-white relative overflow-hidden">
     <!-- Subtle natural organic background glowing blurs in authentic FTL tones -->
-    <div class="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-[#3B7056]/30 blur-3xl pointer-events-none"></div>
-    <div class="absolute -bottom-24 -left-24 w-96 h-96 rounded-full bg-[#1C3B2B]/40 blur-3xl pointer-events-none"></div>
+    <div class="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-[#abcbb2]/40 blur-3xl pointer-events-none"></div>
+    <div class="absolute -bottom-24 -left-24 w-96 h-96 rounded-full bg-[#566c5d]/40 blur-3xl pointer-events-none"></div>
 
     <div data-animate="zoom-in" class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 space-y-6">
         <span class="inline-block px-4 py-1 rounded-full bg-white/10 text-ftl-light text-xs font-bold tracking-wider uppercase border border-white/20">

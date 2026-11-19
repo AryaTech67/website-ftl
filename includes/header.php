@@ -35,10 +35,10 @@ $current_page = isset($current_page) ? $current_page : 'home';
     <meta property="twitter:title" content="<?= htmlspecialchars($page_title) ?>">
     <meta property="twitter:description" content="<?= htmlspecialchars($page_desc) ?>">
 
-    <!-- Google Fonts: Plus Jakarta Sans & Quicksand -->
+    <!-- Google Fonts: Comfortaa & Plus Jakarta Sans (Sesuai GSM Resmi FTL) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
 
     <!-- Preload Critical Banner Slides for Zero-Delay Instant Slider -->
     <link rel="preload" as="image" href="<?= BASE_URL ?>assets/images/banner-ftl-hero.webp" fetchpriority="high">
@@ -66,19 +66,25 @@ $current_page = isset($current_page) ? $current_page : 'home';
                 extend: {
                     colors: {
                         ftl: {
-                            forest: '#264D3B',      // Hijau tua elegan khas FTL
-                            sage: '#3B7056',        // Hijau sage natural
-                            light: '#EEF6F0',       // Soft mint/sage background
-                            cream: '#FAF7F2',       // Warm milk cream
-                            sand: '#F2ECE4',        // Neutral warm sand
-                            earth: '#8D6E54',       // Earth tone pala nusantara
-                            accent: '#D97A29',      // Warm honey accent
-                            dark: '#1C2822'         // Teks utama kontras tinggi
+                            forest: '#738a7a',        // Primary Sage Green resmi GSM FTL (#738a7a)
+                            'forest-deep': '#566c5d', // Varian hijau kontras tinggi untuk teks
+                            sage: '#abcbb2',          // Secondary Mint / Sage resmi GSM FTL (#abcbb2)
+                            'sage-light': '#d5e6db',  // Sage pastel lembut
+                            light: '#EEF6F0',         // Soft mint background
+                            cream: '#FAF7F2',         // Warm milk cream
+                            sand: '#F2ECE4',          // Neutral warm sand
+                            earth: '#738a7a',         // Nuansa herbal FTL
+                            charcoal: '#666a6c',      // Slate Gray resmi GSM FTL (#666a6c)
+                            accent: '#fce9a1',        // Soft Butter Yellow resmi GSM FTL (#fce9a1)
+                            'accent-warm': '#e8cf78', // Aksen hangat
+                            dark: '#2c3831'           // Teks utama kontras tinggi & nyaman dibaca
                         }
                     },
                     fontFamily: {
-                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-                        display: ['Quicksand', 'sans-serif']
+                        display: ['"Arial Rounded MT Bold"', '"Arial Rounded MT"', '"Comfortaa"', '"Quicksand"', 'sans-serif'],
+                        sans: ['"Plus Jakarta Sans"', '"Comfortaa"', 'sans-serif'],
+                        comfortaa: ['"Comfortaa"', 'sans-serif'],
+                        mono: ['"Courier New"', 'monospace']
                     }
                 }
             }
@@ -143,15 +149,19 @@ $current_page = isset($current_page) ? $current_page : 'home';
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
             background-color: #FAF7F2;
-            color: #1C2822;
+            color: #2c3831;
             overflow-x: hidden;
             max-width: 100vw;
             width: 100%;
         }
         .font-display {
-            font-family: 'Quicksand', sans-serif;
+            font-family: 'Arial Rounded MT Bold', 'Arial Rounded MT', 'Comfortaa', 'Quicksand', sans-serif;
+            letter-spacing: -0.015em;
         }
-        /* Custom scrollbar */
+        .font-comfortaa {
+            font-family: 'Comfortaa', sans-serif;
+        }
+        /* Custom scrollbar (Official GSM Palette) */
         ::-webkit-scrollbar {
             width: 8px;
         }
@@ -159,11 +169,11 @@ $current_page = isset($current_page) ? $current_page : 'home';
             background: #FAF7F2;
         }
         ::-webkit-scrollbar-thumb {
-            background: #BDD8C8;
+            background: #abcbb2;
             border-radius: 4px;
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: #3B7056;
+            background: #738a7a;
         }
         /* Hide scrollbar for seamless touch-swipe carousel on mobile (app-like feel) */
         .no-scrollbar::-webkit-scrollbar {
