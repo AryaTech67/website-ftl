@@ -94,6 +94,43 @@ if (defined('MENGANTAR_API_KEY') && !empty(MENGANTAR_API_KEY)) {
     $targetDestId = $destinationId;
     $matchedAddressName = $city . ', ' . $province;
 
+    // Presets ID Wilayah Cepat untuk Mengantar (Menghilangkan delay pencarian alamat)
+    $presetDestinations = [
+        'Kota Jakarta Selatan' => '5fc62f63f8f44b34aa4c0e0c',
+        'Kota Jakarta Pusat' => '5fc62f63f8f44b34aa4c0e0a',
+        'Kota Jakarta Barat' => '5fc62f62f8f44b34aa4c0e05',
+        'Kota Jakarta Timur' => '5fc62f63f8f44b34aa4c0e06',
+        'Kota Jakarta Utara' => '5fc62f63f8f44b34aa4c0e0d',
+        'Kota Bogor' => '5fc62dfcf8f44b34aa4bea66',
+        'Kabupaten Bogor' => '5fc62dfbf8f44b34aa4be9e0',
+        'Kota Depok' => '5fc63168f8f44b34aa4c2ed4',
+        'Kota Tangerang' => '5fc648e7f8f44b34aa4ce75e',
+        'Kota Tangerang Selatan' => '5fc648e9f8f44b34aa4ce767',
+        'Kota Bekasi' => '5fc62df1f8f44b34aa4be2cc',
+        'Kabupaten Bekasi' => '5fc62f6af8f44b34aa4c0e9b',
+        'Kota Bandung' => '5fc64922f8f44b34aa4ce896',
+        'Kota Surabaya' => '5fc6461ef8f44b34aa4cd807',
+        'Kota Semarang' => '5fc64a06f8f44b34aa4ced53',
+        'Kota Yogyakarta' => '5fc64ae3f8f44b34aa4cf1d1',
+        'Kota Surakarta' => '5fc649c3f8f44b34aa4cebf1',
+        'Kota Malang' => '5fc64926f8f44b34aa4ce8af',
+        'Kota Medan' => '5fc64926f8f44b34aa4ce8b0',
+        'Kota Palembang' => '5fc62efbf8f44b34aa4c056c',
+        'Kota Pekanbaru' => '5fc63a71f8f44b34aa4c8b18',
+        'Kota Bandar Lampung' => '5fc64a26f8f44b34aa4cedfc',
+        'Kota Denpasar' => '5fc6316df8f44b34aa4c2f17',
+        'Kota Makassar' => '5fc64d59f8f44b34aa4cfe44',
+        'Kota Balikpapan' => '5fc62dfef8f44b34aa4beb35',
+        'Kota Banjarmasin' => '5fc64a88f8f44b34aa4ceff7',
+        'Kota Pontianak' => '5fc63edef8f44b34aa4cab3e',
+        'Kota Padang' => '5fc62f61f8f44b34aa4c0de5',
+        'Kota Batam' => '5fc62e02f8f44b34aa4bed1b'
+    ];
+
+    if (empty($targetDestId) && isset($presetDestinations[$city])) {
+        $targetDestId = $presetDestinations[$city];
+    }
+
     if (empty($targetDestId) && (!empty($city) || !empty($province))) {
         $cleanCity = trim(preg_replace('/^(Kota|Kabupaten|Kab\.?)\s+/i', '', $city));
         $cleanProv = trim(preg_replace('/^(Provinsi|Prov\.?)\s+/i', '', $province));
