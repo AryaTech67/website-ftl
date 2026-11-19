@@ -231,12 +231,9 @@ function scrollToTarget(targetId) {
         behavior: 'smooth'
     });
     
+    // Jaga URL address bar tetap bersih tanpa #hash agar saat refresh tidak terjebak loncat ke section tertentu
     if (window.history && window.history.replaceState) {
-        if (targetId === 'beranda') {
-            window.history.replaceState(null, '', window.location.pathname);
-        } else {
-            window.history.replaceState(null, '', '#' + targetId);
-        }
+        window.history.replaceState(null, '', window.location.pathname + window.location.search);
     }
 }
 </script>

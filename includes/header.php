@@ -242,9 +242,18 @@ $current_page = isset($current_page) ? $current_page : 'home';
         }
     </style>
 
-    <!-- Smart Scroll & Navigation: Start at Top on New Page / Link Visit, Preserve Scroll on Reload -->
+    <!-- Smart Scroll & Navigation: Clean URL & Always Start at Top on Home, Preserve on Subpage Reload -->
     <script>
         (function() {
+            // Bersihkan hash anchor (#produk, #beranda, dll) dari URL address bar agar saat refresh browser tidak terpancing loncat
+            try {
+                if (window.location.hash && (window.location.hash === '#produk' || window.location.hash === '#beranda' || window.location.hash === '#artikel' || window.location.hash === '#tentang')) {
+                    if (window.history && window.history.replaceState) {
+                        window.history.replaceState(null, '', window.location.pathname + window.location.search);
+                    }
+                }
+            } catch(e) {}
+
             var isReload = false;
             try {
                 var navEntries = performance.getEntriesByType('navigation');
@@ -255,49 +264,65 @@ $current_page = isset($current_page) ? $current_page : 'home';
                 }
             } catch(e) {}
 
+            <?php if (($current_page ?? '') === 'home'): ?>
+            // DI BERANDA: Selalu mulai dari tampilan paling atas (Hero Banner) baik saat buka baru maupun saat refresh
+            if ('scrollRestoration' in history) {
+                history.scrollRestoration = 'manual';
+            }
+            window.scrollTo(0, 0);
+
+            document.addEventListener('DOMContentLoaded', function() {
+                window.scrollTo(0, 0);
+                if (document.documentElement) document.documentElement.scrollTop = 0;
+                if (document.body) document.body.scrollTop = 0;
+            });
+
+            window.addEventListener('load', function() {
+                window.scrollTo(0, 0);
+                if (document.documentElement) document.documentElement.scrollTop = 0;
+                if (document.body) document.body.scrollTop = 0;
+            });
+
+            window.addEventListener('pageshow', function() {
+                window.scrollTo(0, 0);
+                if (document.documentElement) document.documentElement.scrollTop = 0;
+                if (document.body) document.body.scrollTop = 0;
+            });
+            <?php else: ?>
+            // DI HALAMAN LAIN (produk.php, artikel-detail.php, dll):
             if (isReload) {
-                // Saat REFRESH: Biarkan browser mempertahankan posisi scroll pengguna (halaman produk, dll)
+                // Saat REFRESH: Biarkan posisi scroll dipertahankan
                 if ('scrollRestoration' in history) {
                     history.scrollRestoration = 'auto';
                 }
             } else {
-                // Saat BUKA LINK BARU (Bukan Refresh):
-                // Jika tidak ada anchor hash spesifik, wajib mulai dari paling atas (Hero / Y=0)
-                if (!window.location.hash || window.location.hash === '#beranda') {
-                    if ('scrollRestoration' in history) {
-                        history.scrollRestoration = 'manual';
-                    }
-                    // Reset seketika di fase render awal
-                    window.scrollTo(0, 0);
-
-                    // Pastikan tetap di paling atas saat DOM siap
-                    document.addEventListener('DOMContentLoaded', function() {
-                        window.scrollTo(0, 0);
-                        if (document.documentElement) document.documentElement.scrollTop = 0;
-                        if (document.body) document.body.scrollTop = 0;
-                    });
-
-                    // Pastikan tetap di atas saat seluruh asset & Alpine selesai di-mount
-                    window.addEventListener('load', function() {
-                        window.scrollTo(0, 0);
-                        if (document.documentElement) document.documentElement.scrollTop = 0;
-                        if (document.body) document.body.scrollTop = 0;
-                    });
-
-                    // Penanganan khusus WebKit / Safari bfcache & initial paint
-                    window.addEventListener('pageshow', function(e) {
-                        if (!e.persisted) {
-                            window.scrollTo(0, 0);
-                            if (document.documentElement) document.documentElement.scrollTop = 0;
-                            if (document.body) document.body.scrollTop = 0;
-                        }
-                    });
-                } else {
-                    if ('scrollRestoration' in history) {
-                        history.scrollRestoration = 'auto';
-                    }
+                // Saat BUKA LINK BARU: Mulai dari paling atas
+                if ('scrollRestoration' in history) {
+                    history.scrollRestoration = 'manual';
                 }
+                window.scrollTo(0, 0);
+
+                document.addEventListener('DOMContentLoaded', function() {
+                    window.scrollTo(0, 0);
+                    if (document.documentElement) document.documentElement.scrollTop = 0;
+                    if (document.body) document.body.scrollTop = 0;
+                });
+
+                window.addEventListener('load', function() {
+                    window.scrollTo(0, 0);
+                    if (document.documentElement) document.documentElement.scrollTop = 0;
+                    if (document.body) document.body.scrollTop = 0;
+                });
+
+                window.addEventListener('pageshow', function(e) {
+                    if (!e.persisted) {
+                        window.scrollTo(0, 0);
+                        if (document.documentElement) document.documentElement.scrollTop = 0;
+                        if (document.body) document.body.scrollTop = 0;
+                    }
+                });
             }
+            <?php endif; ?>
 
             // Saat klik link menuju halaman baru (internal URL tanpa anchor):
             // Reset scroll position ke 0 sesaat sebelum navigasi agar WebKit/Safari
@@ -308,7 +333,7 @@ $current_page = isset($current_page) ? $current_page : 'home';
                 var href = link.getAttribute('href');
                 if (!href || href.startsWith('#') || href.startsWith('javascript:') || link.target === '_blank') return;
                 
-                // Jika link menuju ke halaman lain di domain yang sama (bukan anchor di halaman yang sama)
+                // Jika link menuju ke halaman lain di domain yang sama
                 if (link.hostname === window.location.hostname && !href.includes('#')) {
                     if ('scrollRestoration' in history) {
                         history.scrollRestoration = 'manual';
