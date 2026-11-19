@@ -147,7 +147,7 @@ require_once __DIR__ . '/includes/navbar.php';
                             <div class="w-64 h-64 rounded-full bg-emerald-400/20 absolute -z-10 blur-2xl"></div>
                             <img src="<?= BASE_URL ?>assets/images/product-calming-rub-real.webp" 
                                  alt="FTL Calming Rub Tube" 
-                                 class="h-64 sm:h-72 lg:h-80 w-auto rounded-3xl object-cover hover:scale-105 transition-transform duration-500 shadow-2xl">
+                                 class="h-64 sm:h-72 lg:h-80 w-auto object-contain hover:scale-105 transition-transform duration-500 drop-shadow-2xl">
                             <div class="mt-2 inline-flex items-center gap-1 text-[11px] font-bold text-white bg-[#163325]/80 backdrop-blur-xs px-3 py-1 rounded-full border border-white/20">
                                 <span>Isi Bersih 50g</span> • <span>Travel Friendly</span>
                             </div>
@@ -575,9 +575,9 @@ require_once __DIR__ . '/includes/navbar.php';
                         <div class="absolute -inset-4 bg-emerald-200/30 rounded-3xl blur-2xl group-hover:bg-emerald-300/40 transition duration-500"></div>
                         <picture>
                             <source srcset="<?= BASE_URL ?>assets/images/product-calming-rub-real.webp?v=<?= filemtime(__DIR__ . '/assets/images/product-calming-rub-real.webp') ?>" type="image/webp">
-                            <img src="<?= BASE_URL ?>assets/images/product-calming-rub-real.jpg?v=<?= filemtime(__DIR__ . '/assets/images/product-calming-rub-real.jpg') ?>" 
+                            <img src="<?= BASE_URL ?>assets/images/product-calming-rub-real.webp?v=<?= filemtime(__DIR__ . '/assets/images/product-calming-rub-real.webp') ?>" 
                                  alt="Baby Calming Rub Cream 50g - For The Little" 
-                                 class="relative w-64 sm:w-72 lg:w-80 max-w-full h-auto rounded-2xl object-cover shadow-xl hover:scale-105 transition-transform duration-300">
+                                 class="relative w-64 sm:w-72 lg:w-80 max-w-full h-auto object-contain drop-shadow-2xl hover:scale-105 transition-transform duration-300">
                         </picture>
                     </div>
 

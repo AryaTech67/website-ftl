@@ -29,18 +29,39 @@ $main_product = $PRODUCTS['calming-rub-50g'];
     activeThumb: 0,
     thumbnails: [
         {
-            title: 'Baby Calming Rub Cream 50g',
+            title: 'Foto Asli Kemasan Depan (50g)',
             img: '<?= BASE_URL ?>assets/images/product-calming-rub-real.webp',
-            badgeLeft: 'BPOM & Halal Resmi',
-            badgeRight: 'Safe for Newborn 0+',
-            caption: 'Kemasan Tube Flip-Top Anti-Bocor (Isi Bersih 50g) • Travel Friendly'
+            badgeLeft: '100% Foto Produk Asli',
+            badgeRight: 'Dermatologically Tested',
+            caption: 'Baby Calming Rub Cream 50g • Formulasi Biji Pala, Calendula & Avocado Oil Alami'
         },
         {
-            title: 'Minyak Atsiri Buah Pala Nusantara',
+            title: 'Kemasan Belakang & Izin Resmi BPOM',
+            img: '<?= BASE_URL ?>assets/images/product-real-back.webp',
+            badgeLeft: 'Resmi BPOM RI & Halal',
+            badgeRight: 'Komposisi Lengkap',
+            caption: 'QR Code BPOM Resmi, Komposisi Lengkap & Diproduksi di Bogor, Indonesia'
+        },
+        {
+            title: 'Paket Hemat 2 Tube (Double Care)',
+            img: '<?= BASE_URL ?>assets/images/product-bundle-2-real.webp',
+            badgeLeft: 'Hemat 37% 🔥',
+            badgeRight: 'Stok Terlaris',
+            caption: 'Praktis untuk stok meja ganti kamar dan diaper bag bepergian'
+        },
+        {
+            title: 'Bundle Triple Care (3x 50g)',
+            img: '<?= BASE_URL ?>assets/images/product-bundle-3-real.webp',
+            badgeLeft: 'Super Hemat 38% 🌟',
+            badgeRight: 'Stok 3 Bulan',
+            caption: 'Paket terlengkap bebas kolik & kembung untuk 3 bulan tidur lelap'
+        },
+        {
+            title: 'Biji Pala Murni Nusantara',
             img: '<?= BASE_URL ?>assets/images/ingredient-nutmeg-real.png',
-            badgeLeft: '100% Buah Pala Asli',
+            badgeLeft: '100% Biji Pala Asli',
             badgeRight: 'Hangat Lembut Bayi',
-            caption: 'Menenangkan Kolik & Redakan Perut Begah Tanpa Bikin Kulit Bayi Perih'
+            caption: 'Menenangkan kolik & redakan perut begah tanpa rasa perih di kulit newborn'
         },
         {
             title: 'Ekstrak Bunga Calendula Organik',
