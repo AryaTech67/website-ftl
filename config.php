@@ -71,15 +71,15 @@ $PRODUCTS = [
     'bundling-double-care' => [
         'id' => 'bundling-double-care',
         'name' => 'Bundle Double Care (2x 50g)',
-        'subtitle' => 'Paket Hemat Perawatan Harian & Cadangan Bepergian',
-        'price' => 145000,
-        'original_price' => 193000,
+        'subtitle' => 'Paket Hemat 2 Tube Perawatan Harian & Cadangan Bepergian',
+        'price' => 149000,
+        'original_price' => 198000,
         'badge' => 'Hemat 25% 🔥',
         'rating' => 5.0,
         'reviews_count' => 128,
-        'image' => 'assets/images/product-bundle-2.svg',
+        'image' => 'assets/images/product-bundle-2-real.webp',
         'short_desc' => 'Paket 2 pcs Baby Calming Rub Cream 50g. Satu untuk di rumah di meja ganti, satu selalu siap sedia di diaper bag bepergian.',
-        'size' => '2 x 50 gram',
+        'size' => '2 x 50 gram (Total 100g)',
         'certifications' => ['BPOM Certified', 'Halal Indonesia', 'Dermatologically Tested'],
         'benefits' => [
             'Lebih hemat dibanding beli satuan',
@@ -89,21 +89,21 @@ $PRODUCTS = [
     ],
     'bundling-newborn-gift' => [
         'id' => 'bundling-newborn-gift',
-        'name' => 'Newborn Comfort Gift Box',
-        'subtitle' => 'Kado Spesial Kelahiran dengan Box Eksklusif & Kartu Ucapan',
-        'price' => 189000,
-        'original_price' => 225000,
-        'badge' => 'Special Gift 🎁',
-        'rating' => 4.9,
+        'name' => 'Bundle Triple Care (3x 50g)',
+        'subtitle' => 'Paket Lengkap 3 Tube (Stok 3 Bulan Bebas Kolik & Rewel)',
+        'price' => 219000,
+        'original_price' => 297000,
+        'badge' => 'Super Hemat 30% 🌟',
+        'rating' => 5.0,
         'reviews_count' => 84,
-        'image' => 'assets/images/product-gift-box.svg',
-        'short_desc' => 'Hadirkan kehangatan pertama untuk keponakan/sahabat baru lahir. Berisi 2x Calming Rub Cream + Greeting Card + Pouch Eksklusif FTL.',
-        'size' => 'Gift Set Eksklusif',
-        'certifications' => ['BPOM Certified', 'Gift Ready', 'Free Custom Card'],
+        'image' => 'assets/images/product-bundle-3-real.webp',
+        'short_desc' => 'Paket terlengkap dan paling hemat untuk perlindungan optimal si kecil setiap hari. Satu untuk meja ganti kamar, satu untuk tas bepergian, satu untuk stok cadangan.',
+        'size' => '3 x 50 gram (Total 150g)',
+        'certifications' => ['BPOM Certified', 'Halal Indonesia', 'Dermatologically Tested', 'Paling Hemat'],
         'benefits' => [
-            'Kemasan kado mewah siap kirim langsung ke penerima',
-            'Bisa custom pesan ucapan selamat kelahiran',
-            'Pilihan kado newborn paling berguna dan berkesan'
+            'Hemat Rp 78.000 dibanding beli satuan',
+            'Stok tenang 3 bulan bebas rewel malam hari',
+            'Gratis konsultasi pemakaian via WhatsApp CS'
         ]
     ]
 ];

@@ -826,25 +826,25 @@ function orderModal() {
             },
             'bundling-double-care': { 
                 id: 'bundling-double-care',
-                name: 'Paket Hemat 2 Tube', 
+                name: 'Paket Hemat 2 Tube (Double Care)', 
                 desc: 'Stok Lengkap Bunda (2x 50g)',
                 price: 149000, 
                 originalPrice: 198000,
                 badge: '🔥 Hemat 25%',
                 badgeClass: 'bg-amber-50 text-amber-800 border-amber-200/80',
                 weight: 200,
-                image: 'assets/images/product-bundle-2.svg'
+                image: 'assets/images/product-bundle-2-real.webp'
             },
             'bundling-newborn-gift': { 
                 id: 'bundling-newborn-gift',
-                name: 'Newborn Care Gift Set', 
-                desc: 'Paket Sambut Buah Hati',
-                price: 189000, 
-                originalPrice: 249000,
-                badge: '🎁 Kado Spesial',
-                badgeClass: 'bg-rose-50 text-rose-800 border-rose-200/80',
-                weight: 350,
-                image: 'assets/images/product-gift-box.svg'
+                name: 'Bundle Triple Care (3x 50g)', 
+                desc: 'Paket Hemat 3 Tube (Stok 3 Bulan)',
+                price: 219000, 
+                originalPrice: 297000,
+                badge: '🌟 Super Hemat 30%',
+                badgeClass: 'bg-emerald-50 text-emerald-800 border-emerald-200/80',
+                weight: 300,
+                image: 'assets/images/product-bundle-3-real.webp'
             }
         },
         get currentProduct() {

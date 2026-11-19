@@ -457,9 +457,9 @@ require_once __DIR__ . '/includes/navbar.php';
 
                     <!-- Packshot Image -->
                     <div class="h-36 sm:h-44 flex items-center justify-center my-3 relative overflow-hidden">
-                        <img src="<?= BASE_URL ?>assets/images/product-bundle-2.svg" 
-                             alt="Paket Hemat 2 Tube" 
-                             class="max-h-32 sm:max-h-40 w-auto object-contain group-hover:scale-105 transition-transform duration-300 drop-shadow-md">
+                        <img src="<?= BASE_URL ?>assets/images/product-bundle-2-real.webp?v=<?= filemtime(__DIR__ . '/assets/images/product-bundle-2-real.webp') ?>" 
+                             alt="Bundle Double Care (2x 50g)" 
+                             class="max-h-32 sm:max-h-40 w-auto rounded-2xl object-cover group-hover:scale-105 transition-transform duration-300 shadow-md">
                     </div>
 
                     <!-- Info -->
@@ -486,35 +486,35 @@ require_once __DIR__ . '/includes/navbar.php';
                 </button>
             </div>
 
-            <!-- Card 3: Newborn Care Gift Set -->
+            <!-- Card 3: Bundle Triple Care 3 Tube -->
             <div data-animate="fade-up" data-delay="240" class="min-w-[210px] sm:min-w-0 max-w-[240px] sm:max-w-none flex-1 shrink-0 snap-center bg-white rounded-3xl p-4 sm:p-5 border border-stone-200/80 shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group">
                 <div>
                     <!-- Top Pill Badge -->
                     <div class="flex items-center justify-between">
-                        <span class="inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full bg-rose-50 text-rose-800 border border-rose-200/70">
-                            🎁 Kado Spesial
+                        <span class="inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200/70">
+                            🌟 Super Hemat 30%
                         </span>
-                        <span class="text-[10px] font-bold text-gray-400">Box Eksklusif</span>
+                        <span class="text-[10px] font-bold text-gray-400">Stok 3 Bulan</span>
                     </div>
 
                     <!-- Packshot Image -->
                     <div class="h-36 sm:h-44 flex items-center justify-center my-3 relative overflow-hidden">
-                        <img src="<?= BASE_URL ?>assets/images/product-gift-box.svg" 
-                             alt="Newborn Gift Box" 
-                             class="max-h-32 sm:max-h-40 w-auto object-contain group-hover:scale-105 transition-transform duration-300 drop-shadow-md">
+                        <img src="<?= BASE_URL ?>assets/images/product-bundle-3-real.webp?v=<?= filemtime(__DIR__ . '/assets/images/product-bundle-3-real.webp') ?>" 
+                             alt="Bundle Triple Care (3x 50g)" 
+                             class="max-h-32 sm:max-h-40 w-auto rounded-2xl object-cover group-hover:scale-105 transition-transform duration-300 shadow-md">
                     </div>
 
                     <!-- Info -->
                     <div>
                         <h3 class="font-display font-extrabold text-base sm:text-lg text-gray-900 group-hover:text-ftl-forest transition-colors">
-                            Newborn Comfort Gift Set
+                            Bundle Triple Care (3x 50g)
                         </h3>
                         <p class="text-xs text-gray-500 mt-0.5">
-                            Box Eksklusif Kado Lahiran
+                            Paket Hemat 3 Tube Si Kecil
                         </p>
                         <div class="mt-2 flex items-baseline gap-2">
-                            <span class="text-base font-extrabold text-ftl-forest">Rp 189.000</span>
-                            <span class="text-xs text-gray-400 line-through">Rp 249.000</span>
+                            <span class="text-base font-extrabold text-ftl-forest">Rp 219.000</span>
+                            <span class="text-xs text-gray-400 line-through">Rp 297.000</span>
                         </div>
                     </div>
                 </div>
