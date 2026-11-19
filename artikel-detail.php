@@ -149,14 +149,25 @@ require_once __DIR__ . '/includes/navbar.php';
                 <?= htmlspecialchars($article['title']) ?>
             </h1>
 
-            <div class="flex items-center justify-between text-xs text-gray-500 pt-2">
-                <div class="flex items-center gap-2">
-                    <div class="w-8 h-8 rounded-full bg-ftl-forest text-white flex items-center justify-center font-bold">
-                        F
+            <div class="flex flex-wrap items-center justify-between gap-3 text-xs text-gray-500 pt-2">
+                <div class="flex items-center gap-2.5">
+                    <div class="w-9 h-9 rounded-full bg-white border border-emerald-200/80 p-0.5 shadow-2xs flex items-center justify-center shrink-0">
+                        <img src="<?= BASE_URL ?>assets/images/logo-ftl.png?v=<?= filemtime(__DIR__ . '/assets/images/logo-ftl.png') ?>" 
+                             alt="For The Little" 
+                             class="w-full h-full object-contain">
                     </div>
-                    <span><?= $article['author'] ?></span>
+                    <div>
+                        <div class="font-bold text-gray-900 text-xs flex items-center gap-1.5">
+                            <span>Redaksi For The Little</span>
+                            <i data-lucide="badge-check" class="w-4 h-4 text-emerald-600"></i>
+                        </div>
+                        <span class="text-[11px] text-gray-400">Ditinjau untuk Edukasi & Parenting Bunda</span>
+                    </div>
                 </div>
-                <span>Diterbitkan: <?= $article['date'] ?></span>
+                <div class="flex items-center gap-1.5 text-gray-400 font-medium">
+                    <i data-lucide="calendar" class="w-3.5 h-3.5 text-emerald-600"></i>
+                    <span>Diterbitkan: <?= $article['date'] ?></span>
+                </div>
             </div>
         </header>
 

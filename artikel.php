@@ -157,7 +157,10 @@ $ARTIKEL_LIST = [
                     </div>
 
                     <div class="p-6 pt-0 border-t border-gray-100 flex items-center justify-between text-xs mt-4">
-                        <span class="text-gray-400 font-medium">Oleh: <?= $item['author'] ?></span>
+                        <span class="text-gray-500 font-medium flex items-center gap-1.5">
+                            <img src="<?= BASE_URL ?>assets/images/logo-ftl.png?v=<?= filemtime(__DIR__ . '/assets/images/logo-ftl.png') ?>" alt="FTL" class="w-4 h-4 object-contain">
+                            <span>Redaksi FTL</span>
+                        </span>
                         <a href="<?= BASE_URL ?>artikel-detail.php?id=<?= $item['id'] ?>" class="font-bold text-ftl-forest hover:text-emerald-700 flex items-center gap-1">
                             <span>Baca</span>
                             <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
