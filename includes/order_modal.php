@@ -473,9 +473,7 @@ $FTL_DESTINATIONS = getShippingDestinations($SHIPPING_DATA);
                                 </div>
                             </div>
                         </div>
-
                     </div>
-                </div>
 
                     <!-- Alamat Lengkap & Patokan Rumah -->
                     <div>
