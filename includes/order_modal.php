@@ -343,7 +343,7 @@ $FTL_DESTINATIONS = getShippingDestinations($SHIPPING_DATA);
                             </div>
                         </div>
                         <button type="button" 
-                                @click="city = ''; province = ''; searchQuery = ''; couriers = []; selectedCourier = null; detectedAlert = '';" 
+                                @click="city = ''; province = ''; searchQuery = ''; couriers = []; selectedCourier = null;" 
                                 class="shrink-0 ml-2 px-3 py-1.5 rounded-xl bg-white border border-emerald-300 text-emerald-800 font-bold text-xs hover:bg-emerald-100 transition shadow-2xs cursor-pointer no-tap-zoom"
                                 style="touch-action: manipulation;">
                             Ganti Kota
@@ -372,44 +372,24 @@ $FTL_DESTINATIONS = getShippingDestinations($SHIPPING_DATA);
                             </div>
                         </div>
 
-                        <!-- 1. SEARCH INPUT WITH AUTOCOMPLETE & GPS BUTTON -->
+                        <!-- 1. SEARCH INPUT WITH AUTOCOMPLETE -->
                         <div x-show="locationMode === 'search'" class="space-y-2">
-                            <div class="relative flex items-center gap-2">
-                                <div class="relative flex-1">
-                                    <input type="text" 
-                                           x-model="searchQuery" 
-                                           @input="showSuggestions = true; delete errors.city; errorMessage = '';"
-                                           @focus="if(searchQuery.length >= 2) showSuggestions = true"
-                                           placeholder="Ketik nama kota (misal: Depok, Bandung, Surabaya)..." 
-                                           class="w-full rounded-xl border border-gray-300 pl-9 pr-8 py-3 text-base sm:text-sm focus:border-ftl-forest focus:outline-none focus:ring-2 focus:ring-emerald-200 bg-white">
-                                    <i data-lucide="search" class="w-4 h-4 text-gray-400 absolute left-3 top-3.5"></i>
-                                    <button type="button" 
-                                            x-show="searchQuery" 
-                                            @click="searchQuery = ''; showSuggestions = false;" 
-                                            class="absolute right-2.5 top-3.5 text-gray-400 hover:text-gray-600 cursor-pointer no-tap-zoom"
-                                            style="touch-action: manipulation;"
-                                            aria-label="Hapus teks">
-                                        <i data-lucide="x" class="w-4 h-4"></i>
-                                    </button>
-                                </div>
+                            <div class="relative">
+                                <input type="text" 
+                                       x-model="searchQuery" 
+                                       @input="showSuggestions = true; delete errors.city; errorMessage = '';"
+                                       @focus="if(searchQuery.length >= 2) showSuggestions = true"
+                                       placeholder="Ketik nama kota (misal: Depok, Bandung, Surabaya)..." 
+                                       class="w-full rounded-xl border border-gray-300 pl-9 pr-8 py-3 text-base sm:text-sm focus:border-ftl-forest focus:outline-none focus:ring-2 focus:ring-emerald-200 bg-white">
+                                <i data-lucide="search" class="w-4 h-4 text-gray-400 absolute left-3 top-3.5"></i>
                                 <button type="button" 
-                                        @click="detectLocationGPS()" 
-                                        :disabled="detectingGPS"
-                                        title="Auto-Deteksi Lokasi Saya (GPS)"
-                                        class="h-11 px-3 rounded-xl bg-emerald-50 hover:bg-emerald-100 border border-emerald-300 text-emerald-800 font-bold text-xs flex items-center gap-1.5 shrink-0 transition active:scale-95 cursor-pointer no-tap-zoom"
-                                        style="touch-action: manipulation;">
-                                    <span x-show="detectingGPS" class="w-4 h-4 border-2 border-emerald-700 border-t-transparent rounded-full animate-spin shrink-0"></span>
-                                    <i x-show="!detectingGPS" data-lucide="locate-fixed" class="w-4 h-4 text-emerald-700 shrink-0"></i>
-                                    <span class="hidden sm:inline" x-text="detectingGPS ? 'Mendeteksi...' : 'Auto-GPS'"></span>
+                                        x-show="searchQuery" 
+                                        @click="searchQuery = ''; showSuggestions = false;" 
+                                        class="absolute right-2.5 top-3.5 text-gray-400 hover:text-gray-600 cursor-pointer no-tap-zoom"
+                                        style="touch-action: manipulation;"
+                                        aria-label="Hapus teks">
+                                    <i data-lucide="x" class="w-4 h-4"></i>
                                 </button>
-                            </div>
-
-                            <!-- Alert Banner Hasil Auto-Deteksi -->
-                            <div x-show="detectedAlert" 
-                                 x-transition 
-                                 class="bg-emerald-50 border border-emerald-300 text-emerald-900 px-3 py-2 rounded-xl text-xs flex items-center justify-between">
-                                <span class="font-bold flex items-center gap-1.5" x-text="detectedAlert"></span>
-                                <span class="text-[10px] bg-emerald-200/80 text-emerald-800 px-2 py-0.5 rounded-full font-bold">GPS</span>
                             </div>
 
                             <!-- Live Suggestion Dropdown Cepat -->
@@ -560,94 +540,35 @@ $FTL_DESTINATIONS = getShippingDestinations($SHIPPING_DATA);
                            class="w-full rounded-xl border border-gray-300 px-3.5 py-3 text-base sm:text-sm focus:border-ftl-forest focus:outline-none focus:ring-2 focus:ring-emerald-200 bg-white">
                 </div>
 
-                <!-- 5. METODE PEMBAYARAN RESMI (OFFICIAL LOGOS) -->
-                <div class="bg-gray-50/90 p-3.5 sm:p-4 rounded-2xl border border-gray-200 space-y-2.5">
+                <!-- 5. METODE PEMBAYARAN RESMI & JAMINAN -->
+                <div class="bg-gray-50/80 p-3 sm:p-3.5 rounded-2xl border border-gray-200 space-y-2.5">
                     <div class="flex items-center justify-between">
-                        <span class="text-[11px] font-bold text-gray-800 uppercase tracking-wider flex items-center gap-1.5">
+                        <span class="text-[11px] font-bold text-gray-700 flex items-center gap-1.5">
                             <i data-lucide="credit-card" class="w-3.5 h-3.5 text-emerald-700"></i>
-                            <span>Metode Pembayaran Didukung:</span>
+                            <span>Pembayaran Transfer & QRIS:</span>
                         </span>
-                        <span class="text-[10px] font-bold text-emerald-700 bg-emerald-100/80 px-2 py-0.5 rounded-full">
+                        <span class="text-[10px] font-semibold text-emerald-700 bg-emerald-100/80 px-2 py-0.5 rounded-full">
                             Bebas Biaya Admin
                         </span>
                     </div>
-                    <p class="text-[11px] text-gray-500 leading-snug">
-                        Bisa transfer antar-bank atau scan QRIS langsung via semua aplikasi m-Banking & E-Wallet (GoPay, OVO, ShopeePay, Dana).
-                    </p>
-                    <div class="grid grid-cols-4 gap-2 pt-1">
-                        <div class="bg-white px-2 py-2.5 rounded-xl border border-gray-200 flex items-center justify-center shadow-2xs hover:border-emerald-400 transition-colors h-11">
-                            <img src="<?= BASE_URL ?>assets/images/bank-bca.svg?v=2026" alt="BCA" class="h-5 sm:h-6 max-h-6 w-auto max-w-full object-contain">
+                    <div class="grid grid-cols-4 gap-2">
+                        <div class="bg-white px-2 py-2 rounded-xl border border-gray-200 flex items-center justify-center shadow-2xs h-10">
+                            <img src="<?= BASE_URL ?>assets/images/bank-bca.svg?v=2026" alt="BCA" class="h-4 sm:h-5 max-h-5 w-auto max-w-full object-contain">
                         </div>
-                        <div class="bg-white px-2 py-2.5 rounded-xl border border-gray-200 flex items-center justify-center shadow-2xs hover:border-emerald-400 transition-colors h-11">
-                            <img src="<?= BASE_URL ?>assets/images/bank-mandiri.svg?v=2026" alt="Mandiri" class="h-5 sm:h-6 max-h-6 w-auto max-w-full object-contain">
+                        <div class="bg-white px-2 py-2 rounded-xl border border-gray-200 flex items-center justify-center shadow-2xs h-10">
+                            <img src="<?= BASE_URL ?>assets/images/bank-mandiri.svg?v=2026" alt="Mandiri" class="h-4 sm:h-5 max-h-5 w-auto max-w-full object-contain">
                         </div>
-                        <div class="bg-white px-2 py-2.5 rounded-xl border border-gray-200 flex items-center justify-center shadow-2xs hover:border-emerald-400 transition-colors h-11">
-                            <img src="<?= BASE_URL ?>assets/images/bank-bri.svg?v=2026" alt="BRI" class="h-5 sm:h-6 max-h-6 w-auto max-w-full object-contain">
+                        <div class="bg-white px-2 py-2 rounded-xl border border-gray-200 flex items-center justify-center shadow-2xs h-10">
+                            <img src="<?= BASE_URL ?>assets/images/bank-bri.svg?v=2026" alt="BRI" class="h-4 sm:h-5 max-h-5 w-auto max-w-full object-contain">
                         </div>
-                        <div class="bg-white px-2 py-2.5 rounded-xl border border-gray-200 flex items-center justify-center shadow-2xs hover:border-emerald-400 transition-colors h-11">
-                            <img src="<?= BASE_URL ?>assets/images/bank-qris.svg?v=2026" alt="QRIS" class="h-5 sm:h-6 max-h-6 w-auto max-w-full object-contain">
+                        <div class="bg-white px-2 py-2 rounded-xl border border-gray-200 flex items-center justify-center shadow-2xs h-10">
+                            <img src="<?= BASE_URL ?>assets/images/bank-qris.svg?v=2026" alt="QRIS" class="h-4 sm:h-5 max-h-5 w-auto max-w-full object-contain">
                         </div>
                     </div>
-                    <p class="text-[10px] text-gray-400 italic">
-                        *Nomor rekening & kode QRIS resmi FTL akan dikirim oleh CS saat verifikasi pesanan untuk memastikan pesanan tercatat dengan benar.
-                    </p>
-                </div>
-
-                <!-- 6. ALUR & PROSES SETELAH KLIK KIRIM (3 LANGKAH MUDAH) -->
-                <div class="bg-emerald-50/40 rounded-2xl p-3.5 sm:p-4 border border-emerald-200/80 space-y-3">
-                    <div class="flex items-center gap-2">
-                        <div class="w-6 h-6 rounded-lg bg-emerald-600 text-white flex items-center justify-center shrink-0">
-                            <i data-lucide="help-circle" class="w-3.5 h-3.5"></i>
-                        </div>
-                        <div>
-                            <h4 class="text-xs font-bold text-gray-900 leading-tight">Alur Proses Setelah Kirim Pesanan:</h4>
-                            <p class="text-[10px] text-gray-500">Transparan, cepat & dipandu langsung oleh CS FTL</p>
-                        </div>
-                    </div>
-
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
-                        <!-- Step 1 -->
-                        <div class="bg-white p-3 rounded-xl border border-emerald-100/90 shadow-2xs flex items-start gap-2.5">
-                            <span class="w-5 h-5 rounded-full bg-emerald-600 text-white text-[11px] font-black flex items-center justify-center shrink-0">1</span>
-                            <div class="min-w-0">
-                                <p class="font-bold text-gray-900 text-[11px]">Rincian Terkirim Otomatis</p>
-                                <p class="text-[10px] text-gray-500 leading-snug mt-0.5">Pesan format order rapi langsung terbuka di WhatsApp Anda, cukup tekan Kirim.</p>
-                            </div>
-                        </div>
-                        <!-- Step 2 -->
-                        <div class="bg-white p-3 rounded-xl border border-emerald-100/90 shadow-2xs flex items-start gap-2.5">
-                            <span class="w-5 h-5 rounded-full bg-emerald-600 text-white text-[11px] font-black flex items-center justify-center shrink-0">2</span>
-                            <div class="min-w-0">
-                                <p class="font-bold text-gray-900 text-[11px]">Konfirmasi & Rekening</p>
-                                <p class="text-[10px] text-gray-500 leading-snug mt-0.5">Admin CS langsung konfirmasi stok & info rekening resmi / barcode QRIS.</p>
-                            </div>
-                        </div>
-                        <!-- Step 3 -->
-                        <div class="bg-white p-3 rounded-xl border border-emerald-100/90 shadow-2xs flex items-start gap-2.5">
-                            <span class="w-5 h-5 rounded-full bg-emerald-600 text-white text-[11px] font-black flex items-center justify-center shrink-0">3</span>
-                            <div class="min-w-0">
-                                <p class="font-bold text-gray-900 text-[11px]">Packing & Kirim Resi</p>
-                                <p class="text-[10px] text-gray-500 leading-snug mt-0.5">Paket dipacking bubble wrap tebal, dikirim di hari yang sama + update nomor resi.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 7. JAMINAN & GARANSI PENGIRIMAN FTL -->
-                <div class="bg-white rounded-2xl p-3 sm:p-3.5 border border-gray-200 shadow-2xs">
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5 text-[11px]">
-                        <div class="flex items-center gap-2">
-                            <i data-lucide="shield-check" class="w-4 h-4 text-emerald-600 shrink-0"></i>
-                            <span class="font-bold text-gray-800">100% Original & BPOM Resmi</span>
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <i data-lucide="package-check" class="w-4 h-4 text-emerald-600 shrink-0"></i>
-                            <span class="font-bold text-gray-800">Free Bubble Wrap Tebal & Dus</span>
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <i data-lucide="rotate-ccw" class="w-4 h-4 text-emerald-600 shrink-0"></i>
-                            <span class="font-bold text-gray-800">Garansi Ganti Baru jika Bocor/Rusak</span>
-                        </div>
+                    <div class="pt-2 border-t border-gray-200/80 flex flex-wrap items-center justify-between gap-2 text-[10px] text-gray-500 font-medium">
+                        <span class="flex items-center gap-1"><i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-600"></i> 100% Original BPOM</span>
+                        <span class="flex items-center gap-1"><i data-lucide="package-check" class="w-3.5 h-3.5 text-emerald-600"></i> Free Bubble Wrap & Dus</span>
+                        <span class="flex items-center gap-1"><i data-lucide="rotate-ccw" class="w-3.5 h-3.5 text-emerald-600"></i> Garansi Ganti Baru</span>
                     </div>
                 </div>
 
@@ -753,8 +674,6 @@ function orderModal() {
         couriers: [],
         selectedCourier: null,
         loadingOngkir: false,
-        detectingGPS: false,
-        detectedAlert: '',
         searchQuery: '',
         showSuggestions: false,
         locationMode: 'search',
@@ -973,93 +892,6 @@ function orderModal() {
             this.cityList = found ? found.cities : [];
             this.calculateOngkir();
             setTimeout(() => { if (window.lucide) lucide.createIcons(); }, 30);
-        },
-        detectLocationGPS() {
-            if (!navigator.geolocation) {
-                alert('Browser Anda tidak mendukung deteksi lokasi GPS. Silakan pilih provinsi dan kota secara manual.');
-                return;
-            }
-            this.detectingGPS = true;
-            this.detectedAlert = '';
-
-            navigator.geolocation.getCurrentPosition(
-                async (pos) => {
-                    const lat = pos.coords.latitude;
-                    const lon = pos.coords.longitude;
-                    
-                    try {
-                        const res = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}&addressdetails=1`);
-                        const data = await res.json();
-                        
-                        if (data && data.address) {
-                            const addr = data.address;
-                            const detectedCity = addr.city || addr.town || addr.municipality || addr.county || addr.city_district || '';
-                            const detectedState = addr.state || '';
-                            
-                            let matchedProvince = null;
-                            let matchedCity = null;
-
-                            if (detectedState) {
-                                const cleanState = detectedState.toLowerCase().replace('daerah khusus ibukota ', '').replace('dki ', '').trim();
-                                matchedProvince = this.destinations.find(d => 
-                                    d.province.toLowerCase().includes(cleanState) || cleanState.includes(d.province.toLowerCase())
-                                );
-                            }
-
-                            if (detectedCity) {
-                                const cleanCity = detectedCity.toLowerCase().replace(/^(kota|kabupaten|kab\.|adm\.)\s+/i, '').trim();
-                                
-                                if (matchedProvince) {
-                                    matchedCity = matchedProvince.cities.find(c => 
-                                        c.toLowerCase().replace(/^(kota|kabupaten|kab\.|adm\.)\s+/i, '').includes(cleanCity)
-                                    );
-                                }
-                                
-                                if (!matchedCity) {
-                                    for (let d of this.destinations) {
-                                        const cMatch = d.cities.find(c => 
-                                            c.toLowerCase().replace(/^(kota|kabupaten|kab\.|adm\.)\s+/i, '').includes(cleanCity)
-                                        );
-                                        if (cMatch) {
-                                            matchedProvince = d;
-                                            matchedCity = cMatch;
-                                            break;
-                                        }
-                                    }
-                                }
-                            }
-
-                            if (matchedProvince && matchedCity) {
-                                this.province = matchedProvince.province;
-                                this.cityList = matchedProvince.cities;
-                                this.city = matchedCity;
-                                this.searchQuery = matchedCity;
-                                this.showSuggestions = false;
-                                this.detectedAlert = `GPS Terdeteksi: ${matchedCity}, ${matchedProvince.province}`;
-                                delete this.errors.city;
-                                this.errorMessage = '';
-                                this.calculateOngkir();
-                            } else {
-                                this.detectedAlert = `GPS: Terdeteksi di sekitar ${detectedCity || detectedState || 'Indonesia'}. Silakan sesuaikan kota tujuan di bawah.`;
-                            }
-                        }
-                    } catch (e) {
-                        console.error('Reverse geocode error:', e);
-                        this.detectedAlert = 'Gagal membaca nama kota dari GPS. Silakan pilih kota manual.';
-                    } finally {
-                        this.detectingGPS = false;
-                        setTimeout(() => { if (window.lucide) lucide.createIcons(); }, 30);
-                    }
-                },
-                (err) => {
-                    this.detectingGPS = false;
-                    let msg = 'Izin lokasi GPS ditolak.';
-                    if (err.code === 2) msg = 'Lokasi GPS tidak dapat ditemukan.';
-                    if (err.code === 3) msg = 'Waktu permintaan GPS habis.';
-                    alert(msg + ' Silakan pilih provinsi dan kota secara manual.');
-                },
-                { timeout: 10000, maximumAge: 60000 }
-            );
         },
         async calculateOngkir() {
             if (!this.city || !this.province) return;
