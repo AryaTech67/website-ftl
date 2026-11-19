@@ -7,7 +7,7 @@ $page_desc = isset($page_desc) ? $page_desc : SITE_DESCRIPTION;
 $current_page = isset($current_page) ? $current_page : 'home';
 ?>
 <!DOCTYPE html>
-<html lang="id" class="scroll-smooth">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
@@ -130,7 +130,6 @@ $current_page = isset($current_page) ? $current_page : 'home';
 
     <style>
         html {
-            scroll-behavior: smooth;
             scroll-padding-top: 72px;
             overflow-x: hidden;
             max-width: 100vw;
@@ -243,7 +242,7 @@ $current_page = isset($current_page) ? $current_page : 'home';
         }
     </style>
 
-    <!-- Smart Scroll & Navigation: Preserve Scroll on Refresh, Start at Top on Fresh Direct Visit -->
+    <!-- Smart Scroll & Navigation: Start at Top on New Page / Link Visit, Preserve Scroll on Reload -->
     <script>
         (function() {
             var isReload = false;
@@ -262,19 +261,61 @@ $current_page = isset($current_page) ? $current_page : 'home';
                     history.scrollRestoration = 'auto';
                 }
             } else {
-                // Saat BUKA LINK PERTAMA KALI (Bukan Refresh):
-                // Jika tidak ada anchor hash spesifik, mulai dari tampilan paling awal (Hero)
+                // Saat BUKA LINK BARU (Bukan Refresh):
+                // Jika tidak ada anchor hash spesifik, wajib mulai dari paling atas (Hero / Y=0)
                 if (!window.location.hash || window.location.hash === '#beranda') {
                     if ('scrollRestoration' in history) {
                         history.scrollRestoration = 'manual';
                     }
+                    // Reset seketika di fase render awal
                     window.scrollTo(0, 0);
+
+                    // Pastikan tetap di paling atas saat DOM siap
+                    document.addEventListener('DOMContentLoaded', function() {
+                        window.scrollTo(0, 0);
+                        if (document.documentElement) document.documentElement.scrollTop = 0;
+                        if (document.body) document.body.scrollTop = 0;
+                    });
+
+                    // Pastikan tetap di atas saat seluruh asset & Alpine selesai di-mount
+                    window.addEventListener('load', function() {
+                        window.scrollTo(0, 0);
+                        if (document.documentElement) document.documentElement.scrollTop = 0;
+                        if (document.body) document.body.scrollTop = 0;
+                    });
+
+                    // Penanganan khusus WebKit / Safari bfcache & initial paint
+                    window.addEventListener('pageshow', function(e) {
+                        if (!e.persisted) {
+                            window.scrollTo(0, 0);
+                            if (document.documentElement) document.documentElement.scrollTop = 0;
+                            if (document.body) document.body.scrollTop = 0;
+                        }
+                    });
                 } else {
                     if ('scrollRestoration' in history) {
                         history.scrollRestoration = 'auto';
                     }
                 }
             }
+
+            // Saat klik link menuju halaman baru (internal URL tanpa anchor):
+            // Reset scroll position ke 0 sesaat sebelum navigasi agar WebKit/Safari
+            // tidak membawa offset Y (posisi bawah halaman) ke dokumen berikutnya.
+            document.addEventListener('click', function(e) {
+                var link = e.target.closest('a');
+                if (!link || !link.href) return;
+                var href = link.getAttribute('href');
+                if (!href || href.startsWith('#') || href.startsWith('javascript:') || link.target === '_blank') return;
+                
+                // Jika link menuju ke halaman lain di domain yang sama (bukan anchor di halaman yang sama)
+                if (link.hostname === window.location.hostname && !href.includes('#')) {
+                    if ('scrollRestoration' in history) {
+                        history.scrollRestoration = 'manual';
+                    }
+                    window.scrollTo(0, 0);
+                }
+            }, { passive: true });
         })();
     </script>
 
