@@ -45,7 +45,7 @@ $ARTIKEL_LIST = [
         'category' => 'Skincare Bayi',
         'read_time' => '4 Menit Baca',
         'date' => '01 November 2026',
-        'author' => 'Tim Bidan & Parenting FTL',
+        'author' => 'Redaksi For The Little',
         'excerpt' => 'Kulit bayi 30% lebih tipis dibanding orang dewasa. Simak panduan memilih produk harian yang aman dari ruam dan iritasi.',
         'color' => 'bg-rose-100 text-rose-800'
     ],
@@ -55,7 +55,7 @@ $ARTIKEL_LIST = [
         'category' => 'Kesehatan Bayi',
         'read_time' => '3 Menit Baca',
         'date' => '28 Oktober 2026',
-        'author' => 'Bunda FTL Care',
+        'author' => 'Redaksi For The Little',
         'excerpt' => 'Posisi menyusui, teknik sendawa, dan pemakaian calming rub yang tepat untuk mencegah si kecil tersiksa kembung.',
         'color' => 'bg-emerald-100 text-emerald-800'
     ],
@@ -65,7 +65,7 @@ $ARTIKEL_LIST = [
         'category' => 'Pola Asuh',
         'read_time' => '5 Menit Baca',
         'date' => '22 Oktober 2026',
-        'author' => 'Tim Bidan & Parenting FTL',
+        'author' => 'Redaksi For The Little',
         'excerpt' => 'Langkah-langkah sederhana sejak mandi sore hingga pijatan lembut penenang sebelum mematikan lampu kamar si kecil.',
         'color' => 'bg-purple-100 text-purple-800'
     ]

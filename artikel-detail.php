@@ -111,6 +111,81 @@ Minyak atsiri yang diekstrak dari pala mengandung senyawa aktif <em>myristicin</
 Melalui kampanye <em>Bringing Back Indonesia's Nature Blessing</em>, For The Little memastikan setiap bahan baku pala dipanen secara berkelanjutan dari petani lokal Indonesia dan diproses dengan standar mutu farmasi modern.
 </p>
 HTML
+    ],
+    'tips-kulit-sensitif-newborn' => [
+        'title' => 'Merawat Kulit Bayi Sensitif: Mengapa Bahan Hypoallergenic Begitu Krusial?',
+        'category' => 'Skincare Bayi',
+        'read_time' => '4 Menit Baca',
+        'date' => '01 November 2026',
+        'author' => 'Redaksi For The Little',
+        'content' => <<<HTML
+<p class="text-base text-gray-700 leading-relaxed mb-6">
+Tahukah Bunda bahwa lapisan pelindung kulit (*skin barrier*) bayi baru lahir hingga usia 1 tahun sekitar 30% lebih tipis dan jauh lebih rentan kehilangan kelembapan dibanding kulit orang dewasa? Inilah mengapa bayi sering mengalami ruam, kulit kemerahan, atau terasa kasar saat terkena udara dingin atau produk berbahan kimia keras.
+</p>
+
+<h3 class="text-xl font-bold font-display text-gray-900 mt-8 mb-4">Apa Arti Label Hypoallergenic?</h3>
+<p class="text-sm text-gray-700 leading-relaxed mb-4">
+Label <em>hypoallergenic</em> bukan sekadar istilah pemasaran. Ini adalah standar formulasi yang secara ketat meminimalisir atau menghilangkan bahan-bahan yang memiliki potensi memicu reaksi alergi, seperti pewangi buatan (*artificial fragrance*), paraben, sulfat, maupun alkohol berbahaya.
+</p>
+
+<h3 class="text-xl font-bold font-display text-gray-900 mt-8 mb-4">Tips Menjaga Kelembapan Kulit Sensitif Si Kecil</h3>
+<ul class="list-disc pl-6 space-y-2 text-sm text-gray-700 mb-6">
+    <li><strong>Hindari Air Mandi Terlalu Panas:</strong> Gunakan air hangat suam-suam kuku (sekitar 36-37°C) dan batasi durasi mandi maksimal 5-10 menit.</li>
+    <li><strong>Keringkan dengan Cara Ditepuk Lembut:</strong> Jangan menggosok kulit bayi dengan handuk kasar. Tepuk-tepuk perlahan menggunakan handuk serat bambu atau katun lembut.</li>
+    <li><strong>Gunakan Krim Berbahan Calendula:</strong> Ekstrak bunga Calendula telah terbukti klinis efektif meredakan iritasi ringan dan memperkuat pertahanan alami kulit bayi.</li>
+    <li><strong>Pilih Pakaian Berbahan Katun Alami:</strong> Pakaian berbahan sintetis dapat memerangkap keringat dan memicu biang keringat.</li>
+</ul>
+HTML
+    ],
+    'mengatasi-perut-kembung' => [
+        'title' => 'Perut Bayi Berbunyi dan Keras? Ini 4 Cara Cepat Meredakannya',
+        'category' => 'Kesehatan Bayi',
+        'read_time' => '3 Menit Baca',
+        'date' => '28 Oktober 2026',
+        'author' => 'Redaksi For The Little',
+        'content' => <<<HTML
+<p class="text-base text-gray-700 leading-relaxed mb-6">
+Saat menggendong si kecil, Bunda mungkin pernah merasakan perutnya berbunyi "krucuk-krucuk" atau terasa tegang dan kencang saat disentuh. Kondisi ini adalah tanda klasik <strong>perut kembung (*excessive gas*)</strong> yang membuat bayi merasa tidak nyaman, gelisah, dan sering menggeliat.
+</p>
+
+<h3 class="text-xl font-bold font-display text-gray-900 mt-8 mb-4">Mengapa Bayi Sangat Mudah Kembung?</h3>
+<p class="text-sm text-gray-700 leading-relaxed mb-4">
+Sistem pencernaan bayi masih dalam tahap adaptasi. Selain itu, bayi sering menelan udara (*aerophagia*) saat menyusu terburu-buru, menangis kencang, atau perlekatan (*latch-on*) yang kurang pas pada payudara maupun dot botol.
+</p>
+
+<h3 class="text-xl font-bold font-display text-gray-900 mt-8 mb-4">4 Solusi Cepat Menenangkan Perut Begah</h3>
+<ol class="list-decimal pl-6 space-y-3 text-sm text-gray-700 mb-6">
+    <li><strong>Posisi Sendawa Tegak di Pundak:</strong> Sandarkan dada bayi di pundak Bunda, lalu tepuk-tepuk lembut punggungnya dari bawah ke atas hingga terdengar bunyi sendawa.</li>
+    <li><strong>Balurkan Krim Hangat Alami:</strong> Oleskan <em>Baby Calming Rub Cream</em> For The Little ke area perut dan punggung secara melingkar. Kehangatan pala membantu melemaskan otot usus yang tegang.</li>
+    <li><strong>Tummy Time Terawasi:</strong> Tengkurapkan bayi di atas pangkuan Bunda selama 2-3 menit saat ia sedang tenang. Tekanan lembut pada perut membantu gas keluar secara alami.</li>
+    <li><strong>Cek Aliran Dot Susu:</strong> Pastikan ukuran dot sesuai dengan usia bayi agar susu tidak mengalir terlalu deras atau terlalu lambat.</li>
+</ol>
+HTML
+    ],
+    'rutinitas-tidur-malam-bayi' => [
+        'title' => 'Membangun Rutinitas Malam (Bedtime Routine) Agar Bayi Tidur Semalaman',
+        'category' => 'Pola Asuh',
+        'read_time' => '5 Menit Baca',
+        'date' => '22 Oktober 2026',
+        'author' => 'Redaksi For The Little',
+        'content' => <<<HTML
+<p class="text-base text-gray-700 leading-relaxed mb-6">
+Tidur nyenyak adalah kunci utama produksi hormon pertumbuhan (*growth hormone*) dan perkembangan otak si kecil. Namun, banyak Bunda yang kelelahan karena bayi sering terbangun setiap 1-2 jam di malam hari. Membangun <strong>rutinitas malam yang konsisten</strong> adalah solusi paling terbukti secara ilmiah.
+</p>
+
+<h3 class="text-xl font-bold font-display text-gray-900 mt-8 mb-4">Kapan Waktu Terbaik Memulai Rutinitas?</h3>
+<p class="text-sm text-gray-700 leading-relaxed mb-4">
+Idealnya dimulai 30 hingga 45 menit sebelum jam tidur yang ditargetkan (biasanya antara pukul 19.30 - 20.30 malam). Konsistensi urutan kegiatan akan mengirimkan sinyal ke otak bayi bahwa saatnya menurunkan energi dan bersiap tidur lelap.
+</p>
+
+<h3 class="text-xl font-bold font-display text-gray-900 mt-8 mb-4">Langkah 4P: Rutinitas Tidur Ala For The Little</h3>
+<ol class="list-decimal pl-6 space-y-3 text-sm text-gray-700 mb-6">
+    <li><strong>Pembersihan Lembut:</strong> Mandi air hangat atau seka tubuh si kecil dengan washlap hangat untuk mengendurkan otot-otot yang tegang setelah seharian aktif.</li>
+    <li><strong>Pijatan Kasih Sayang:</strong> Balurkan Calming Rub Cream di dada, perut, dan telapak kaki bayi dengan usapan lembut. Aroma alaminya memberikan rasa aman dan nyaman.</li>
+    <li><strong>Pakaian Nyaman:</strong> Pakaikan baju tidur berbahan katun bernapas dan pastikan popok kering dan bersih.</li>
+    <li><strong>Peredupan & Dongeng:</strong> Redupkan lampu utama, putar white noise atau bacakan dongeng singkat dengan nada suara berbisik tenang.</li>
+</ol>
+HTML
     ]
 ];
 
@@ -177,6 +252,9 @@ require_once __DIR__ . '/includes/navbar.php';
             'cara-atasi-kolik' => 'article-kolik.webp',
             'panduan-pijat-ilu' => 'article-pijat-ilu.webp',
             'manfaat-minyak-pala' => 'article-minyak-pala.webp',
+            'tips-kulit-sensitif-newborn' => 'article-kolik.webp',
+            'mengatasi-perut-kembung' => 'article-pijat-ilu.webp',
+            'rutinitas-tidur-malam-bayi' => 'article-kolik.webp',
         ];
         $feat_img = $article_images[$article_id] ?? 'article-kolik.webp';
         ?>
