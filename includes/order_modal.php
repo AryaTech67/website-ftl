@@ -499,11 +499,11 @@ $FTL_DESTINATIONS = getShippingDestinations($SHIPPING_DATA);
                                 Ekspedisi Terdeteksi:
                             </span>
                             <span class="text-[10px] text-emerald-700 font-semibold bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">
-                                3 Opsi Pengiriman Tersedia
+                                <span x-text="couriers.length + ' Opsi Pengiriman Tersedia'"></span>
                             </span>
                         </div>
                         
-                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5">
                             <template x-for="c in couriers" :key="c.code">
                                 <div @click="selectedCourier = c; delete errors.courier; errorMessage = '';"
                                      :class="selectedCourier && selectedCourier.code === c.code ? 'border-emerald-600 bg-emerald-50/70 ring-2 ring-emerald-500/25 shadow-xs' : 'border-gray-200 hover:border-gray-300 bg-white'"
@@ -1069,7 +1069,24 @@ function orderModal() {
             this.couriers = [];
             this.selectedCourier = null;
 
-            // 1. Instant Embedded Rates (Zero Network Delay)
+            // 1. Prioritize Mengantar Live API (Official FTL Account)
+            try {
+                const url = '<?= BASE_URL ?>api/ongkir.php?action=calculate&province=' + encodeURIComponent(this.province) + '&city=' + encodeURIComponent(this.city) + '&weight=' + this.totalWeight;
+                const res = await fetch(url);
+                const json = await res.json();
+                if (json.status === 'success' && json.couriers && json.couriers.length > 0) {
+                    this.couriers = json.couriers;
+                    this.selectedCourier = this.couriers[0];
+                    delete this.errors.courier;
+                    this.loadingOngkir = false;
+                    setTimeout(() => { if (window.lucide) lucide.createIcons(); }, 30);
+                    return;
+                }
+            } catch (e) {
+                console.warn('Live API request failed, falling back to embedded rates', e);
+            }
+
+            // 2. Fallback to Embedded Shipping Rates if offline or API delay
             if (window.FTL_EMBEDDED_SHIPPING_RATES && window.FTL_EMBEDDED_SHIPPING_RATES[this.city]) {
                 const rates = window.FTL_EMBEDDED_SHIPPING_RATES[this.city];
                 const kg = Math.max(1, Math.ceil(this.totalWeight / 1000));
@@ -1088,7 +1105,7 @@ function orderModal() {
                         cost: jntCost,
                         cost_formatted: this.formatRp(jntCost),
                         etd: etd,
-                        color: 'emerald'
+                        color: 'red'
                     },
                     {
                         code: 'jne',
@@ -1113,27 +1130,10 @@ function orderModal() {
                 ];
                 this.selectedCourier = this.couriers[0];
                 delete this.errors.courier;
-                this.loadingOngkir = false;
-                setTimeout(() => { if (window.lucide) lucide.createIcons(); }, 30);
-                return;
             }
 
-            // 2. Fallback to API if shipping rates not embedded
-            try {
-                const url = '<?= BASE_URL ?>api/ongkir.php?action=calculate&province=' + encodeURIComponent(this.province) + '&city=' + encodeURIComponent(this.city) + '&weight=' + this.totalWeight;
-                const res = await fetch(url);
-                const json = await res.json();
-                if (json.status === 'success') {
-                    this.couriers = json.couriers;
-                    this.selectedCourier = this.couriers[0];
-                    delete this.errors.courier;
-                }
-            } catch (e) {
-                console.error('Gagal hitung ongkir', e);
-            } finally {
-                this.loadingOngkir = false;
-                setTimeout(() => { if (window.lucide) lucide.createIcons(); }, 30);
-            }
+            this.loadingOngkir = false;
+            setTimeout(() => { if (window.lucide) lucide.createIcons(); }, 30);
         },
         sendConsultationWA() {
             let lines = [];

@@ -1,14 +1,13 @@
 <?php
 /**
  * API Cek Ongkir Otomatis For The Little (FTL)
- * Mendukung J&T Express, JNE, SiCepat ke seluruh Indonesia
- * Terintegrasi otomatis ke WhatsApp Checkout
+ * Terintegrasi Langsung dengan Mengantar.com Public API (Official FTL Account)
+ * Mendukung J&T Express, JNE, SiCepat, SPX, Anteraja secara real-time
+ * Fallback cerdas ke database tarif lokal jika jaringan offline
  */
 
 header('Content-Type: application/json; charset=utf-8');
 require_once __DIR__ . '/../config.php';
-
-// Load Database Wilayah & Tarif Dasar Ekspedisi dari Jabodetabek (per kg)
 require_once __DIR__ . '/../includes/shipping_data.php';
 
 $action = $_GET['action'] ?? 'calculate';
@@ -20,15 +19,60 @@ if ($action === 'destinations') {
     exit;
 }
 
-// 2. CALCULATE SHIPPING COSTS
-$province = trim($_GET['province'] ?? $_POST['province'] ?? '');
-$city     = trim($_GET['city'] ?? $_POST['city'] ?? '');
-$weight   = intval($_GET['weight'] ?? $_POST['weight'] ?? 100); // dalam gram
+// 2. LIVE ADDRESS SEARCH VIA MENGANTAR
+if ($action === 'search_address') {
+    $keyword = trim($_GET['keyword'] ?? '');
+    if (strlen($keyword) < 2) {
+        echo json_encode(['status' => 'success', 'data' => []]);
+        exit;
+    }
 
-// Hitung berat dapat ditagih (Toleransi kurir 1.2kg = 1kg)
+    if (defined('MENGANTAR_API_KEY') && !empty(MENGANTAR_API_KEY)) {
+        $ch = curl_init();
+        curl_setopt_array($ch, [
+            CURLOPT_URL => "https://api-public.mengantar.com/api/public/" . MENGANTAR_API_KEY . "/address/search?keyword=" . urlencode($keyword),
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_TIMEOUT => 4,
+            CURLOPT_SSL_VERIFYPEER => false,
+        ]);
+        $res = curl_exec($ch);
+        curl_close($ch);
+
+        if ($res) {
+            $parsed = json_decode($res, true);
+            if (!empty($parsed['data'])) {
+                $results = [];
+                foreach (array_slice($parsed['data'], 0, 15) as $item) {
+                    $results[] = [
+                        'id' => $item['_id'],
+                        'full_address' => $item['fullAddress'] ?? ($item['SUBDISTRICT_NAME'] . ', ' . $item['DISTRICT_NAME'] . ', ' . $item['CITY_NAME'] . ', ' . $item['PROVINCE_NAME']),
+                        'subdistrict' => $item['SUBDISTRICT_NAME'] ?? '',
+                        'district' => $item['DISTRICT_NAME'] ?? '',
+                        'city' => $item['CITY_NAME'] ?? '',
+                        'province' => $item['PROVINCE_NAME'] ?? '',
+                        'postal_code' => $item['ZIP_CODE'] ?? ''
+                    ];
+                }
+                echo json_encode(['status' => 'success', 'data' => $results]);
+                exit;
+            }
+        }
+    }
+
+    echo json_encode(['status' => 'success', 'data' => []]);
+    exit;
+}
+
+// 3. CALCULATE SHIPPING COSTS
+$province      = trim($_GET['province'] ?? $_POST['province'] ?? '');
+$city          = trim($_GET['city'] ?? $_POST['city'] ?? '');
+$weight        = intval($_GET['weight'] ?? $_POST['weight'] ?? 100); // dalam gram
+$destinationId = trim($_GET['destination_id'] ?? $_POST['destination_id'] ?? '');
+
+// Hitung berat dapat ditagih (Toleransi kurir 1kg)
 $chargeableKg = max(1, ceil($weight / 1000));
 
-if (empty($province) || empty($city)) {
+if (empty($province) && empty($city) && empty($destinationId)) {
     echo json_encode([
         'status' => 'error',
         'message' => 'Provinsi dan Kota tujuan wajib diisi.'
@@ -37,141 +81,165 @@ if (empty($province) || empty($city)) {
 }
 
 // =========================================================================
-// INTEGRASI LIVE API KE SERVER EKSPEDISI (RajaOngkir & Biteship)
-// Jika API Key diisi di config.php, sistem otomatis menembak server live!
+// A. INTEGRASI UTAMA: MENGANTAR.COM PUBLIC API (LIVE RESMI FTL)
+// Tarif 100% identik dengan pembuatan resi di dashboard Mengantar FTL
 // =========================================================================
-$liveCouriers = [];
+if (defined('MENGANTAR_API_KEY') && !empty(MENGANTAR_API_KEY)) {
+    $apiKey = MENGANTAR_API_KEY;
+    $originId = defined('MENGANTAR_ORIGIN_ID') ? MENGANTAR_ORIGIN_ID : '5fc62dfaf8f44b34aa4be93b'; // Gudang FTL Bogor
 
-// A. Pengecekan via Live RajaOngkir API jika API Key terpasang
-if (defined('RAJAONGKIR_API_KEY') && !empty(RAJAONGKIR_API_KEY)) {
-    $apiKey = RAJAONGKIR_API_KEY;
-    // Map ID Kota Jakarta Selatan (Origin default FTL: 153 di RajaOngkir)
-    $originId = defined('SHIPPING_ORIGIN_ID') ? SHIPPING_ORIGIN_ID : 153;
-    
-    // Tembak API RajaOngkir untuk JNE, J&T, SiCepat
-    $targetCouriers = ['jne', 'jnt', 'sicepat'];
-    foreach ($targetCouriers as $cr) {
+    // 1. Tentukan Destination ID jika belum ada
+    $targetDestId = $destinationId;
+    $matchedAddressName = $city . ', ' . $province;
+
+    if (empty($targetDestId) && (!empty($city) || !empty($province))) {
+        $cleanCity = trim(preg_replace('/^(Kota|Kabupaten|Kab\.?)\s+/i', '', $city));
+        $cleanProv = trim(preg_replace('/^(Provinsi|Prov\.?)\s+/i', '', $province));
+        
+        $searchKey = !empty($cleanCity) ? $cleanCity : $cleanProv;
+        
         $ch = curl_init();
         curl_setopt_array($ch, [
-            CURLOPT_URL => "https://api.rajaongkir.com/starter/cost",
+            CURLOPT_URL => "https://api-public.mengantar.com/api/public/{$apiKey}/address/search?keyword=" . urlencode($searchKey),
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_TIMEOUT => 4,
-            CURLOPT_POST => true,
-            CURLOPT_POSTFIELDS => http_build_query([
-                'origin' => $originId,
-                'destination' => $city, // ID atau nama kota
-                'weight' => $weight,
-                'courier' => $cr
-            ]),
-            CURLOPT_HTTPHEADER => [
-                "content-type: application/x-www-form-urlencoded",
-                "key: " . $apiKey
-            ],
+            CURLOPT_SSL_VERIFYPEER => false,
         ]);
-        $res = curl_exec($ch);
-        $err = curl_error($ch);
+        $searchRes = curl_exec($ch);
         curl_close($ch);
 
-        if (!$err && $res) {
-            $parsed = json_decode($res, true);
-            if (isset($parsed['rajaongkir']['results'][0]['costs'][0])) {
-                $costData = $parsed['rajaongkir']['results'][0]['costs'][0];
-                $costVal = $costData['cost'][0]['value'] ?? 0;
-                $etdVal = $costData['cost'][0]['etd'] ?? '1-2';
-                if ($costVal > 0) {
-                    $liveCouriers[] = [
-                        'code' => $cr,
-                        'name' => strtoupper($cr) . ' Express',
-                        'badge' => 'Live API ⚡',
-                        'service' => $costData['service'] . ' (Reguler)',
-                        'cost' => $costVal,
-                        'cost_formatted' => 'Rp ' . number_format($costVal, 0, ',', '.'),
-                        'etd' => $etdVal . ' Hari',
-                        'color' => ($cr === 'jnt' ? 'red' : ($cr === 'jne' ? 'blue' : 'amber'))
-                    ];
+        if ($searchRes) {
+            $searchJson = json_decode($searchRes, true);
+            if (!empty($searchJson['data'])) {
+                // Cari match terbaik antara kota & provinsi
+                foreach ($searchJson['data'] as $item) {
+                    $itemCity = $item['CITY_NAME'] ?? '';
+                    $itemProv = $item['PROVINCE_NAME'] ?? '';
+                    if (stripos($itemCity, $cleanCity) !== false && (empty($cleanProv) || stripos($itemProv, $cleanProv) !== false)) {
+                        $targetDestId = $item['_id'];
+                        $matchedAddressName = $item['fullAddress'] ?? ($itemCity . ', ' . $itemProv);
+                        break;
+                    }
+                }
+                // Jika tidak match persis kota & provinsi, ambil item pertama
+                if (empty($targetDestId) && isset($searchJson['data'][0]['_id'])) {
+                    $targetDestId = $searchJson['data'][0]['_id'];
+                    $matchedAddressName = $searchJson['data'][0]['fullAddress'] ?? ($city . ', ' . $province);
                 }
             }
         }
     }
 
-    if (!empty($liveCouriers)) {
-        echo json_encode([
-            'status'        => 'success',
-            'source'        => 'rajaongkir_live_api',
-            'origin'        => defined('SHIPPING_ORIGIN_CITY') ? SHIPPING_ORIGIN_CITY : 'Jakarta Selatan',
-            'destination'   => $city . ', ' . $province,
-            'weight_grams'  => $weight,
-            'chargeable_kg' => $chargeableKg,
-            'couriers'      => $liveCouriers
+    // 2. Eksekusi Cek Tarif ke Mengantar Estimate API
+    if (!empty($targetDestId)) {
+        $estimateUrl = "https://api-public.mengantar.com/api/public/{$apiKey}/order/estimate?origin_id={$originId}&destination_id={$targetDestId}&courier=all&weight={$chargeableKg}";
+        
+        $ch = curl_init();
+        curl_setopt_array($ch, [
+            CURLOPT_URL => $estimateUrl,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_TIMEOUT => 5,
+            CURLOPT_SSL_VERIFYPEER => false,
         ]);
-        exit;
-    }
-}
+        $estRes = curl_exec($ch);
+        $estErr = curl_error($ch);
+        curl_close($ch);
 
-// B. Pengecekan via Live Biteship API jika API Key terpasang
-if (defined('BITESHIP_API_KEY') && !empty(BITESHIP_API_KEY)) {
-    $ch = curl_init();
-    curl_setopt_array($ch, [
-        CURLOPT_URL => "https://api.biteship.com/v1/rates/couriers",
-        CURLOPT_RETURNTRANSFER => true,
-        CURLOPT_TIMEOUT => 4,
-        CURLOPT_POST => true,
-        CURLOPT_POSTFIELDS => json_encode([
-            'origin_postal_code' => 12430, // Jakarta Selatan
-            'destination_area_name' => $city . ', ' . $province,
-            'couriers' => 'jne,jnt,sicepat',
-            'items' => [[
-                'name' => 'For The Little Baby Calming Rub',
-                'value' => 79000,
-                'weight' => $weight,
-                'quantity' => 1
-            ]]
-        ]),
-        CURLOPT_HTTPHEADER => [
-            "Authorization: " . BITESHIP_API_KEY,
-            "Content-Type: application/json"
-        ]
-    ]);
-    $res = curl_exec($ch);
-    $err = curl_error($ch);
-    curl_close($ch);
+        if (!$estErr && $estRes) {
+            $estJson = json_decode($estRes, true);
+            if (!empty($estJson['success']) && !empty($estJson['data'])) {
+                $mData = $estJson['data'];
+                $liveCouriers = [];
 
-    if (!$err && $res) {
-        $parsed = json_decode($res, true);
-        if (!empty($parsed['pricing'])) {
-            foreach ($parsed['pricing'] as $p) {
-                if (in_array(strtolower($p['courier_code']), ['jne', 'jnt', 'sicepat'])) {
-                    $liveCouriers[] = [
-                        'code' => strtolower($p['courier_code']),
-                        'name' => $p['courier_name'],
-                        'badge' => 'Live API ⚡',
-                        'service' => $p['courier_service_name'],
-                        'cost' => $p['price'],
-                        'cost_formatted' => 'Rp ' . number_format($p['price'], 0, ',', '.'),
-                        'etd' => $p['duration'],
-                        'color' => 'emerald'
-                    ];
+                // Pemetaan kurir favorit FTL
+                $courierMap = [
+                    'JT' => [
+                        'code'    => 'jnt',
+                        'name'    => 'J&T Express',
+                        'badge'   => 'Terpopuler ⚡',
+                        'service' => 'Layanan EZ (Reguler)',
+                        'color'   => 'red'
+                    ],
+                    'JNE' => [
+                        'code'    => 'jne',
+                        'name'    => 'JNE Express',
+                        'badge'   => 'Terpercaya 📦',
+                        'service' => 'Layanan REG (Reguler)',
+                        'color'   => 'blue'
+                    ],
+                    'SiCepat' => [
+                        'code'    => 'sicepat',
+                        'name'    => 'SiCepat Ekspres',
+                        'badge'   => 'Ekonomis 🚀',
+                        'service' => 'Layanan REG (Reguler)',
+                        'color'   => 'amber'
+                    ],
+                    'spx' => [
+                        'code'    => 'spx',
+                        'name'    => 'SPX Express',
+                        'badge'   => 'Cepat ⚡',
+                        'service' => 'Layanan Standard',
+                        'color'   => 'orange'
+                    ],
+                    'anteraja' => [
+                        'code'    => 'anteraja',
+                        'name'    => 'Anteraja',
+                        'badge'   => 'Praktis 📦',
+                        'service' => 'Layanan Reguler',
+                        'color'   => 'purple'
+                    ]
+                ];
+
+                foreach ($courierMap as $mKey => $info) {
+                    if (isset($mData[$mKey]) && empty($mData[$mKey]['unsupported'])) {
+                        $c = $mData[$mKey];
+                        // Gunakan price/estimatedPrice resmi Mengantar
+                        $cost = intval(!empty($c['price']) ? $c['price'] : ($c['estimatedPrice'] ?? 0));
+                        $specialCost = intval(!empty($c['estimatedSpecialPrice']) ? $c['estimatedSpecialPrice'] : $cost);
+                        
+                        if ($cost > 0) {
+                            $rawEtd = $c['estimate_delivery'] ?? ($c['estimatedDate'] ?? '');
+                            $cleanEtd = !empty($rawEtd) && $rawEtd !== '-' ? trim($rawEtd) : '1-3 Hari';
+                            if (stripos($cleanEtd, 'hari') === false && stripos($cleanEtd, 'day') === false) {
+                                $cleanEtd .= ' Hari';
+                            }
+                            $cleanEtd = str_ireplace(['days', 'day'], 'Hari', $cleanEtd);
+
+                            $liveCouriers[] = [
+                                'code'           => $info['code'],
+                                'name'           => $info['name'],
+                                'badge'          => $info['badge'],
+                                'service'        => $info['service'],
+                                'cost'           => $cost,
+                                'special_cost'   => $specialCost,
+                                'cost_formatted' => 'Rp ' . number_format($cost, 0, ',', '.'),
+                                'etd'            => $cleanEtd,
+                                'color'          => $info['color'],
+                                'is_live'        => true
+                            ];
+                        }
+                    }
+                }
+
+                if (!empty($liveCouriers)) {
+                    echo json_encode([
+                        'status'         => 'success',
+                        'source'         => 'mengantar_live_api',
+                        'origin'         => defined('SHIPPING_ORIGIN_CITY') ? SHIPPING_ORIGIN_CITY : 'Kota Bogor',
+                        'destination'    => $matchedAddressName,
+                        'weight_grams'   => $weight,
+                        'chargeable_kg'  => $chargeableKg,
+                        'couriers'       => $liveCouriers
+                    ]);
+                    exit;
                 }
             }
         }
-    }
-
-    if (!empty($liveCouriers)) {
-        echo json_encode([
-            'status'        => 'success',
-            'source'        => 'biteship_live_api',
-            'origin'        => defined('SHIPPING_ORIGIN_CITY') ? SHIPPING_ORIGIN_CITY : 'Jakarta Selatan',
-            'destination'   => $city . ', ' . $province,
-            'weight_grams'  => $weight,
-            'chargeable_kg' => $chargeableKg,
-            'couriers'      => $liveCouriers
-        ]);
-        exit;
     }
 }
 
 // =========================================================================
-// C. FALLBACK: DATABASE TARIF RIIL LOKAL (SUPER CEPAT & TIDAK AKAN PERNAH DOWN)
+// B. FALLBACK: DATABASE TARIF RIIL LOKAL (SUPER CEPAT & ANTI-DOWN)
 // =========================================================================
 $rateInfo = null;
 
@@ -201,7 +269,8 @@ $couriers = [
         'cost'           => $jntCost,
         'cost_formatted' => 'Rp ' . number_format($jntCost, 0, ',', '.'),
         'etd'            => $etd,
-        'color'          => 'red'
+        'color'          => 'red',
+        'is_live'        => false
     ],
     [
         'code'           => 'jne',
@@ -211,7 +280,8 @@ $couriers = [
         'cost'           => $jneCost,
         'cost_formatted' => 'Rp ' . number_format($jneCost, 0, ',', '.'),
         'etd'            => $etd,
-        'color'          => 'blue'
+        'color'          => 'blue',
+        'is_live'        => false
     ],
     [
         'code'           => 'sicepat',
@@ -221,13 +291,15 @@ $couriers = [
         'cost'           => $sicepatCost,
         'cost_formatted' => 'Rp ' . number_format($sicepatCost, 0, ',', '.'),
         'etd'            => $etd,
-        'color'          => 'amber'
+        'color'          => 'amber',
+        'is_live'        => false
     ]
 ];
 
 echo json_encode([
     'status'         => 'success',
-    'origin'         => defined('SHIPPING_ORIGIN_CITY') ? SHIPPING_ORIGIN_CITY : 'Jakarta Selatan',
+    'source'         => 'local_fallback',
+    'origin'         => defined('SHIPPING_ORIGIN_CITY') ? SHIPPING_ORIGIN_CITY : 'Kota Bogor',
     'destination'    => $city . ', ' . $province,
     'weight_grams'   => $weight,
     'chargeable_kg'  => $chargeableKg,

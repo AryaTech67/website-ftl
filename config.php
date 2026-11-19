@@ -25,11 +25,13 @@ define('OPERATIONAL_HOURS_SATURDAY', 'Sabtu: 09.00 - 15.00 WIB');
 define('OPERATIONAL_HOURS_SUNDAY', 'Minggu & Hari Libur: Tutup');
 
 // Pengaturan Ekspedisi & Live API Ongkir
-define('SHIPPING_ORIGIN_CITY', 'Jakarta Selatan');
-define('SHIPPING_ORIGIN_PROVINCE', 'DKI Jakarta');
-define('SHIPPING_ORIGIN_ID', 153); // ID Kota Jakarta Selatan di RajaOngkir
+define('SHIPPING_ORIGIN_CITY', 'Kota Bogor');
+define('SHIPPING_ORIGIN_PROVINCE', 'Jawa Barat');
+define('SHIPPING_ORIGIN_ID', 153); // ID Kota di RajaOngkir
 define('RAJAONGKIR_API_KEY', ''); // Masukkan API Key RajaOngkir jika menggunakan RajaOngkir
 define('BITESHIP_API_KEY', '');   // Atau masukkan API Key Biteship jika menggunakan Biteship
+define('MENGANTAR_API_KEY', 'API-XNND1UO6PWEGIMWT'); // API Key Resmi Akun Mengantar FTL
+define('MENGANTAR_ORIGIN_ID', '5fc62dfaf8f44b34aa4be93b'); // Gudang FTL Resmi di Mengantar (Tanah Sereal, Kota Bogor)
 
 // Penentuan Base URL Otomatis (Bekerja di localhost XAMPP, Vercel, maupun cPanel / Domain .com)
 $is_https = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') 
