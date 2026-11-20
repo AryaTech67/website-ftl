@@ -1038,7 +1038,7 @@ function orderModal() {
             if (this.note.trim()) {
                 lines.push('*Catatan Tambahan:* ' + this.note.trim() + '\n');
             }
-            lines.push('Halo Admin FTL, saya sudah mengisi form pesanan via website dan memilih pembayaran via transfer *Bank ' + this.selectedBank + '*. Mohon info nomor rekening resminya untuk segera saya transfer ya. Terima kasih! 🙏');
+            lines.push('Mohon dicek ya min, untuk pembayaran via transfer *Bank ' + this.selectedBank + '* bisa minta nomor rekening resminya? Terima kasih banyak min! 🙏✨');
 
             const msg = lines.join('\n');
             const url = 'https://wa.me/<?= WHATSAPP_NUMBER ?>?text=' + encodeURIComponent(msg);
