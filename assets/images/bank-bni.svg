@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 70" fill="none">
+  <!-- BNI Logo Official Colors -->
+  <g transform="translate(15, 10)">
+    <!-- 46 Motif -->
+    <path d="M12 42 L24 8 L32 8 L18 42 Z" fill="#F15A24"/>
+    <path d="M26 42 L38 8 L46 8 L32 42 Z" fill="#005B60"/>
+    <circle cx="48" cy="14" r="5" fill="#F15A24"/>
+    <!-- BNI Typography -->
+    <text x="65" y="38" font-family="Arial, Helvetica, sans-serif" font-weight="900" font-size="34" fill="#005B60" letter-spacing="1">BNI</text>
+  </g>
+</svg>

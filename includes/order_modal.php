@@ -552,16 +552,28 @@ $FTL_DESTINATIONS = getShippingDestinations($SHIPPING_DATA);
                         </span>
                     </div>
                     <div class="grid grid-cols-4 gap-2">
-                        <div class="bg-white px-2 py-2 rounded-xl border border-gray-200 flex items-center justify-center shadow-2xs h-10">
+                        <div class="bg-white px-2 py-2 rounded-xl border border-gray-200 flex items-center justify-center shadow-2xs h-10" title="Bank BCA">
                             <img src="<?= BASE_URL ?>assets/images/bank-bca.svg?v=2026" alt="BCA" class="h-4 sm:h-5 max-h-5 w-auto max-w-full object-contain">
                         </div>
-                        <div class="bg-white px-2 py-2 rounded-xl border border-gray-200 flex items-center justify-center shadow-2xs h-10">
+                        <div class="bg-white px-2 py-2 rounded-xl border border-gray-200 flex items-center justify-center shadow-2xs h-10" title="Bank Mandiri">
                             <img src="<?= BASE_URL ?>assets/images/bank-mandiri.svg?v=2026" alt="Mandiri" class="h-4 sm:h-5 max-h-5 w-auto max-w-full object-contain">
                         </div>
-                        <div class="bg-white px-2 py-2 rounded-xl border border-gray-200 flex items-center justify-center shadow-2xs h-10">
+                        <div class="bg-white px-2 py-2 rounded-xl border border-gray-200 flex items-center justify-center shadow-2xs h-10" title="Bank BRI">
                             <img src="<?= BASE_URL ?>assets/images/bank-bri.svg?v=2026" alt="BRI" class="h-4 sm:h-5 max-h-5 w-auto max-w-full object-contain">
                         </div>
-                        <div class="bg-white px-2 py-2 rounded-xl border border-gray-200 flex items-center justify-center shadow-2xs h-10">
+                        <div class="bg-white px-2 py-2 rounded-xl border border-gray-200 flex items-center justify-center shadow-2xs h-10" title="Bank BNI">
+                            <img src="<?= BASE_URL ?>assets/images/bank-bni.svg?v=2026" alt="BNI" class="h-4 sm:h-5 max-h-5 w-auto max-w-full object-contain">
+                        </div>
+                        <div class="bg-white px-2 py-2 rounded-xl border border-gray-200 flex items-center justify-center shadow-2xs h-10" title="Bank Syariah Indonesia (BSI)">
+                            <img src="<?= BASE_URL ?>assets/images/bank-bsi.svg?v=2026" alt="BSI" class="h-4 sm:h-5 max-h-5 w-auto max-w-full object-contain">
+                        </div>
+                        <div class="bg-white px-2 py-2 rounded-xl border border-gray-200 flex items-center justify-center shadow-2xs h-10" title="SeaBank">
+                            <img src="<?= BASE_URL ?>assets/images/bank-seabank.svg?v=2026" alt="SeaBank" class="h-4 sm:h-5 max-h-5 w-auto max-w-full object-contain">
+                        </div>
+                        <div class="bg-white px-2 py-2 rounded-xl border border-gray-200 flex items-center justify-center shadow-2xs h-10" title="PermataBank">
+                            <img src="<?= BASE_URL ?>assets/images/bank-permata.svg?v=2026" alt="Permata" class="h-4 sm:h-5 max-h-5 w-auto max-w-full object-contain">
+                        </div>
+                        <div class="bg-white px-2 py-2 rounded-xl border border-gray-200 flex items-center justify-center shadow-2xs h-10" title="QRIS (Semua E-Wallet & Mobile Banking)">
                             <img src="<?= BASE_URL ?>assets/images/bank-qris.svg?v=2026" alt="QRIS" class="h-4 sm:h-5 max-h-5 w-auto max-w-full object-contain">
                         </div>
                     </div>
@@ -681,11 +693,11 @@ function orderModal() {
             'calming-rub-50g': { 
                 id: 'calming-rub-50g',
                 name: 'Baby Calming Rub Cream 50g', 
-                desc: 'Single Tube (1x 50g)',
-                price: 118000, 
-                originalPrice: 118000,
-                badge: '🌿 100% Biji Pala Asli',
-                badgeClass: 'bg-emerald-50 text-emerald-800 border-emerald-200/80',
+                desc: 'Single Tube (1x 50g) + Free Gift',
+                price: 117999, 
+                originalPrice: 299000,
+                badge: '🎁 Free Gift Keychain',
+                badgeClass: 'bg-rose-50 text-rose-800 border-rose-200/80',
                 weight: 100,
                 image: 'assets/images/product-calming-rub-real.webp'
             },
@@ -693,20 +705,20 @@ function orderModal() {
                 id: 'bundling-double-care',
                 name: 'Bundle Double Care (2x 50g)', 
                 desc: 'Paket 2 Tube Bunda (2x 50g)',
-                price: 236000, 
-                originalPrice: 236000,
-                badge: '🌿 Paket 2 Tube',
-                badgeClass: 'bg-emerald-50 text-emerald-800 border-emerald-200/80',
+                price: 229999, 
+                originalPrice: 598000,
+                badge: '🔥 Hemat 61%',
+                badgeClass: 'bg-amber-50 text-amber-800 border-amber-200/80',
                 weight: 200,
                 image: 'assets/images/product-bundle-2-real.webp'
             },
             'bundling-newborn-gift': { 
                 id: 'bundling-newborn-gift',
                 name: 'Bundle Triple Care (3x 50g)', 
-                desc: 'Paket Lengkap 3 Tube (Stok 3 Bulan)',
-                price: 354000, 
-                originalPrice: 354000,
-                badge: '🌟 Paket 3 Tube',
+                desc: 'Paket Hemat 3 Tube (Stok 3 Bulan)',
+                price: 344999, 
+                originalPrice: 897000,
+                badge: '🌟 Super Hemat 61%',
                 badgeClass: 'bg-emerald-50 text-emerald-800 border-emerald-200/80',
                 weight: 300,
                 image: 'assets/images/product-bundle-3-real.webp'

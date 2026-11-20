@@ -291,7 +291,7 @@ require_once __DIR__ . '/includes/navbar.php';
                     <span class="bg-amber-400 text-amber-950 text-[10px] font-extrabold px-2.5 py-0.5 rounded-full uppercase">Rekomendasi Bunda</span>
                     <h3 class="font-display font-bold text-xl mt-1">Baby Calming Rub Cream (50g)</h3>
                     <p class="text-xs text-emerald-100 mt-1 max-w-sm">Meredakan kolik & kembung dalam hitungan menit dengan kehangatan lembut biji pala nusantara.</p>
-                    <div class="text-lg font-bold text-white mt-2">Rp 118.000</div>
+                    <div class="text-lg font-bold text-white mt-2">Rp 117.999 <span class="text-xs text-emerald-200 line-through ml-1 font-normal">Rp 299.000</span> <span class="text-[10px] bg-amber-400 text-amber-950 font-extrabold px-2 py-0.5 rounded-full ml-1">+ Free Gift</span></div>
                 </div>
             </div>
             <button type="button" @click="openOrderModal('pesan', 'calming-rub-50g')" 

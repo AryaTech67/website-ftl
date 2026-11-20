@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 70" fill="none">
+  <!-- SeaBank Official Colors -->
+  <g transform="translate(10, 10)">
+    <!-- Sea Wave Symbol -->
+    <rect x="5" y="8" width="36" height="36" rx="10" fill="#FF5722"/>
+    <path d="M15 28 C 18 20, 24 20, 27 28 C 30 36, 36 36, 39 28" stroke="#FFFFFF" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+    <!-- Typography -->
+    <text x="52" y="36" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-weight="900" font-size="28" fill="#1C1C1E" letter-spacing="-0.5">Sea<tspan fill="#FF5722">Bank</tspan></text>
+  </g>
+</svg>

@@ -24,12 +24,12 @@ $main_product = $PRODUCTS['calming-rub-50g'];
     activeTab: 'manfaat', 
     qty: 1,
     selectedVariant: 'calming-rub-50g',
-    variantPrice: 118000,
+    variantPrice: 117999,
     formatRp(v) { return 'Rp ' + Number(v).toLocaleString('id-ID'); },
     activeThumb: 0,
     thumbnails: [
         {
-            title: 'Foto Resmi Kemasan Tube (50g)',
+            title: 'Kemasan Tube & Box Resmi (50g)',
             img: '<?= BASE_URL ?>assets/images/product-calming-rub-real.webp',
             badgeLeft: 'Foto Resmi FTL',
             badgeRight: 'Dermatologically Tested',
@@ -45,14 +45,14 @@ $main_product = $PRODUCTS['calming-rub-50g'];
         {
             title: 'Paket Hemat 2 Tube (Double Care)',
             img: '<?= BASE_URL ?>assets/images/product-bundle-2-real.webp',
-            badgeLeft: 'Paket 2 Tube 🌿',
+            badgeLeft: 'Hemat 61% 🔥',
             badgeRight: 'Stok Terlaris',
             caption: 'Praktis untuk stok meja ganti kamar dan diaper bag bepergian'
         },
         {
             title: 'Bundle Triple Care (3x 50g)',
             img: '<?= BASE_URL ?>assets/images/product-bundle-3-real.webp',
-            badgeLeft: 'Paket 3 Tube 🌟',
+            badgeLeft: 'Super Hemat 61% 🌟',
             badgeRight: 'Stok 3 Bulan',
             caption: 'Paket terlengkap bebas kolik & kembung untuk 3 bulan tidur lelap'
         },
@@ -160,14 +160,25 @@ $main_product = $PRODUCTS['calming-rub-50g'];
                 <!-- Pricing Block -->
                 <div class="bg-ftl-light p-4 rounded-2xl border border-emerald-100 flex items-baseline justify-between">
                     <div>
-                        <div class="flex items-baseline gap-2">
+                        <div class="flex items-baseline gap-2 flex-wrap">
                             <span class="text-3xl font-extrabold text-ftl-forest">
-                                Rp 118.000
+                                Rp 117.999
+                            </span>
+                            <span class="text-sm text-gray-400 line-through">
+                                Rp 299.000
+                            </span>
+                            <span class="text-xs font-bold bg-amber-100 text-amber-800 px-2.5 py-0.5 rounded-full">
+                                Hemat 60%
                             </span>
                         </div>
-                        <span class="text-xs text-gray-500 mt-1 block">Kemasan Tube 50 gram (Penggunaan 1 - 2 bulan)</span>
+                        <div class="flex items-center gap-2 mt-1.5 flex-wrap">
+                            <span class="text-xs text-gray-500">Kemasan Tube 50 gram (Penggunaan 1 - 2 bulan)</span>
+                            <span class="text-xs font-bold text-emerald-800 bg-emerald-100/90 px-2 py-0.5 rounded-full flex items-center gap-1">
+                                <i data-lucide="gift" class="w-3 h-3 text-emerald-700"></i> Free Keychain & Thank You Card
+                            </span>
+                        </div>
                     </div>
-                    <div class="text-right">
+                    <div class="text-right shrink-0">
                         <span class="inline-flex items-center gap-1 text-xs font-bold text-emerald-700 bg-emerald-100/80 px-2.5 py-1 rounded-full">
                             <i data-lucide="check" class="w-3 h-3"></i> Ready Stock
                         </span>
@@ -325,7 +336,7 @@ $main_product = $PRODUCTS['calming-rub-50g'];
                 Beli For The Little di Toko Resmi
             </h2>
             <p class="text-xs sm:text-sm text-gray-600 mt-2 max-w-xl mx-auto">
-                Dapatkan jaminan produk 100% asli, harga resmi Rp 118.000, dan pengiriman cepat ke seluruh Indonesia langsung ke alamat Bunda.
+                Dapatkan jaminan produk 100% asli, harga promo spesial Rp 117.999 (coret Rp 299.000), bonus Free Keychain & Thank You Card, dan pengiriman cepat ke seluruh Indonesia langsung ke alamat Bunda.
             </p>
 
             <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 max-w-md mx-auto">

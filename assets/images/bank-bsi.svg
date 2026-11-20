@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 70" fill="none">
+  <!-- BSI (Bank Syariah Indonesia) Official Colors -->
+  <g transform="translate(10, 10)">
+    <!-- BSI Teal & Star Motif -->
+    <path d="M8 26 C8 15 17 6 28 6 C39 6 48 15 48 26 C48 37 39 46 28 46 C17 46 8 37 8 26 Z" fill="#00A39D"/>
+    <!-- Crescent Star Gold -->
+    <path d="M22 16 C20 20 20 26 24 30 C28 34 34 34 38 31 C35 37 27 38 21 34 C15 30 15 22 22 16 Z" fill="#EAAA00"/>
+    <polygon points="32,15 34,20 39,20 35,23 37,28 32,25 27,28 29,23 25,20 30,20" fill="#EAAA00" transform="scale(0.8) translate(8, 4)"/>
+    <!-- Typography -->
+    <text x="60" y="37" font-family="Arial, Helvetica, sans-serif" font-weight="900" font-size="34" fill="#00A39D" letter-spacing="1.5">BSI</text>
+  </g>
+</svg>

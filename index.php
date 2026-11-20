@@ -409,10 +409,10 @@ require_once __DIR__ . '/includes/navbar.php';
                 <div>
                     <!-- Top Pill Badge -->
                     <div class="flex items-center justify-between">
-                        <span class="inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-50 text-ftl-forest border border-emerald-200/70">
-                            🌿 100% Pala Asli
+                        <span class="inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full bg-rose-50 text-rose-700 border border-rose-200/70">
+                            🎁 Free Gift
                         </span>
-                        <span class="text-[10px] font-bold text-gray-400">Netto 50g</span>
+                        <span class="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full">Bestseller</span>
                     </div>
 
                     <!-- Packshot Image -->
@@ -430,19 +430,32 @@ require_once __DIR__ . '/includes/navbar.php';
                         <p class="text-xs text-gray-500 mt-0.5">
                             Krim Telon & Calming (50g)
                         </p>
-                        <div class="mt-2 flex items-baseline gap-2">
-                            <span class="text-base font-extrabold text-ftl-forest">Rp 118.000</span>
+                        <div class="mt-2 flex items-baseline gap-2 flex-wrap">
+                            <span class="text-base font-extrabold text-ftl-forest">Rp 117.999</span>
+                            <span class="text-xs text-gray-400 line-through">Rp 299.000</span>
+                            <span class="text-[10px] font-bold text-amber-800 bg-amber-100 px-1.5 py-0.5 rounded-md">Hemat 60%</span>
                         </div>
+                        <p class="text-[10px] text-emerald-700 font-bold mt-1 flex items-center gap-1">
+                            <i data-lucide="gift" class="w-3 h-3 text-emerald-600"></i> Free Keychain & Card
+                        </p>
                     </div>
                 </div>
 
-                <!-- Beli Button -->
-                <button type="button" 
-                        @click="openOrderModal('pesan', 'calming-rub-50g')"
-                        class="w-full mt-3.5 py-2.5 px-4 rounded-full font-bold text-xs sm:text-sm text-white bg-emerald-600 hover:bg-emerald-700 shadow-sm hover:shadow-md hover:scale-[1.02] active:scale-95 transition-all text-center cursor-pointer flex items-center justify-center gap-1.5">
-                    <i data-lucide="shopping-bag" class="w-3.5 h-3.5"></i>
-                    <span>Beli Sekarang</span>
-                </button>
+                <!-- Beli Actions -->
+                <div class="mt-3.5 flex items-center gap-2">
+                    <button type="button" 
+                            @click="openOrderModal('pesan', 'calming-rub-50g')"
+                            class="flex-1 py-2.5 px-3 rounded-full font-bold text-xs text-white bg-emerald-600 hover:bg-emerald-700 shadow-2xs hover:shadow-md hover:scale-[1.02] active:scale-95 transition-all text-center cursor-pointer flex items-center justify-center gap-1.5">
+                        <i data-lucide="shopping-bag" class="w-3.5 h-3.5"></i>
+                        <span>Pesan Web</span>
+                    </button>
+                    <a href="<?= SHOPEE_URL ?>" target="_blank" rel="noopener"
+                       class="py-2.5 px-3 rounded-full font-bold text-xs text-[#EE4D2D] bg-[#FFF0ED] hover:bg-[#EE4D2D] hover:text-white border border-[#EE4D2D]/30 transition-all text-center flex items-center justify-center gap-1"
+                       title="Beli via Shopee Official">
+                        <img src="<?= BASE_URL ?>assets/images/shopee-icon-orange.svg" class="w-3.5 h-3.5" alt="Shopee">
+                        <span>Shopee</span>
+                    </a>
+                </div>
             </div>
 
             <!-- Card 2: Paket 2 Tube (Bundling) -->
@@ -450,10 +463,10 @@ require_once __DIR__ . '/includes/navbar.php';
                 <div>
                     <!-- Top Pill Badge -->
                     <div class="flex items-center justify-between">
-                        <span class="inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200/70">
-                            🌿 Paket 2 Tube
+                        <span class="inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full bg-amber-50 text-amber-800 border border-amber-200/70">
+                            🔥 Hemat 61%
                         </span>
-                        <span class="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full">Bestseller</span>
+                        <span class="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full">Paket Bunda</span>
                     </div>
 
                     <!-- Packshot Image -->
@@ -471,19 +484,31 @@ require_once __DIR__ . '/includes/navbar.php';
                         <p class="text-xs text-gray-500 mt-0.5">
                             Paket 2 Tube Perawatan Bunda
                         </p>
-                        <div class="mt-2 flex items-baseline gap-2">
-                            <span class="text-base font-extrabold text-ftl-forest">Rp 236.000</span>
+                        <div class="mt-2 flex items-baseline gap-2 flex-wrap">
+                            <span class="text-base font-extrabold text-ftl-forest">Rp 229.999</span>
+                            <span class="text-xs text-gray-400 line-through">Rp 598.000</span>
                         </div>
+                        <p class="text-[10px] text-emerald-700 font-bold mt-1 flex items-center gap-1">
+                            <i data-lucide="gift" class="w-3 h-3 text-emerald-600"></i> Free Keychain & Card
+                        </p>
                     </div>
                 </div>
 
-                <!-- Beli Button -->
-                <button type="button" 
-                        @click="openOrderModal('pesan', 'bundling-double-care')"
-                        class="w-full mt-3.5 py-2.5 px-4 rounded-full font-bold text-xs sm:text-sm text-white bg-emerald-600 hover:bg-emerald-700 shadow-sm hover:shadow-md hover:scale-[1.02] active:scale-95 transition-all text-center cursor-pointer flex items-center justify-center gap-1.5">
-                    <i data-lucide="shopping-bag" class="w-3.5 h-3.5"></i>
-                    <span>Beli Sekarang</span>
-                </button>
+                <!-- Beli Actions -->
+                <div class="mt-3.5 flex items-center gap-2">
+                    <button type="button" 
+                            @click="openOrderModal('pesan', 'bundling-double-care')"
+                            class="flex-1 py-2.5 px-3 rounded-full font-bold text-xs text-white bg-emerald-600 hover:bg-emerald-700 shadow-2xs hover:shadow-md hover:scale-[1.02] active:scale-95 transition-all text-center cursor-pointer flex items-center justify-center gap-1.5">
+                        <i data-lucide="shopping-bag" class="w-3.5 h-3.5"></i>
+                        <span>Pesan Web</span>
+                    </button>
+                    <a href="<?= SHOPEE_URL ?>" target="_blank" rel="noopener"
+                       class="py-2.5 px-3 rounded-full font-bold text-xs text-[#EE4D2D] bg-[#FFF0ED] hover:bg-[#EE4D2D] hover:text-white border border-[#EE4D2D]/30 transition-all text-center flex items-center justify-center gap-1"
+                       title="Beli via Shopee Official">
+                        <img src="<?= BASE_URL ?>assets/images/shopee-icon-orange.svg" class="w-3.5 h-3.5" alt="Shopee">
+                        <span>Shopee</span>
+                    </a>
+                </div>
             </div>
 
             <!-- Card 3: Bundle Triple Care 3 Tube -->
@@ -492,7 +517,7 @@ require_once __DIR__ . '/includes/navbar.php';
                     <!-- Top Pill Badge -->
                     <div class="flex items-center justify-between">
                         <span class="inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200/70">
-                            🌟 Paket 3 Tube
+                            🌟 Super Hemat 61%
                         </span>
                         <span class="text-[10px] font-bold text-gray-400">Stok 3 Bulan</span>
                     </div>
@@ -512,18 +537,31 @@ require_once __DIR__ . '/includes/navbar.php';
                         <p class="text-xs text-gray-500 mt-0.5">
                             Paket Lengkap 3 Tube Si Kecil
                         </p>
-                        <div class="mt-2 flex items-baseline gap-2">
-                            <span class="text-base font-extrabold text-ftl-forest">Rp 354.000</span>
+                        <div class="mt-2 flex items-baseline gap-2 flex-wrap">
+                            <span class="text-base font-extrabold text-ftl-forest">Rp 344.999</span>
+                            <span class="text-xs text-gray-400 line-through">Rp 897.000</span>
                         </div>
+                        <p class="text-[10px] text-emerald-700 font-bold mt-1 flex items-center gap-1">
+                            <i data-lucide="gift" class="w-3 h-3 text-emerald-600"></i> Free Keychain & Card
+                        </p>
                     </div>
                 </div>
 
-                <!-- Beli Button -->
-                <button type="button" 
-                        @click="openOrderModal('pesan', 'bundling-newborn-gift')"
-                        class="w-full mt-3.5 py-2.5 px-4 rounded-full font-bold text-xs sm:text-sm text-white bg-emerald-600 hover:bg-emerald-700 shadow-sm hover:shadow-md hover:scale-[1.02] active:scale-95 transition-all text-center cursor-pointer flex items-center justify-center gap-1.5">
-                    <i data-lucide="shopping-bag" class="w-3.5 h-3.5"></i>
-                    <span>Beli Sekarang</span>
+                <!-- Beli Actions -->
+                <div class="mt-3.5 flex items-center gap-2">
+                    <button type="button" 
+                            @click="openOrderModal('pesan', 'bundling-newborn-gift')"
+                            class="flex-1 py-2.5 px-3 rounded-full font-bold text-xs text-white bg-emerald-600 hover:bg-emerald-700 shadow-2xs hover:shadow-md hover:scale-[1.02] active:scale-95 transition-all text-center cursor-pointer flex items-center justify-center gap-1.5">
+                        <i data-lucide="shopping-bag" class="w-3.5 h-3.5"></i>
+                        <span>Pesan Web</span>
+                    </button>
+                    <a href="<?= SHOPEE_URL ?>" target="_blank" rel="noopener"
+                       class="py-2.5 px-3 rounded-full font-bold text-xs text-[#EE4D2D] bg-[#FFF0ED] hover:bg-[#EE4D2D] hover:text-white border border-[#EE4D2D]/30 transition-all text-center flex items-center justify-center gap-1"
+                       title="Beli via Shopee Official">
+                        <img src="<?= BASE_URL ?>assets/images/shopee-icon-orange.svg" class="w-3.5 h-3.5" alt="Shopee">
+                        <span>Shopee</span>
+                    </a>
+                </div>
                 </button>
             </div>
 
@@ -616,11 +654,14 @@ require_once __DIR__ . '/includes/navbar.php';
                         <!-- Price Banner -->
                         <div class="mt-5 p-4 rounded-2xl bg-ftl-light/80 border border-emerald-100 flex flex-wrap items-center justify-between gap-2.5 sm:gap-3">
                             <div class="flex items-baseline gap-2 sm:gap-2.5 flex-wrap">
-                                <span class="text-2xl sm:text-3xl font-extrabold text-ftl-forest whitespace-nowrap">Rp 118.000</span>
-                                <span class="text-xs text-gray-500 font-medium">/ tube 50g</span>
+                                <span class="text-xs sm:text-sm text-gray-400 line-through whitespace-nowrap">Rp 299.000</span>
+                                <span class="text-2xl sm:text-3xl font-extrabold text-ftl-forest whitespace-nowrap">Rp 117.999</span>
+                                <span class="text-xs font-bold text-amber-800 bg-amber-100 px-2.5 py-0.5 rounded-full whitespace-nowrap">
+                                    Hemat 60%
+                                </span>
                             </div>
-                            <span class="text-xs font-semibold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full flex items-center gap-1 whitespace-nowrap shrink-0">
-                                <i data-lucide="check" class="w-3 h-3"></i> Ready Stock
+                            <span class="text-xs font-semibold text-emerald-800 bg-emerald-100/90 px-2.5 py-1 rounded-full flex items-center gap-1 whitespace-nowrap shrink-0">
+                                <i data-lucide="gift" class="w-3.5 h-3.5 text-emerald-700"></i> Free Keychain & Card
                             </span>
                         </div>
 
@@ -720,7 +761,7 @@ require_once __DIR__ . '/includes/navbar.php';
             <!-- Card 1: Biji Pala Nusantara -->
             <div data-animate="fade-up" data-delay="0" class="bg-white rounded-3xl p-8 border border-ftl-sand shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center">
                 <div class="w-28 h-28 mb-6 p-2 rounded-2xl bg-amber-50/60 border border-amber-100 flex items-center justify-center overflow-hidden">
-                    <img src="<?= BASE_URL ?>assets/images/ingredient-nutmeg-real.png" alt="Biji Pala Nusantara" class="h-24 w-auto object-contain drop-shadow-md">
+                    <img src="<?= BASE_URL ?>assets/images/ingredient-nutmeg-real.png" alt="Biji Pala Nusantara" class="w-24 h-24 object-cover rounded-full shadow-md">
                 </div>
                 <div class="inline-block px-3 py-1 rounded-full bg-amber-100 text-amber-800 text-xs font-bold mb-3">
                     Bahan Utama Nusantara
