@@ -480,26 +480,71 @@ $FTL_DESTINATIONS = getShippingDestinations($SHIPPING_DATA);
                     <div class="flex items-center justify-between">
                         <span class="text-[11px] font-bold text-gray-700 flex items-center gap-1.5">
                             <i data-lucide="credit-card" class="w-3.5 h-3.5 text-emerald-700"></i>
-                            <span>Transfer Bank Resmi:</span>
+                            <span>Pilih Rekening Transfer:</span>
                         </span>
                         <span class="text-[10px] font-semibold text-emerald-700 bg-emerald-100/80 px-2 py-0.5 rounded-full">
                             Bebas Biaya Admin
                         </span>
                     </div>
                     <div class="grid grid-cols-4 gap-2">
-                        <div class="bg-white px-2 py-2 rounded-xl border border-gray-200 flex items-center justify-center shadow-2xs h-10" title="Bank BNI">
+                        <!-- BNI -->
+                        <button type="button" 
+                                @click="selectedBank = 'BNI'"
+                                :class="selectedBank === 'BNI' ? 'border-emerald-600 bg-emerald-50/80 ring-2 ring-emerald-500/25 shadow-xs' : 'border-gray-200 bg-white hover:border-gray-300'"
+                                class="px-2 py-2 rounded-xl border flex items-center justify-center h-11 transition-all cursor-pointer relative active:scale-95 no-tap-zoom"
+                                style="touch-action: manipulation;"
+                                title="Bank BNI">
                             <img src="<?= BASE_URL ?>assets/images/bank-bni.svg?v=2026" alt="BNI" class="h-4 sm:h-5 max-h-5 w-auto max-w-full object-contain">
-                        </div>
-                        <div class="bg-white px-2 py-2 rounded-xl border border-gray-200 flex items-center justify-center shadow-2xs h-10" title="SeaBank">
+                            <div x-show="selectedBank === 'BNI'" class="absolute -top-1 -right-1 w-4 h-4 bg-emerald-600 text-white rounded-full flex items-center justify-center shadow-xs">
+                                <svg class="w-2.5 h-2.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                        </button>
+
+                        <!-- SeaBank -->
+                        <button type="button" 
+                                @click="selectedBank = 'SeaBank'"
+                                :class="selectedBank === 'SeaBank' ? 'border-emerald-600 bg-emerald-50/80 ring-2 ring-emerald-500/25 shadow-xs' : 'border-gray-200 bg-white hover:border-gray-300'"
+                                class="px-2 py-2 rounded-xl border flex items-center justify-center h-11 transition-all cursor-pointer relative active:scale-95 no-tap-zoom"
+                                style="touch-action: manipulation;"
+                                title="SeaBank">
                             <img src="<?= BASE_URL ?>assets/images/bank-seabank.svg?v=2026" alt="SeaBank" class="h-4 sm:h-5 max-h-5 w-auto max-w-full object-contain">
-                        </div>
-                        <div class="bg-white px-2 py-2 rounded-xl border border-gray-200 flex items-center justify-center shadow-2xs h-10" title="Bank Syariah Indonesia (BSI)">
+                            <div x-show="selectedBank === 'SeaBank'" class="absolute -top-1 -right-1 w-4 h-4 bg-emerald-600 text-white rounded-full flex items-center justify-center shadow-xs">
+                                <svg class="w-2.5 h-2.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                        </button>
+
+                        <!-- BSI -->
+                        <button type="button" 
+                                @click="selectedBank = 'BSI'"
+                                :class="selectedBank === 'BSI' ? 'border-emerald-600 bg-emerald-50/80 ring-2 ring-emerald-500/25 shadow-xs' : 'border-gray-200 bg-white hover:border-gray-300'"
+                                class="px-2 py-2 rounded-xl border flex items-center justify-center h-11 transition-all cursor-pointer relative active:scale-95 no-tap-zoom"
+                                style="touch-action: manipulation;"
+                                title="Bank Syariah Indonesia (BSI)">
                             <img src="<?= BASE_URL ?>assets/images/bank-bsi.svg?v=2026" alt="BSI" class="h-4 sm:h-5 max-h-5 w-auto max-w-full object-contain">
-                        </div>
-                        <div class="bg-white px-2 py-2 rounded-xl border border-gray-200 flex items-center justify-center shadow-2xs h-10" title="PermataBank">
+                            <div x-show="selectedBank === 'BSI'" class="absolute -top-1 -right-1 w-4 h-4 bg-emerald-600 text-white rounded-full flex items-center justify-center shadow-xs">
+                                <svg class="w-2.5 h-2.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                        </button>
+
+                        <!-- PermataBank -->
+                        <button type="button" 
+                                @click="selectedBank = 'PermataBank'"
+                                :class="selectedBank === 'PermataBank' ? 'border-emerald-600 bg-emerald-50/80 ring-2 ring-emerald-500/25 shadow-xs' : 'border-gray-200 bg-white hover:border-gray-300'"
+                                class="px-2 py-2 rounded-xl border flex items-center justify-center h-11 transition-all cursor-pointer relative active:scale-95 no-tap-zoom"
+                                style="touch-action: manipulation;"
+                                title="PermataBank">
                             <img src="<?= BASE_URL ?>assets/images/bank-permata.svg?v=2026" alt="Permata" class="h-4 sm:h-5 max-h-5 w-auto max-w-full object-contain">
-                        </div>
+                            <div x-show="selectedBank === 'PermataBank'" class="absolute -top-1 -right-1 w-4 h-4 bg-emerald-600 text-white rounded-full flex items-center justify-center shadow-xs">
+                                <svg class="w-2.5 h-2.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                        </button>
                     </div>
+
+                    <div class="text-[10px] text-emerald-800 font-semibold flex items-center gap-1.5 px-0.5">
+                        <i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-600 shrink-0"></i>
+                        <span>Dipilih: Transfer Bank <b x-text="selectedBank"></b></span>
+                    </div>
+
                     <div class="pt-2 border-t border-gray-200/80 flex flex-wrap items-center justify-between gap-2 text-[10px] text-gray-500 font-medium">
                         <span class="flex items-center gap-1"><i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-600"></i> 100% Original BPOM</span>
                         <span class="flex items-center gap-1"><i data-lucide="package-check" class="w-3.5 h-3.5 text-emerald-600"></i> Free Bubble Wrap & Dus</span>
@@ -611,6 +656,7 @@ function orderModal() {
         loadingOngkir: false,
         searchQuery: '',
         showSuggestions: false,
+        selectedBank: 'BNI',
         locationMode: 'search',
         productsList: {
             'calming-rub-50g': { 
@@ -987,11 +1033,12 @@ function orderModal() {
             lines.push('• Biaya Ongkir: ' + this.formatRp(this.shippingCost));
             lines.push('------------------------------------');
             lines.push('*TOTAL PEMBAYARAN: ' + this.formatRp(this.grandTotal) + '*');
+            lines.push('• Metode Bayar: Transfer Bank ' + this.selectedBank + ' (Bebas Admin)');
             lines.push('------------------------------------');
             if (this.note.trim()) {
                 lines.push('*Catatan Tambahan:* ' + this.note.trim() + '\n');
             }
-            lines.push('Halo Admin FTL, saya sudah mengisi form pesanan dan ongkir sudah otomatis terdeteksi via website. Mohon info nomor rekening BNI/SeaBank/BSI/Permata untuk transfer ya. Terima kasih! 🙏');
+            lines.push('Halo Admin FTL, saya sudah mengisi form pesanan via website dan memilih pembayaran via transfer *Bank ' + this.selectedBank + '*. Mohon info nomor rekening resminya untuk segera saya transfer ya. Terima kasih! 🙏');
 
             const msg = lines.join('\n');
             const url = 'https://wa.me/<?= WHATSAPP_NUMBER ?>?text=' + encodeURIComponent(msg);
