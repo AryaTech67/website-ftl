@@ -540,9 +540,13 @@ $FTL_DESTINATIONS = getShippingDestinations($SHIPPING_DATA);
                         </button>
                     </div>
 
-                    <div class="text-[10px] text-emerald-800 font-semibold flex items-center gap-1.5 px-0.5">
+                    <div x-show="selectedBank" class="text-[10px] text-emerald-800 font-semibold flex items-center gap-1.5 px-0.5">
                         <i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-600 shrink-0"></i>
                         <span>Dipilih: Transfer Bank <b x-text="selectedBank"></b></span>
+                    </div>
+                    <div x-show="!selectedBank" class="text-[10px] text-gray-500 font-medium flex items-center gap-1.5 px-0.5">
+                        <i data-lucide="info" class="w-3.5 h-3.5 text-gray-400 shrink-0"></i>
+                        <span>Pilih salah satu bank tujuan transfer di atas</span>
                     </div>
 
                     <div class="pt-2 border-t border-gray-200/80 flex flex-wrap items-center justify-between gap-2 text-[10px] text-gray-500 font-medium">
@@ -656,7 +660,7 @@ function orderModal() {
         loadingOngkir: false,
         searchQuery: '',
         showSuggestions: false,
-        selectedBank: 'BNI',
+        selectedBank: '',
         locationMode: 'search',
         productsList: {
             'calming-rub-50g': { 
@@ -1033,12 +1037,20 @@ function orderModal() {
             lines.push('• Biaya Ongkir: ' + this.formatRp(this.shippingCost));
             lines.push('------------------------------------');
             lines.push('*TOTAL PEMBAYARAN: ' + this.formatRp(this.grandTotal) + '*');
-            lines.push('• Metode Bayar: Transfer Bank ' + this.selectedBank + ' (Bebas Admin)');
+            if (this.selectedBank) {
+                lines.push('• Metode Bayar: Transfer Bank ' + this.selectedBank + ' (Bebas Admin)');
+            } else {
+                lines.push('• Metode Bayar: Transfer Bank Resmi (Bebas Admin)');
+            }
             lines.push('------------------------------------');
             if (this.note.trim()) {
                 lines.push('*Catatan Tambahan:* ' + this.note.trim() + '\n');
             }
-            lines.push('Mohon dicek ya min, untuk pembayaran via transfer *Bank ' + this.selectedBank + '* bisa minta nomor rekening resminya? Terima kasih banyak min! 🙏✨');
+            if (this.selectedBank) {
+                lines.push('Mohon dicek ya min, untuk pembayaran via transfer *Bank ' + this.selectedBank + '* bisa minta nomor rekening resminya? Terima kasih banyak min! 🙏✨');
+            } else {
+                lines.push('Mohon dicek ya min, untuk pembayaran via transfer bank resmi bisa minta nomor rekeningnya? Terima kasih banyak min! 🙏✨');
+            }
 
             const msg = lines.join('\n');
             const url = 'https://wa.me/<?= WHATSAPP_NUMBER ?>?text=' + encodeURIComponent(msg);
