@@ -10,7 +10,7 @@ $current_page = isset($current_page) ? $current_page : 'home';
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
     <title><?= htmlspecialchars($page_title) ?></title>
     <meta name="description" content="<?= htmlspecialchars($page_desc) ?>">
     <meta name="keywords" content="<?= SITE_KEYWORDS ?>">
@@ -183,10 +183,17 @@ $current_page = isset($current_page) ? $current_page : 'home';
             -ms-overflow-style: none;
             scrollbar-width: none;
         }
-        /* Anti-Zoom on Mobile Inputs (iOS Safari auto-zooms if font-size < 16px) */
+        /* Anti-Zoom on Mobile Inputs (iOS Safari strictly requires font-size >= 16px to prevent zoom) */
+        input, select, textarea {
+            font-size: 16px !important;
+            -webkit-text-size-adjust: 100% !important;
+            text-size-adjust: 100% !important;
+        }
         @media screen and (max-width: 768px) {
             input, select, textarea {
                 font-size: 16px !important;
+                -webkit-text-size-adjust: 100% !important;
+                text-size-adjust: 100% !important;
             }
         }
         /* Anti-Double-Tap Zoom on Mobile (iOS Safari double-tap on +/- buttons prevention) */

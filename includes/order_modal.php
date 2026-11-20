@@ -8,6 +8,23 @@ $FTL_DESTINATIONS = getShippingDestinations($SHIPPING_DATA);
 ?>
 
 <!-- Order & WhatsApp Interactive Modal dengan Auto-Deteksi Lokasi GPS, Live Ongkir & Custom Styled Dropdown (Layer z-[60]) -->
+<style>
+    /* Anti-Zoom iOS Safari & Touch Stabilization */
+    #ftl-order-modal-root input,
+    #ftl-order-modal-root select,
+    #ftl-order-modal-root textarea {
+        font-size: 16px !important;
+        -webkit-text-size-adjust: 100% !important;
+        text-size-adjust: 100% !important;
+        touch-action: manipulation;
+    }
+    @media (max-width: 640px) {
+        #ftl-order-modal-root input::placeholder,
+        #ftl-order-modal-root textarea::placeholder {
+            font-size: 14px;
+        }
+    }
+</style>
 <div id="ftl-order-modal-root"
      x-data="orderModal()" 
      x-show="isOpen || (typeof orderModalOpen !== 'undefined' && orderModalOpen)" 
@@ -37,7 +54,7 @@ $FTL_DESTINATIONS = getShippingDestinations($SHIPPING_DATA);
          x-transition:leave="ease-in duration-200"
          x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
          x-transition:leave-end="opacity-0 translate-y-full sm:translate-y-0 sm:scale-95"
-         class="relative z-10 transform flex flex-col rounded-t-[32px] sm:rounded-3xl bg-white text-left shadow-2xl transition-all w-full max-w-lg border-t sm:border border-ftl-sand overflow-hidden"
+         class="relative z-10 flex flex-col rounded-t-[32px] sm:rounded-3xl bg-white text-left shadow-2xl transition-all w-full max-w-lg border-t sm:border border-ftl-sand overflow-hidden"
          style="max-height: 82dvh; max-height: calc(100dvh - 3.5rem);">
             
             <!-- Modal Header dengan Tab Navigasi (Sticky Top) -->
@@ -83,7 +100,7 @@ $FTL_DESTINATIONS = getShippingDestinations($SHIPPING_DATA);
             </div>
 
             <!-- ================= TAB 1: FORM KONSULTASI BUNDA (Scrollable Body) ================= -->
-            <div x-show="modalTab === 'konsultasi'" class="p-4 sm:p-5 space-y-4 flex-1 overflow-y-auto overscroll-contain">
+            <div x-show="modalTab === 'konsultasi'" class="p-4 sm:p-5 space-y-4 flex-1 overflow-y-auto overscroll-contain pb-28 sm:pb-5" style="-webkit-overflow-scrolling: touch;">
                 
                 <!-- Info Banner Ramah -->
                 <div class="p-3.5 bg-emerald-50/90 rounded-2xl border border-emerald-200/80 flex items-start gap-3">
@@ -192,7 +209,7 @@ $FTL_DESTINATIONS = getShippingDestinations($SHIPPING_DATA);
             </div>
 
             <!-- ================= TAB 2: FORM PEMESANAN & ONGKIR (Scrollable Body) ================= -->
-            <div x-show="modalTab === 'pesan'" class="p-4 sm:p-5 space-y-4 flex-1 overflow-y-auto overscroll-contain">
+            <div x-show="modalTab === 'pesan'" class="p-4 sm:p-5 space-y-4 flex-1 overflow-y-auto overscroll-contain pb-28 sm:pb-5" style="-webkit-overflow-scrolling: touch;">
                 
                 <!-- 1. PILIH PRODUK & JUMLAH -->
                 <div id="field-product-selection" class="space-y-3">
@@ -792,6 +809,7 @@ function orderModal() {
         },
         openModal(detail) {
             this.isOpen = true;
+            try { document.body.style.overflow = 'hidden'; } catch(e) {}
             this.errors = {};
             this.errorMessage = '';
             if (detail && detail.tab) this.modalTab = detail.tab;
@@ -806,6 +824,7 @@ function orderModal() {
         },
         closeModal() {
             this.isOpen = false;
+            try { document.body.style.overflow = ''; } catch(e) {}
             this.openProvDropdown = false;
             this.openCityDropdown = false;
             this.errors = {};
