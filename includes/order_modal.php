@@ -545,36 +545,24 @@ $FTL_DESTINATIONS = getShippingDestinations($SHIPPING_DATA);
                     <div class="flex items-center justify-between">
                         <span class="text-[11px] font-bold text-gray-700 flex items-center gap-1.5">
                             <i data-lucide="credit-card" class="w-3.5 h-3.5 text-emerald-700"></i>
-                            <span>Pembayaran Transfer & QRIS:</span>
+                            <span>Transfer Bank Resmi:</span>
                         </span>
                         <span class="text-[10px] font-semibold text-emerald-700 bg-emerald-100/80 px-2 py-0.5 rounded-full">
                             Bebas Biaya Admin
                         </span>
                     </div>
                     <div class="grid grid-cols-4 gap-2">
-                        <div class="bg-white px-2 py-2 rounded-xl border border-gray-200 flex items-center justify-center shadow-2xs h-10" title="Bank BCA">
-                            <img src="<?= BASE_URL ?>assets/images/bank-bca.svg?v=2026" alt="BCA" class="h-4 sm:h-5 max-h-5 w-auto max-w-full object-contain">
-                        </div>
-                        <div class="bg-white px-2 py-2 rounded-xl border border-gray-200 flex items-center justify-center shadow-2xs h-10" title="Bank Mandiri">
-                            <img src="<?= BASE_URL ?>assets/images/bank-mandiri.svg?v=2026" alt="Mandiri" class="h-4 sm:h-5 max-h-5 w-auto max-w-full object-contain">
-                        </div>
-                        <div class="bg-white px-2 py-2 rounded-xl border border-gray-200 flex items-center justify-center shadow-2xs h-10" title="Bank BRI">
-                            <img src="<?= BASE_URL ?>assets/images/bank-bri.svg?v=2026" alt="BRI" class="h-4 sm:h-5 max-h-5 w-auto max-w-full object-contain">
-                        </div>
                         <div class="bg-white px-2 py-2 rounded-xl border border-gray-200 flex items-center justify-center shadow-2xs h-10" title="Bank BNI">
                             <img src="<?= BASE_URL ?>assets/images/bank-bni.svg?v=2026" alt="BNI" class="h-4 sm:h-5 max-h-5 w-auto max-w-full object-contain">
-                        </div>
-                        <div class="bg-white px-2 py-2 rounded-xl border border-gray-200 flex items-center justify-center shadow-2xs h-10" title="Bank Syariah Indonesia (BSI)">
-                            <img src="<?= BASE_URL ?>assets/images/bank-bsi.svg?v=2026" alt="BSI" class="h-4 sm:h-5 max-h-5 w-auto max-w-full object-contain">
                         </div>
                         <div class="bg-white px-2 py-2 rounded-xl border border-gray-200 flex items-center justify-center shadow-2xs h-10" title="SeaBank">
                             <img src="<?= BASE_URL ?>assets/images/bank-seabank.svg?v=2026" alt="SeaBank" class="h-4 sm:h-5 max-h-5 w-auto max-w-full object-contain">
                         </div>
+                        <div class="bg-white px-2 py-2 rounded-xl border border-gray-200 flex items-center justify-center shadow-2xs h-10" title="Bank Syariah Indonesia (BSI)">
+                            <img src="<?= BASE_URL ?>assets/images/bank-bsi.svg?v=2026" alt="BSI" class="h-4 sm:h-5 max-h-5 w-auto max-w-full object-contain">
+                        </div>
                         <div class="bg-white px-2 py-2 rounded-xl border border-gray-200 flex items-center justify-center shadow-2xs h-10" title="PermataBank">
                             <img src="<?= BASE_URL ?>assets/images/bank-permata.svg?v=2026" alt="Permata" class="h-4 sm:h-5 max-h-5 w-auto max-w-full object-contain">
-                        </div>
-                        <div class="bg-white px-2 py-2 rounded-xl border border-gray-200 flex items-center justify-center shadow-2xs h-10" title="QRIS (Semua E-Wallet & Mobile Banking)">
-                            <img src="<?= BASE_URL ?>assets/images/bank-qris.svg?v=2026" alt="QRIS" class="h-4 sm:h-5 max-h-5 w-auto max-w-full object-contain">
                         </div>
                     </div>
                     <div class="pt-2 border-t border-gray-200/80 flex flex-wrap items-center justify-between gap-2 text-[10px] text-gray-500 font-medium">
@@ -1068,7 +1056,7 @@ function orderModal() {
             if (this.note.trim()) {
                 lines.push('*Catatan Tambahan:* ' + this.note.trim() + '\n');
             }
-            lines.push('Halo Admin FTL, saya sudah mengisi form pesanan dan ongkir sudah otomatis terdeteksi via website. Mohon info nomor rekening BCA/Mandiri untuk transfer ya. Terima kasih! 🙏');
+            lines.push('Halo Admin FTL, saya sudah mengisi form pesanan dan ongkir sudah otomatis terdeteksi via website. Mohon info nomor rekening BNI/SeaBank/BSI/Permata untuk transfer ya. Terima kasih! 🙏');
 
             const msg = lines.join('\n');
             const url = 'https://wa.me/<?= WHATSAPP_NUMBER ?>?text=' + encodeURIComponent(msg);
