@@ -29,11 +29,11 @@ $main_product = $PRODUCTS['calming-rub-50g'];
     activeThumb: 0,
     thumbnails: [
         {
-            title: 'Kemasan Tube Resmi (50g)',
+            title: 'Kemasan Tube & Box Dus Resmi (50g)',
             img: '<?= BASE_URL ?>assets/images/product-calming-rub-real.webp',
-            badgeLeft: 'Foto Resmi FTL',
+            badgeLeft: '100% Kemasan Asli FTL',
             badgeRight: 'Dermatologically Tested',
-            caption: 'Baby Calming Rub Cream 50g • Formulasi Biji Pala, Calendula & Avocado Oil Alami'
+            caption: 'Baby Calming Rub Cream 50g • Kemasan Tube Flip-Top Anti-Bocor & Dus Box Asli'
         },
         {
             title: 'Kemasan Belakang & Izin Resmi BPOM',
