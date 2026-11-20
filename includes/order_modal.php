@@ -351,29 +351,13 @@ $FTL_DESTINATIONS = getShippingDestinations($SHIPPING_DATA);
                     </div>
 
                     <!-- STATE B: KOTA BELUM TERPILIH (Pencarian Cerdas & Presisi) -->
-                    <div x-show="!city" class="space-y-2.5">
-                        <!-- Mode Tab Switcher: Cari Cepat vs Pilih Manual -->
-                        <div class="flex items-center justify-between">
-                            <span class="text-[11px] font-semibold text-gray-700">Pilih Kota Tujuan:</span>
-                            <div class="flex items-center gap-1.5 text-[11px]">
-                                <button type="button" 
-                                        @click="locationMode = 'search'" 
-                                        :class="locationMode === 'search' ? 'text-emerald-700 font-bold underline' : 'text-gray-400 hover:text-gray-600'"
-                                        class="cursor-pointer">
-                                    Cari Nama Kota
-                                </button>
-                                <span class="text-gray-300">•</span>
-                                <button type="button" 
-                                        @click="locationMode = 'manual'" 
-                                        :class="locationMode === 'manual' ? 'text-emerald-700 font-bold underline' : 'text-gray-400 hover:text-gray-600'"
-                                        class="cursor-pointer">
-                                    Pilih per Provinsi
-                                </button>
-                            </div>
-                        </div>
+                    <div x-show="!city" class="space-y-2">
+                        <label class="block text-[11px] font-semibold text-gray-700">
+                            Kota Tujuan Pengiriman <span class="text-rose-500">*</span>:
+                        </label>
 
-                        <!-- 1. SEARCH INPUT WITH AUTOCOMPLETE -->
-                        <div x-show="locationMode === 'search'" class="space-y-2">
+                        <!-- SEARCH INPUT WITH AUTOCOMPLETE -->
+                        <div class="space-y-2">
                             <div class="relative">
                                 <input type="text" 
                                        x-model="searchQuery" 
@@ -406,51 +390,6 @@ $FTL_DESTINATIONS = getShippingDestinations($SHIPPING_DATA);
                                         <span class="text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full text-[10px] font-semibold" x-text="item.province"></span>
                                     </div>
                                 </template>
-                            </div>
-                        </div>
-
-                        <!-- 2. DROPDOWN PER PROVINSI & KOTA (MANUAL) -->
-                        <div x-show="locationMode === 'manual'" class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                            <!-- Provinsi Selector -->
-                            <div class="relative">
-                                <button type="button" 
-                                        @click="openProvDropdown = !openProvDropdown; openCityDropdown = false; $nextTick(() => { if(window.lucide) lucide.createIcons(); });"
-                                        class="w-full p-2.5 rounded-xl border transition-all flex items-center justify-between text-left bg-white text-xs sm:text-sm cursor-pointer shadow-2xs"
-                                        :class="openProvDropdown ? 'border-emerald-600 ring-2 ring-emerald-500/25' : (province ? 'border-emerald-400 bg-emerald-50/20' : 'border-gray-300')">
-                                    <span class="truncate font-semibold" :class="province ? 'text-gray-900' : 'text-gray-400'" x-text="province || 'Pilih Provinsi'"></span>
-                                    <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-gray-400 shrink-0"></i>
-                                </button>
-                                <div x-show="openProvDropdown" @click.away="openProvDropdown = false" class="absolute z-50 left-0 right-0 mt-1 bg-white rounded-xl shadow-2xl border border-emerald-300 p-2 text-xs space-y-1.5">
-                                    <input type="text" x-model="searchProvQuery" placeholder="Cari provinsi..." class="w-full px-2.5 py-1.5 text-xs rounded-lg border border-gray-200 bg-gray-50">
-                                    <div class="max-h-48 overflow-y-auto space-y-0.5">
-                                        <template x-for="item in filteredProvincesList" :key="item.province">
-                                            <button type="button" @click="selectProvince(item.province)" class="w-full text-left px-2.5 py-1.5 rounded-lg hover:bg-emerald-50 flex items-center justify-between" :class="province === item.province ? 'bg-emerald-600 text-white font-bold' : 'text-gray-800'">
-                                                <span class="truncate" x-text="item.province"></span>
-                                            </button>
-                                        </template>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Kota Selector -->
-                            <div class="relative">
-                                <button type="button" 
-                                        @click="if(province) { openCityDropdown = !openCityDropdown; openProvDropdown = false; $nextTick(() => { if(window.lucide) lucide.createIcons(); }); }"
-                                        :disabled="!province"
-                                        class="w-full p-2.5 rounded-xl border transition-all flex items-center justify-between text-left bg-white text-xs sm:text-sm shadow-2xs"
-                                        :class="!province ? 'bg-gray-100 border-gray-200 text-gray-400 cursor-not-allowed' : (openCityDropdown ? 'border-emerald-600 ring-2 ring-emerald-500/25 cursor-pointer' : 'border-gray-300 cursor-pointer')">
-                                    <span class="truncate font-semibold" :class="city ? 'text-gray-900' : 'text-gray-400'" x-text="city || (province ? 'Pilih Kota / Kab' : 'Pilih Provinsi Dulu')"></span>
-                                    <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-gray-400 shrink-0"></i>
-                                </button>
-                                <div x-show="openCityDropdown && province" @click.away="openCityDropdown = false" class="absolute z-50 left-0 right-0 mt-1 bg-white rounded-xl shadow-2xl border border-emerald-300 p-2 text-xs space-y-1.5">
-                                    <input type="text" x-model="searchCityQuery" :placeholder="'Cari kota di ' + province + '...'" class="w-full px-2.5 py-1.5 text-xs rounded-lg border border-gray-200 bg-gray-50">
-                                    <div class="max-h-48 overflow-y-auto space-y-0.5">
-                                        <template x-for="c in filteredCitiesOfProvince" :key="c">
-                                            <button type="button" @click="selectCity(c)" class="w-full text-left px-2.5 py-1.5 rounded-lg hover:bg-emerald-50 flex items-center justify-between" :class="city === c ? 'bg-emerald-600 text-white font-bold' : 'text-gray-800'">
-                                                <span class="truncate" x-text="c"></span>
-                                            </button>
-                                        </template>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
