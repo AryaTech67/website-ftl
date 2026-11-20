@@ -280,11 +280,10 @@ $FTL_DESTINATIONS = getShippingDestinations($SHIPPING_DATA);
                     <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider">
                         2. Data Penerima
                     </label>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 items-start">
                         <div id="field-name">
-                            <label class="block text-[11px] font-semibold text-gray-700 mb-1 flex items-center justify-between">
-                                <span>Nama Bunda / Ayah <span class="text-rose-500">*</span></span>
-                                <span class="text-[10px] text-gray-400 font-normal">(Contoh: Bunda Rina)</span>
+                            <label class="block text-[11px] font-semibold text-gray-700 mb-1">
+                                Nama Bunda / Ayah <span class="text-rose-500">*</span>
                             </label>
                             <input type="text" x-model="name" 
                                    @input="delete errors.name; errorMessage = '';"
@@ -297,9 +296,8 @@ $FTL_DESTINATIONS = getShippingDestinations($SHIPPING_DATA);
                             </span>
                         </div>
                         <div id="field-phone">
-                            <label class="block text-[11px] font-semibold text-gray-700 mb-1 flex items-center justify-between">
-                                <span>No. WhatsApp Aktif <span class="text-rose-500">*</span></span>
-                                <span class="text-[10px] text-gray-400 font-normal">(Contoh: 081234567890)</span>
+                            <label class="block text-[11px] font-semibold text-gray-700 mb-1">
+                                No. WhatsApp Aktif <span class="text-rose-500">*</span>
                             </label>
                             <input type="tel" x-model="phone" 
                                    @input="delete errors.phone; errorMessage = '';"
@@ -396,9 +394,8 @@ $FTL_DESTINATIONS = getShippingDestinations($SHIPPING_DATA);
 
                     <!-- Alamat Lengkap & Patokan Rumah -->
                     <div>
-                        <label class="block text-[11px] font-semibold text-gray-700 mb-1 flex items-center justify-between">
-                            <span>Alamat Jalan & Patokan Rumah (Opsional):</span>
-                            <span class="text-[10px] text-gray-400 font-normal">(Contoh: Jl. Mawar No. 8, Depan Klinik)</span>
+                        <label class="block text-[11px] font-semibold text-gray-700 mb-1">
+                            Alamat Jalan & Patokan Rumah <span class="text-gray-400 font-normal">(Opsional)</span>:
                         </label>
                         <input type="text" x-model="address" placeholder="Contoh: Jl. Mawar No. 8, RT 02/04, Kel. Sukajadi (Depan Klinik)" 
                                class="w-full rounded-xl border border-gray-300 px-3.5 py-3 text-base sm:text-sm focus:border-ftl-forest focus:outline-none focus:ring-2 focus:ring-emerald-200 bg-white">
@@ -448,7 +445,7 @@ $FTL_DESTINATIONS = getShippingDestinations($SHIPPING_DATA);
 
                     <div x-show="!city && !loadingOngkir" class="bg-gray-50 p-3.5 rounded-2xl text-center border border-dashed border-gray-200">
                         <p class="text-xs text-gray-500">
-                            Pilih <b>Provinsi & Kota</b> di atas untuk langsung menampilkan tarif ongkir <b>J&T, JNE, dan SiCepat</b>.
+                            Ketik & pilih <b>Kota Tujuan</b> di atas untuk langsung menampilkan tarif ongkir <b>J&T, JNE, dan SiCepat</b>.
                         </p>
                     </div>
                 </div>
@@ -471,9 +468,8 @@ $FTL_DESTINATIONS = getShippingDestinations($SHIPPING_DATA);
 
                 <!-- Catatan Tambahan (Opsional) -->
                 <div>
-                    <label class="block text-[11px] font-semibold text-gray-700 mb-1 flex items-center justify-between">
-                        <span>Catatan Khusus (Opsional):</span>
-                        <span class="text-[10px] text-gray-400 font-normal">(Contoh: Titip ucapan kado)</span>
+                    <label class="block text-[11px] font-semibold text-gray-700 mb-1">
+                        Catatan Khusus <span class="text-gray-400 font-normal">(Opsional)</span>:
                     </label>
                     <input type="text" x-model="note" placeholder="Contoh: Titip kartu ucapan kado lahiran / Tolong dipacking ekstra aman" 
                            class="w-full rounded-xl border border-gray-300 px-3.5 py-3 text-base sm:text-sm focus:border-ftl-forest focus:outline-none focus:ring-2 focus:ring-emerald-200 bg-white">
