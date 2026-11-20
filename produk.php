@@ -29,7 +29,7 @@ $main_product = $PRODUCTS['calming-rub-50g'];
     activeThumb: 0,
     thumbnails: [
         {
-            title: 'Kemasan Tube & Box Resmi (50g)',
+            title: 'Kemasan Tube Resmi (50g)',
             img: '<?= BASE_URL ?>assets/images/product-calming-rub-real.webp',
             badgeLeft: 'Foto Resmi FTL',
             badgeRight: 'Dermatologically Tested',
