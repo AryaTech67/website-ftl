@@ -237,10 +237,26 @@ if (defined('MENGANTAR_API_KEY') && !empty(MENGANTAR_API_KEY)) {
                         if ($cost > 0) {
                             $rawEtd = $c['estimate_delivery'] ?? ($c['estimatedDate'] ?? '');
                             $cleanEtd = !empty($rawEtd) && $rawEtd !== '-' ? trim($rawEtd) : '1-3 Hari';
-                            if (stripos($cleanEtd, 'hari') === false && stripos($cleanEtd, 'day') === false) {
-                                $cleanEtd .= ' Hari';
+                            
+                            // Normalisasi ETD: Deteksi jika angka terbalik seperti "2-1" atau "2 - 1"
+                            if (preg_match('/(\d+)\s*[-–—\/]\s*(\d+)/', $cleanEtd, $mEtd)) {
+                                $n1 = intval($mEtd[1]);
+                                $n2 = intval($mEtd[2]);
+                                if ($n1 > $n2) {
+                                    $cleanEtd = $n2 . ' - ' . $n1 . ' Hari';
+                                } elseif ($n1 === $n2) {
+                                    $cleanEtd = $n1 . ' Hari';
+                                } else {
+                                    $cleanEtd = $n1 . ' - ' . $n2 . ' Hari';
+                                }
+                            } elseif (preg_match('/(\d+)/', $cleanEtd, $mEtd)) {
+                                $cleanEtd = $mEtd[1] . ' Hari';
+                            } else {
+                                if (stripos($cleanEtd, 'hari') === false && stripos($cleanEtd, 'day') === false) {
+                                    $cleanEtd .= ' Hari';
+                                }
+                                $cleanEtd = str_ireplace(['days', 'day'], 'Hari', $cleanEtd);
                             }
-                            $cleanEtd = str_ireplace(['days', 'day'], 'Hari', $cleanEtd);
 
                             $liveCouriers[] = [
                                 'code'           => $info['code'],

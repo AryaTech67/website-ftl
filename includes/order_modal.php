@@ -449,7 +449,7 @@ $FTL_DESTINATIONS = getShippingDestinations($SHIPPING_DATA);
                                             </div>
                                         </div>
                                         <span class="text-[10px] text-gray-500 block leading-tight" x-text="c.service"></span>
-                                        <span class="text-[10px] text-emerald-700 font-semibold block mt-0.5" x-text="'Est. ' + c.etd"></span>
+                                        <span class="text-[10px] text-emerald-700 font-semibold block mt-0.5" x-text="'Est. ' + formatEtd(c.etd)"></span>
                                     </div>
                                     <div class="pt-2 mt-2 border-t border-gray-100 flex items-baseline justify-between">
                                         <span class="text-xs font-extrabold text-ftl-forest whitespace-nowrap" x-text="c.cost_formatted"></span>
@@ -771,6 +771,21 @@ function orderModal() {
         formatRp(val) {
             return 'Rp ' + Number(val || 0).toLocaleString('id-ID');
         },
+        formatEtd(val) {
+            if (!val || val === '-') return '1 - 3 Hari';
+            const clean = String(val).trim();
+            const match = clean.match(/(\d+)\s*[-–—\/]\s*(\d+)/);
+            if (match) {
+                const n1 = parseInt(match[1], 10);
+                const n2 = parseInt(match[2], 10);
+                if (n1 > n2) return n2 + ' - ' + n1 + ' Hari';
+                if (n1 === n2) return n1 + ' Hari';
+                return n1 + ' - ' + n2 + ' Hari';
+            }
+            const single = clean.match(/(\d+)/);
+            if (single) return single[1] + ' Hari';
+            return clean;
+        },
         init() {
             if (window.FTL_EMBEDDED_DESTINATIONS && window.FTL_EMBEDDED_DESTINATIONS.length > 0) {
                 this.destinations = window.FTL_EMBEDDED_DESTINATIONS;
@@ -909,7 +924,10 @@ function orderModal() {
                 const res = await fetch(url);
                 const json = await res.json();
                 if (json.status === 'success' && json.couriers && json.couriers.length > 0) {
-                    this.couriers = json.couriers;
+                    this.couriers = json.couriers.map(c => {
+                        c.etd = this.formatEtd(c.etd);
+                        return c;
+                    });
                     this.selectedCourier = this.couriers[0];
                     delete this.errors.courier;
                     this.loadingOngkir = false;
@@ -928,7 +946,7 @@ function orderModal() {
                 const jntCost = rates.jnt * kg;
                 const jneCost = rates.jne * kg;
                 const sicepatCost = rates.sicepat * kg;
-                const etd = rates.etd || '1-3 Hari';
+                const etd = this.formatEtd(rates.etd || '1-3 Hari');
 
                 this.couriers = [
                     {
@@ -1052,7 +1070,7 @@ function orderModal() {
             lines.push('• Subtotal Produk: ' + this.formatRp(this.subtotal) + '\n');
             lines.push('*EKSPEDISI & ONGKOS KIRIM:*');
             lines.push('• Kurir: ' + this.selectedCourier.name + ' (' + this.selectedCourier.service + ')');
-            lines.push('• Estimasi Tiba: ' + this.selectedCourier.etd);
+            lines.push('• Estimasi Tiba: ' + this.formatEtd(this.selectedCourier.etd));
             lines.push('• Biaya Ongkir: ' + this.formatRp(this.shippingCost));
             lines.push('------------------------------------');
             lines.push('*TOTAL PEMBAYARAN: ' + this.formatRp(this.grandTotal) + '*');
