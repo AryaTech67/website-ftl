@@ -442,18 +442,18 @@ require_once __DIR__ . '/includes/navbar.php';
                 </div>
 
                 <!-- Beli Actions -->
-                <div class="mt-3.5 flex items-center gap-2">
+                <div class="mt-3.5 space-y-1.5">
                     <button type="button" 
                             @click="openOrderModal('pesan', 'calming-rub-50g')"
-                            class="flex-1 py-2.5 px-3 rounded-full font-bold text-xs text-white bg-emerald-600 hover:bg-emerald-700 shadow-2xs hover:shadow-md hover:scale-[1.02] active:scale-95 transition-all text-center cursor-pointer flex items-center justify-center gap-1.5">
+                            class="w-full py-2.5 px-3 rounded-xl font-bold text-xs text-white bg-emerald-600 hover:bg-emerald-700 active:scale-[0.98] shadow-xs hover:shadow-md transition-all flex items-center justify-center gap-1.5 cursor-pointer whitespace-nowrap">
                         <i data-lucide="shopping-bag" class="w-3.5 h-3.5"></i>
-                        <span>Pesan Web</span>
+                        <span>Pesan Sekarang</span>
                     </button>
                     <a href="<?= SHOPEE_URL ?>" target="_blank" rel="noopener"
-                       class="py-2.5 px-3 rounded-full font-bold text-xs text-[#EE4D2D] bg-[#FFF0ED] hover:bg-[#EE4D2D] hover:text-white border border-[#EE4D2D]/30 transition-all text-center flex items-center justify-center gap-1"
+                       class="w-full py-1.5 px-3 rounded-xl font-semibold text-[11px] text-[#EE4D2D] bg-[#FFF0ED] hover:bg-[#EE4D2D] hover:text-white border border-[#EE4D2D]/20 transition-all flex items-center justify-center gap-1.5 text-center whitespace-nowrap"
                        title="Beli via Shopee Official">
-                        <img src="<?= BASE_URL ?>assets/images/shopee-icon-orange.svg" class="w-3.5 h-3.5" alt="Shopee">
-                        <span>Shopee</span>
+                        <img src="<?= BASE_URL ?>assets/images/shopee-icon-orange.svg" class="w-3 h-3" alt="Shopee">
+                        <span>Beli di Shopee</span>
                     </a>
                 </div>
             </div>
@@ -495,18 +495,18 @@ require_once __DIR__ . '/includes/navbar.php';
                 </div>
 
                 <!-- Beli Actions -->
-                <div class="mt-3.5 flex items-center gap-2">
+                <div class="mt-3.5 space-y-1.5">
                     <button type="button" 
                             @click="openOrderModal('pesan', 'bundling-double-care')"
-                            class="flex-1 py-2.5 px-3 rounded-full font-bold text-xs text-white bg-emerald-600 hover:bg-emerald-700 shadow-2xs hover:shadow-md hover:scale-[1.02] active:scale-95 transition-all text-center cursor-pointer flex items-center justify-center gap-1.5">
+                            class="w-full py-2.5 px-3 rounded-xl font-bold text-xs text-white bg-emerald-600 hover:bg-emerald-700 active:scale-[0.98] shadow-xs hover:shadow-md transition-all flex items-center justify-center gap-1.5 cursor-pointer whitespace-nowrap">
                         <i data-lucide="shopping-bag" class="w-3.5 h-3.5"></i>
-                        <span>Pesan Web</span>
+                        <span>Pesan Sekarang</span>
                     </button>
                     <a href="<?= SHOPEE_URL ?>" target="_blank" rel="noopener"
-                       class="py-2.5 px-3 rounded-full font-bold text-xs text-[#EE4D2D] bg-[#FFF0ED] hover:bg-[#EE4D2D] hover:text-white border border-[#EE4D2D]/30 transition-all text-center flex items-center justify-center gap-1"
+                       class="w-full py-1.5 px-3 rounded-xl font-semibold text-[11px] text-[#EE4D2D] bg-[#FFF0ED] hover:bg-[#EE4D2D] hover:text-white border border-[#EE4D2D]/20 transition-all flex items-center justify-center gap-1.5 text-center whitespace-nowrap"
                        title="Beli via Shopee Official">
-                        <img src="<?= BASE_URL ?>assets/images/shopee-icon-orange.svg" class="w-3.5 h-3.5" alt="Shopee">
-                        <span>Shopee</span>
+                        <img src="<?= BASE_URL ?>assets/images/shopee-icon-orange.svg" class="w-3 h-3" alt="Shopee">
+                        <span>Beli di Shopee</span>
                     </a>
                 </div>
             </div>
@@ -548,18 +548,18 @@ require_once __DIR__ . '/includes/navbar.php';
                 </div>
 
                 <!-- Beli Actions -->
-                <div class="mt-3.5 flex items-center gap-2">
+                <div class="mt-3.5 space-y-1.5">
                     <button type="button" 
                             @click="openOrderModal('pesan', 'bundling-newborn-gift')"
-                            class="flex-1 py-2.5 px-3 rounded-full font-bold text-xs text-white bg-emerald-600 hover:bg-emerald-700 shadow-2xs hover:shadow-md hover:scale-[1.02] active:scale-95 transition-all text-center cursor-pointer flex items-center justify-center gap-1.5">
+                            class="w-full py-2.5 px-3 rounded-xl font-bold text-xs text-white bg-emerald-600 hover:bg-emerald-700 active:scale-[0.98] shadow-xs hover:shadow-md transition-all flex items-center justify-center gap-1.5 cursor-pointer whitespace-nowrap">
                         <i data-lucide="shopping-bag" class="w-3.5 h-3.5"></i>
-                        <span>Pesan Web</span>
+                        <span>Pesan Sekarang</span>
                     </button>
                     <a href="<?= SHOPEE_URL ?>" target="_blank" rel="noopener"
-                       class="py-2.5 px-3 rounded-full font-bold text-xs text-[#EE4D2D] bg-[#FFF0ED] hover:bg-[#EE4D2D] hover:text-white border border-[#EE4D2D]/30 transition-all text-center flex items-center justify-center gap-1"
+                       class="w-full py-1.5 px-3 rounded-xl font-semibold text-[11px] text-[#EE4D2D] bg-[#FFF0ED] hover:bg-[#EE4D2D] hover:text-white border border-[#EE4D2D]/20 transition-all flex items-center justify-center gap-1.5 text-center whitespace-nowrap"
                        title="Beli via Shopee Official">
-                        <img src="<?= BASE_URL ?>assets/images/shopee-icon-orange.svg" class="w-3.5 h-3.5" alt="Shopee">
-                        <span>Shopee</span>
+                        <img src="<?= BASE_URL ?>assets/images/shopee-icon-orange.svg" class="w-3 h-3" alt="Shopee">
+                        <span>Beli di Shopee</span>
                     </a>
                 </div>
             </div>
@@ -601,18 +601,18 @@ require_once __DIR__ . '/includes/navbar.php';
                 </div>
 
                 <!-- Beli Actions -->
-                <div class="mt-3.5 flex items-center gap-2">
+                <div class="mt-3.5 space-y-1.5">
                     <button type="button" 
                             @click="openOrderModal('pesan', 'bundling-quad-care')"
-                            class="flex-1 py-2.5 px-3 rounded-full font-bold text-xs text-white bg-emerald-600 hover:bg-emerald-700 shadow-2xs hover:shadow-md hover:scale-[1.02] active:scale-95 transition-all text-center cursor-pointer flex items-center justify-center gap-1.5">
+                            class="w-full py-2.5 px-3 rounded-xl font-bold text-xs text-white bg-emerald-600 hover:bg-emerald-700 active:scale-[0.98] shadow-xs hover:shadow-md transition-all flex items-center justify-center gap-1.5 cursor-pointer whitespace-nowrap">
                         <i data-lucide="shopping-bag" class="w-3.5 h-3.5"></i>
-                        <span>Pesan Web</span>
+                        <span>Pesan Sekarang</span>
                     </button>
                     <a href="<?= SHOPEE_URL ?>" target="_blank" rel="noopener"
-                       class="py-2.5 px-3 rounded-full font-bold text-xs text-[#EE4D2D] bg-[#FFF0ED] hover:bg-[#EE4D2D] hover:text-white border border-[#EE4D2D]/30 transition-all text-center flex items-center justify-center gap-1"
+                       class="w-full py-1.5 px-3 rounded-xl font-semibold text-[11px] text-[#EE4D2D] bg-[#FFF0ED] hover:bg-[#EE4D2D] hover:text-white border border-[#EE4D2D]/20 transition-all flex items-center justify-center gap-1.5 text-center whitespace-nowrap"
                        title="Beli via Shopee Official">
-                        <img src="<?= BASE_URL ?>assets/images/shopee-icon-orange.svg" class="w-3.5 h-3.5" alt="Shopee">
-                        <span>Shopee</span>
+                        <img src="<?= BASE_URL ?>assets/images/shopee-icon-orange.svg" class="w-3 h-3" alt="Shopee">
+                        <span>Beli di Shopee</span>
                     </a>
                 </div>
             </div>
@@ -654,18 +654,18 @@ require_once __DIR__ . '/includes/navbar.php';
                 </div>
 
                 <!-- Beli Actions -->
-                <div class="mt-3.5 flex items-center gap-2">
+                <div class="mt-3.5 space-y-1.5">
                     <button type="button" 
                             @click="openOrderModal('pesan', 'bundling-mega-care')"
-                            class="flex-1 py-2.5 px-3 rounded-full font-bold text-xs text-white bg-emerald-600 hover:bg-emerald-700 shadow-2xs hover:shadow-md hover:scale-[1.02] active:scale-95 transition-all text-center cursor-pointer flex items-center justify-center gap-1.5">
+                            class="w-full py-2.5 px-3 rounded-xl font-bold text-xs text-white bg-emerald-600 hover:bg-emerald-700 active:scale-[0.98] shadow-xs hover:shadow-md transition-all flex items-center justify-center gap-1.5 cursor-pointer whitespace-nowrap">
                         <i data-lucide="shopping-bag" class="w-3.5 h-3.5"></i>
-                        <span>Pesan Web</span>
+                        <span>Pesan Sekarang</span>
                     </button>
                     <a href="<?= SHOPEE_URL ?>" target="_blank" rel="noopener"
-                       class="py-2.5 px-3 rounded-full font-bold text-xs text-[#EE4D2D] bg-[#FFF0ED] hover:bg-[#EE4D2D] hover:text-white border border-[#EE4D2D]/30 transition-all text-center flex items-center justify-center gap-1"
+                       class="w-full py-1.5 px-3 rounded-xl font-semibold text-[11px] text-[#EE4D2D] bg-[#FFF0ED] hover:bg-[#EE4D2D] hover:text-white border border-[#EE4D2D]/20 transition-all flex items-center justify-center gap-1.5 text-center whitespace-nowrap"
                        title="Beli via Shopee Official">
-                        <img src="<?= BASE_URL ?>assets/images/shopee-icon-orange.svg" class="w-3.5 h-3.5" alt="Shopee">
-                        <span>Shopee</span>
+                        <img src="<?= BASE_URL ?>assets/images/shopee-icon-orange.svg" class="w-3 h-3" alt="Shopee">
+                        <span>Beli di Shopee</span>
                     </a>
                 </div>
             </div>
