@@ -128,9 +128,9 @@ $ARTIKEL_LIST = [
                             'cara-atasi-kolik' => 'article-kolik.webp',
                             'panduan-pijat-ilu' => 'article-pijat-ilu.webp',
                             'manfaat-minyak-pala' => 'article-minyak-pala.webp',
-                            'tips-kulit-sensitif-newborn' => 'article-kolik.webp',
-                            'mengatasi-perut-kembung' => 'article-pijat-ilu.webp',
-                            'rutinitas-tidur-malam-bayi' => 'article-kolik.webp'
+                            'tips-kulit-sensitif-newborn' => 'article-kulit-sensitif.webp',
+                            'mengatasi-perut-kembung' => 'article-perut-kembung.webp',
+                            'rutinitas-tidur-malam-bayi' => 'article-tidur-malam.webp'
                         ];
                         $img_file = $art_imgs[$item['id']] ?? 'article-kolik.webp';
                         ?>
