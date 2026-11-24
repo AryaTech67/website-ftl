@@ -407,12 +407,12 @@ require_once __DIR__ . '/includes/navbar.php';
             <!-- Card 1: Baby Calming Rub Cream 50g (Single) -->
             <div data-animate="fade-up" data-delay="0" class="min-w-[210px] sm:min-w-0 max-w-[240px] sm:max-w-none flex-1 shrink-0 snap-center bg-white rounded-3xl p-4 sm:p-5 border border-stone-200/80 shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group">
                 <div>
-                    <!-- Top Pill Badge -->
-                    <div class="flex items-center justify-between">
-                        <span class="inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full bg-rose-50 text-rose-700 border border-rose-200/70">
-                            🎁 Free Gift
+                    <!-- Top Badge -->
+                    <div class="flex items-center justify-between gap-2 h-6">
+                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-bold tracking-wide uppercase bg-emerald-50 text-emerald-800 border border-emerald-200/60 whitespace-nowrap">
+                            Bestseller
                         </span>
-                        <span class="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full">Bestseller</span>
+                        <span class="text-[11px] font-medium text-stone-400 whitespace-nowrap">1 Tube</span>
                     </div>
 
                     <!-- Packshot Image -->
@@ -461,12 +461,12 @@ require_once __DIR__ . '/includes/navbar.php';
             <!-- Card 2: Paket 2 Tube (Bundling) -->
             <div data-animate="fade-up" data-delay="120" class="min-w-[210px] sm:min-w-0 max-w-[240px] sm:max-w-none flex-1 shrink-0 snap-center bg-white rounded-3xl p-4 sm:p-5 border border-stone-200/80 shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group">
                 <div>
-                    <!-- Top Pill Badge -->
-                    <div class="flex items-center justify-between">
-                        <span class="inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full bg-amber-50 text-amber-800 border border-amber-200/70">
-                            🔥 Hemat 61%
+                    <!-- Top Badge -->
+                    <div class="flex items-center justify-between gap-2 h-6">
+                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-bold tracking-wide uppercase bg-stone-100 text-stone-700 border border-stone-200/80 whitespace-nowrap">
+                            Paket Bunda
                         </span>
-                        <span class="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full">Paket Bunda</span>
+                        <span class="text-[11px] font-medium text-stone-400 whitespace-nowrap">2 Tube</span>
                     </div>
 
                     <!-- Packshot Image -->
@@ -514,12 +514,12 @@ require_once __DIR__ . '/includes/navbar.php';
             <!-- Card 3: Bundle Triple Care 3 Tube -->
             <div data-animate="fade-up" data-delay="240" class="min-w-[210px] sm:min-w-0 max-w-[240px] sm:max-w-none flex-1 shrink-0 snap-center bg-white rounded-3xl p-4 sm:p-5 border border-stone-200/80 shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group">
                 <div>
-                    <!-- Top Pill Badge -->
-                    <div class="flex items-center justify-between">
-                        <span class="inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200/70">
-                            🌟 Super Hemat 61%
+                    <!-- Top Badge -->
+                    <div class="flex items-center justify-between gap-2 h-6">
+                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-bold tracking-wide uppercase bg-amber-50 text-amber-900 border border-amber-200/80 whitespace-nowrap">
+                            Paling Favorit
                         </span>
-                        <span class="text-[10px] font-bold text-gray-400">Stok 3 Bulan</span>
+                        <span class="text-[11px] font-medium text-stone-400 whitespace-nowrap">3 Tube</span>
                     </div>
 
                     <!-- Packshot Image -->
@@ -567,12 +567,12 @@ require_once __DIR__ . '/includes/navbar.php';
             <!-- Card 4: Bundle Family Care (4x 50g) -->
             <div data-animate="fade-up" data-delay="360" class="min-w-[210px] sm:min-w-0 max-w-[240px] sm:max-w-none flex-1 shrink-0 snap-center bg-white rounded-3xl p-4 sm:p-5 border border-stone-200/80 shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group">
                 <div>
-                    <!-- Top Pill Badge -->
-                    <div class="flex items-center justify-between">
-                        <span class="inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full bg-teal-50 text-teal-800 border border-teal-200/70">
-                            🔥 Hemat 62%
+                    <!-- Top Badge -->
+                    <div class="flex items-center justify-between gap-2 h-6">
+                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-bold tracking-wide uppercase bg-stone-100 text-stone-700 border border-stone-200/80 whitespace-nowrap">
+                            Family Pack
                         </span>
-                        <span class="text-[10px] font-bold text-teal-700 bg-teal-50 px-2 py-0.5 rounded-full">Stok 4 Bulan</span>
+                        <span class="text-[11px] font-medium text-stone-400 whitespace-nowrap">4 Tube</span>
                     </div>
 
                     <!-- Packshot Image -->
@@ -620,12 +620,12 @@ require_once __DIR__ . '/includes/navbar.php';
             <!-- Card 5: Bundle Mega Care (5x 50g) -->
             <div data-animate="fade-up" data-delay="480" class="min-w-[210px] sm:min-w-0 max-w-[240px] sm:max-w-none flex-1 shrink-0 snap-center bg-white rounded-3xl p-4 sm:p-5 border border-stone-200/80 shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group">
                 <div>
-                    <!-- Top Pill Badge -->
-                    <div class="flex items-center justify-between">
-                        <span class="inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full bg-purple-50 text-purple-800 border border-purple-200/70">
-                            👑 Mega Hemat 63%
+                    <!-- Top Badge -->
+                    <div class="flex items-center justify-between gap-2 h-6">
+                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-bold tracking-wide uppercase bg-emerald-50 text-emerald-800 border border-emerald-200/60 whitespace-nowrap">
+                            Mega Hemat
                         </span>
-                        <span class="text-[10px] font-bold text-purple-700 bg-purple-50 px-2 py-0.5 rounded-full">Paling Hemat</span>
+                        <span class="text-[11px] font-medium text-stone-400 whitespace-nowrap">5 Tube</span>
                     </div>
 
                     <!-- Packshot Image -->

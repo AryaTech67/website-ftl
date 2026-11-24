@@ -40,7 +40,7 @@ $main_product = $PRODUCTS['calming-rub-50g'];
             label: '2 Tube',
             title: 'Paket Hemat 2 Tube (Double Care)',
             img: '<?= BASE_URL ?>assets/images/product-bundle-2-real.webp',
-            badgeLeft: 'Hemat 61% 🔥',
+            badgeLeft: 'Hemat 61%',
             badgeRight: 'Paling Populer',
             caption: 'Praktis untuk stok meja ganti kamar dan diaper bag bepergian'
         },
@@ -48,7 +48,7 @@ $main_product = $PRODUCTS['calming-rub-50g'];
             label: '3 Tube',
             title: 'Bundle Triple Care (3x 50g)',
             img: '<?= BASE_URL ?>assets/images/product-bundle-3-real.webp',
-            badgeLeft: 'Super Hemat 61% 🌟',
+            badgeLeft: 'Super Hemat 61%',
             badgeRight: 'Stok 3 Bulan',
             caption: 'Paket terlengkap bebas kolik & kembung untuk 3 bulan tidur lelap'
         },
@@ -56,7 +56,7 @@ $main_product = $PRODUCTS['calming-rub-50g'];
             label: '4 Tube',
             title: 'Bundle Family Care (4x 50g)',
             img: '<?= BASE_URL ?>assets/images/product-bundle-4-real.webp',
-            badgeLeft: 'Hemat 62% 🔥',
+            badgeLeft: 'Hemat 62%',
             badgeRight: 'Stok 4 Bulan',
             caption: 'Paket hemat keluarga 4 tube untuk perawatan intensif harian bebas begah'
         },
@@ -64,7 +64,7 @@ $main_product = $PRODUCTS['calming-rub-50g'];
             label: '5 Tube',
             title: 'Bundle Mega Care (5x 50g)',
             img: '<?= BASE_URL ?>assets/images/product-bundle-5-real.webp',
-            badgeLeft: 'Mega Hemat 63% 👑',
+            badgeLeft: 'Mega Hemat 63%',
             badgeRight: 'Paling Hemat',
             caption: 'Paket terlengkap 5 tube dengan harga per tube paling murah & hemat maksimal'
         },
