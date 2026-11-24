@@ -69,12 +69,12 @@ $FTL_DESTINATIONS = getShippingDestinations($SHIPPING_DATA);
                     <span class="w-2 h-2 rounded-full bg-emerald-400"></span> Layanan WhatsApp Resmi FTL
                 </div>
                 <h3 class="text-xl sm:text-2xl font-bold font-display leading-tight" id="modal-title">
-                    <span x-show="modalTab === 'konsultasi'">Konsultasi Bunda & Si Kecil 👶🍃</span>
-                    <span x-show="modalTab === 'pesan'">Form Pemesanan & Ongkir 🛍️</span>
+                    <span x-show="modalTab === 'konsultasi'">Konsultasi Perawatan Si Kecil</span>
+                    <span x-show="modalTab === 'pesan'">Form Pemesanan & Ongkir</span>
                 </h3>
                 <p class="text-xs text-emerald-100 mt-1">
-                    <span x-show="modalTab === 'konsultasi'">Bebas tanya seputar kolik, newborn, atau cara pakai tanpa harus beli.</span>
-                    <span x-show="modalTab === 'pesan'">Hitung ongkir otomatis lalu kirim rincian order ke WhatsApp CS.</span>
+                    <span x-show="modalTab === 'konsultasi'">Tanya langsung seputar kolik, newborn, dan panduan pemakaian.</span>
+                    <span x-show="modalTab === 'pesan'">Hitung tarif ongkir otomatis dan kirim rincian pesanan ke WhatsApp CS.</span>
                 </p>
 
                 <!-- 2-Tab Switcher -->
@@ -102,14 +102,14 @@ $FTL_DESTINATIONS = getShippingDestinations($SHIPPING_DATA);
             <!-- ================= TAB 1: FORM KONSULTASI BUNDA (Scrollable Body) ================= -->
             <div x-show="modalTab === 'konsultasi'" class="p-4 sm:p-5 space-y-4 flex-1 overflow-y-auto overscroll-contain pb-28 sm:pb-5" style="-webkit-overflow-scrolling: touch;">
                 
-                <!-- Info Banner Ramah -->
-                <div class="p-3.5 bg-emerald-50/90 rounded-2xl border border-emerald-200/80 flex items-start gap-3">
-                    <div class="w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center shrink-0 text-emerald-700 mt-0.5">
-                        <i data-lucide="heart" class="w-4 h-4"></i>
+                <!-- Info Banner Ramah & Profesional -->
+                <div class="p-3.5 bg-emerald-50/80 rounded-2xl border border-emerald-200/70 flex items-start gap-3">
+                    <div class="w-8 h-8 rounded-xl bg-emerald-600 text-white flex items-center justify-center shrink-0 mt-0.5">
+                        <i data-lucide="message-square-heart" class="w-4 h-4"></i>
                     </div>
                     <div class="text-xs text-emerald-950 space-y-0.5 leading-relaxed">
-                        <p class="font-bold">Bebas Tanya Dulu Tanpa Beban Beli! 🍃</p>
-                        <p class="text-gray-600">Bunda ingin konsultasikan keluhan kembung, ruam, atau cara aman merawat si kecil? Tim kami siap mendampingi Bunda secara gratis via WhatsApp.</p>
+                        <p class="font-bold">Layanan Konsultasi Care FTL</p>
+                        <p class="text-gray-600">Punya pertanyaan seputar kembung, kolik, atau panduan perawatan kulit si kecil? Tim kami siap membantu Bunda secara langsung via WhatsApp.</p>
                     </div>
                 </div>
 
@@ -126,8 +126,10 @@ $FTL_DESTINATIONS = getShippingDestinations($SHIPPING_DATA);
                                 class="min-h-[50px] p-3 rounded-2xl border text-left transition-all flex items-center justify-between gap-2.5 cursor-pointer active:scale-[0.98] no-tap-zoom"
                                 style="touch-action: manipulation;">
                             <div class="flex items-center gap-2.5 min-w-0">
-                                <span class="text-lg shrink-0">🍃</span>
-                                <span class="text-xs sm:text-sm leading-tight">Aman newborn / eksim?</span>
+                                <div class="w-7 h-7 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0">
+                                    <i data-lucide="shield-check" class="w-4 h-4"></i>
+                                </div>
+                                <span class="text-xs sm:text-sm leading-tight">Aman newborn & eksim?</span>
                             </div>
                             <div class="w-5 h-5 rounded-full border-2 flex items-center justify-center shrink-0 transition-colors"
                                  :class="consultTopic === 'Aman untuk newborn (0+) & kulit sensitif?' ? 'border-emerald-600 bg-emerald-600 text-white' : 'border-gray-300 bg-white'">
@@ -140,7 +142,9 @@ $FTL_DESTINATIONS = getShippingDestinations($SHIPPING_DATA);
                                 class="min-h-[50px] p-3 rounded-2xl border text-left transition-all flex items-center justify-between gap-2.5 cursor-pointer active:scale-[0.98] no-tap-zoom"
                                 style="touch-action: manipulation;">
                             <div class="flex items-center gap-2.5 min-w-0">
-                                <span class="text-lg shrink-0">👶</span>
+                                <div class="w-7 h-7 rounded-lg bg-amber-100 text-amber-700 flex items-center justify-center shrink-0">
+                                    <i data-lucide="sparkles" class="w-4 h-4"></i>
+                                </div>
                                 <span class="text-xs sm:text-sm leading-tight">Cara pakai kembung & kolik</span>
                             </div>
                             <div class="w-5 h-5 rounded-full border-2 flex items-center justify-center shrink-0 transition-colors"
@@ -154,7 +158,9 @@ $FTL_DESTINATIONS = getShippingDestinations($SHIPPING_DATA);
                                 class="min-h-[50px] p-3 rounded-2xl border text-left transition-all flex items-center justify-between gap-2.5 cursor-pointer active:scale-[0.98] no-tap-zoom"
                                 style="touch-action: manipulation;">
                             <div class="flex items-center gap-2.5 min-w-0">
-                                <span class="text-lg shrink-0">🌿</span>
+                                <div class="w-7 h-7 rounded-lg bg-teal-100 text-teal-700 flex items-center justify-center shrink-0">
+                                    <i data-lucide="leaf" class="w-4 h-4"></i>
+                                </div>
                                 <span class="text-xs sm:text-sm leading-tight">Komposisi & keaslian produk</span>
                             </div>
                             <div class="w-5 h-5 rounded-full border-2 flex items-center justify-center shrink-0 transition-colors"
@@ -168,7 +174,9 @@ $FTL_DESTINATIONS = getShippingDestinations($SHIPPING_DATA);
                                 class="min-h-[50px] p-3 rounded-2xl border text-left transition-all flex items-center justify-between gap-2.5 cursor-pointer active:scale-[0.98] no-tap-zoom"
                                 style="touch-action: manipulation;">
                             <div class="flex items-center gap-2.5 min-w-0">
-                                <span class="text-lg shrink-0">💬</span>
+                                <div class="w-7 h-7 rounded-lg bg-purple-100 text-purple-700 flex items-center justify-center shrink-0">
+                                    <i data-lucide="help-circle" class="w-4 h-4"></i>
+                                </div>
                                 <span class="text-xs sm:text-sm leading-tight">Pertanyaan lainnya</span>
                             </div>
                             <div class="w-5 h-5 rounded-full border-2 flex items-center justify-center shrink-0 transition-colors"
