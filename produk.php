@@ -29,27 +29,23 @@ $main_product = $PRODUCTS['calming-rub-50g'];
     activeThumb: 0,
     thumbnails: [
         {
-            title: 'Kemasan Tube & Box Dus Resmi (50g)',
+            label: '1 Tube',
+            title: 'Kemasan Single Tube & Box Dus Resmi (50g)',
             img: '<?= BASE_URL ?>assets/images/product-calming-rub-real.webp',
-            badgeLeft: '100% Kemasan Asli FTL',
+            badgeLeft: '100% Produk Asli FTL',
             badgeRight: 'Dermatologically Tested',
             caption: 'Baby Calming Rub Cream 50g • Kemasan Tube Flip-Top Anti-Bocor & Dus Box Asli'
         },
         {
-            title: 'Kemasan Belakang & Izin Resmi BPOM',
-            img: '<?= BASE_URL ?>assets/images/product-real-back.webp',
-            badgeLeft: 'Resmi BPOM RI & Halal',
-            badgeRight: 'Komposisi Lengkap',
-            caption: 'QR Code BPOM Resmi, Komposisi Lengkap & Diproduksi di Bogor, Indonesia'
-        },
-        {
+            label: '2 Tube',
             title: 'Paket Hemat 2 Tube (Double Care)',
             img: '<?= BASE_URL ?>assets/images/product-bundle-2-real.webp',
             badgeLeft: 'Hemat 61% 🔥',
-            badgeRight: 'Stok Terlaris',
+            badgeRight: 'Paling Populer',
             caption: 'Praktis untuk stok meja ganti kamar dan diaper bag bepergian'
         },
         {
+            label: '3 Tube',
             title: 'Bundle Triple Care (3x 50g)',
             img: '<?= BASE_URL ?>assets/images/product-bundle-3-real.webp',
             badgeLeft: 'Super Hemat 61% 🌟',
@@ -57,18 +53,28 @@ $main_product = $PRODUCTS['calming-rub-50g'];
             caption: 'Paket terlengkap bebas kolik & kembung untuk 3 bulan tidur lelap'
         },
         {
+            label: 'Biji Pala',
             title: 'Biji Pala Murni Nusantara',
-            img: '<?= BASE_URL ?>assets/images/ingredient-nutmeg-real.png',
+            img: '<?= BASE_URL ?>assets/images/ingredient-nutmeg-real.webp',
             badgeLeft: '100% Biji Pala Asli',
             badgeRight: 'Hangat Lembut Bayi',
             caption: 'Menenangkan kolik & redakan perut begah tanpa rasa perih di kulit newborn'
         },
         {
+            label: 'Calendula',
             title: 'Ekstrak Bunga Calendula Organik',
             img: '<?= BASE_URL ?>assets/images/ingredient-calendula-real.png',
             badgeLeft: 'Ekstrak Organik Alami',
             badgeRight: 'Skin Barrier Protection',
-            caption: 'Menutrisi Kelembapan Kulit Sensitif Newborn & Mencegah Iritasi Ruam'
+            caption: 'Menutrisi kelembapan kulit sensitif newborn & mencegah iritasi ruam'
+        },
+        {
+            label: 'Minyak Alami',
+            title: 'Sunflower & Coconut Oil Alami',
+            img: '<?= BASE_URL ?>assets/images/ingredient-plant-oil-real.webp',
+            badgeLeft: 'Carrier Oil Nabati',
+            badgeRight: 'Cepat Meresap',
+            caption: 'Minyak nabati alami melembapkan lembut tanpa rasa lengket atau licin'
         }
     ],
     orderDirectWA() {
@@ -91,42 +97,42 @@ $main_product = $PRODUCTS['calming-rub-50g'];
             
             <!-- Left: Product Image Showcase (Col 6) - Interaktif Penuh -->
             <div data-animate="zoom-in" class="lg:col-span-6 space-y-4">
-                <div class="bg-gradient-to-b from-ftl-light to-white rounded-3xl p-6 sm:p-8 border border-ftl-sand flex flex-col items-center justify-between relative min-h-[380px] sm:min-h-[420px] transition-all duration-300">
+                <div class="bg-gradient-to-b from-ftl-light to-white rounded-3xl p-4 sm:p-8 border border-ftl-sand flex flex-col items-center justify-between relative min-h-[350px] sm:min-h-[420px] transition-all duration-300">
                     <!-- Dynamic Badges based on active thumbnail -->
-                    <div class="w-full flex items-center justify-between z-10">
-                        <span class="bg-emerald-600 text-white text-[11px] sm:text-xs font-bold px-3 py-1.5 rounded-full shadow-xs transition-all"
+                    <div class="w-full flex items-center justify-between z-10 gap-2">
+                        <span class="bg-emerald-600 text-white text-[10px] sm:text-xs font-bold px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full shadow-xs transition-all"
                               x-text="thumbnails[activeThumb].badgeLeft">
                         </span>
-                        <span class="bg-amber-500 text-white text-[11px] sm:text-xs font-bold px-3 py-1.5 rounded-full shadow-xs transition-all"
+                        <span class="bg-amber-500 text-white text-[10px] sm:text-xs font-bold px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full shadow-xs transition-all"
                               x-text="thumbnails[activeThumb].badgeRight">
                         </span>
                     </div>
 
                     <!-- Main Dynamic Image Preview -->
-                    <div class="my-auto py-4 flex items-center justify-center min-h-[220px] sm:min-h-[280px]">
+                    <div class="my-auto py-3 sm:py-4 flex items-center justify-center min-h-[200px] sm:min-h-[280px]">
                         <img :src="thumbnails[activeThumb].img" 
                              :alt="thumbnails[activeThumb].title" 
-                             class="w-52 h-52 sm:w-72 sm:h-72 object-contain drop-shadow-xl hover:scale-105 transition-all duration-300">
+                             class="w-48 h-48 sm:w-72 sm:h-72 object-contain drop-shadow-xl hover:scale-105 transition-all duration-300">
                     </div>
 
                     <!-- Active Image Label & Explanation -->
-                    <div class="w-full text-center pt-3 border-t border-emerald-100/70">
+                    <div class="w-full text-center pt-2.5 sm:pt-3 border-t border-emerald-100/70">
                         <h4 class="font-display font-extrabold text-xs sm:text-sm text-ftl-forest" x-text="thumbnails[activeThumb].title"></h4>
-                        <p class="text-[11px] text-gray-500 mt-0.5 line-clamp-1" x-text="thumbnails[activeThumb].caption"></p>
+                        <p class="text-[10px] sm:text-[11px] text-gray-500 mt-0.5 line-clamp-2" x-text="thumbnails[activeThumb].caption"></p>
                     </div>
                 </div>
 
-                <!-- Thumbnails Mini Preview - Sekarang Interaktif Bisa Diklik -->
-                <div class="grid grid-cols-3 gap-2.5 sm:gap-3">
+                <!-- Thumbnails Mini Preview - Sinkron Sesuai Teks & Gambar -->
+                <div class="grid grid-cols-3 gap-2 sm:gap-3">
                     <template x-for="(t, index) in thumbnails" :key="index">
                         <button type="button" 
                                 @click="activeThumb = index" 
-                                class="p-2.5 sm:p-3 rounded-2xl flex flex-col items-center justify-center cursor-pointer transition-all duration-200"
+                                class="p-2 sm:p-2.5 rounded-2xl flex flex-col items-center justify-center cursor-pointer transition-all duration-200"
                                 :class="activeThumb === index ? 'border-2 border-ftl-forest bg-ftl-light/60 shadow-sm ring-2 ring-emerald-500/20' : 'border border-gray-200 bg-white hover:border-ftl-forest/60 hover:bg-gray-50'">
-                            <img :src="t.img" :alt="t.title" class="h-12 sm:h-14 w-auto object-contain">
-                            <span class="text-[10px] font-bold mt-1.5 truncate max-w-full"
-                                  :class="activeThumb === index ? 'text-ftl-forest font-extrabold' : 'text-gray-500'"
-                                  x-text="index === 0 ? 'Kemasan Tube' : (index === 1 ? 'Biji Pala' : 'Calendula')">
+                            <img :src="t.img" :alt="t.title" class="h-11 sm:h-14 w-auto object-contain">
+                            <span class="text-[10px] sm:text-[11px] font-bold mt-1.5 truncate max-w-full"
+                                  :class="activeThumb === index ? 'text-ftl-forest font-extrabold' : 'text-gray-600'"
+                                  x-text="t.label">
                             </span>
                         </button>
                     </template>
@@ -134,7 +140,7 @@ $main_product = $PRODUCTS['calming-rub-50g'];
             </div>
 
             <!-- Right: Product Purchasing & Specs (Col 6) -->
-            <div data-animate="fade-left" data-delay="100" class="lg:col-span-6 space-y-6">
+            <div data-animate="fade-left" data-delay="100" class="lg:col-span-6 space-y-5 sm:space-y-6">
                 <div>
                     <span class="text-xs font-bold text-ftl-accent uppercase tracking-wider">
                         Natural BabyCare Essentials
@@ -142,43 +148,46 @@ $main_product = $PRODUCTS['calming-rub-50g'];
                     <h1 class="text-2xl sm:text-4xl font-extrabold font-display text-gray-900 mt-1">
                         Baby Calming Rub Cream (50g)
                     </h1>
-                    <p class="text-sm text-gray-500 mt-1">
+                    <p class="text-xs sm:text-sm text-gray-500 mt-1">
                         Krim Telon & Penghangat Alami dengan Ekstrak Biji Pala Nusantara & Calendula
                     </p>
 
                     <a href="<?= SHOPEE_REVIEWS_URL ?>" target="_blank" rel="noopener" 
-                       class="inline-flex items-center gap-2 mt-3 group" title="Lihat 16 ulasan bintang 5 di Shopee Resmi">
-                        <div class="flex text-amber-400 text-sm">★★★★★</div>
+                       class="inline-flex flex-wrap items-center gap-1.5 sm:gap-2 mt-2.5 group" title="Lihat 16 ulasan bintang 5 di Shopee Resmi">
+                        <div class="flex text-amber-400 text-xs sm:text-sm">★★★★★</div>
                         <span class="text-xs font-bold text-gray-800">5.0 / 5.0</span>
-                        <span class="text-xs text-gray-400">• 16 Ulasan Bintang 5 di Shopee</span>
+                        <span class="text-xs text-gray-400">• 16 Ulasan di Shopee</span>
                         <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#FFF0ED] text-[#EE4D2D] border border-[#EE4D2D]/20 group-hover:bg-[#EE4D2D] group-hover:text-white transition">
                             Shopee Resmi &rarr;
                         </span>
                     </a>
                 </div>
 
-                <!-- Pricing Block -->
-                <div class="bg-ftl-light p-4 rounded-2xl border border-emerald-100 flex items-baseline justify-between">
-                    <div>
+                <!-- Pricing Block (Responsif Mobile Rapi) -->
+                <div class="bg-ftl-light p-4 rounded-2xl border border-emerald-100 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                    <div class="space-y-1.5">
                         <div class="flex items-baseline gap-2 flex-wrap">
-                            <span class="text-3xl font-extrabold text-ftl-forest">
+                            <span class="text-2xl sm:text-3xl font-extrabold text-ftl-forest">
                                 Rp 117.999
                             </span>
-                            <span class="text-sm text-gray-400 line-through">
+                            <span class="text-xs sm:text-sm text-gray-400 line-through">
                                 Rp 299.000
                             </span>
-                            <span class="text-xs font-bold bg-amber-100 text-amber-800 px-2.5 py-0.5 rounded-full">
+                            <span class="text-[11px] font-bold bg-amber-100 text-amber-800 px-2 py-0.5 rounded-full">
                                 Hemat 60%
                             </span>
+                            <span class="inline-flex sm:hidden items-center gap-1 text-[11px] font-bold text-emerald-700 bg-emerald-100/90 px-2 py-0.5 rounded-full ml-auto">
+                                <i data-lucide="check" class="w-3 h-3"></i> Ready Stock
+                            </span>
                         </div>
-                        <div class="flex items-center gap-2 mt-1.5 flex-wrap">
-                            <span class="text-xs text-gray-500">Kemasan Tube 50 gram (Penggunaan 1 - 2 bulan)</span>
-                            <span class="text-xs font-bold text-emerald-800 bg-emerald-100/90 px-2 py-0.5 rounded-full flex items-center gap-1">
-                                <i data-lucide="gift" class="w-3 h-3 text-emerald-700"></i> Free Keychain & Thank You Card
+                        <div class="flex items-center gap-2 flex-wrap text-xs">
+                            <span class="text-gray-600">Kemasan Tube 50g (1 - 2 bulan)</span>
+                            <span class="font-bold text-emerald-800 bg-emerald-100/90 px-2 py-0.5 rounded-full flex items-center gap-1">
+                                <i data-lucide="gift" class="w-3 h-3 text-emerald-700"></i> Free Keychain & Card
                             </span>
                         </div>
                     </div>
-                    <div class="text-right shrink-0">
+                    <div class="hidden sm:block text-right shrink-0">
                         <span class="inline-flex items-center gap-1 text-xs font-bold text-emerald-700 bg-emerald-100/80 px-2.5 py-1 rounded-full">
                             <i data-lucide="check" class="w-3 h-3"></i> Ready Stock
                         </span>
@@ -187,76 +196,85 @@ $main_product = $PRODUCTS['calming-rub-50g'];
 
                 <!-- Short Benefit List -->
                 <ul class="space-y-2 text-xs sm:text-sm text-gray-700">
-                    <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600"></i> Redakan kolik, perut begah, dan kembung si kecil</li>
-                    <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600"></i> Tekstur cream lembut mudah meresap, <strong>tidak licin/lengket</strong></li>
-                    <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600"></i> Aroma alami menenangkan, bantu bayi tidur nyenyak pulas</li>
-                    <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600"></i> Teruji Hypoallergenic & ramah newborn (0+ bulan)</li>
+                    <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0"></i> <span>Redakan kolik, perut begah, dan kembung si kecil</span></li>
+                    <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0"></i> <span>Tekstur cream lembut mudah meresap, <strong>tidak licin/lengket</strong></span></li>
+                    <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0"></i> <span>Aroma alami menenangkan, bantu bayi tidur nyenyak pulas</span></li>
+                    <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0"></i> <span>Teruji Hypoallergenic & ramah newborn (0+ bulan)</span></li>
                 </ul>
 
                 <!-- Order Controls (Qty + WA Button) -->
                 <div class="pt-4 border-t border-gray-100 space-y-4">
-                    <div class="flex items-center gap-4">
-                        <span class="text-xs font-bold text-gray-700 uppercase">Jumlah:</span>
-                        <div class="flex items-center border border-gray-300 rounded-xl bg-white">
-                            <button type="button" @click="if (qty > 1) qty--" class="px-3.5 py-2 font-bold text-gray-600 hover:bg-gray-100 rounded-l-xl">-</button>
-                            <span class="px-4 py-2 font-bold text-sm w-12 text-center" x-text="qty"></span>
-                            <button type="button" @click="qty++" class="px-3.5 py-2 font-bold text-gray-600 hover:bg-gray-100 rounded-r-xl">+</button>
+                    <div class="flex items-center justify-between flex-wrap gap-2">
+                        <div class="flex items-center gap-3">
+                            <span class="text-xs font-bold text-gray-700 uppercase tracking-wide">Jumlah:</span>
+                            <div class="flex items-center border border-gray-300 rounded-xl bg-white shadow-xs">
+                                <button type="button" @click="if (qty > 1) qty--" class="w-9 h-9 flex items-center justify-center font-bold text-gray-600 hover:bg-gray-100 rounded-l-xl active:scale-95 transition">-</button>
+                                <span class="w-10 text-center font-bold text-sm" x-text="qty"></span>
+                                <button type="button" @click="qty++" class="w-9 h-9 flex items-center justify-center font-bold text-gray-600 hover:bg-gray-100 rounded-r-xl active:scale-95 transition">+</button>
+                            </div>
                         </div>
-                        <div class="text-xs text-gray-500">
-                            Subtotal: <strong class="text-ftl-forest text-sm font-extrabold" x-text="formatRp(qty * variantPrice)"></strong>
+                        <div class="text-xs text-gray-500 text-right">
+                            Subtotal: <strong class="text-ftl-forest text-base sm:text-lg font-extrabold block sm:inline" x-text="formatRp(qty * variantPrice)"></strong>
                         </div>
                     </div>
 
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3">
                         <button type="button" 
                                 @click="orderDirectWA()"
-                                class="w-full flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3.5 px-5 rounded-2xl shadow-lg hover:shadow-emerald-600/30 active:scale-95 transition-all text-sm cursor-pointer">
+                                class="w-full flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 text-white font-bold py-3.5 px-5 rounded-2xl shadow-md hover:shadow-emerald-600/30 active:scale-[0.98] transition-all text-sm cursor-pointer">
                             <img src="<?= BASE_URL ?>assets/images/whatsapp-icon-white.svg" class="w-4 h-4" alt="WhatsApp">
                             <span>Pesan via WhatsApp</span>
                         </button>
                         <a href="<?= SHOPEE_URL ?>" target="_blank" rel="noopener"
-                           class="w-full flex items-center justify-center gap-2 bg-[#EE4D2D] hover:bg-[#d73f21] text-white font-bold py-3.5 px-5 rounded-2xl shadow-lg active:scale-95 transition-all text-sm text-center">
+                           class="w-full flex items-center justify-center gap-2 bg-[#EE4D2D] hover:bg-[#d73f21] active:bg-[#c23317] text-white font-bold py-3.5 px-5 rounded-2xl shadow-md active:scale-[0.98] transition-all text-sm text-center">
                             <img src="<?= BASE_URL ?>assets/images/shopee-icon-white.svg" class="w-4 h-4" alt="Shopee">
                             <span>Beli di Shopee Resmi</span>
                         </a>
                     </div>
                 </div>
 
-                <!-- Guarantee box -->
-                <div class="bg-gray-50 p-3.5 rounded-2xl flex items-center justify-around text-xs text-gray-600 border border-gray-100">
-                    <span class="flex items-center gap-1.5"><i data-lucide="shield" class="w-4 h-4 text-emerald-600"></i> 100% Original</span>
-                    <span>•</span>
-                    <span class="flex items-center gap-1.5"><i data-lucide="truck" class="w-4 h-4 text-emerald-600"></i> Pengiriman Seluruh RI</span>
-                    <span>•</span>
-                    <span class="flex items-center gap-1.5"><i data-lucide="headphones" class="w-4 h-4 text-emerald-600"></i> Free Konsultasi CS</span>
+                <!-- Guarantee box (Grid Rapi di Mobile) -->
+                <div class="bg-gray-50 p-3 rounded-2xl grid grid-cols-3 gap-1 text-[11px] sm:text-xs text-gray-600 border border-gray-100 text-center">
+                    <div class="flex items-center justify-center gap-1 font-medium">
+                        <i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-600 shrink-0"></i>
+                        <span>100% Asli</span>
+                    </div>
+                    <div class="flex items-center justify-center gap-1 font-medium border-x border-gray-200 px-1">
+                        <i data-lucide="truck" class="w-3.5 h-3.5 text-emerald-600 shrink-0"></i>
+                        <span>Seluruh RI</span>
+                    </div>
+                    <div class="flex items-center justify-center gap-1 font-medium">
+                        <i data-lucide="headphones" class="w-3.5 h-3.5 text-emerald-600 shrink-0"></i>
+                        <span>Konsul CS</span>
+                    </div>
                 </div>
 
             </div>
 
         </div>
 
-        <!-- Detail Tabs (Manfaat, Komposisi, Cara Pakai, FAQ) -->
-        <div data-animate="fade-up" class="mt-16 pt-10 border-t border-ftl-sand">
+        <!-- Detail Tabs (Manfaat, Komposisi, Cara Pakai, FAQ) - Horizontal Scroll Mobile -->
+        <div data-animate="fade-up" class="mt-12 sm:mt-16 pt-8 sm:pt-10 border-t border-ftl-sand">
             <!-- Tab Headers -->
-            <div class="flex flex-wrap border-b border-gray-200 gap-4 sm:gap-8">
+            <div class="flex border-b border-gray-200 gap-2 sm:gap-6 overflow-x-auto no-scrollbar scroll-smooth whitespace-nowrap pb-px">
                 <button type="button" @click="activeTab = 'manfaat'" 
                         :class="activeTab === 'manfaat' ? 'border-ftl-forest text-ftl-forest font-bold' : 'border-transparent text-gray-500 hover:text-gray-700'"
-                        class="pb-4 text-sm sm:text-base border-b-2 transition">
+                        class="pb-3 px-1 text-xs sm:text-base border-b-2 transition shrink-0 cursor-pointer">
                     Manfaat Lengkap
                 </button>
                 <button type="button" @click="activeTab = 'komposisi'" 
                         :class="activeTab === 'komposisi' ? 'border-ftl-forest text-ftl-forest font-bold' : 'border-transparent text-gray-500 hover:text-gray-700'"
-                        class="pb-4 text-sm sm:text-base border-b-2 transition">
-                    Komposisi & Bahan Alami
+                        class="pb-3 px-1 text-xs sm:text-base border-b-2 transition shrink-0 cursor-pointer">
+                    Komposisi Alami
                 </button>
                 <button type="button" @click="activeTab = 'carapakai'" 
                         :class="activeTab === 'carapakai' ? 'border-ftl-forest text-ftl-forest font-bold' : 'border-transparent text-gray-500 hover:text-gray-700'"
-                        class="pb-4 text-sm sm:text-base border-b-2 transition">
+                        class="pb-3 px-1 text-xs sm:text-base border-b-2 transition shrink-0 cursor-pointer">
                     Cara Penggunaan
                 </button>
                 <button type="button" @click="activeTab = 'faq'" 
                         :class="activeTab === 'faq' ? 'border-ftl-forest text-ftl-forest font-bold' : 'border-transparent text-gray-500 hover:text-gray-700'"
-                        class="pb-4 text-sm sm:text-base border-b-2 transition">
+                        class="pb-3 px-1 text-xs sm:text-base border-b-2 transition shrink-0 cursor-pointer">
                     Pertanyaan Umum (FAQ)
                 </button>
             </div>

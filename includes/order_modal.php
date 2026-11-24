@@ -121,7 +121,7 @@ $FTL_DESTINATIONS = getShippingDestinations($SHIPPING_DATA);
                     </label>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                         <button type="button" 
-                                @click="selectTopic('Aman untuk newborn (0+) & kulit sensitif?', 'Halo min, mau tanya apakah aman digunakan untuk newborn dan kulit yang sensitif/ada riwayat eksim?')"
+                                @click="selectTopic('Aman untuk newborn (0+) & kulit sensitif?')"
                                 :class="consultTopic === 'Aman untuk newborn (0+) & kulit sensitif?' ? 'bg-emerald-50 border-emerald-600 text-emerald-950 font-bold ring-2 ring-emerald-500/25 shadow-xs' : 'bg-gray-50/80 border-gray-200 text-gray-700 hover:bg-gray-100'"
                                 class="min-h-[50px] p-3 rounded-2xl border text-left transition-all flex items-center justify-between gap-2.5 cursor-pointer active:scale-[0.98] no-tap-zoom"
                                 style="touch-action: manipulation;">
@@ -137,7 +137,7 @@ $FTL_DESTINATIONS = getShippingDestinations($SHIPPING_DATA);
                             </div>
                         </button>
                         <button type="button" 
-                                @click="selectTopic('Cara pijat ILU & aturan pakai kembung/kolik', 'Halo min, mohon panduan cara pijat ILU dan dosis pemakaian Calming Rub saat si kecil kembung/kolik ya.')"
+                                @click="selectTopic('Cara pijat ILU & aturan pakai kembung/kolik')"
                                 :class="consultTopic === 'Cara pijat ILU & aturan pakai kembung/kolik' ? 'bg-emerald-50 border-emerald-600 text-emerald-950 font-bold ring-2 ring-emerald-500/25 shadow-xs' : 'bg-gray-50/80 border-gray-200 text-gray-700 hover:bg-gray-100'"
                                 class="min-h-[50px] p-3 rounded-2xl border text-left transition-all flex items-center justify-between gap-2.5 cursor-pointer active:scale-[0.98] no-tap-zoom"
                                 style="touch-action: manipulation;">
@@ -153,7 +153,7 @@ $FTL_DESTINATIONS = getShippingDestinations($SHIPPING_DATA);
                             </div>
                         </button>
                         <button type="button" 
-                                @click="selectTopic('Komposisi Biji Pala Nusantara & Calendula', 'Halo min, mau tanya detail kandungan biji pala dan ekstrak calendula di dalamnya, apakah halal dan ber-BPOM?')"
+                                @click="selectTopic('Komposisi Biji Pala Nusantara & Calendula')"
                                 :class="consultTopic === 'Komposisi Biji Pala Nusantara & Calendula' ? 'bg-emerald-50 border-emerald-600 text-emerald-950 font-bold ring-2 ring-emerald-500/25 shadow-xs' : 'bg-gray-50/80 border-gray-200 text-gray-700 hover:bg-gray-100'"
                                 class="min-h-[50px] p-3 rounded-2xl border text-left transition-all flex items-center justify-between gap-2.5 cursor-pointer active:scale-[0.98] no-tap-zoom"
                                 style="touch-action: manipulation;">
@@ -169,7 +169,7 @@ $FTL_DESTINATIONS = getShippingDestinations($SHIPPING_DATA);
                             </div>
                         </button>
                         <button type="button" 
-                                @click="selectTopic('Pertanyaan lainnya seputar si kecil', '')"
+                                @click="selectTopic('Pertanyaan lainnya seputar si kecil')"
                                 :class="consultTopic === 'Pertanyaan lainnya seputar si kecil' ? 'bg-emerald-50 border-emerald-600 text-emerald-950 font-bold ring-2 ring-emerald-500/25 shadow-xs' : 'bg-gray-50/80 border-gray-200 text-gray-700 hover:bg-gray-100'"
                                 class="min-h-[50px] p-3 rounded-2xl border text-left transition-all flex items-center justify-between gap-2.5 cursor-pointer active:scale-[0.98] no-tap-zoom"
                                 style="touch-action: manipulation;">
@@ -208,11 +208,12 @@ $FTL_DESTINATIONS = getShippingDestinations($SHIPPING_DATA);
                 <!-- Input Detail Pertanyaan -->
                 <div>
                     <label class="block text-[11px] font-semibold text-gray-600 mb-1">
-                        Pesan / Pertanyaan Spesifik Bunda:
+                        Pesan / Pertanyaan Spesifik Bunda (Opsional):
                     </label>
                     <textarea x-model="consultCustomQuestion" rows="3" 
                               placeholder="Tuliskan keluhan atau pertanyaan Bunda secara bebas di sini..." 
-                              class="w-full rounded-xl border border-gray-300 p-3 text-base sm:text-sm focus:border-ftl-forest focus:outline-none focus:ring-2 focus:ring-emerald-200 bg-white leading-relaxed"></textarea>
+                              class="w-full rounded-xl border border-gray-300 p-3 text-base sm:text-sm focus:border-ftl-forest focus:outline-none focus:ring-2 focus:ring-emerald-200 bg-white leading-relaxed no-tap-zoom"
+                              style="font-size: 16px !important; touch-action: manipulation;"></textarea>
                 </div>
             </div>
 
@@ -864,11 +865,8 @@ function orderModal() {
                 }
             } catch(e) {}
         },
-        selectTopic(topic, defaultText = '') {
+        selectTopic(topic) {
             this.consultTopic = topic;
-            if (defaultText && !this.consultCustomQuestion.trim()) {
-                this.consultCustomQuestion = defaultText;
-            }
         },
         async initDestinations() {
             if (this.destinations.length > 0) return;
