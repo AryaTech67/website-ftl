@@ -111,6 +111,46 @@ $PRODUCTS = [
             'Termasuk Free Keychain & Thank You Card',
             'Gratis konsultasi pemakaian via WhatsApp CS'
         ]
+    ],
+    'bundling-quad-care' => [
+        'id' => 'bundling-quad-care',
+        'name' => 'Bundle Family Care (4x 50g)',
+        'subtitle' => 'Paket Hemat 4 Tube (Stok 4 Bulan Nyaman & Siap Sedia)',
+        'price' => 449999,
+        'original_price' => 1196000,
+        'badge' => 'Hemat 62% 🔥',
+        'rating' => 5.0,
+        'reviews_count' => 62,
+        'image' => 'assets/images/product-bundle-4-real.webp',
+        'short_desc' => 'Paket hemat keluarga 4 pcs Baby Calming Rub Cream 50g. Stok jangka panjang bebas kembung & kolik di rumah dan bepergian. Plus Free Keychain & Thank You Card.',
+        'size' => '4 x 50 gram (Total 200g)',
+        'certifications' => ['BPOM Certified', 'Halal Indonesia', 'Dermatologically Tested', 'Stok 4 Bulan'],
+        'benefits' => [
+            'Hemat Rp 746.000 dibanding harga normal',
+            'Stok aman 4 bulan bebas begah & rewel',
+            'Termasuk Free Keychain & Thank You Card',
+            'Gratis konsultasi pemakaian via WhatsApp CS'
+        ]
+    ],
+    'bundling-mega-care' => [
+        'id' => 'bundling-mega-care',
+        'name' => 'Bundle Mega Care (5x 50g)',
+        'subtitle' => 'Paket Super Hemat 5 Tube (Stok Terlengkap 5 Bulan)',
+        'price' => 549999,
+        'original_price' => 1495000,
+        'badge' => 'Mega Hemat 63% 🌟',
+        'rating' => 5.0,
+        'reviews_count' => 47,
+        'image' => 'assets/images/product-bundle-5-real.webp',
+        'short_desc' => 'Paket terlengkap & paling hemat 5 pcs Baby Calming Rub Cream 50g. Perlindungan maksimal dan nilai terbaik untuk persediaan harian si kecil. Plus Free Keychain & Thank You Card.',
+        'size' => '5 x 50 gram (Total 250g)',
+        'certifications' => ['BPOM Certified', 'Halal Indonesia', 'Dermatologically Tested', 'Paling Hemat'],
+        'benefits' => [
+            'Hemat Rp 945.000 dibanding harga normal',
+            'Harga per tube paling murah & hemat maksimal',
+            'Termasuk Free Keychain & Thank You Card',
+            'Gratis konsultasi pemakaian via WhatsApp CS'
+        ]
     ]
 ];
 

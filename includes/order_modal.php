@@ -240,7 +240,7 @@ $FTL_DESTINATIONS = getShippingDestinations($SHIPPING_DATA);
                     </div>
 
                     <!-- Pilihan Produk Interaktif (Kartu Produk Fleksibel) -->
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5">
                         <template x-for="(item, key) in productsList" :key="key">
                             <div @click="product = key; delete errors.product; errorMessage = ''; if(city) calculateOngkir();" 
                                  :class="product === key ? 'border-emerald-600 bg-emerald-50/70 ring-2 ring-emerald-500/25 shadow-xs' : 'border-gray-200 bg-white hover:bg-gray-50/80'"
@@ -721,6 +721,28 @@ function orderModal() {
                 badgeClass: 'bg-emerald-50 text-emerald-800 border-emerald-200/80',
                 weight: 300,
                 image: 'assets/images/product-bundle-3-real.webp'
+            },
+            'bundling-quad-care': { 
+                id: 'bundling-quad-care',
+                name: 'Bundle Family Care (4x 50g)', 
+                desc: 'Paket 4 Tube Hemat (Stok 4 Bulan)',
+                price: 449999, 
+                originalPrice: 1196000,
+                badge: '🔥 Hemat 62%',
+                badgeClass: 'bg-teal-50 text-teal-800 border-teal-200/80',
+                weight: 400,
+                image: 'assets/images/product-bundle-4-real.webp'
+            },
+            'bundling-mega-care': { 
+                id: 'bundling-mega-care',
+                name: 'Bundle Mega Care (5x 50g)', 
+                desc: 'Paket Terlengkap 5 Tube (Paling Hemat)',
+                price: 549999, 
+                originalPrice: 1495000,
+                badge: '👑 Mega Hemat 63%',
+                badgeClass: 'bg-purple-50 text-purple-800 border-purple-200/80',
+                weight: 500,
+                image: 'assets/images/product-bundle-5-real.webp'
             }
         },
         get currentProduct() {

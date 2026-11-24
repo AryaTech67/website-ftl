@@ -53,6 +53,22 @@ $main_product = $PRODUCTS['calming-rub-50g'];
             caption: 'Paket terlengkap bebas kolik & kembung untuk 3 bulan tidur lelap'
         },
         {
+            label: '4 Tube',
+            title: 'Bundle Family Care (4x 50g)',
+            img: '<?= BASE_URL ?>assets/images/product-bundle-4-real.webp',
+            badgeLeft: 'Hemat 62% 🔥',
+            badgeRight: 'Stok 4 Bulan',
+            caption: 'Paket hemat keluarga 4 tube untuk perawatan intensif harian bebas begah'
+        },
+        {
+            label: '5 Tube',
+            title: 'Bundle Mega Care (5x 50g)',
+            img: '<?= BASE_URL ?>assets/images/product-bundle-5-real.webp',
+            badgeLeft: 'Mega Hemat 63% 👑',
+            badgeRight: 'Paling Hemat',
+            caption: 'Paket terlengkap 5 tube dengan harga per tube paling murah & hemat maksimal'
+        },
+        {
             label: 'Biji Pala',
             title: 'Biji Pala Murni Nusantara',
             img: '<?= BASE_URL ?>assets/images/ingredient-nutmeg-real.webp',
@@ -123,11 +139,11 @@ $main_product = $PRODUCTS['calming-rub-50g'];
                 </div>
 
                 <!-- Thumbnails Mini Preview - Sinkron Sesuai Teks & Gambar -->
-                <div class="grid grid-cols-3 gap-2 sm:gap-3">
+                <div class="grid grid-cols-4 gap-1.5 sm:gap-2.5">
                     <template x-for="(t, index) in thumbnails" :key="index">
                         <button type="button" 
                                 @click="activeThumb = index" 
-                                class="p-2 sm:p-2.5 rounded-2xl flex flex-col items-center justify-center cursor-pointer transition-all duration-200"
+                                class="p-1.5 sm:p-2.5 rounded-2xl flex flex-col items-center justify-center cursor-pointer transition-all duration-200"
                                 :class="activeThumb === index ? 'border-2 border-ftl-forest bg-ftl-light/60 shadow-sm ring-2 ring-emerald-500/20' : 'border border-gray-200 bg-white hover:border-ftl-forest/60 hover:bg-gray-50'">
                             <img :src="t.img" :alt="t.title" class="h-11 sm:h-14 w-auto object-contain">
                             <span class="text-[10px] sm:text-[11px] font-bold mt-1.5 truncate max-w-full"

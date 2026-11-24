@@ -401,8 +401,8 @@ require_once __DIR__ . '/includes/navbar.php';
             </p>
         </div>
 
-        <!-- Horizontal Swipeable Carousel di Mobile (Cards Peek on Right), Clean 3-Cols Grid di Desktop -->
-        <div class="flex sm:grid sm:grid-cols-3 gap-3.5 sm:gap-6 overflow-x-auto snap-x snap-mandatory pb-4 sm:pb-8 -mx-4 px-4 sm:mx-0 sm:px-0 no-scrollbar">
+        <!-- Horizontal Swipeable Carousel di Mobile (Cards Peek on Right), 5-Cols Grid di Desktop -->
+        <div class="flex md:grid md:grid-cols-3 lg:grid-cols-5 gap-3.5 sm:gap-4 overflow-x-auto snap-x snap-mandatory pb-4 sm:pb-8 -mx-4 px-4 sm:mx-0 sm:px-0 no-scrollbar">
             
             <!-- Card 1: Baby Calming Rub Cream 50g (Single) -->
             <div data-animate="fade-up" data-delay="0" class="min-w-[210px] sm:min-w-0 max-w-[240px] sm:max-w-none flex-1 shrink-0 snap-center bg-white rounded-3xl p-4 sm:p-5 border border-stone-200/80 shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group">
@@ -562,7 +562,112 @@ require_once __DIR__ . '/includes/navbar.php';
                         <span>Shopee</span>
                     </a>
                 </div>
-                </button>
+            </div>
+
+            <!-- Card 4: Bundle Family Care (4x 50g) -->
+            <div data-animate="fade-up" data-delay="360" class="min-w-[210px] sm:min-w-0 max-w-[240px] sm:max-w-none flex-1 shrink-0 snap-center bg-white rounded-3xl p-4 sm:p-5 border border-stone-200/80 shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group">
+                <div>
+                    <!-- Top Pill Badge -->
+                    <div class="flex items-center justify-between">
+                        <span class="inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full bg-teal-50 text-teal-800 border border-teal-200/70">
+                            🔥 Hemat 62%
+                        </span>
+                        <span class="text-[10px] font-bold text-teal-700 bg-teal-50 px-2 py-0.5 rounded-full">Stok 4 Bulan</span>
+                    </div>
+
+                    <!-- Packshot Image -->
+                    <div class="h-36 sm:h-44 flex items-center justify-center my-3 relative overflow-hidden">
+                        <img src="<?= BASE_URL ?>assets/images/product-bundle-4-real.webp?v=<?= filemtime(__DIR__ . '/assets/images/product-bundle-4-real.webp') ?>" 
+                             alt="Bundle Family Care (4x 50g)" 
+                             class="max-h-32 sm:max-h-40 w-auto rounded-2xl object-contain group-hover:scale-105 transition-transform duration-300 drop-shadow-sm">
+                    </div>
+
+                    <!-- Info -->
+                    <div>
+                        <h3 class="font-display font-extrabold text-base sm:text-lg text-gray-900 group-hover:text-ftl-forest transition-colors">
+                            Bundle Family Care (4x 50g)
+                        </h3>
+                        <p class="text-xs text-gray-500 mt-0.5">
+                            Paket Hemat 4 Tube Keluarga
+                        </p>
+                        <div class="mt-2 flex items-baseline gap-2 flex-wrap">
+                            <span class="text-base font-extrabold text-ftl-forest">Rp 449.999</span>
+                            <span class="text-xs text-gray-400 line-through">Rp 1.196.000</span>
+                        </div>
+                        <p class="text-[10px] text-emerald-700 font-bold mt-1 flex items-center gap-1">
+                            <i data-lucide="gift" class="w-3 h-3 text-emerald-600"></i> Free Keychain & Card
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Beli Actions -->
+                <div class="mt-3.5 flex items-center gap-2">
+                    <button type="button" 
+                            @click="openOrderModal('pesan', 'bundling-quad-care')"
+                            class="flex-1 py-2.5 px-3 rounded-full font-bold text-xs text-white bg-emerald-600 hover:bg-emerald-700 shadow-2xs hover:shadow-md hover:scale-[1.02] active:scale-95 transition-all text-center cursor-pointer flex items-center justify-center gap-1.5">
+                        <i data-lucide="shopping-bag" class="w-3.5 h-3.5"></i>
+                        <span>Pesan Web</span>
+                    </button>
+                    <a href="<?= SHOPEE_URL ?>" target="_blank" rel="noopener"
+                       class="py-2.5 px-3 rounded-full font-bold text-xs text-[#EE4D2D] bg-[#FFF0ED] hover:bg-[#EE4D2D] hover:text-white border border-[#EE4D2D]/30 transition-all text-center flex items-center justify-center gap-1"
+                       title="Beli via Shopee Official">
+                        <img src="<?= BASE_URL ?>assets/images/shopee-icon-orange.svg" class="w-3.5 h-3.5" alt="Shopee">
+                        <span>Shopee</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Card 5: Bundle Mega Care (5x 50g) -->
+            <div data-animate="fade-up" data-delay="480" class="min-w-[210px] sm:min-w-0 max-w-[240px] sm:max-w-none flex-1 shrink-0 snap-center bg-white rounded-3xl p-4 sm:p-5 border border-stone-200/80 shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group">
+                <div>
+                    <!-- Top Pill Badge -->
+                    <div class="flex items-center justify-between">
+                        <span class="inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full bg-purple-50 text-purple-800 border border-purple-200/70">
+                            👑 Mega Hemat 63%
+                        </span>
+                        <span class="text-[10px] font-bold text-purple-700 bg-purple-50 px-2 py-0.5 rounded-full">Paling Hemat</span>
+                    </div>
+
+                    <!-- Packshot Image -->
+                    <div class="h-36 sm:h-44 flex items-center justify-center my-3 relative overflow-hidden">
+                        <img src="<?= BASE_URL ?>assets/images/product-bundle-5-real.webp?v=<?= filemtime(__DIR__ . '/assets/images/product-bundle-5-real.webp') ?>" 
+                             alt="Bundle Mega Care (5x 50g)" 
+                             class="max-h-32 sm:max-h-40 w-auto rounded-2xl object-contain group-hover:scale-105 transition-transform duration-300 drop-shadow-sm">
+                    </div>
+
+                    <!-- Info -->
+                    <div>
+                        <h3 class="font-display font-extrabold text-base sm:text-lg text-gray-900 group-hover:text-ftl-forest transition-colors">
+                            Bundle Mega Care (5x 50g)
+                        </h3>
+                        <p class="text-xs text-gray-500 mt-0.5">
+                            Paket Super Hemat 5 Tube
+                        </p>
+                        <div class="mt-2 flex items-baseline gap-2 flex-wrap">
+                            <span class="text-base font-extrabold text-ftl-forest">Rp 549.999</span>
+                            <span class="text-xs text-gray-400 line-through">Rp 1.495.000</span>
+                        </div>
+                        <p class="text-[10px] text-emerald-700 font-bold mt-1 flex items-center gap-1">
+                            <i data-lucide="gift" class="w-3 h-3 text-emerald-600"></i> Free Keychain & Card
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Beli Actions -->
+                <div class="mt-3.5 flex items-center gap-2">
+                    <button type="button" 
+                            @click="openOrderModal('pesan', 'bundling-mega-care')"
+                            class="flex-1 py-2.5 px-3 rounded-full font-bold text-xs text-white bg-emerald-600 hover:bg-emerald-700 shadow-2xs hover:shadow-md hover:scale-[1.02] active:scale-95 transition-all text-center cursor-pointer flex items-center justify-center gap-1.5">
+                        <i data-lucide="shopping-bag" class="w-3.5 h-3.5"></i>
+                        <span>Pesan Web</span>
+                    </button>
+                    <a href="<?= SHOPEE_URL ?>" target="_blank" rel="noopener"
+                       class="py-2.5 px-3 rounded-full font-bold text-xs text-[#EE4D2D] bg-[#FFF0ED] hover:bg-[#EE4D2D] hover:text-white border border-[#EE4D2D]/30 transition-all text-center flex items-center justify-center gap-1"
+                       title="Beli via Shopee Official">
+                        <img src="<?= BASE_URL ?>assets/images/shopee-icon-orange.svg" class="w-3.5 h-3.5" alt="Shopee">
+                        <span>Shopee</span>
+                    </a>
+                </div>
             </div>
 
         </div>
